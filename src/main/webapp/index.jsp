@@ -27,8 +27,9 @@
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
-    <!-- <script src="js/jquery/jquery-2.2.4.min.js"></script> -->
     <script src="js/jquery/jquery-3.3.1.min.js"></script>
+    <script>var $j = jQuery.noConflict(true);</script>
+    <script src="js/main.js"></script>
     <!-- Popper js -->
     <script src="js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
@@ -38,7 +39,6 @@
     <!-- Active js -->
     <script src="js/active.js"></script>
     
-    <script src="js/main.js"></script>
 </body>
 
 </html>
