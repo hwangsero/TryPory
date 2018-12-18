@@ -7,7 +7,6 @@
 </head>
 
 <body>
-    <!-- Preloader -->
     <%@ include file="/WEB-INF/include/preload.jsp" %>
 
     <!-- ##### Header Area Start ##### -->
