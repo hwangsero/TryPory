@@ -1,0 +1,17 @@
+@charset "UTF-8";
+.R {
+	text-align:right;
+}
+.L {
+	text-align:left;
+}
+.C {
+	text-align:center;
+}
+.Clear {
+	clear:both;
+}
+
+i.icon {
+	vertical-align: middle;
+}
