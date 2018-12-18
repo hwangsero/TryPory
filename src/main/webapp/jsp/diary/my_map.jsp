@@ -15,7 +15,8 @@
 	<!-- ##### Header Area End ##### -->
 	<script>
 		$(function() {
-			$("#datepicker").datepicker();
+			$("#datepicker").datepicker(
+			dataFormat : 'yy-mm-dd');
 		});
 	</script>
 
