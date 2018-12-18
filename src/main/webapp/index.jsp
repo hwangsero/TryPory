@@ -3,41 +3,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<%@ include file="include/head.jsp" %>
+	<%@ include file="/WEB-INF/include/head.jsp" %>
 </head>
 
 <body>
     <!-- Preloader -->
-    <%@ include file="include/preload.jsp" %>
+    <%@ include file="/WEB-INF/include/preload.jsp" %>
 
     <!-- ##### Header Area Start ##### -->
-    <%@ include file="include/header.jsp" %>
+    <%@ include file="/WEB-INF/include/header.jsp" %>
     <!-- ##### Header Area End ##### -->
 
     <!-- ##### Hero Area Start ##### -->
-    <%@ include file="main/carousel.jsp" %>
+    <%@ include file="/WEB-INF/main/carousel.jsp" %>
     <!-- ##### Hero Area End ##### -->
 
     <!-- ##### Mag Posts Area Start ##### -->
-    <%@ include file="main/section.jsp" %>
+    <%@ include file="/WEB-INF/main/section.jsp" %>
     <!-- ##### Mag Posts Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
-    <%@ include file="include/footer.jsp" %>
+    <%@ include file="/WEB-INF/include/footer.jsp" %>
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src="js/jquery/jquery-3.3.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/jquery/jquery-3.3.1.min.js"></script>
     <script>var $j = jQuery.noConflict(true);</script>
-    <script src="js/main.js"></script>
+    
+    <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
     <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins js -->
-    <script src="js/plugins/plugins.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src="js/active.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/active.js"></script>
     
 </body>
 
