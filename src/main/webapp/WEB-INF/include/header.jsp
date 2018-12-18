@@ -8,7 +8,7 @@
 	        <nav class="classy-navbar justify-content-between" id="magNav">
 	
 	            <!-- Nav brand -->
-	            <a href="index.html" class="nav-brand">
+	            <a href="${pageContext.request.contextPath}/index.jsp" class="nav-brand">
 	            	<!-- <img src="img/core-img/logo.png" alt=""> -->
 	            	메인로고
 	            </a>
@@ -30,7 +30,7 @@
 	                    <!-- Nav Start -->
 	                    <div class="classynav">
 	                        <ul>
-	                            <li><a href="about.html">나의 여행지도</a></li>
+	                            <li><a href=${pageContext.request.contextPath}/jsp/diary/my_map.jsp>나의 여행지도</a></li>
 	                            <li><a href="contact.html">다이어리 목록</a></li>
 	                        </ul>
 	                    </div>
@@ -50,8 +50,7 @@
 	                    	<!-- <i class="fa fa-user" aria-hidden="true"></i> -->
 	                    	마이페이지
 	                    </a>
-	                    <!-- Submit Video -->
-	                        <a href="submit-video.html" class="submit-video"><span><i class="fa fa-cloud-upload"></i></span> <span class="video-text">다이어리 등록</span></a>
+	                    <a href="submit-video.html" class="submit-video"><span><i class="fa fa-cloud-upload"></i></span> <span class="video-text">다이어리 등록</span></a>
                     </div>
                 </div>
             </nav>

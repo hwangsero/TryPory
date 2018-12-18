@@ -15,11 +15,11 @@
     <!-- ##### Header Area End ##### -->
 
     <!-- ##### Hero Area Start ##### -->
-    <%@ include file="/WEB-INF/main/carousel.jsp" %>
+    <%@ include file="jsp/main/carousel.jsp" %>
     <!-- ##### Hero Area End ##### -->
 
     <!-- ##### Mag Posts Area Start ##### -->
-    <%@ include file="/WEB-INF/main/section.jsp" %>
+    <%@ include file="jsp/main/section.jsp" %>
     <!-- ##### Mag Posts Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
