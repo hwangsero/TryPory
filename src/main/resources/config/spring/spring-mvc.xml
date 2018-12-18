@@ -35,7 +35,7 @@
     </bean> -->
 	<mvc:default-servlet-handler />
 	<mvc:view-resolvers>
-		<mvc:jsp prefix="/WEB-INF/jsp/" suffix=".jsp" />
+		<mvc:jsp prefix="/WEB-INF/diary/" suffix=".jsp" />
 	</mvc:view-resolvers>
 	
 
