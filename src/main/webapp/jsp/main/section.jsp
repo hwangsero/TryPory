@@ -12,8 +12,8 @@
 
            <div class="trending-posts">
 <!--            <div class="trending-post-slides owl-carousel"> -->
-               <div class="single-trending-post">
-                   <img src="${pageContext.request.contextPath}/assets/img/bg-img/19.jpg" alt="">
+               <div class="single-trending-post" style="width:25%; height:300px; float:left">
+                   <img src="${pageContext.request.contextPath}/assets/img/bg-img/19.jpg" alt="" style="width:100%; height:100%;">
                    <div class="post-content">
                        <a href="#" class="post-cata">일본</a>
                        <a href="video-post.html" class="post-title">여행 다이어리</a>
