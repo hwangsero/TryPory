@@ -30,47 +30,6 @@
 	                    <!-- Nav Start -->
 	                    <div class="classynav">
 	                        <ul>
-	                            <li class="active"><a href="index.html">Home</a></li>
-	                            <!-- <li><a href="#">Mega</a>
-	                                <div class="megamenu">
-	                                    <ul class="single-mega cn-col-4">
-	                                        <li><a href="index.html">Home</a></li>
-	                                        <li><a href="archive.html">Archive</a></li>
-	                                        <li><a href="video-post.html">Single Video Post</a></li>
-	                                        <li><a href="single-post.html">Single Post</a></li>
-	                                        <li><a href="about.html">About Us</a></li>
-	                                        <li><a href="contact.html">Contact</a></li>
-	                                        <li><a href="login.html">Login</a></li>
-	                                    </ul>
-	                                    <ul class="single-mega cn-col-4">
-	                                        <li><a href="index.html">Home</a></li>
-	                                        <li><a href="archive.html">Archive</a></li>
-	                                        <li><a href="video-post.html">Single Video Post</a></li>
-	                                        <li><a href="single-post.html">Single Post</a></li>
-	                                        <li><a href="about.html">About Us</a></li>
-	                                        <li><a href="contact.html">Contact</a></li>
-	                                        <li><a href="login.html">Login</a></li>
-	                                    </ul>
-	                                    <ul class="single-mega cn-col-4">
-	                                        <li><a href="index.html">Home</a></li>
-	                                        <li><a href="archive.html">Archive</a></li>
-	                                        <li><a href="video-post.html">Single Video Post</a></li>
-	                                        <li><a href="single-post.html">Single Post</a></li>
-	                                        <li><a href="about.html">About Us</a></li>
-	                                        <li><a href="contact.html">Contact</a></li>
-	                                        <li><a href="login.html">Login</a></li>
-	                                    </ul>
-	                                    <ul class="single-mega cn-col-4">
-	                                        <li><a href="index.html">Home</a></li>
-	                                        <li><a href="archive.html">Archive</a></li>
-	                                        <li><a href="video-post.html">Single Video Post</a></li>
-	                                        <li><a href="single-post.html">Single Post</a></li>
-	                                        <li><a href="about.html">About Us</a></li>
-	                                        <li><a href="contact.html">Contact</a></li>
-	                                        <li><a href="login.html">Login</a></li>
-	                                    </ul>
-	                                </div>
-	                            </li> -->
 	                            <li><a href="about.html">나의 여행지도</a></li>
 	                            <li><a href="contact.html">다이어리 목록</a></li>
 	                        </ul>
