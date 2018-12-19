@@ -25,7 +25,7 @@
                    </div>
                </div>
 
-               <div class="single-trending-post" style="width:25%; height:200px">
+               <div class="single-trending-post" style="width:25%; height:200px; float:left;">
                    <img src="${pageContext.request.contextPath}/assets/img/bg-img/20.jpg" alt="">
                    <div class="post-content">
                        <a href="#" class="post-cata">유럽</a>
@@ -33,7 +33,7 @@
                    </div>
                </div>
 
-               <div class="single-trending-post" style="width: 25%; height:200px">
+               <div class="single-trending-post" style="width: 25%; height:200px; float:left;">
                    <img src="${pageContext.request.contextPath}/assets/img/bg-img/21.jpg" alt="">
                    <div class="post-content">
                        <a href="#" class="post-cata">대만</a>
@@ -41,7 +41,7 @@
                    </div>
                </div>
                
-               <div class="single-trending-post" style="width: 25%; height:200px">
+               <div class="single-trending-post" style="width: 25%; height:200px; float:left;">
                    <img src="${pageContext.request.contextPath}/assets/img/bg-img/22.jpg" alt="">
                    <div class="post-content">
                        <a href="#" class="post-cata">알프스</a>
@@ -49,7 +49,7 @@
                    </div>
                </div>
                
-               <div class="single-trending-post" style="width: 25%; height:200px">
+               <div class="single-trending-post" style="width: 25%; height:200px; float:left;">
                    <img src="${pageContext.request.contextPath}/assets/img/bg-img/22.jpg" alt="">
                    <div class="post-content" style="text-align: center">
                        <a href="video-post.html" class="post-title" style="font-size: 50px; line-height: 3">+3</a>
@@ -78,7 +78,7 @@
                    </div>
                </div>
 
-               <div class="single-trending-post" style="width:50%; height:400px">
+               <div class="single-trending-post" style="width:50%; height:400px; float:left;">
                    <img src="${pageContext.request.contextPath}/assets/img/bg-img/20.jpg" alt="">
                    <div class="post-content">
                        <a href="#" class="post-cata">유럽</a>
@@ -130,7 +130,7 @@
                    </div>
                </div>
 
-               <div class="single-trending-post" style="width:50%; height:200px">
+               <div class="single-trending-post" style="width:50%; height:200px; float:left;">
                    <img src="${pageContext.request.contextPath}/assets/img/bg-img/20.jpg" alt="">
                    <div class="post-content">
                        <a href="#" class="post-cata">유럽</a>
@@ -138,7 +138,7 @@
                    </div>
                </div>
 
-               <div class="single-trending-post" style="width: 50%; height:200px">
+               <div class="single-trending-post" style="width: 50%; height:200px; float:left;">
                    <img src="${pageContext.request.contextPath}/assets/img/bg-img/21.jpg" alt="">
                    <div class="post-content">
                        <a href="#" class="post-cata">대만</a>
@@ -163,7 +163,7 @@
            <div class="trending-posts">
 <!--            <div class="trending-post-slides owl-carousel"> -->
 
-               <div class="single-trending-post" style="width:50%; height:200px">
+               <div class="single-trending-post" style="width:50%; height:200px; float:left;">
                    <img src="${pageContext.request.contextPath}/assets/img/bg-img/20.jpg" alt="">
                    <div class="post-content">
                        <a href="#" class="post-cata">유럽</a>
@@ -171,7 +171,7 @@
                    </div>
                </div>
 
-               <div class="single-trending-post" style="width: 50%; height:200px">
+               <div class="single-trending-post" style="width: 50%; height:200px; float:left;">
                    <img src="${pageContext.request.contextPath}/assets/img/bg-img/21.jpg" alt="">
                    <div class="post-content">
                        <a href="#" class="post-cata">대만</a>
@@ -179,7 +179,7 @@
                    </div>
                </div>
                
-               <div class="single-trending-post" style="width: 50%; height:200px">
+               <div class="single-trending-post" style="width: 50%; height:200px; float:left;">
                    <img src="${pageContext.request.contextPath}/assets/img/bg-img/22.jpg" alt="">
                    <div class="post-content">
                        <a href="#" class="post-cata">알프스</a>
@@ -187,7 +187,7 @@
                    </div>
                </div>
                
-               <div class="single-trending-post" style="width: 50%; height:200px">
+               <div class="single-trending-post" style="width: 50%; height:200px; float:left;">
                    <img src="${pageContext.request.contextPath}/assets/img/bg-img/22.jpg" alt="">
                    <div class="post-content" style="text-align: center">
                        <a href="video-post.html" class="post-title" style="font-size: 50px">+3</a>
