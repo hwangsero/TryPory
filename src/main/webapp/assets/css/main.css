@@ -1,0 +1,10 @@
+@charset "EUC-KR";
+
+.pictureDiv {
+	height:500px ;
+}
+
+.picture {
+	width:100%;
+	height:auto;
+}

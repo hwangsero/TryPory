@@ -26,7 +26,7 @@
 body {
 	font-family: "Poppins", sans-serif;
 	font-size: 14px;
-	background-color: #f2f4f5;
+	background-color: write;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -386,7 +386,7 @@ input:focus {
 }
 
 .box-shadow {
-	box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.15) !important;
+/* 	box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.15) !important; */
 }
 
 /* :: 3.6.0 ScrollUp */
@@ -1022,8 +1022,8 @@ input:focus {
 	-webkit-box-flex: 0;
 	-ms-flex: 0 0 calc(100% - 690px);
 	flex: 0 0 calc(100% - 690px);
-	max-width: calc(100% - 690px);
-	width: calc(100% - 690px);
+	max-width: calc(100% - 490px);
+	width: calc(100% - 490px);
 	/* margin-left: 15px;
 	margin-right: 15px; */
 	margin: 0 auto;
