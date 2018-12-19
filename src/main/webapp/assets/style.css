@@ -24,7 +24,7 @@
 body {
 	font-family: "Poppins", sans-serif;
 	font-size: 14px;
-	background-color: write;
+	background-color: #f2f4f5;
 }
 
 
@@ -340,7 +340,7 @@ input:focus {
 }
 
 .box-shadow {
-/* 	box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.15) !important; */
+	box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.15) !important;
 }
 
 /* :: 3.6.0 ScrollUp */

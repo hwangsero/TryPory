@@ -4,6 +4,14 @@
 <html>
 <head>
 	<%@ include file="/WEB-INF/include/head.jsp" %>
+	<style>
+	body {
+		background-color:white !important;
+	}
+	section div.box-shadow.mag-posts-content {
+		box-shadow: none !important;
+	}
+	</style>
 </head>
 
 <body>
