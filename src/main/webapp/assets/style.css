@@ -27,6 +27,7 @@ body {
 	background-color: write;
 }
 
+
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Poppins", sans-serif;
 	color: #1a1a1a;
@@ -142,6 +143,9 @@ img {
 
 .p-50 {
 	padding: 50px !important;
+}
+.p-100 {
+	padding: 100px !important;
 }
 
 .pb-70 {
