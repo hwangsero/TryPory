@@ -30,7 +30,7 @@
 	                    <!-- Nav Start -->
 	                    <div class="classynav">
 	                        <ul>
-	                            <li><a href=${pageContext.request.contextPath}/jsp/diary/my_map.jsp>나의 여행지도</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/jsp/diary/my_map.jsp">나의 여행지도</a></li>
 	                            <li><a href="contact.html">다이어리 목록</a></li>
 	                        </ul>
 	                    </div>
@@ -50,7 +50,7 @@
 	                    	<!-- <i class="fa fa-user" aria-hidden="true"></i> -->
 	                    	마이페이지
 	                    </a>
-	                    <a href="submit-video.html" class="submit-video"><span><i class="fa fa-cloud-upload"></i></span> <span class="video-text">다이어리 등록</span></a>
+	                    <a href="${pageContext.request.contextPath}/jsp/diary/write_diary_page.jsp" class="submit-video"><span><i class="fa fa-cloud-upload"></i></span> <span class="video-text">다이어리 등록</span></a>
                     </div>
                 </div>
             </nav>
