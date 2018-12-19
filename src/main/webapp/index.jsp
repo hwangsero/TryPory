@@ -24,22 +24,6 @@
     <!-- ##### Footer Area Start ##### -->
     <%@ include file="/WEB-INF/include/footer.jsp" %>
 
-    <!-- ##### All Javascript Script ##### -->
-    <!-- jQuery-2.2.4 js -->
-    <script src="${pageContext.request.contextPath}/assets/js/jquery/jquery-2.2.4.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/jquery/jquery-3.3.1.min.js"></script>
-    <script>var $j = jQuery.noConflict(true);</script>
-    
-    <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
-    <!-- Popper js -->
-    <script src="${pageContext.request.contextPath}/assets/js/bootstrap/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="${pageContext.request.contextPath}/assets/js/bootstrap/bootstrap.min.js"></script>
-    <!-- All Plugins js -->
-    <script src="${pageContext.request.contextPath}/assets/js/plugins/plugins.js"></script>
-    <!-- Active js -->
-    <script src="${pageContext.request.contextPath}/assets/js/active.js"></script>
-    
 </body>
 
 </html>

@@ -8,10 +8,26 @@
 .C {
 	text-align:center;
 }
+.hidden {
+	visibility: hidden;
+}
+.none {
+	display: none;
+}
 .Clear {
 	clear:both;
 }
 
 i.icon {
 	vertical-align: middle;
+}
+
+.div_pdt {
+	padding-top:82px;
+}
+
+.container {
+	margin: 0 auto;
+	width: 100%;
+	position: relative;
 }

@@ -125,3 +125,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div>
     </div>
 </footer>
+
+<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/bootstrap/popper.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/bootstrap/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/plugins/plugins.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/active.js"></script>
