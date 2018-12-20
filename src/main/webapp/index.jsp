@@ -12,6 +12,7 @@
 		box-shadow: none !important;
 	}
 	</style>
+	<script src="assets/js/index.js"></script>
 </head>
 
 <body>

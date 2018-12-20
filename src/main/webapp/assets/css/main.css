@@ -1,10 +1,22 @@
-@charset "EUC-KR";
+@charset "UTF-8";
 
-.pictureDiv {
-	height:500px ;
+.diary-post div.post-content {
+	text-align: center;
+	top: calc(50% - 65px);
+	max-height: 150px;
+	height: 150px;
 }
 
-.picture {
-	width:100%;
-	height:auto;
+.diary-post .post-content a {
+	display: inline-block !important;
+}
+
+.diary-post .post-content .post-title {
+	color: white;
+	font-size: 30px;
+}
+
+.diary-post .post-content .post-date {
+	color: white;
+	font-size: 18px;
 }

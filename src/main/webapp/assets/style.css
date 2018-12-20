@@ -974,8 +974,8 @@ input:focus {
 	z-index: 1;
 	background-color: #ffffff;
 	-webkit-box-flex: 0;
-	-ms-flex: 0 0 calc(100% - 690px);
-	flex: 0 0 calc(100% - 690px);
+	-ms-flex: 0 0 calc(100% - 490px);
+	flex: 0 0 calc(100% - 490px);
 	max-width: calc(100% - 490px);
 	width: calc(100% - 490px);
 	/* margin-left: 15px;
@@ -1560,8 +1560,8 @@ input:focus {
 	z-index: 1;
 	overflow: hidden;
 	display:inline-block;
-	width : calc(25% - 3px);
-	height: 165px;
+	width : 328px; /* cck */
+	height: 300px; /* cck */
 }
 
 .single-trending-post::after, .single-trending-tag.on::after{
@@ -1577,6 +1577,7 @@ input:focus {
 
 .single-trending-post img, .single-trending-tag img {
 	width: 100%;
+	max-width:none; /* cck */
 	-webkit-transition-duration: 600ms;
 	-o-transition-duration: 600ms;
 	transition-duration: 600ms;
