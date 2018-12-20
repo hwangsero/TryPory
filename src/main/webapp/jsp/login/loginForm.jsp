@@ -8,7 +8,7 @@
 <script src="<%= request.getContextPath() %>/js/checkForm.js"></script>
 <script src="<%= request.getContextPath() %>/js/jquery-3.3.1.min.js"></script>
 <title>Insert title here</title>
-
+<%@ include file="/WEB-INF/include/head.jsp" %>
  <script>
 	function checkForm(){
 		var f=document.lform;
@@ -18,13 +18,11 @@
 		if(isNull(f.password,"비번을 입력하세요 ")){
 			return false;
 		}
-	}
-	
-		
+	}	
 </script>
 </head>
 <body>
-
+	 <%@ include file="/WEB-INF/include/header.jsp" %>
 		<div class="login-form">
 			<div class="login-form-h2">
 				<h1><a href="<%= request.getContextPath() %>">LOGO</a></h1>
@@ -56,7 +54,7 @@
 		
 		
 		
-
+	<%@ include file="/WEB-INF/include/footer.jsp" %>
 </body>
 </html>
 

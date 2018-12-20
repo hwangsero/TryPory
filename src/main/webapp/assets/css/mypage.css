@@ -109,7 +109,6 @@ a .material-icons {
     margin-bottom: 5px;
     min-height: 32px;
     color: #3C4858;
-    font-weight: 700;
     font-family: "Roboto Slab","Times New Roman",serif;
    	display: inline-block; 
 }
@@ -169,6 +168,7 @@ p {
     border-top: 2px solid #eee;
     margin-top: -2px;
 }
+
 
 
 
@@ -381,8 +381,4 @@ input[type=file] {
 }
 
 
-@media only screen and (min-width: 1170px) {
-  .cd-popup-container {
-    margin: 18em auto;
-  }
-}
+/* update */

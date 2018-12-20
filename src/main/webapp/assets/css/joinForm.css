@@ -4,8 +4,6 @@
 .join-form {
     width: 500px;
     margin: 100px auto;
-    padding: 20px;
-    background-color: #fff;
 }
 
 .join-form h2 {
@@ -14,30 +12,34 @@
     border-bottom: solid 1px;
     padding-bottom: 15px;
     margin-top: 0px;
+    color: #84B1ED;
+    
 }
 
-.container div {
+.join-form div {
 	overflow: hidden;
 }
 
-.container h3 {
-	margin: 19px 0 8px;
+.join-form h3 {
+	margin: 19px 0 0 ;
     font-size: 18px;
     font-weight: 700;
+    color: #888;
 }
 
-.container span {
+.join-form span {
+	margin: 19px 0 8px;
     display: block;
     width: 100%;
     padding: 10px;
     height: 50px;
     border: 1px solid #dadada;
-/*     background: #f9f9f9; */
+    background: #fbfbfb;
     box-sizing: border-box;
     border-radius: 6px;
 }
 
-.container span input {
+.join-form span input {
     height: 25px;
     width: 100%;
     border: none;
@@ -46,43 +48,43 @@
     background: none;
 }
 
-.container div:nth-child(1) span {
+.join-form div:nth-child(1) span {
     float: left;
 }
 
-.container span.mail {
+.join-form span.mail {
     width: 50%;
 }
 
-.container span.text {
+.join-form span.text {
     width: 25px;
     padding: 10px 5px;
     border: none;
     background: none;
     color: #999;
 }
-.container span.mailAddr {
+.join-form span.mailAddr {
     width: calc(50% - 25px);
 }
 
-.container span select{
+.join-form span select{
     width: 100%;
     height: 27px;
     border: none;
     background: #f9f9f9;
 }
 
-.container span.tel1 {
+.join-form span.tel1 {
     width: 90px;
     float: left;
 }
-.container span.tel2 {
+.join-form span.tel2 {
 	
 }
-.container span.tel3 {
+.join-form span.tel3 {
 	
 }
-.container span.text {
+.join-form span.text {
     width: 25px;
     float: left;
     padding: 10px 5px;
@@ -90,10 +92,10 @@
     background: none;
     color: #999;
 }
-.container span.telT {
+.join-form span.telT {
     width: 17px;
 }
-.container span.tel {
+.join-form span.tel {
     width: calc((100% - 124px) / 2);
     float: left;   
 }
@@ -105,9 +107,9 @@
 
 .join-buttons button {
     padding: 10px 15px;
-    border: 1px solid #333;
+    border: 1px solid #84B1ED;
     background: #fff;
-    color: #333;
+    color: #84B1ED;
     width: 200px;
     height: 50px;
     font-size: 16px;
@@ -121,6 +123,6 @@
 }
 
 .join-buttons .jbutton {
-    background: #333;
+    background: #84B1ED;
     color: #fff;
 }

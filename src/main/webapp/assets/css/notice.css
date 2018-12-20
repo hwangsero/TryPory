@@ -1,0 +1,193 @@
+@charset "UTF-8";
+
+/*-------------------공지사항 영역에 관련된 그룹들---------------------*/
+
+/*1)<notice-asid>영역에 관련된 그룹들*/
+.notice-form {
+	width: 20%;
+	float: left;
+	background-color: #808080b5;
+	padding: 10px;
+	color: #ffffffd6;
+	height: 700px;
+}
+
+.notice-form-title {
+	/* border: 3px solid black; */
+	text-align: center;
+	padding: 0.2%;
+	/* border-radius: 7px; */
+	border-bottom: 2px solid;
+}
+
+.list-form ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.list-form li a {
+	display: block;
+	color: #000;
+	padding: 15px 16px;
+	text-decoration: none;
+}
+
+.list-form li a:hover {
+	background-color: #4B0F16;
+	color: white;
+}
+
+.list-form {
+	margin-top: 10px;
+}
+
+.list-form li {
+	border-bottom: 1px solid #585858;
+}
+
+/*2)notice-session영역*/
+
+/*전체영역*/
+.Notice-Box {
+	width: 70%;
+	margin: auto;
+	margin-top: 30px;
+	padding-bottom: 20px;
+}
+
+
+.type1-1 {
+	border-bottom: solid 2px #3e75bd;
+}
+
+.type1-1 h1 {
+	font-family: "Poppins", sans-serif;
+	color: #5389d0;
+	line-height: 1.3;
+	font-weight: bold;
+}
+
+.type1-2 {
+	margin-top: 10px;
+}
+
+.type1-2 span {
+	font-weight: bold;
+}
+
+/*검색창 관련 css*/
+.search-box {
+	width: 256px;
+	border: 3px solid #84b1ed;
+	float: right;
+	/* margin: 20px 0px 10px 0px; */
+}
+
+.search-box input {
+	font-size: 16px;
+	padding: 10px;
+	border: 0px;
+	outline: none;
+	float: left;
+	width: 200px;
+	height: 25px;
+}
+
+.search-box button {
+	height: 25px;
+	width: 50px;
+	border: 0px;
+	background-color: #84B1ED;
+	color: white;
+}
+
+/*테이블 관련 css*/
+table.type2 {
+	border-collapse: collapse;
+	text-align: left;
+	line-height: 1.5;
+	border-bottom: 1px solid #84b1ed float: right;
+	margin-top: 20px;
+	width: 100%;
+}
+
+table.type2 thead th {
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	color: #fff;
+	background: #84B1ED;
+	margin: 20px 10px;
+	text-align: center;
+	font-size: 15px;
+}
+
+table.type2 tbody tr {
+	margin: 500px;
+}
+
+table.type2 tbody th {
+	padding: 10px;
+	width: 5%;
+	text-align: center;
+}
+
+table.type2 td {
+	padding: 10px;
+	vertical-align: top;
+	border-left: solid 1px #84b1ed42;
+}
+
+table.type2 td:last-child {
+	width: 10%;
+	text-align: right;
+}
+
+table.type2 tbody tr:nth-child(2n) {
+	background: #CADBE9;
+}
+
+/*페이징 번호 관련 css*/
+.paging {
+	padding-bottom: 50px;
+}
+
+.paging ul {
+	text-align: center;
+}
+
+.paging ul li {
+	display: inline;
+	vertical-align: middle;
+}
+
+.paging ul li a {
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: top;
+	padding: 4px;
+	margin-right: 3px;
+	width: 25px !important;
+	color: #000;
+	font: bold 12px tahoma;
+	border: 1px solid #b7d5f5;
+	text-align: center;
+	text-decoration: none;
+}
+
+.paging ul li a.now {
+	color: #fff;
+	background-color: #60C5BA;
+	border: 1px solid #60C5BA;
+}
+
+.paging ul li a:hover, ul li a:focus {
+	color: #fff;
+	border: 1px solid #60C5BA;
+	background-color: #60C5BA;
+}
+
+footer {
+	clear: both;
+}

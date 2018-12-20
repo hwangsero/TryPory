@@ -9,7 +9,7 @@
 	href="<%=request.getContextPath()%>/assets/css/joinForm.css">
 
 <title>회원 가입</title>
-
+	<%@ include file="/WEB-INF/include/head.jsp" %>
 <script>
 	var check = true;
 	
@@ -91,18 +91,15 @@
 
 </head>
 <body>
-
+	 <%@ include file="/WEB-INF/include/header.jsp" %>
 	<section>
-
-
 		<div class=join-form>
 			<!-- <div class="join-form-head">
 				<h2>Create An Account</h2>
 			</div>//header -->
 
-			<h2>Create An Account</h2>
+			<h2>회원가입</h2>
 
-			<div class="container">
 				<form method="post" action="<%=request.getContextPath()%>/index.jsp"
 					onsubmit="return checkData()" name="inputForm">
 
@@ -161,10 +158,10 @@
 						<button class="back" type="reset" value="초기화">초기화</button>
 					</div>
 				</form>
-			</div>
 			<!-- // end container -->
 		</div>
 	</section>
+	 <%@ include file="/WEB-INF/include/footer.jsp" %>
 </body>
 </html>
 

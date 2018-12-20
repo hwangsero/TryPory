@@ -114,49 +114,61 @@
            		<img style="width:30px; height:30px" src="${pageContext.request.contextPath}/assets/img/direction.png">
            </div>
        </div>
-       
-       
-         <div class="trending-now-posts mb-30">
-       		<div style="margin-bottom : 10px; font-size:20px;">2017/01/02 ~ 2017/02/03 &nbsp;&nbsp;&nbsp;&nbsp;다이어리제목</div>
-           <!-- Section Title -->
-		
-           <div class="trending-posts">
-<!--            <div class="trending-post-slides owl-carousel"> -->
-               <div class="single-trending-post" style="width: 50%; height:400px; float:left; ">
-                   <img src="${pageContext.request.contextPath}/assets/img/bg-img/19.jpg" alt="">
-                   <div class="post-content">
-                       <a href="#" class="post-cata">일본</a>
-                       <a href="video-post.html" class="post-title">여행 다이어리</a>
-                   </div>
-               </div>
 
-               <div class="single-trending-post" style="width:50%; height:200px; float:left;">
-                   <img src="${pageContext.request.contextPath}/assets/img/bg-img/20.jpg" alt="">
-                   <div class="post-content">
-                       <a href="#" class="post-cata">유럽</a>
-                       <a href="video-post.html" class="post-title">여행 다이어리</a>
-                   </div>
-               </div>
 
-               <div class="single-trending-post" style="width: 50%; height:200px; float:left;">
-                   <img src="${pageContext.request.contextPath}/assets/img/bg-img/21.jpg" alt="">
-                   <div class="post-content">
-                       <a href="#" class="post-cata">대만</a>
-                       <a href="video-post.html" class="post-title">여행 다이어리</a>
-                   </div>
-               </div>
-               
-              
-               
-           </div>
-          <div style= "padding-top:30px; clear: both;">
-           		<img style="width:30px; height:30px; position:relative; left:50%" src="${pageContext.request.contextPath}/assets/img/direction.png">
-           		
-           </div>
-       </div>
-       
-       
-         <div class="trending-now-posts mb-30">
+		<div class="trending-now-posts mb-30">
+			<div style="margin-bottom: 10px; font-size: 20px;">2017/01/02 ~
+				2017/02/03 &nbsp;&nbsp;&nbsp;&nbsp;다이어리제목</div>
+			<!-- Section Title -->
+
+			<div class="trending-posts">
+				<!--            <div class="trending-post-slides owl-carousel"> -->
+				<div class="single-trending-post"
+					style="width: 50%; height: 400px; float: left;">
+					<img
+						src="${pageContext.request.contextPath}/assets/img/bg-img/19.jpg"
+						alt="">
+					<div class="post-content">
+						<a href="#" class="post-cata">일본</a> <a href="video-post.html"
+							class="post-title">여행 다이어리</a>
+					</div>
+				</div>
+
+				<div class="single-trending-post"
+					style="width: 50%; height: 200px; float: left;">
+					<img
+						src="${pageContext.request.contextPath}/assets/img/bg-img/20.jpg"
+						alt="">
+					<div class="post-content">
+						<a href="#" class="post-cata">유럽</a> <a href="video-post.html"
+							class="post-title">여행 다이어리</a>
+					</div>
+				</div>
+
+				<div class="single-trending-post"
+					style="width: 50%; height: 200px; float: left;">
+					<img
+						src="${pageContext.request.contextPath}/assets/img/bg-img/21.jpg"
+						alt="">
+					<div class="post-content">
+						<a href="#" class="post-cata">대만</a> <a href="video-post.html"
+							class="post-title">여행 다이어리</a>
+					</div>
+				</div>
+
+
+
+			</div>
+			<div style="padding-top: 30px; clear: both;">
+				<img
+					style="width: 30px; height: 30px; position: relative; left: 50%"
+					src="${pageContext.request.contextPath}/assets/img/direction.png">
+
+			</div>
+		</div>
+
+
+		<div class="trending-now-posts mb-30">
        		<div style="margin-bottom : 10px; font-size:20px;">2017/01/02 ~ 2017/02/03 &nbsp;&nbsp;&nbsp;&nbsp;다이어리제목</div>
            <!-- Section Title -->
 		

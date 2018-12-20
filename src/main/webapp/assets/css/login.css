@@ -2,12 +2,12 @@
 /* -------------------로그인----------------------- */
 .login-form {
     width: 500px;
-    margin: 150px auto 20px;	
+    margin: 80px auto 100px;	
 }
 
 .login-form-h2 {
     margin-bottom: 20px;
-    border-bottom: 1px solid #dadada; 
+    border-bottom: 1px solid #84B1ED ; 
     padding-bottom: 20px;
 }
 
@@ -17,7 +17,7 @@
 
 .login-form-h2 h1 a {
     font-size: 44px;
-    color: #20dcf7;
+    color: #84B1ED ;
     font-weight: bold;
     display: block;
     text-align: center;	
@@ -33,7 +33,7 @@
     margin: 19px 0 8px;
     font-size: 20px;
     font-weight: 700;
-    color : #20dcf7;	
+    color : #84B1ED ;	
 }
 
 .login-form-input span:nth-child(1) {
@@ -45,9 +45,10 @@
     width: 100%;
     padding: 10px;
     height: 50px;
-    border: 1px solid #20dcf7;
+    border: 1px solid #84B1ED ;
     box-sizing: border-box;
     border-radius: 6px;	
+    background: #fbfbfb;
 }
 
 .login-form-input span input {
@@ -55,18 +56,19 @@
     width: 100%;
     height: 28px;
     line-height: 28px;
+    background: #fbfbfb;
 }
 
 .buttons {
     overflow: hidden;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .buttons input {
     padding: 10px 15px;
-    border: 1px solid #20dcf7;
+    border: 1px solid #84B1ED ;
     background: #fff;
-    color: #20dcf7;
+    color: #84B1ED ;
     width: 250px;
     float: left;
     height: 50px;
@@ -76,7 +78,7 @@
 }
 
 .buttons .login-btn {
-    background: #20dcf7;
+    background: #84B1ED ;
     color: #fff;
     border-radius: 0 6px 6px 0;
 }

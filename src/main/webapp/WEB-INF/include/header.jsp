@@ -46,7 +46,7 @@
 	                        </form>
 	                    </div>
 	                    <!-- Login -->
-	                    <a href="login.html" class="login-btn">
+	                    <a href="${pageContext.request.contextPath}/jsp/mypage/mypage.jsp" class="login-btn">
 	                    	<!-- <i class="fa fa-user" aria-hidden="true"></i> -->
 	                    	마이페이지
 	                    </a>

@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+    
+<!-- 이미지교체 팝업 -->
 
 <div class="cd-popup02" role="alert">
 	<div class="cd-popup-container">
@@ -12,6 +16,7 @@
 		<input type="file" id="profile-button">
 	</div> 
 </div> 
+<!--배경이미지 교체 팝업 END-->
 
 <div class="cd-popup" role="alert">
 	<div class="cd-popup-container">
@@ -25,17 +30,18 @@
 		
 		<input type="file" id="profile-button">
 	</div> <!-- cd-popup-container -->
-</div> <!-- cd-popup -->
+</div> 
+<!-- 프로필 이미지 교체 팝업 END-->
 	
 <section class="mag-posts-area d-flex flex-wrap profile-page">	
-				
-			
+					
     <a href="#" class="backImgBtn">
     	<div class="page-header header-filter"></div>	
    	</a>
+   	<!-- 배경이미지 영역 END  -->
    	
    	<div class="mag-posts-content mt-200 mb-30 p-30">
-  
+   	
 		<div class="profile-content ">
 			<div class="container">
 				<div class="profile">
@@ -51,11 +57,11 @@
 					<div class="description text-center">
 						<p>여행하는 걸 좋아하는 하초입니다 (^^)</p>
 					</div>
-					<a href=""><label for="myUpdateBtn">개인정보 수정</label></a>
+					<a href="${pageContext.request.contextPath}/jsp/mypage/mypage_update.jsp"><label for="myUpdateBtn">개인정보 수정</label></a>
 				</div>
 
 				
-				<!-- 탭 영역 -->
+				<!-- 탭 영역 시작 -->
 
 				<div class="profile-tabs">
 					<ul class="nav nav-pills nav-pills-icons justify-content-center"
@@ -72,7 +78,7 @@
 					</ul>
 				</div>
 				
-				<!-- 컨텐츠 영역 -->
+				<!-- 컨텐츠 영역 시작 -->
 
 				<div class="tab-content tab-space">
 					<div class="tab-pane active text-center gallery" id="studio">
