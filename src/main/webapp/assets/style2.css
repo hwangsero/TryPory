@@ -1,21 +1,27 @@
 @charset "UTF-8";
+
 .R {
-	text-align:right;
+	text-align: right;
 }
+
 .L {
-	text-align:left;
+	text-align: left;
 }
+
 .C {
-	text-align:center;
+	text-align: center;
 }
+
 .hidden {
 	visibility: hidden;
 }
+
 .none {
 	display: none;
 }
+
 .Clear {
-	clear:both;
+	clear: both;
 }
 
 i.icon {
@@ -23,11 +29,17 @@ i.icon {
 }
 
 .div_pdt {
-	padding-top:82px;
+	padding-top: 82px;
 }
 
 .container {
 	margin: 0 auto;
 	width: 100%;
 	position: relative;
+}
+
+.clr::after {
+	content: "";
+	display: block;
+	clear: both;
 }
