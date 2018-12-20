@@ -12,7 +12,6 @@
 
 <body>
 	 <%@ include file="/WEB-INF/include/header.jsp" %>
-	
 	 <%@ include file="/jsp/mypage/mypage_section.jsp" %>
 	 <%@ include file="/WEB-INF/include/footer.jsp" %>
 	 
