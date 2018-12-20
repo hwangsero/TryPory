@@ -1,16 +1,16 @@
 $j(document).ready(function() {
 	function img_layout_init(){
-		var divs = $j("div.content_editbox .img_wrap");
+		var divs = $j(".posts .trending-posts");
 		
 		for (var i = 0; i < divs.length; ++i) {
 			var div = divs[i];
-			var img_contents = $j(div).find('.img_content');
+			var img_contents = $j(div).find('.single-post');
 			$j(div).addClass('ic-' + img_contents.length);
 		}
 	}
 	
 	function img_init(){
-		var divs = $j("div.content_editbox .img_wrap .img_content");
+		var divs = $j(".posts .trending-posts div");
 		for (var i = 0; i < divs.length; ++i) {
 			var div = divs[i];
 			var divAspect = $j(div).height() / $j(div).width()
