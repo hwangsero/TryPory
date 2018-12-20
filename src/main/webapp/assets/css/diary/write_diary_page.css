@@ -94,7 +94,9 @@
 .control_box li p {
 	color: white;
 }
-
+.date_box {
+	color: white;
+}
 .date_box span {
 	font-size: 24px;
 	color: white;
