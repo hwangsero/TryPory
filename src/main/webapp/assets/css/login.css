@@ -1,0 +1,91 @@
+@charset "UTF-8";
+/* -------------------로그인----------------------- */
+.login-form {
+    width: 500px;
+    margin: 150px auto 20px;	
+}
+
+.login-form-h2 {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dadada; 
+    padding-bottom: 20px;
+}
+
+.login-form-h2 h1 {
+	
+}
+
+.login-form-h2 h1 a {
+    font-size: 44px;
+    color: #20dcf7;
+    font-weight: bold;
+    display: block;
+    text-align: center;	
+}
+
+.login-form-input {
+	
+}
+
+.login-form-input span {
+    display: block;
+    width: 500px;
+    margin: 19px 0 8px;
+    font-size: 20px;
+    font-weight: 700;
+    color : #20dcf7;	
+}
+
+.login-form-input span:nth-child(1) {
+	
+}
+
+.login-form-input span:nth-child(2) {
+	display: block;
+    width: 100%;
+    padding: 10px;
+    height: 50px;
+    border: 1px solid #20dcf7;
+    box-sizing: border-box;
+    border-radius: 6px;	
+}
+
+.login-form-input span input {
+	border: none;
+    width: 100%;
+    height: 28px;
+    line-height: 28px;
+}
+
+.buttons {
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.buttons input {
+    padding: 10px 15px;
+    border: 1px solid #20dcf7;
+    background: #fff;
+    color: #20dcf7;
+    width: 250px;
+    float: left;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;	
+    cursor: pointer;
+}
+
+.buttons .login-btn {
+    background: #20dcf7;
+    color: #fff;
+    border-radius: 0 6px 6px 0;
+}
+
+.buttons .join-btn {
+	border-radius: 6px 0 0 6px;
+}
+
+
+
+
+

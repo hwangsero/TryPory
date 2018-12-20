@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+/* -------------------회원가입----------------------- */
+.join-form {
+    width: 500px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.join-form h2 {
+    text-align: center;
+    font-size: 35px;
+    border-bottom: solid 1px;
+    padding-bottom: 15px;
+    margin-top: 0px;
+}
+
+.container div {
+	overflow: hidden;
+}
+
+.container h3 {
+	margin: 19px 0 8px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.container span {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    height: 50px;
+    border: 1px solid #dadada;
+/*     background: #f9f9f9; */
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.container span input {
+    height: 25px;
+    width: 100%;
+    border: none;
+    font-size: 14px;
+    color: #999;
+    background: none;
+}
+
+.container div:nth-child(1) span {
+    float: left;
+}
+
+.container span.mail {
+    width: 50%;
+}
+
+.container span.text {
+    width: 25px;
+    padding: 10px 5px;
+    border: none;
+    background: none;
+    color: #999;
+}
+.container span.mailAddr {
+    width: calc(50% - 25px);
+}
+
+.container span select{
+    width: 100%;
+    height: 27px;
+    border: none;
+    background: #f9f9f9;
+}
+
+.container span.tel1 {
+    width: 90px;
+    float: left;
+}
+.container span.tel2 {
+	
+}
+.container span.tel3 {
+	
+}
+.container span.text {
+    width: 25px;
+    float: left;
+    padding: 10px 5px;
+    border: none;
+    background: none;
+    color: #999;
+}
+.container span.telT {
+    width: 17px;
+}
+.container span.tel {
+    width: calc((100% - 124px) / 2);
+    float: left;   
+}
+
+.join-buttons {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.join-buttons button {
+    padding: 10px 15px;
+    border: 1px solid #333;
+    background: #fff;
+    color: #333;
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.join-buttons .back {
+	
+}
+
+.join-buttons .jbutton {
+    background: #333;
+    color: #fff;
+}
