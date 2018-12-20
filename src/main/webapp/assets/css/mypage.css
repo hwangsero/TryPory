@@ -37,6 +37,7 @@ a .material-icons {
     background-position:center;
     position:absolute;
     padding: 0 0 !important;
+    background-image:url('http://wallpapere.org/wp-content/uploads/2012/02/black-and-white-city-night.png');
 }
 
 
@@ -127,7 +128,7 @@ p {
 
 .profile-page .profile-tabs {
 	width:100%; 
-	border-top:2px solid #dddddd;
+	border-top:2px solid #eee;
     margin-top: 1.5rem;
 }
 
@@ -143,13 +144,16 @@ p {
 }
 
 .nav-pills.nav-pills-icons .nav-item .nav-link {
-    border-radius: 0px;
+    border-radius:0; 
+    border-top:-2px; 
 }
 
 .nav-pills .nav-item .nav-link.active {
     color: #555;
     background-color: #fff;
-    border-top: 2px solid #9c27b0;
+    border-top: 2px solid #84B1ED ;
+    margin-top: -2px;
+    
 }
 
 .nav-pills .nav-item .nav-link {
@@ -158,10 +162,11 @@ p {
     font-weight: 500;
     min-width: 200px;
     color: #555;
-    transition: all .3s;
+/*     transition: all .3s; */
     border-radius: 30px;
     padding: 10px 15px;
     text-align: center;
+    border-top: 2px solid #eee;
     margin-top: -2px;
 }
 
@@ -211,17 +216,15 @@ img.rounded {
 
 /* 마이페이지 수정버튼 */
 
-#myUpdateBtn {
-	width:40px; 
-	height: 24px; 
-	border: 1px solid #eee; 
-	color: #888; 
-	line-height: 24px; 
-	display: inline-block; 
-	font-size: 12px; 
-	margin-top: 35px;
-	margin-left:5px;
-	position:absolute;
+.profile label{
+	width:120px;
+	height: 30px;  
+	border-radius: 30px; 
+	border: 1px solid #84B1ED ; 
+	line-height: 30px; 
+	font-size:14px;
+	color: #84B1ED;
+	cursor: pointer;
 }
 
 
@@ -233,21 +236,46 @@ img.rounded {
 
 /* popup */
 
-.cd-popup {
+
+.cd-popup02{
   z-index:1000;
   position: fixed;
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(94, 110, 141, 0.9);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  transition: opacity 0.3s 0s, visibility 0s 0.3s; 
+}
+
+.cd-popup02.is-visible{
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
+  -moz-transition: opacity 0.3s 0s, visibility 0s 0s;
+  transition: opacity 0.3s 0s, visibility 0s 0s;
+}
+
+.cd-popup{
+  z-index:1000;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
   opacity: 0;
   visibility: hidden;
   -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
   -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
   transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  
+  
 }
-.cd-popup.is-visible {
+
+.cd-popup.is-visible{
   opacity: 1;
   visibility: visible;
   -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
@@ -264,6 +292,7 @@ img.rounded {
   border-radius: .25em .25em .4em .4em;
   text-align: center;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  margin: 18em auto;
   -webkit-transform: translateY(-40px);
   -moz-transform: translateY(-40px);
   -ms-transform: translateY(-40px);
@@ -278,43 +307,32 @@ img.rounded {
   -moz-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-.cd-popup-container p {
-  padding: 3em 1em;
+
+.cd-popup-container label {
+  padding: 1em 1em;
+  display:block; 
+  font-size:15px; 
+  font-weight: bold;
+  width:100%; 
+  margin-bottom: 0; 
+
+  border-top: 1px solid #eee; 
 }
+
 .cd-popup-container .cd-buttons:after {
   content: "";
   display: table;
   clear: both;
 }
-.cd-popup-container .cd-buttons li {
-  float: left;
-  width: 50%;
-  list-style: none;
+
+.button-area{
+	width:100%;
+	height:70px; 
+	font-size:15px; 
+    font-weight: bold;
+    line-height:70px;
 }
-.cd-popup-container .cd-buttons a {
-  display: block;
-  height: 60px;
-  line-height: 60px;
-  text-transform: uppercase;
-  color: #FFF;
-  -webkit-transition: background-color 0.2s;
-  -moz-transition: background-color 0.2s;
-  transition: background-color 0.2s;
-}
-.cd-popup-container .cd-buttons li:first-child a {
-  background: #fc7169;
-  border-radius: 0 0 0 .25em;
-}
-.no-touch .cd-popup-container .cd-buttons li:first-child a:hover {
-  background-color: #fc8982;
-}
-.cd-popup-container .cd-buttons li:last-child a {
-  background: #b6bece;
-  border-radius: 0 0 .25em 0;
-}
-.no-touch .cd-popup-container .cd-buttons li:last-child a:hover {
-  background-color: #c5ccd8;
-}
+
 .cd-popup-container .cd-popup-close {
   position: absolute;
   top: 8px;
@@ -353,8 +371,18 @@ img.rounded {
   -o-transform: translateY(0);
   transform: translateY(0);
 }
+
+#profile-button {
+	padding-bottom: 20px; 
+}
+
+input[type=file] {
+	display:none;
+}
+
+
 @media only screen and (min-width: 1170px) {
   .cd-popup-container {
-    margin: 8em auto;
+    margin: 18em auto;
   }
 }
