@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
 <header class="header-area">
 	<!-- Navbar Area -->
 	<div class="mag-main-menu" id="sticker">
@@ -45,13 +47,40 @@
 	                            <button type="submit" class="btn"><i class="fa fa-search" aria-hidden="true"></i></button>
 	                        </form>
 	                    </div>
-	                    <!-- Login -->
-	                    <a href="${pageContext.request.contextPath}/jsp/mypage/mypage.jsp" class="login-btn">
+	                    <c:if test="${param.email eq 'admin' }">
+	                     <a href="login.html" class="login-btn">
 	                    	<!-- <i class="fa fa-user" aria-hidden="true"></i> -->
-	                    	마이페이지
+	                    	로그아웃
 	                    </a>
+	                     <a href="login.html" class="login-btn">
+	                    	<!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+	                    	관리자페이지
+	                    </a>
+	                    </c:if>
+	                    
+	                    <c:if test="${empty param.email}">
+	                     <a href="login.html" class="login-btn">
+	                    	<!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+	                    	로그인
+	                    </a>
+	                     <a href="login.html" class="login-btn">
+	                    	<!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+	                    	회원가입
+	                    </a>
+	                    </c:if>
+	                    
+						<c:if test="${not empty param.email and param.email ne 'admin'}">
+	                     <a href="login.html" class="login-btn">
+	                    	<!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+	                    	로그아웃
+	                    </a>
+	                     <a href="${pageContext.request.contextPath}/jsp/mypage/mypage.jsp" class="login-btn">
+	                    </c:if>
+	                    
+	                    
 	                    <a href="${pageContext.request.contextPath}/jsp/diary/write_diary_page.jsp" class="submit-video"><span><i class="fa fa-cloud-upload"></i></span> <span class="video-text">다이어리 등록</span></a>
                     </div>
+                    
                 </div>
             </nav>
         </div>
