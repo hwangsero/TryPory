@@ -48,58 +48,83 @@
 							alt="Circle Image" class="img-raised rounded-circle img-fluid">
 						</a>
 					</div>
-					<div class="update-form">
+
+
+					<div class="update-form-box">
 						<form method="post"
 							action="<%=request.getContextPath()%>/index.jsp"
 							onsubmit="return checkData()" name="inputForm">
 
 
-							<!--Id-->
-							<div class="inputBox">
-								<h3>닉네임</h3>
-								<span> <input type="text" size="40" id="id" name="id"
-									placeholder="HACHO">
-								</span>
-							</div>
-
-							<!--비번-->
-							<div class="inputBox">
-								<h3>비밀번호</h3>
-								<span> <input type="password" size="40" id="password"
-									name="password">
-								</span>
-							</div>
-
-							<!--비번재확인-->
-							<div class="inputBox">
-								<h3>비밀번호 재확인</h3>
-								<span> <input type="password" size="40" id="pwCk"
-									name="pwCk">
-								</span>
-							</div>
-
-							<!--tel-->
-							<div>
-								<h3>휴대전화</h3>
+							<!-- 프로필수정 form -->
+							<div class="update-form">
+								<h2>프로필 수정</h2>
+								<!--닉네임-->
 								<div class="inputBox">
-									<span class="tel tel1"> 
-										<input type="text" size="3"	name="tel1" value="010">
-									</span> 
-									<span class="text telT">-</span> 
-									<span class="tel tel2">
-										<input type="tel" size="4" name="tel2" value="5555">
-									</span> 
-									<span class="text telT">-</span> 
-									<span class="tel tel3">
-										<input type="tel" size="4" name="tel3" value="3333">
+									<h3>닉네임</h3>
+									<span> <input type="text" size="40" id="id" name="id"
+										value ="HACHO">
 									</span>
+								</div>
+
+								<!--소개-->
+								<div class="inputBox">
+									<h3>소개</h3>
+									<span class="intro"> <textarea rows="6" cols="60" >여행하는 걸 좋아하는 하초입니다 (^^)</textarea>
+									</span>
+								</div>
+							</div>
+
+							<!-- 개인정보수정  -->
+							<div class="update-form">
+								<h2>개인정보 수정</h2>
+								<!--이메일-->
+								<div class="joinId">
+									<h3>이메일</h3>
+									<span class="mail"> <input type="text" size="20"
+										id="email" name="email_id" value="hacho_2011">
+									</span> 
+									<span class="text">@</span> 
+									<span class="mailAddr">
+										<input type="text" size="20" value="naver.com" name="email_domain">
+									</span>
+								</div>
+
+								<!--비번-->
+								<div class="inputBox">
+									<h3>비밀번호</h3>
+									<span> <input type="password" size="40" id="password"
+										name="password">
+									</span>
+								</div>
+
+								<!--비번재확인-->
+								<div class="inputBox">
+									<h3>비밀번호 재확인</h3>
+									<span> <input type="password" size="40" id="pwCk"
+										name="pwCk">
+									</span>
+								</div>
+
+								<!--tel-->
+								<div>
+									<h3>휴대전화</h3>
+									<div class="inputBox">
+										<span class="tel tel1"> <input type="text" size="3"
+											name="tel1" value="010">
+										</span> <span class="text telT">-</span> <span class="tel tel2">
+											<input type="tel" size="4" name="tel2" value="5555">
+										</span> <span class="text telT">-</span> <span class="tel tel3">
+											<input type="tel" size="4" name="tel3" value="3333">
+										</span>
+									</div>
 								</div>
 							</div>
 
 
 							<div class="join-buttons">
-								<button class="jbutton" type="submit" value="가입 완료">가입하기</button>
-								<button class="back" type="reset" value="초기화">초기화</button>
+								<button class="jbutton" type="submit" value="가입 완료">수정하기</button>
+								<button class="back" onclick="location.href='${pageContext.request.contextPath}/jsp/mypage/mypage.jsp'">취소</button>
 							</div>
 						</form>
 					</div>
@@ -107,6 +132,8 @@
 					<!-- // end container -->
 				</div>
 			</div>
+
+
 
 
 

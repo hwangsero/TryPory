@@ -6,6 +6,7 @@
 	<script src="${pageContext.request.contextPath}/assets/js/jquery/jquery-3.3.1.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/mypage.js"></script>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage.css">	
+	<link rel="stylesheet"	href="<%=request.getContextPath()%>/assets/css/joinForm.css">
 	<%@ include file="/WEB-INF/include/head.jsp" %>
 	
 </head>
