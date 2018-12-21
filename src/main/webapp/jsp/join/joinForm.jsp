@@ -79,6 +79,7 @@
 			alert('핸드폰 끝 번호를 4자 이내로 입력하세요.');
 			return false;
 		}
+	}
 </script>
 </head>
 <body>
