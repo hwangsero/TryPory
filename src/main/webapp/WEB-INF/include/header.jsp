@@ -33,7 +33,7 @@
 	                    <div class="classynav">
 	                        <ul>
 	                            <li><a href="${pageContext.request.contextPath}/jsp/diary/my_map.jsp">나의 여행지도</a></li>
-	                            <li><a href="contact.html">다이어리 목록</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/jsp/diary/diaryList.jsp">다이어리 목록</a></li>
 	                        </ul>
 	                    </div>
 	                    <!-- Nav End -->
