@@ -5,19 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/login.css">
-<script src="<%= request.getContextPath() %>/js/checkForm.js"></script>
-<script src="<%= request.getContextPath() %>/js/jquery-3.3.1.min.js"></script>
-<title>Insert title here</title>
 <%@ include file="/WEB-INF/include/head.jsp" %>
  <script>
 	function checkForm(){
 		var f=document.lform;
-		if(isNull(f.id,"아이디를 입력하세요")){
+		if( f.email.value == ""){
+			alert("아이디를 입력하세요");
 			return false;
 		}
-		if(isNull(f.password,"비번을 입력하세요 ")){
+		if( f.password.value == ""){
+			alert("비밀번호를 입력하세요");
 			return false;
-		}
+		}		
+		return true;
 	}	
 </script>
 </head>
@@ -28,7 +28,7 @@
 				<h1><a href="<%= request.getContextPath() %>">LOGO</a></h1>
 			</div>
 			
-			<form method="post" action="<%=request.getContextPath()%>/index.jsp"
+			<form method="post" action="<%=request.getContextPath()%>/jsp/login/loginProcess.jsp"
 				name="lform" onsubmit="return checkForm()">
 					<div class="login-form-input">
 						<span>Email</span>
