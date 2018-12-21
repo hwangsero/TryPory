@@ -3,8 +3,12 @@
 <div id="write_page_header" class="C">
 	<div class="lnb">
 		<div class="button_box">
-			<button type="button" class="cancel ">나가기</button>
-			<button type="button" class="save ">저장하기</button>
+			<!-- <button type="button" class="cancel ">나가기</button> -->
+			 <a href="${pageContext.request.contextPath}/jsp/diary/detail_diary_page.jsp">
+				<button type="button" class="save">
+	                저장하기
+		         </button>
+             </a>
 		</div>
 	</div>
 	<div id="header_content">
