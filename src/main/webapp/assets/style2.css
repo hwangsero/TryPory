@@ -43,3 +43,18 @@ i.icon {
 	display: block;
 	clear: both;
 }
+
+@font-face {
+	font-family: 'Pacifico';
+	font-style: nrmal;
+	font-weight: 500;
+	src: url('fonts/Pacifico-Regular.ttf');
+}
+
+a#site_logo_title {
+	font-family: 'Pacifico';
+	font-size: 30px;
+	line-height: 30px;
+	height: 30px;
+	margin-top: -10px;
+}

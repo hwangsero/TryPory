@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    
 <header class="header-area">
 	<!-- Navbar Area -->
 	<div class="mag-main-menu" id="sticker">
@@ -10,10 +9,7 @@
 	        <nav class="classy-navbar justify-content-between" id="magNav">
 	
 	            <!-- Nav brand -->
-	            <a href="${pageContext.request.contextPath}/index.jsp" class="nav-brand">
-	            	<!-- <img src="img/core-img/logo.png" alt=""> -->
-	            	메인로고
-	            </a>
+	            <a href="${pageContext.request.contextPath}/index.jsp" id="site_logo_title" class="nav-brand">Tripory</a>
 	
 	            <!-- Navbar Toggler -->
 	            <div class="classy-navbar-toggler">
