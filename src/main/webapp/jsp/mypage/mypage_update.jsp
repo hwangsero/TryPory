@@ -14,6 +14,7 @@
 	 <%@ include file="/WEB-INF/include/header.jsp" %>
 	 <%@ include file="/jsp/mypage/mypage_update_section.jsp" %>
 	 <%@ include file="/WEB-INF/include/footer.jsp" %>
+	<link rel="stylesheet"	href="<%=request.getContextPath()%>/assets/css/joinForm.css">
 	 
 	 
          
