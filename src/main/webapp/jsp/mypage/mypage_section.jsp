@@ -58,7 +58,7 @@
 					<div class="description text-center">
 						<p>여행하는 걸 좋아하는 하초입니다 (^^)</p>
 					</div>
-					<a href="${pageContext.request.contextPath}/jsp/mypage/mypage-update.jsp"><label for="myUpdateBtn">개인정보 수정</label></a>
+					<a href="${pageContext.request.contextPath}/jsp/mypage/mypage_update.jsp"><label for="myUpdateBtn">개인정보 수정</label></a>
 				</div>
 
 				
