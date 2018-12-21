@@ -1560,7 +1560,7 @@ input:focus {
 	z-index: 1;
 	overflow: hidden;
 	display:inline-block;
-	width : calc( 25% - 3px); /* cck */
+	width : calc( 25% - 5px); /* cck */
 	height: 300px; /* cck */
 }
 
