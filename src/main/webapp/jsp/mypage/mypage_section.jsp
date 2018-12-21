@@ -36,7 +36,8 @@
 <section class="mag-posts-area d-flex flex-wrap profile-page">	
 					
     <a href="#" class="backImgBtn">
-    	<div class="page-header header-filter"></div>	
+    	<div class="page-header header-filter">
+    	</div>	
    	</a>
    	<!-- 배경이미지 영역 END  -->
    	
@@ -57,7 +58,7 @@
 					<div class="description text-center">
 						<p>여행하는 걸 좋아하는 하초입니다 (^^)</p>
 					</div>
-					<a href="${pageContext.request.contextPath}/jsp/mypage/mypage_update.jsp"><label for="myUpdateBtn">개인정보 수정</label></a>
+					<a href="${pageContext.request.contextPath}/jsp/mypage/mypage-update.jsp"><label for="myUpdateBtn">개인정보 수정</label></a>
 				</div>
 
 				

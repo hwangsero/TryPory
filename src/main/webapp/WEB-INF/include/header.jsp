@@ -47,36 +47,32 @@
 	                            <button type="submit" class="btn"><i class="fa fa-search" aria-hidden="true"></i></button>
 	                        </form>
 	                    </div>
-	                    <c:if test="${param.email eq 'admin' }">
-	                     <a href="login.html" class="login-btn">
-	                    	<!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+	                    <c:if test="${sessionScope.login_id eq 'admin' }">
+	                     <a href="${pageContext.request.contextPath}/jsp/login/logoutProcess.jsp" class="login-btn">
 	                    	로그아웃
 	                    </a>
-	                     <a href="login.html" class="login-btn">
-	                    	<!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+	                     <a href="${pageContext.request.contextPath}/jsp/main/adminPage.jsp" class="login-btn">
 	                    	관리자페이지
 	                    </a>
 	                    </c:if>
 	                    
-	                    <c:if test="${empty param.email}">
-	                     <a href="login.html" class="login-btn">
-	                    	<!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+	                    <c:if test="${empty sessionScope.login_id }">
+	                     <a href="${pageContext.request.contextPath}/jsp/login/loginForm.jsp" class="login-btn">
 	                    	로그인
 	                    </a>
-	                     <a href="login.html" class="login-btn">
-	                    	<!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+	                     <a href="${pageContext.request.contextPath}/jsp/join/joinForm.jsp" class="login-btn">
 	                    	회원가입
 	                    </a>
 	                    </c:if>
 	                    
-						<c:if test="${not empty param.email and param.email ne 'admin'}">
-	                     <a href="login.html" class="login-btn">
-	                    	<!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+						<c:if test="${not empty sessionScope.login_id and sessionScope.login_id ne 'admin'}">
+	                     <a href="${pageContext.request.contextPath}/jsp/login/logoutProcess.jsp" class="login-btn">
 	                    	로그아웃
 	                    </a>
-	                     <a href="${pageContext.request.contextPath}/jsp/mypage/mypage.jsp" class="login-btn">
+	                    <a href="${pageContext.request.contextPath}/jsp/mypage/mypage.jsp" class="login-btn">
+	                    	마이페이지
+	                    </a>
 	                    </c:if>
-	                    
 	                    
 	                    <a href="${pageContext.request.contextPath}/jsp/diary/write_diary_page.jsp" class="submit-video"><span><i class="fa fa-cloud-upload"></i></span> <span class="video-text">다이어리 등록</span></a>
                     </div>

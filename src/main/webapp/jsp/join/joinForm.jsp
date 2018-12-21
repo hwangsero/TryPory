@@ -3,20 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/assets/css/joinForm.css">
-
-<title>회원 가입</title>
-
+<%@ include file="/WEB-INF/include/head.jsp" %>
 <script>
 	var check = true;
 	
 	function checkData() {
 		var f = document.inputForm;
-
-
 //이메일		
 		if(f.email_id.value.length == 0 ) {
 			alert('이메일을 입력하세요.');
@@ -85,13 +79,10 @@
 			alert('핸드폰 끝 번호를 4자 이내로 입력하세요.');
 			return false;
 		}
-		
-
 </script>
-
 </head>
 <body>
-
+	<%@ include file="/WEB-INF/include/header.jsp" %>
 	<section>
 
 
@@ -165,6 +156,7 @@
 			<!-- // end container -->
 		</div>
 	</section>
+	<%@ include file="/WEB-INF/include/footer.jsp" %>
 </body>
 </html>
 
