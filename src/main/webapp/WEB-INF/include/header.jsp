@@ -51,7 +51,7 @@
 	                     <a href="${pageContext.request.contextPath}/jsp/login/logoutProcess.jsp" class="login-btn">
 	                    	로그아웃
 	                    </a>
-	                     <a href="login.html" class="login-btn">
+	                     <a href="${pageContext.request.contextPath}/jsp/main/adminPage.jsp" class="login-btn">
 	                    	관리자페이지
 	                    </a>
 	                    </c:if>
