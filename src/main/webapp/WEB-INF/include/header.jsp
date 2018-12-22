@@ -40,8 +40,10 @@
 	                    <!-- Top Search Area -->
 	                    <div class="top-search-area">
 	                        <form action="index.html" method="post">
-	                            <input type="search" name="top-search" id="topSearch" placeholder="#오사카여행 #유럽여행 #바다">
-	                            <button type="submit" class="btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+	                            <input type="search" name="top-search" id="topSearch" placeholder="#바다 #여행">
+	                            <button type="submit" class="btn">
+	                            <i class="fa fa-search" aria-hidden="true"></i>
+	                            </button>
 	                        </form>
 	                    </div>
 	                    <c:if test="${sessionScope.login_id eq 'admin' }">
@@ -71,7 +73,9 @@
 	                    </a>
 	                    </c:if>
 	                    
-	                    <a href="${pageContext.request.contextPath}/jsp/diary/write_diary_page.jsp" class="submit-video"><span><i class="fa fa-cloud-upload"></i></span> <span class="video-text">다이어리 등록</span></a>
+	                    <a href="${pageContext.request.contextPath}/jsp/diary/write_diary_page.jsp" class="submit-video"><span>
+	                    	<i class="far fa-edit"></i>
+	                    </span> <span class="video-text">다이어리 등록</span></a>
                     </div>
                     
                 </div>
