@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<%@ include file="/WEB-INF/include/head.jsp" %>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/my_map.css">
+	<%@ include file="/WEB-INF/include/head.jsp" %>
 	<script>
 	$j(document).ready(function(){
 		$j(".close_icon").click(function(){
