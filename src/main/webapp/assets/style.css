@@ -1561,10 +1561,23 @@ input:focus {
 	z-index: 1;
 	overflow: hidden;
 	display:inline-block;
-	width : calc( 25% - 5px); /* cck */
+	width:100%;
 	height: 300px; /* cck */
 }
+.single-post-wrap {
+	position: relative;
+    z-index: 1;
+    display: inline-block;
+    width: calc( 25% - 5px);
+}
 
+.post-add-info {
+	width:200px;
+}
+.post-add-info img{
+	width:20px;
+	height:auto;
+}
 @media only screen and (min-width: 1200px) and (max-width: 1499px) {
 	.single-trending-post, .single-trending-tag {
 		height:200px;

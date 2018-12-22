@@ -8,4 +8,8 @@
 	a#site_logo_title {
 		font-size:20px;
 	}
+	
+	div#map_info_container {
+		width:100%;
+	}
 }

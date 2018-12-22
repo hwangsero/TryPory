@@ -10,7 +10,7 @@ $j(document).ready(function() {
 	}
 	
 	function img_init(){
-		var divs = $j(".posts .trending-posts div");
+		var divs = $j(".posts .trending-posts .single-post");
 		for (var i = 0; i < divs.length; ++i) {
 			var div = divs[i];
 			var divAspect = $j(div).height() / $j(div).width()
