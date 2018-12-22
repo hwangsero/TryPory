@@ -45,6 +45,7 @@ div#map_info_container {
 }
 #map_info ul {
 	position: relative;
+	padding: 0px 60px;
 }
 #map_info ul::before {
 	content: ' ';
