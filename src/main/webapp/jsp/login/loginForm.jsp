@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/login.css">
+<link href="${pageContext.request.contextPath}/assets/css/mobile.css" rel="stylesheet">
 <%@ include file="/WEB-INF/include/head.jsp" %>
  <script>
 	function checkForm(){
@@ -20,6 +21,14 @@
 		return true;
 	}	
 </script>
+
+<style>
+@media (max-width:800px){
+		*{
+			width:86%;
+		} 
+	}
+</style>
 </head>
 <body>
 	 <%@ include file="/WEB-INF/include/header.jsp" %>

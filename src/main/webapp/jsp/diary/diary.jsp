@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+ <style>
+	.mag-posts-content {
+	max-width: calc(100% - 1000px);
+	}
+</style> 
 <section class="mag-posts-area d-flex flex-wrap">
 
    <div class="mag-posts-content mt-30 mb-30 p-30 box-shadow">
@@ -58,7 +64,6 @@
                
            </div>
            <div style= "padding-top:30px; clear: both;">
-           		<img style="width:30px; height:30px; position:relative; left:50%" src="${pageContext.request.contextPath}/assets/img/direction.png">
 				
            </div>
        </div>
@@ -87,7 +92,6 @@
                </div>
 
               	 <div style= "padding-top:30px; clear: both;">
-           		<img style="width:30px; height:30px; position:relative; left:50%" src="${pageContext.request.contextPath}/assets/img/direction.png">
 				
            </div>
        </div>
@@ -111,7 +115,6 @@
                
            </div>
             <div style= "padding-top:30px; clear: both;">
-           		<img style="width:30px; height:30px" src="${pageContext.request.contextPath}/assets/img/direction.png">
            </div>
        </div>
 
@@ -160,9 +163,6 @@
 
 			</div>
 			<div style="padding-top: 30px; clear: both;">
-				<img
-					style="width: 30px; height: 30px; position: relative; left: 50%"
-					src="${pageContext.request.contextPath}/assets/img/direction.png">
 
 			</div>
 		</div>
@@ -202,13 +202,12 @@
                <div class="single-trending-post" style="width: 50%; height:200px; float:left;">
                    <img src="${pageContext.request.contextPath}/assets/img/bg-img/22.jpg" alt="">
                    <div class="post-content" style="text-align: center">
-                       <a href="video-post.html" class="post-title" style="font-size: 50px">+3</a>
+                       <a href="video-post.html" class="post-title" style="font-size: 50px; line-height: 3">+3</a>
                    </div>
                </div>
                
            </div>
           <div style= "padding-top:30px; clear: both;">
-           		<img style="width:30px; height:30px; position:relative; left:50%" src="${pageContext.request.contextPath}/assets/img/direction.png">
            		
            </div>
        </div>
