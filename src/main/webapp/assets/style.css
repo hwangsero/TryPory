@@ -438,7 +438,7 @@ input:focus {
 .header-area .mag-main-menu .classy-navbar .classynav ul li a {
 	font-weight: 500;
 	text-transform: uppercase;
-	font-size: 13px;
+	font-size: 15px;
 	letter-spacing: 1px;
 }
 
@@ -526,7 +526,7 @@ input:focus {
 
 @media only screen and (max-width: 767px) {
 	.header-area .mag-main-menu .top-search-area form input {
-		padding: 0 15px;
+		padding: 0 23px 0 7px;
 		width: 110px;
 		font-size: 11px;
 		height: 60px;
@@ -552,7 +552,7 @@ input:focus {
 .header-area .mag-main-menu .top-search-area form button {
 	position: absolute;
 	width: auto;
-	height: 70px;
+	height: 60px;
 	background-color: transparent;
 	top: 50%;
 	right: 30px;
@@ -581,6 +581,7 @@ input:focus {
 @media only screen and (max-width: 767px) {
 	.header-area .mag-main-menu .top-search-area form button {
 		right: 0;
+		padding: 0 5px 0 0;
 	}
 }
 
@@ -668,7 +669,7 @@ input:focus {
 
 @media only screen and (max-width: 767px) {
 	.header-area .mag-main-menu .submit-video {
-		padding: 0 15px;
+		padding: 0 12px;
 		width: 40px;
 		height: 60px;
 		line-height: 60px;
@@ -1560,10 +1561,23 @@ input:focus {
 	z-index: 1;
 	overflow: hidden;
 	display:inline-block;
-	width : calc( 25% - 3px); /* cck */
+	width:100%;
 	height: 300px; /* cck */
 }
+.single-post-wrap {
+	position: relative;
+    z-index: 1;
+    display: inline-block;
+    width: calc( 25% - 5px);
+}
 
+.post-add-info {
+	width:200px;
+}
+.post-add-info img{
+	width:20px;
+	height:auto;
+}
 @media only screen and (min-width: 1200px) and (max-width: 1499px) {
 	.single-trending-post, .single-trending-tag {
 		height:200px;
