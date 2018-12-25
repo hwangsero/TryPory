@@ -12,5 +12,21 @@
 	div#map_info_container {
 		width:80%;
 		top:60px;
+		overflow: scroll;
+	}
+	.single-post-wrap {
+		width: 100%;
+	}
+	
+	.single-trending-tag .post-content .post-cata {
+		font-size: 30px;
+	}
+	
+	#map_info ul li i.fa-map-marker-alt {
+	    margin-right: 29px;
+	}
+	
+	.mag-posts-content {
+	padding: 0px !important;
 	}
 }

@@ -12,7 +12,7 @@
 		box-shadow: none !important;
 	}
 	</style>
-	<script src="assets/js/index.js"></script>
+	<script src="assets/js/diary/image_resize.js"></script>
 </head>
 
 <body>

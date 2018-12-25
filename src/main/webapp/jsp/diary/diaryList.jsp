@@ -4,33 +4,21 @@
 <html>
 <head>
 	<%@ include file="/WEB-INF/include/head.jsp" %>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/diary/diaryList.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/diary/diaryList_mobile.css">
+	<script src="${pageContext.request.contextPath}/assets/js/diary/image_resize.js"></script>
 </head>
-
 <body>
   <!-- Preloader -->
     <%@ include file="/WEB-INF/include/preload.jsp" %>
 
-    <!-- ##### Header Area Start ##### -->
+    <!-- 헤더 -->
     <%@ include file="/WEB-INF/include/header.jsp" %>
     
+    <!-- 내용 -->
     <%@ include file="/jsp/diary/diary.jsp" %>
     
-	<!-- ##### Header Area End ##### -->
+	<!-- 푸터 -->
 	 <%@ include file="/WEB-INF/include/footer.jsp" %>
-	 <script src="${pageContext.request.contextPath}/assets/js/jquery/jquery-2.2.4.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/jquery/jquery-3.3.1.min.js"></script>
-    <script>var $j = jQuery.noConflict(true);</script>
-    
-    <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
-    <!-- Popper js -->
-    <script src="${pageContext.request.contextPath}/assets/js/bootstrap/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="${pageContext.request.contextPath}/assets/js/bootstrap/bootstrap.min.js"></script>
-    <!-- All Plugins js -->
-    <script src="${pageContext.request.contextPath}/assets/js/plugins/plugins.js"></script>
-    <!-- Active js -->
-    <script src="${pageContext.request.contextPath}/assets/js/active.js"></script>
- 
-
  </body>
 </html>

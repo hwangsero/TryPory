@@ -5,6 +5,7 @@
 <head>
 	<%@ include file="/WEB-INF/include/head.jsp" %>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/diary/write_diary_page.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/diary/write_diary_page_mobile.css">
 	
     <script>
     $j(document).ready(function(){

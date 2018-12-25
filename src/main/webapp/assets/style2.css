@@ -58,3 +58,7 @@ a#site_logo_title {
 	height: 30px;
 	margin-top: -10px;
 }
+
+em {
+	font-style: normal;
+}
