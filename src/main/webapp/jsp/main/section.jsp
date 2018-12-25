@@ -14,8 +14,8 @@
            <div class="trending-posts">
 <!--            <div class="trending-post-slides owl-carousel"> -->
 
-				<div class="single-post-wrap">
-	               <div class="single-trending-post single-post diary-post">
+				<div class="single-post-wrap img_wrap">
+	               <div class="single-trending-post single-post diary-post img_content">
 	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/19.jpg" alt="">
 	                   <div class="post-content">
 	                   		<a href="${pageContext.request.contextPath}/jsp/diary/detail_diary_page.jsp" class="post-title">오사카 여행</a>
@@ -25,8 +25,8 @@
 	                   </div>
 	               </div>
 	            </div>
-				<div class="single-post-wrap">
-	               <div class="single-trending-post single-post diary-post">
+				<div class="single-post-wrap img_wrap">
+	               <div class="single-trending-post single-post diary-post img_content">
 	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/20.jpg" alt="">
 	                   <div class="post-content">
 	                   		<p class="post-title">오사카 여행</p>
@@ -36,8 +36,8 @@
 	                   </div>
 	               </div>
 				</div>
-				<div class="single-post-wrap">
-	               <div class="single-trending-post single-post diary-post">
+				<div class="single-post-wrap img_wrap">
+	               <div class="single-trending-post single-post diary-post img_content">
 	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/21.jpg" alt="">
 	                   <div class="post-content">
 	                   		<p class="post-title">오사카 여행</p>
@@ -47,8 +47,8 @@
 	                   </div>
 	               </div>
 	               </div>
-				<div class="single-post-wrap">
-	               <div class="single-trending-post single-post diary-post">
+				<div class="single-post-wrap img_wrap">
+	               <div class="single-trending-post single-post diary-post img_content">
 	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/22.jpg" alt="">
 	                   <div class="post-content">
 	                   		<p class="post-title">오사카 여행</p>
@@ -68,32 +68,32 @@
 
            <div class="trending-posts bestTag">
 <!--            <div class="trending-post-slides owl-carousel"> -->
-				<div class="single-post-wrap">
-	               <div class="single-trending-tag single-post" >
+				<div class="single-post-wrap img_wrap">
+	               <div class="single-trending-tag single-post img_content" >
 	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/19.jpg" alt="">
 	                   <div class="post-content">
 	                       <a href="#" class="post-cata">#일본</a>
 	                   </div>
 	               </div>
 				</div>
-				<div class="single-post-wrap">
-	               <div class="single-trending-tag single-post" >
+				<div class="single-post-wrap img_wrap">
+	               <div class="single-trending-tag single-post img_content" >
 	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/20.jpg" alt="">
 	                   <div class="post-content">
 	                       <a href="#" class="post-cata">#유럽</a>
 	                   </div>
 	               </div>
 				</div>
-				<div class="single-post-wrap">
-	               <div class="single-trending-tag single-post" >
+				<div class="single-post-wrap img_wrap">
+	               <div class="single-trending-tag single-post img_content" >
 	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/21.jpg" alt="">
 	                   <div class="post-content">
 	                       <a href="#" class="post-cata">#대만</a>
 	                   </div>
 	               </div>
 	             </div>
-				<div class="single-post-wrap"> 
-	               <div class="single-trending-tag single-post">
+				<div class="single-post-wrap img_wrap"> 
+	               <div class="single-trending-tag single-post img_content">
 	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/22.jpg" alt="">
 	                   <div class="post-content">
 	                       <a href="#" class="post-cata">#알프스</a>
@@ -111,8 +111,8 @@
 
            <div class="trending-posts">
 <!--            <div class="trending-post-slides owl-carousel"> -->
-				<div class="single-post-wrap">
-	               <div class="single-trending-post single-post" >
+				<div class="single-post-wrap img_wrap">
+	               <div class="single-trending-post single-post img_content" >
 	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/19.jpg" alt="">
 	                   <div class="post-content">
 	                       <a href="#" class="post-cata">일본</a>
@@ -125,8 +125,8 @@
 		           	</div>
 		         </div>
 
-				<div class="single-post-wrap">
-	               <div class="single-trending-post single-post" >
+				<div class="single-post-wrap img_wrap">
+	               <div class="single-trending-post single-post img_content" >
 	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/20.jpg" alt="">
 	                   <div class="post-content">
 	                       <a href="#" class="post-cata">유럽</a>
@@ -138,8 +138,8 @@
 		           		<img src="${pageContext.request.contextPath}/assets/img/speechbubble.png" alt="" >
 		           	</div>
 	           	</div>
-				<div class="single-post-wrap">
-	               <div class="single-trending-post single-post">
+				<div class="single-post-wrap img_wrap">
+	               <div class="single-trending-post single-post img_content">
 	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/21.jpg" alt="">
 	                   <div class="post-content">
 	                       <a href="#" class="post-cata">대만</a>
@@ -152,8 +152,8 @@
 		           	</div>
 	             </div>
                
-               <div class="single-post-wrap">
-	               <div class="single-trending-post single-post">
+               <div class="single-post-wrap img_wrap">
+	               <div class="single-trending-post single-post img_content">
 	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/22.jpg" alt="">
 	                   <div class="post-content">
 	                       <a href="#" class="post-cata">알프스</a>

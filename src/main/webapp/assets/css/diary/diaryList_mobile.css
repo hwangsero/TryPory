@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+@media only screen and (max-width: 767px) {
+	.img_posts_container {
+		padding: 30px 10px !important;
+		text-align: center;
+	}
+	.img_posts {
+		width: 100%;
+	}
+	.img_content img {
+		height: 75px;
+		width: auto;
+	}
+	
+	.img_wrap {
+		width:315px;
+		margin: 0 auto;
+	} 
+
+	/* profile wrap */
+	.profile_area {
+		width: 100%;
+	}
+	.profile_wrap {
+		max-width: 100%;
+	}
+	.profile_thumb {
+		width: 27px;
+		height: 27px;
+	}
+	.link_profile {
+		line-height: 27px;
+	}
+	/* profile wrap */
+	/* image wrap */
+	.ic-1 .img_content:first-child {
+		
+	}
+	.ic-2 .img_content:first-child {
+		width: 200px;
+		height: 150px;
+	}
+	.ic-2 .img_content:nth-child(2) {
+		width: 100px;
+		height: 150px;
+	}
+	.ic-3 .img_content:first-child {
+		width: 200px;
+		height: 155px;
+	}
+	.ic-3 .img_content:nth-child(2), .ic-3 .img_content:nth-child(3) {
+		width: 100px;
+		height: 75px;
+	}
+	.ic-4 .img_content {
+		width: 150px;
+		height: 112.5px;
+	}
+	.ic-5 .img_content:nth-child(1), .ic-5 .img_content:nth-child(2), .ic-5 .img_content:nth-child(3)
+		{
+		width: 99px;
+		height: 75px;
+	}
+	.ic-5 .img_content:nth-child(4), .ic-5 .img_content:nth-child(5) {
+		width: 151px;
+		height: 112.5px;
+	}
+	/* image wrap */
+}
