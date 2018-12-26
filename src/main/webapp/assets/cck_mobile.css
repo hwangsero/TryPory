@@ -2,31 +2,43 @@
 
 @media only screen and (max-width: 767px) {
 	.header-area .mag-main-menu .login-btn {
-		font-size:13px; /* cck */
+		font-size: 13px; /* cck */
 	}
-	
 	a#site_logo_title {
-		font-size:20px;
+		font-size: 20px;
 	}
-	
 	div#map_info_container {
-		width:80%;
-		top:60px;
+		width: 80%;
+		top: 60px;
 		overflow: scroll;
 	}
 	.single-post-wrap {
 		width: 100%;
 	}
-	
 	.single-trending-tag .post-content .post-cata {
 		font-size: 30px;
 	}
-	
 	#map_info ul li i.fa-map-marker-alt {
-	    margin-right: 29px;
+		margin-right: 29px;
 	}
-	
 	.mag-posts-content {
-	padding: 0px !important;
+		padding: 0px !important;
+	}
+	.header-area .mag-main-menu .top-search-area form input {
+		width: 220px;
+	}
+	.classy-navbar>#site_logo_title {
+		display: none;
+	}
+	.breakpoint-on .classyLogo {
+		display: block;
+	}
+	.classyLogo {
+		position: absolute;
+		height: 70px; line-height : 70px;
+		left: 20px;
+		z-index: 12;
+		display: none;
+		line-height: 70px;
 	}
 }

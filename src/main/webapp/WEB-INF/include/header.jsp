@@ -20,6 +20,10 @@
 	            <div class="nav-content d-flex align-items-center">
 	                <div class="classy-menu">
 	
+	                    <!-- Logo -->
+	                    <div class="classyLogo">
+	                        <a href="${pageContext.request.contextPath}/index.jsp" id="site_logo_title" class="nav-brand">Tripory</a>
+	                    </div>
 	                    <!-- Close Button -->
 	                    <div class="classycloseIcon">
 	                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
