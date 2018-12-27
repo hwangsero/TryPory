@@ -1,28 +1,6 @@
 @charset "UTF-8";
-@media (max-width:466px){
-		.single-trending-post, .single-trending-tag{
-			width:calc(100%);
-		}
+@media only screen and (max-width: 767px) {
 		
-		.login-form-input span:nth-child(1) {
-			padding-left:10px;
-		}
-		
-		.login-form-input span:nth-child(2) {
-			margin-left:10px;
-		}
-		
-		.login-form-h2 h1 {
-			width:100%
-		}
-		
-		input.join-btn {
-			margin-left:22px;
-		}
-		
-		.buttons input {
-		width:170PX
-		}
-				)
-	}
 	
+
+}	

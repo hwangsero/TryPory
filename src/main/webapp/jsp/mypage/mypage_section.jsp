@@ -85,8 +85,8 @@
 					<div class="tab-pane active text-center gallery" id="studio">
 
 						<div class="trending-now-posts mb-30">
-							<div style="margin-bottom: 10px; font-size: 20px">2017/01/02
-								~ 2017/02/03 &nbsp;&nbsp;&nbsp;&nbsp;다이어리제목</div>
+							<span class="d_day">2017/01/02~ 2017/02/03 </span>
+							<div class="d_title">다이어리제목</div>
 							<!-- Section Title -->
 
 							<div class="trending-posts">
@@ -122,9 +122,9 @@
 
 					<div class="tab-pane text-center gallery" id="works">
 						<div class="trending-now-posts mb-30">
-							<div style="margin-bottom: 10px; font-size: 20px">2017/01/02
-								~ 2017/02/03 &nbsp;&nbsp;&nbsp;&nbsp;다이어리제목</div>
 							<!-- Section Title -->
+							<div>다이어리제목</div>
+							<div>2017/01/02~ 2017/02/03 </div>
 
 							<div class="trending-posts">
 								<!--            <div class="trending-post-slides owl-carousel"> -->

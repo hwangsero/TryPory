@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/login.css">
-<link href="${pageContext.request.contextPath}/assets/css/mobile.css" rel="stylesheet">
 <%@ include file="/WEB-INF/include/head.jsp" %>
  <script>
 	function checkForm(){
@@ -21,43 +20,38 @@
 		return true;
 	}	
 </script>
-
-<style>
-@media (max-width:800px){
-		*{
-			width:86%;
-		} 
-	}
-</style>
 </head>
 <body>
 	 <%@ include file="/WEB-INF/include/header.jsp" %>
 		<div class="login-form">
-			<div class="login-form-h2">
-				<h1><a href="<%= request.getContextPath() %>">LOGO</a></h1>
-			</div>
+			<div class="container">
+				<div class="login-form-h2">
+					<h1><a href="<%= request.getContextPath() %>">로그인</a></h1>
+				</div>
 			
-			<form method="post" action="${pageContext.request.contextPath }/login"
-				name="lform" onsubmit="return checkForm()">
-					<div class="login-form-input">
-						<span>Email</span>
-						<span> 
-							<input type="text" size="40" id="email" name="email" placeholder="Email">
-						</span> 
-					</div>
+				<form method="post" action="<%=request.getContextPath()%>/jsp/login/loginProcess.jsp"
+					name="lform" onsubmit="return checkForm()">
+						<div class="login-form-input">
+							<h3>이메일</h3>
+							<span> 
+								<input type="text" size="40" id="email" name="email" placeholder="이메일">
+							</span> 
+						</div>
+							
+						<div class="login-form-input">
+							<h3>비밀번호</h3>
+							<span>
+								<input type="password" size="40" id="password" name="password"  placeholder="비밀번호">
+							</span>
+						</div>
 						
-					<div class="login-form-input">
-						<span>PassWord</span>
-						<span>
-							<input type="password" size="40" id="password" name="password"  placeholder="PassWord">
-						</span>
-					</div>
-					
-					<div class=buttons>
-					 	<input class="join-btn"type="button" value="Join">
-					 	<input class="login-btn" type="submit" value="Login">
-					</div>
-			</form>
+						<div class=buttons>
+						 	<input class="join-btn"type="button" value="회원가입">
+						 	<input class="login-btn" type="submit" value="로그인">
+						</div>
+						
+				</form>
+			</div>
 		</div>
 		<!-- // end login-form -->
 		

@@ -2,9 +2,9 @@
 	pageEncoding="UTF-8"%>
 <section class="mag-posts-area d-flex flex-wrap">
 
-	<div class="img_posts_container mt-30 mb-30 p-30 box-shadow">
+	<div class="img_posts_container mt-30 mb-30 p-30">
 		<div align="center" style="font-size: 20px">
-			<span style="border: 1px solid gray; border-radius: 50px; font-size: 20px">#오사카</span>로 검색한 결과입니다
+			<span class="search_keyword">#오사카</span>로 검색한 결과입니다
 		</div>
 
 		<div class="profile_area">
