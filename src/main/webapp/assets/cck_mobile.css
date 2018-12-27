@@ -1,5 +1,19 @@
 @charset "UTF-8";
 
+.breakpoint-on .classyLogo {
+	display: block;
+}
+
+.classyLogo {
+	position: absolute;
+	height: 70px;
+	line-height: 70px;
+	left: 20px;
+	z-index: 12;
+	display: none;
+	line-height: 70px;
+}
+
 @media only screen and (max-width: 767px) {
 	.header-area .mag-main-menu .login-btn {
 		font-size: 13px; /* cck */
@@ -27,18 +41,7 @@
 	.header-area .mag-main-menu .top-search-area form input {
 		width: 220px;
 	}
-	.classy-navbar>#site_logo_title {
+	.classy-navbar > #site_logo_title {
 		display: none;
-	}
-	.breakpoint-on .classyLogo {
-		display: block;
-	}
-	.classyLogo {
-		position: absolute;
-		height: 70px; line-height : 70px;
-		left: 20px;
-		z-index: 12;
-		display: none;
-		line-height: 70px;
 	}
 }

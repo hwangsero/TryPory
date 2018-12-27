@@ -14,7 +14,7 @@
 	<div id="header_content">
 		<div class="content_top_in">
 			<div class="content_left">
-				<ul class="control_box C">
+				<ul class="control_box C clr">
 					<li><i class="fas fa-image fa-3x"></i><br>
 						<label for="cover_image">커버 사진</label>
 						<input type="file" class="none" id="cover_image">
