@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  <configuration>
+  <typeAliases>
+  	<typeAlias type="kr.co.mlec.diary.DiaryVO" alias="diaryVO"/>
+  	<typeAlias type="kr.co.mlec.notice.NoticeVO" alias="noticeVO"/>
+  	<typeAlias type="kr.co.mlec.login.MemberVO" alias="memberVO"/>
+  </typeAliases>
+  </configuration>

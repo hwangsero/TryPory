@@ -88,11 +88,6 @@
 
 
 		<div class=join-form>
-			<!-- <div class="join-form-head">
-				<h2>Create An Account</h2>
-			</div>//header -->
-
-
 			<div class="container">
 				<div class="join-form-h2">
 					<h1>회원가입</h1>
@@ -101,12 +96,11 @@
 				<form method="post" action="<%=request.getContextPath()%>/index.jsp"
 					onsubmit="return checkData()" name="inputForm">
 
-
 					<!--이메일-->
 					<div class="joinId">
 						<h3>이메일</h3>
 						<span class="mail"> <input type="text" size="20" id="email"
-							name="email_id" placeholder="이메일을 30자 이내로 입력하세요.">
+							name="email" placeholder="이메일을 30자 이내로 입력하세요.">
 						</span> <span class="text">@</span> <span class="mailAddr"> <input
 							type="text" size="20" name="email_domain">
 						</span>
@@ -114,10 +108,10 @@
 
 					<!--Id-->
 					<div>
-						<h3>아이디</h3>
+						<h3>이름</h3>
 						<span> 
-						<input type="text" size="40" id="id"
-							name="id" placeholder="사용할 아이디를 입력하세요">
+						<input type="text" size="40" id="name"
+							name="name" placeholder="이름을 입력하세요">
 						</span>
 					</div>
 
