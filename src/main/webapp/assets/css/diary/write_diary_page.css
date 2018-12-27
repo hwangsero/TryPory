@@ -188,6 +188,7 @@
 	left: -50px;
 	top: 17.5px;
 	position: absolute;
+	z-index:10;
 }
 
 .tool_box {

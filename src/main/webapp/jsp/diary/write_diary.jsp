@@ -67,6 +67,12 @@
 					<div class="img_content">
 						<img class="picture" src="/Travel-Diary/assets/img/bg-img/19.jpg" alt="">
 					</div>
+					<div class="img_content">
+						<img class="picture" src="/Travel-Diary/assets/img/bg-img/19.jpg" alt="">
+					</div>
+					<div class="img_content">
+						<img class="picture" src="/Travel-Diary/assets/img/bg-img/19.jpg" alt="">
+					</div>
 				</div>
 				<textarea class="autosize" placeholder="문단 내에서 줄바꿈을 하려면 shift + enter를 누르세요"></textarea>	
 			</div>
@@ -175,7 +181,7 @@
 					</div>
 				</li>
 				<li>
-					<div>
+					<div class="tag_input">
 						<input type="text" placeholder="원하는 태그를 입력한후 스페이스를 입력하세요">
 					</div>
 				</li>
