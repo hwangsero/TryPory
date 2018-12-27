@@ -23,4 +23,77 @@
 	#input_diary_title {
 		padding-top: 150px;
 	}
+	.content_datebox {
+		left: 0;
+		width: 100px;
+	}
+	.content_datebox::after {
+		content: "";
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 1px;
+		height: 100%;
+		background-color: #000;
+	}
+	.content_box {
+		width: 335px;
+		margin: 0 0 0 auto;
+	}
+	/* comment */
+	.comment_container {
+		width: 100%;
+		margin: 0 auto;
+		padding: 0 10px;
+	}
+	.actionBox {
+		padding: 0;
+	}
+	.actionBox .form-group button.btn {
+		width: 100%;
+		height: 48px;
+		margin-bottom: 15px;
+	}
+}
+
+.ic-1 .img_content:first-child {
+	
+}
+
+.ic-2 .img_content:first-child {
+	width: 220px;
+	height: 150px;
+}
+
+.ic-2 .img_content:last-child {
+	width: 100px;
+	height: 150px;
+}
+
+.ic-3 .img_content:first-child {
+	width: 220px;
+	height: 160px;
+}
+
+.ic-3 .img_content:nth-child(2), .ic-3 .img_content:nth-child(3) {
+	width: 100px;
+	height: 75px;
+}
+
+.ic-4 .img_content {
+	width: 160px;
+	height: 112.5px;
+}
+
+.ic-5 .img_content:nth-child(1), .ic-5 .img_content:nth-child(2), .ic-5 .img_content:nth-child(3)
+	{
+	width: 103px;
+	height: 75px;
+}
+
+.ic-5 .img_content:nth-child(4), .ic-5 .img_content:nth-child(5) {
+	width: 160px;
+	height: 112.5px;
+}
 }
