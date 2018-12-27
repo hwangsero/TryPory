@@ -3,15 +3,30 @@
 /* -------------------회원가입----------------------- */
 .join-form {
     width: 500px;
-    margin: 100px auto;
+    margin: 70px auto;
+}
+
+.join-form-h2 {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #84B1ED ; 
+    padding-bottom: 20px;
+}
+
+.join-form-h2 h1 {
+    font-size: 30px;
+    color: #84B1ED ;
+    font-weight: bold;
+    display: block;
+    text-align: center;	
 }
 
 .join-form h2 {
     text-align: center;
-    font-size: 35px;
+    font-size: 30px;
+    font-weight:bold;
     border-bottom: solid 1px;
-    padding-bottom: 15px;
-    margin-top: 0px;
+    padding: 15px;
+	margin-bottom:40px;
     color: #84B1ED;
     
 }
@@ -21,20 +36,20 @@
 }
 
 .join-form h3 {
-	margin: 19px 0 0 ;
+	margin-bottom:12px;
     font-size: 18px;
     font-weight: 700;
     color: #888;
+  
 }
 
 .join-form span {
-	margin: 19px 0 8px;
+	margin-bottom:20px; 
     display: block;
     width: 100%;
     padding: 10px;
     height: 50px;
     border: 1px solid #dadada;
-    background: #fbfbfb;
     box-sizing: border-box;
     border-radius: 6px;
 }
@@ -46,6 +61,7 @@
     font-size: 14px;
     color: #999;
     background: none;
+
 }
 
 .join-form div:nth-child(1) span {
@@ -125,4 +141,16 @@
 .join-buttons .jbutton {
     background: #84B1ED;
     color: #fff;
+}
+
+
+@media only screen and (max-width: 767px) {
+	
+	.join-form {
+   		 width: 100%;
+   		 padding:0 15px; 
+   		 margin-top:50px;
+	}
+	
+	
 }

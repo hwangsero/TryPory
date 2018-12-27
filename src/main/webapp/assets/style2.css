@@ -62,3 +62,11 @@ a#site_logo_title {
 em {
 	font-style: normal;
 }
+
+.header-area {
+	border-bottom:1px solid #eee; 
+}
+
+body{
+	background-color: #fff;
+}

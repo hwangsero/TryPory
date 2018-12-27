@@ -25,7 +25,7 @@
 		<table class="type2">
 			<thead>
 				<tr>
-					<th scope="cols">글번호</th>
+					<th scope="cols">번호</th>
 					<th scope="cols">제목</th>
 					<th scope="cols">날짜</th>
 				</tr>

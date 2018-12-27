@@ -1,5 +1,14 @@
 @charset "UTF-8";
 
+/* search_keyword */
+.search_keyword {
+	 border: 1px solid gray; 
+	 border-radius: 50px;
+	 font-size:20px; 
+	 padding:5px 15px;
+	 margin-right: 5px; 
+}
+
 .img_posts_container {
 	position: relative;
 	z-index: 1;
