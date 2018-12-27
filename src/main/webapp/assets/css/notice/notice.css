@@ -1,10 +1,13 @@
 @charset "UTF-8";
 
-/*-------------------공지사항 영역에 관련된 그룹들---------------------*/
+/*-------------------공지사항 영역에 관련된 css 그룹들---------------------*/
 
-/*notice-session영역--------------------------------------------------*/
+/*///////////////////////////////////////////////////////
+/////////////////////////공지사항 목록페이지////////////////////
+/////////////////////////////////////////////////////////
+*/
 
-/*전체영역*/
+/*1. 공지사항 전체영역*/
 .Notice-Box {
 	width: 70%;
 	margin: auto;
@@ -12,10 +15,7 @@
 	padding-bottom: 20px;
 }
 
-
-.type1-1 {
-	border-bottom: solid 2px #3e75bd;
-}
+/*2. 공지사항 머리말*/
 
 .type1-1 h1 {
 	font-family: "Poppins", sans-serif;
@@ -24,20 +24,61 @@
 	font-weight: bold;
 }
 
-.type1-2 {
-	margin-top: 10px;
+.type1-1 h2{
+	margin-left: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 0px;
 }
 
+.type1-1 span{
+	color: red;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+/*3. 공지사항 머리말 하단*/
+.type1-2 {
+	padding-bottom: 25px;
+}
+
+/*3-1. 공지사항 전체 조회수*/
 .type1-2 span {
 	font-weight: bold;
+	float: left;
 }
 
-/*검색창 관련 css*/
+/*3-2 공지사항 글쓰기 버튼 관련*/
+/*글쓰기버튼 + 검색창의 h2 속성*/
+.type1-2 h2 {
+	font-size: 17px;
+	color: white;
+}
+
+.notice-write-btn {
+	width: 90px;
+	float: right;
+	background-color: #84B1ED;
+	text-align: center;
+	margin-left: 20px;
+	line-height: 30px;
+}
+
+.notice-write-btn a img {
+	max-width: 20px;
+	vertical-align: middle;
+}
+
+.notice-write-btn a h2 {
+	float: right;
+}
+
+/*3-3 공지사항 검색창 관련 css*/
 .search-box {
 	width: 256px;
+	height: 30px;
 	border: 3px solid #84b1ed;
 	float: right;
-	/* margin: 20px 0px 10px 0px; */
 }
 
 .search-box input {
@@ -46,19 +87,19 @@
 	border: 0px;
 	outline: none;
 	float: left;
-	width: 200px;
-	height: 25px;
+	width: 80%;
+	height: 100%;
 }
 
 .search-box button {
-	height: 25px;
-	width: 50px;
+	height: 100%;
+	width: 20%;
 	border: 0px;
 	background-color: #84B1ED;
 	color: white;
 }
 
-/*테이블 관련 css*/
+/*4. 공지사항 테이블*/
 table.type2 {
 	border-collapse: collapse;
 	text-align: left;
@@ -68,47 +109,57 @@ table.type2 {
 	width: 100%;
 }
 
+/*4-1. 공지사항 테이블  thead*/
 table.type2 thead th {
-	padding: 10px;
+	padding: 3px;
 	font-weight: bold;
 	vertical-align: top;
 	color: #fff;
 	background: #84B1ED;
 	margin: 20px 10px;
 	text-align: center;
-	font-size: 15px;
+	font-size: 20px;
 }
 
+/*4-2 공지사항 테이블 tbody*/
 table.type2 tbody tr {
 	margin: 500px;
-}
-
-table.type2 tbody th {
-	padding: 10px;
-	width: 7%;
-	text-align: center;
-}
-
-table.type2 td {
-	padding: 10px;
-	vertical-align: top;
-	border-left: solid 1px #84b1ed42;
-}
-
-table.type2 td:last-child {
-	width: 10%;
-	text-align: right;
+	font-size: 15px;
 }
 
 table.type2 tbody tr:nth-child(2n) {
 	background: #CADBE9;
 }
 
-/*페이징 번호 관련 css*/
+/*4-3 공지사항 테이블 tbody- 글번호 부분*/
+table.type2 tbody th {
+	padding: 10px;
+	width: 5%;
+	text-align: center;
+}
+
+/*4-4 공지사항 테이블 tbody- 글제목 부분*/
+table.type2 td {
+	padding: 10px;
+	vertical-align: top;
+	border-left: solid 1px #84b1ed42;
+}
+
+table.type2 td a {
+	font-size: 18px;
+}
+
+/*4-5 공지사항 테이블 tbody- 날짜 부분*/
+table.type2 td:last-child {
+	width: 10%;
+	text-align: right;
+}
+
+/*5. 페이징 번호 관련 */
 .paging {
-    padding-bottom: 50px;
-    width: 70%;
-    margin: auto;
+	width: 70%;
+	margin: auto;
+	padding-top: 30px;
 }
 
 .paging ul {
@@ -140,24 +191,225 @@ table.type2 tbody tr:nth-child(2n) {
 	border: 1px solid #60C5BA;
 }
 
-.paging ul li a:hover, .paging ul li a:focus {
+.paging ul li a:hover, ul li a:focus {
 	color: #fff;
 	border: 1px solid #60C5BA;
 	background-color: #60C5BA;
 }
 
-.paging button{
-	
+/*///////////////////////////////////////////////////////
+/////////////////////////공지사항 상세페이지////////////////////
+/////////////////////////////////////////////////////////
+*/
+
+/*1. 공지사항 상세페이지 전체 영역*/
+.notice-detail-container {
+	width: 70%;
+	margin: auto;
+	background-color: #ffffffa3;
+	padding-top: 20px;
+}
+
+/*2. 공지사항 머리말 */
+.notice-detail-type1 {
+	width: 70%;
+	margin: auto;
+	border-bottom: solid 3px #84B1ED;
+	margin-top: 50px;
+}
+
+.notice-detail-type1 h1 {
+	font-family: "Poppins", sans-serif;
+	color: #4076bf;
+	line-height: 1.3;
+	font-weight: 500;
+	font-weight: bold;
+	margin-bottom: 0px;
+}
+
+/* 3.공지사항 머리말 하단부분  */
+.notice-detail-type1-1 {
+	width: 70%;
+	border-bottom: solid 1px #4076bf78;
+	margin: auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	overflow: hidden;
+}
+
+#notice-detail-title {
+	width: 70%;
+	overflow: hidden;
+	vertical-align: middle;
+	float: left;
+	text-align: left;
+	border-left: 0px;
+	font-size: 22px;
+}
+
+.notice-detail-type1-1 h5 {
+	font-size: 15px;
 	float: right;
-    width: 70px;
-    border: 0px;
+	margin-bottom: 0px;
+	padding-right: 10px;
+}
+
+.notice-detail-type1-1 span h3 {
+	float: right;
+	font-size: 15px;
+	margin-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-weight: bold;
+	border-left: solid 2px #8080805c;
+	text-align: center;
+}
+
+.notice-detail-type1-2 {
+	display: none;
+}
+
+/*4. 공지사항 글 상세내용*/
+.notice-detail-type2-2 {
+	width: 70%;
+	margin: auto;
+	margin-top: 20px;
+	padding-bottom: 50px;
+}
+
+.notice-detail-type2-2 p:first-child {
+	font-weight: bold;
+	font-size: 20px;
+	line-height: inherit;
+}
+
+.notice-detail-type2-2 p:last-child {
+	
+}
+
+/*5. 이전, 다음, 목록 버튼*/
+.notice-buttons {
+	margin-top: 20px;
+	text-align: center;
+	padding-bottom: 100px;
+}
+
+.notice-buttons input {
+	padding-left: 15px;
+	padding-right: 15px;
+	color: #4076bf;
+	height: 25px;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	background-color: #008b8b00;
+	border: 0px;
+}
+
+.notice-buttons input:nth-child(2) {
+	border-left: solid 2px #4076bf8f;
+	border-right: solid 2px #4076bf8f;
+}
+
+/*///////////////////////////////////////////////////////
+/////////////////////////공지사항 글쓰기 페이지////////////////////
+/////////////////////////////////////////////////////////
+*/
+
+/*1. 공지사항 글 등록 전체영역*/
+.notice-write-container {
+	width: 70%;
+	margin: auto;
+	background-color: #ffffffa3;
+	padding-top: 20px;
+	padding-bottom: 50px;
+	text-align: center;
+}
+/*2.공지사항 글 등록 페이지 머리말*/
+.notice-write-type1 {
+	width: 70%;
+	margin: auto;
+	margin-top: 50px;
+	background-color: #84B1ED;
+	padding: 20px;
+}
+
+.notice-write-type1 h1 {
+	font-family: "Poppins", sans-serif;
+	color: white;
+	line-height: 1.3;
+	font-weight: 500;
+	font-weight: bold;
+	margin-bottom: 0px;
+}
+
+/*3. 공지사항 글 등록 폼 */
+.notice-write-type2 {
+	width: 70%;
+	margin: auto;
+	padding: 30px 20px;
+	background-color: #84b1ed17;
+}
+
+.notice-write-type2 form {
+	width: 100%;
+}
+
+.notice-write-type2 h2 {
+	font-size: 20px;
+	margin: 0px;
+	padding: 5px;
+}
+
+.notice-write-type2-1 div {
+	text-align: left;
+	margin-bottom: 20px;
+	border-top: solid 3px #80ACE6;
+	border-bottom: solid 1px #80ACE6;
+}
+
+.notice-write-type2-2 div {
+	text-align: left;
+	background-color: #80ACE6;
+}
+
+.notice-write-type2-2 h2{
+	color: white;
+}
+
+.notice-write-type2-2 input{
+	width: 100%;
     height: 30px;
-    background-color: #60C5BA;
-    color: white;
-    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.notice-write-type2-2 textarea {
+	overflow: auto;
+	resize: vertical;
+	width: 100%;
+	height: 300px;
+}
+
+/*4. 공지사항 글등록 버튼 */
+.notice-write-type2-btn {
+	overflow: hidden;
+	margin-top: 20px;
+	text-align: center;
+	border: 0px;
+}
+
+.notice-write-type2-btn input {
+	padding: 10px 15px;
+	border: 2px solid #4076bf;
+	background: #fff;
+	color: #4076bf;
+	width: 160px;
+	height: 50px;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
 }
 
 footer {
 	clear: both;
 }
-
