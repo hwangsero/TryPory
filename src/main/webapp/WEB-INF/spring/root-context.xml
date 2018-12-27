@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		<context:annotation-config/><!--  응용 프로그램 컨텍스트에 이미 등록 된 bean의 주석을 활성화하는 데 사용됩니다 -->
+		<context:component-scan base-package="kr.co.mlec"></context:component-scan>
+		<!-- context:component-scan   또한 같은일을 할수있는데, 추가적으로 어플리케이션 컨텍스트에 빈을 등록하기위한 패키지들을 스캔한다. 
+		context:annotation-config 은 빈을 등록하기위해 검색할수없다.  
+		따라서 <context:component-scan> 를 선언했다면 <context:annotation-config>를 선언할필요가 없다는것이다. -->
+
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+	<constructor-arg ref="hikariConfig" />
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+</beans>
