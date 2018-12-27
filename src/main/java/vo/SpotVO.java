@@ -1,10 +1,10 @@
 package vo;
 
-public class D_SpotVO {
+public class SpotVO {
 
 	private int no;
 	private String country;
-	private String spot_name;
+	private String spotName;
 	private String addr;
 	private int count;
 	public int getNo() {
@@ -19,11 +19,11 @@ public class D_SpotVO {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	public String getSpot_name() {
-		return spot_name;
+	public String getSpotName() {
+		return spotName;
 	}
-	public void setSpot_name(String spot_name) {
-		this.spot_name = spot_name;
+	public void setSpotName(String spotName) {
+		this.spotName = spotName;
 	}
 	public String getAddr() {
 		return addr;
@@ -41,11 +41,9 @@ public class D_SpotVO {
 	
 	@Override
 	public String toString() {
-		return "D_SpotVO [no=" + no + ", country=" + country + ", spot_name=" + spot_name + ", addr=" + addr
-				+ ", count=" + count + "]";
+		return "SpotVO [no=" + no + ", country=" + country + ", spotName=" + spotName + ", addr=" + addr + ", count="
+				+ count + "]";
 	}
-	
-	
 	
 	
 	
