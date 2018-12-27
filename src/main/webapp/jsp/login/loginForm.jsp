@@ -37,7 +37,7 @@
 				<h1><a href="<%= request.getContextPath() %>">LOGO</a></h1>
 			</div>
 			
-			<form method="post" action="<%=request.getContextPath()%>/jsp/login/loginProcess.jsp"
+			<form method="post" action="${pageContext.request.contextPath }/login"
 				name="lform" onsubmit="return checkForm()">
 					<div class="login-form-input">
 						<span>Email</span>

@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+ <script>
+ 	$(document).ready(function(){
+ 		$("form[name=search]").submit(function(event){
+ 			event.preventDefault();
+ 			var tag = $("#topSearch").val();
+ 			location.href='${pageContext.request.contextPath}/diary/search/' + tag;
+ 		});
+ 	})
+</script> 
 <header class="header-area">
 	<!-- Navbar Area -->
 	<div class="mag-main-menu" id="sticker">
@@ -32,9 +42,9 @@
 	                    <!-- Nav Start -->
 	                    <div class="classynav">
 	                        <ul>
-	                            <li><a href="${pageContext.request.contextPath}/jsp/diary/my_map.jsp">나의 여행지도</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/jsp/diary/diaryList.jsp">다이어리 목록</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/jsp/notice/noticeList.jsp">공지사항</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/diary/my_map.jsp">나의 여행지도</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/diary">다이어리 목록</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/notice/1">공지사항</a></li>
 	                        </ul>
 	                    </div>
 	                    <!-- Nav End -->
@@ -43,12 +53,12 @@
 	                <div class="top-meta-data d-flex align-items-center">
 	                    <!-- Top Search Area -->
 	                    <div class="top-search-area">
-	                        <form action="index.html" method="post">
+	                         <form action="${pageContext.request.contextPath }/jsp/diary/search/" name="search"> 
 	                            <input type="search" name="top-search" id="topSearch" placeholder="#바다 #여행">
-	                            <button type="submit" class="btn">
+	                            <button onclick="search()" class="btn">
 	                            <i class="fa fa-search" aria-hidden="true"></i>
 	                            </button>
-	                        </form>
+	                         </form> 
 	                    </div>
 	                    <c:if test="${sessionScope.login_id eq 'admin' }">
 	                     <a href="${pageContext.request.contextPath}/jsp/login/logoutProcess.jsp" class="login-btn">
@@ -58,12 +68,12 @@
 	                    	관리자페이지
 	                    </a>
 	                    </c:if>
-	                    
+	                    ${ userVO }
 	                    <c:if test="${empty sessionScope.login_id }">
-	                     <a href="${pageContext.request.contextPath}/jsp/login/loginForm.jsp" class="login-btn">
+	                     <a href="${pageContext.request.contextPath}/login" class="login-btn">
 	                    	로그인
 	                    </a>
-	                     <a href="${pageContext.request.contextPath}/jsp/join/joinForm.jsp" class="login-btn">
+	                     <a href="${pageContext.request.contextPath}/join" class="login-btn">
 	                    	회원가입
 	                    </a>
 	                    </c:if>
@@ -77,7 +87,7 @@
 	                    </a>
 	                    </c:if>
 	                    
-	                    <a href="${pageContext.request.contextPath}/jsp/diary/write_diary_page.jsp" class="submit-video"><span>
+	                    <a href="${pageContext.request.contextPath }/diary/writeForm" class="submit-video"><span>
 	                    	<i class="far fa-edit"></i>
 	                    </span> <span class="video-text">다이어리 등록</span></a>
                     </div>
