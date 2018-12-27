@@ -88,11 +88,6 @@
 
 
 		<div class=join-form>
-			<!-- <div class="join-form-head">
-				<h2>Create An Account</h2>
-			</div>//header -->
-
-
 			<div class="container">
 				<div class="join-form-h2">
 					<h1>회원가입</h1>
@@ -100,8 +95,6 @@
 			
 				<form method="post" action="<%=request.getContextPath()%>/index.jsp"
 					onsubmit="return checkData()" name="inputForm">
-
-
 					<!--이메일-->
 					<div class="joinId">
 						<h3>이메일</h3>
