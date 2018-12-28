@@ -95,7 +95,6 @@
 			
 				<form method="post" action="<%=request.getContextPath()%>/index.jsp"
 					onsubmit="return checkData()" name="inputForm">
-
 					<!--이메일-->
 					<div class="joinId">
 						<h3>이메일</h3>

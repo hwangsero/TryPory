@@ -9,11 +9,14 @@
 		<result column="register_date" property="registerDate"/>
 	</resultMap>
 	
-	<select id="selectAllNotice" resultMap="noticeMap">
-		select *
-		from D_notice
+	<select id="selectAllNotice" resultMap="noticeMap" parameterType="hashmap">
+		<![CDATA[
+		select no, title, content, view_cnt, to_char(register_date, 'yyyy-mm-dd') as register_date
+		from (select rownum r, b.* from( select a.* from d_notice a order by no desc) b )
+		where r>= #{start} and r <= #{end}
+		]]>
 	</select>
-	
+
 	
 
 
