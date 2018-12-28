@@ -61,6 +61,34 @@
 	top: 0;
 	left: 0;
 }
+
+.img_snsBtn span{
+	
+	font-size: 18px; 
+	margin-right:25px; 
+	line-height:28px;
+/* 	display:inline-block;  */
+	color:#999;
+}
+
+.img_snsBtn {	
+	margin: 20px 0; 
+	width: 100%; 
+	height: auto;
+	padding-bottom:40px; 
+	border-bottom: 1px solid #eee; 
+}
+
+.img_snsBtn i {
+	margin: 0 10px ; 
+	color:#999;
+}
+
+.img_snsBtn .fa-heart {
+	color: #F6A7A3;
+}
+
+
 /* profile wrap */
 .profile_area {
 	width: 630px;
