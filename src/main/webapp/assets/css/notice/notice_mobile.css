@@ -7,29 +7,27 @@
 */
 	/*1. 공지사항 전체영역*/
 	.Notice-Box {
-		width: 90%;
+		width: 100%;
 	}
 	/*2. 공지사항 머리말*/
-	.type1-1 h1 {
+	.type1 h1 {
 		font-size: 30px;
 	}
 
 	/*3. 공지사항 머리말 하단*/
-	.type1-2 {
+	.type2 {
 		overflow: hidden;
 		padding-bottom: 0px;
+		margin-top: 40px;
+		padding-left: 5px;
+		padding-right: 5px;
 	}
 
 	/*3-3 공지사항 검색창 관련 css*/
 	.search-box {
 		width: 80%;
-		margin: auto;
-		margin-top: 40px;
-		float: none;
-		text-align: center;
 	}
 	.search-box input {
-		margin: center;
 		margin: 0px;
 		padding: 0px;
 	}
@@ -38,8 +36,16 @@
 		margin: 0px;
 	}
 
+	/* 3-4 공지사항 검색옵션 관련 css */
+	.type2 select {
+		width: 20%;
+		float: left;
+		margin: 0px;
+		border-right: 0px;
+	}
+
 	/*4-1. 공지사항 테이블  thead*/
-	table.type2 thead th {
+	table.type3 thead th {
 		padding: 5px;
 		font-size: 15px;
 	}
@@ -103,18 +109,17 @@
 	/*1. 공지사항 글 등록 전체영역*/
 	.notice-write-container {
 		width: 100%;
-		padding:0px;
+		padding: 0px;
 	}
-	
+
 	/*2.공지사항 글 등록 페이지 머리말*/
-	.notice-write-type1{
+	.notice-write-type1 {
 		width: 100%;
-    	 margin-top: 0px;
+		margin-top: 0px;
 	}
-	
+
 	/*3. 공지사항 글 등록 폼 */
-	.notice-write-type2{
-		width:100%;
+	.notice-write-type2 {
+		width: 100%;
 	}
-	
 }
