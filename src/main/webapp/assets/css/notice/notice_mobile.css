@@ -7,7 +7,7 @@
 */
 	/*1. 공지사항 전체영역*/
 	.Notice-Box {
-		width: 100%;
+		width: 90%;
 	}
 	/*2. 공지사항 머리말*/
 	.type1 h1 {
@@ -45,18 +45,24 @@
 	}
 
 	/*4. 공지사항 테이블  */
+	table.type3 thead {
+		border-top: solid 2px #6a94cc;
+	}
 	table.type3 thead th {
 		padding: 5px;
 		font-size: 15px;
+	}
+	table.type3 thead th:last-child {
+		width: 15%;
+	}
+	table.type3 tbody {
+		border-bottom: solid 2px #84B1ED;
 	}
 	table.type3 tbody th {
 		width: 10%;
 	}
 	table.type3 td a {
 		font-size: 15px;
-	}
-	table.type3 thead th:last-child {
-		width: 15%;
 	}
 
 	/*///////////////////////////////////////////////////////
@@ -66,17 +72,14 @@
 
 	/*1. 공지사항 상세페이지 전체영역*/
 	.notice-detail-container {
-		width: 100%;
+		width: 90%;
 	}
 
 	/*2. 공지사항 머리말*/
 	.notice-detail-type1 {
 		width: 100%;
-		background-color: #84B1ED;
 	}
 	.notice-detail-type1 h1 {
-		color: #ffffff;
-		padding-left: 10px;
 		font-size: 35px;
 		padding-top: 5px;
 		padding-bottom: 5px;
@@ -109,6 +112,11 @@
 		padding-left: 10px;
 		padding-top: 5px;
 	}
+	
+	/*4. 공지사항 글 상세내용*/
+	.notice-detail-type2-2{
+		width:100%;
+	}
 
 	/*///////////////////////////////////////////////////////
 /////////////////////////공지사항 글쓰기 페이지////////////////////
@@ -117,14 +125,14 @@
 
 	/*1. 공지사항 글 등록 전체영역*/
 	.notice-write-container {
-		width: 100%;
+		width: 90%;
 		padding: 0px;
 	}
 
 	/*2.공지사항 글 등록 페이지 머리말*/
 	.notice-write-type1 {
 		width: 100%;
-		margin-top: 0px;
+		/* 	margin-top: 0px; */
 	}
 
 	/*3. 공지사항 글 등록 폼 */

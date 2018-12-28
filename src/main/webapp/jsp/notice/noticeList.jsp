@@ -68,11 +68,11 @@
 			<tbody>
 				<tr>
 					<th scope="row">1</th>
-					<td><a
+					<td id="type3-tbody-title"><a
 						href="<%=request.getContextPath()%>/jsp/notice/notice-detail.jsp">내용이
 							들어갑니다.</a></td>
 					<td>2018/12/20</td>
-					<td></td>
+					<td>2</td>
 				</tr>
 
 				<tr>
