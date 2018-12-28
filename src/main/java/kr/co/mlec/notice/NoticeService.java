@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class NoticeService {
+public class NoticeService implements NoticeServiceInter {
 	
 	@Autowired
 	private NoticeDAO noticeDAO;
@@ -20,6 +20,10 @@ public class NoticeService {
 		pageMap.put("start", start);
 		pageMap.put("end", end);
 		return noticeDAO.selectAllNotice(pageMap);
+	}
+	
+	public void insertNotice(NoticeVO noticeVO) {
+		noticeDAO.insertNotice(noticeVO);
 	}
 
 }
