@@ -24,8 +24,8 @@
 			<h1>공지사항 등록</h1>
 		</div>
 		<!--END 2. 공지사항 글 등록 페이지 머리말-->
-
 		<!--3. 공지사항 글 등록 폼 -->
+		
 		<div class="notice-write-type2">
 			<form method="post"
 				action="<%= request.getContextPath() %>/board/write.do?proNo=${ param.proNo }&type=${ param.type }"
