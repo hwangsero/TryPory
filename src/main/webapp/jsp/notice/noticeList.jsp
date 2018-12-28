@@ -61,7 +61,6 @@
 				<tr>
 					<th scope="cols">번호</th>
 					<th scope="cols">제목</th>
-					<th scope="cols">첨부</th>
 					<th scope="cols">등록일</th>
 					<th scope="cols">조회수</th>
 				</tr>
@@ -74,7 +73,6 @@
 							들어갑니다.</a></td>
 					<td>2018/12/20</td>
 					<td></td>
-					<td></td>
 				</tr>
 
 				<tr>
@@ -84,7 +82,6 @@
 							들어갑니다.</a></td>
 					<td>2018/12/20</td>
 					<td></td>
-					<td></td>
 				</tr>
 				<tr>
 					<th scope="row">3</th>
@@ -92,7 +89,6 @@
 						href="<%=request.getContextPath()%>/jsp/notice/notice-detail.jsp">내용이
 							들어갑니다.</a></td>
 					<td>2018/12/20</td>
-					<td></td>
 					<td></td>
 				</tr>
 
@@ -102,7 +98,6 @@
 						href="<%=request.getContextPath()%>/jsp/notice/notice-detail.jsp">내용이
 							들어갑니다.</a></td>
 					<td>2018/12/20</td>
-					<td></td>
 					<td></td>
 				</tr>
 			</tbody>
@@ -114,9 +109,9 @@
 		<div class="paging">
 			<ul>
 			
-				<c:forEach begin="${pageNo / 5}" end="" var="">
+			<%-- 	<c:forEach begin="${pageNo / 5}" end="" var="">
 				<li><a href="#">1</a></li>
-				</c:forEach>
+				</c:forEach> --%>
 			</ul>
 		</div>
 		<!--END 5. 페이징 번호 관련 -->
