@@ -64,19 +64,19 @@
 
 .img_snsBtn span{
 	
-	font-size: 18px; 
+	font-size: 16px; 
 	margin-right:25px; 
 	line-height:28px;
-/* 	display:inline-block;  */
-	color:#999;
+	display:inline-block; 
+	color:#555;
 }
 
 .img_snsBtn {	
 	margin: 20px 0; 
 	width: 100%; 
 	height: auto;
-	padding-bottom:40px; 
-	border-bottom: 1px solid #eee; 
+/* 	padding-bottom:40px;  */
+/* 	border-bottom: 1px solid #eee;  */
 }
 
 .img_snsBtn i {
@@ -94,6 +94,9 @@
 	width: 630px;
 	margin: 0 auto;
 	line-height: 1.2;
+	border-top: 1px solid #eee;
+	margin-top:40px;
+	padding-top:10px;
 }
 
 .profile_wrap {
