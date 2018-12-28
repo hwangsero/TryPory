@@ -57,6 +57,13 @@
 					</div>
 				</div>
 			</div>
+			
+			<div class="img_snsBtn">
+				<i class="far fa-heart fa-2x"></i>
+				<span>30</span>
+				<i class="far fa-comment-dots fa-2x"></i>
+				<span>5</span>
+			</div>
 		</div>
 		
 		<div class="profile_area">
