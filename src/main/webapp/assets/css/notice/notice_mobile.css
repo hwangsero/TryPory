@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+@media screen and (max-width : 767px) {
+	/*///////////////////////////////////////////////////////
+/////////////////////////공지사항 목록페이지////////////////////
+/////////////////////////////////////////////////////////
+*/
+	/*1. 공지사항 전체영역*/
+	.Notice-Box {
+		width: 100%;
+	}
+	/*2. 공지사항 머리말*/
+	.type1 h1 {
+		font-size: 30px;
+	}
+
+	/*3. 공지사항 머리말 하단*/
+	.type2 {
+		overflow: hidden;
+		padding-bottom: 0px;
+		margin-top: 40px;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+
+	/*3-3 공지사항 검색창 관련 css*/
+	.search-box {
+		width: 80%;
+	}
+	.search-box input {
+		margin: 0px;
+		padding: 0px;
+	}
+	.search-box button {
+		padding: 0px;
+		margin: 0px;
+	}
+
+	/* 3-4 공지사항 검색옵션 관련 css */
+	.type2 select {
+		width: 20%;
+		float: left;
+		margin: 0px;
+		border-right: 0px;
+	}
+
+	/*4-1. 공지사항 테이블  thead*/
+	table.type3 thead th {
+		padding: 5px;
+		font-size: 15px;
+	}
+
+	/*///////////////////////////////////////////////////////
+/////////////////////////공지사항 상세페이지////////////////////
+/////////////////////////////////////////////////////////
+*/
+
+	/*1. 공지사항 상세페이지 전체영역*/
+	.notice-detail-container {
+		width: 100%;
+	}
+
+	/*2. 공지사항 머리말*/
+	.notice-detail-type1 {
+		width: 100%;
+		background-color: #84B1ED;
+	}
+	.notice-detail-type1 h1 {
+		color: #ffffff;
+		padding-left: 10px;
+		font-size: 35px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+
+	/*3. 공지사항 머리말 하단부분*/
+	.notice-detail-type1-1 {
+		width: 100%;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	#notice-detail-title {
+		display: inline;
+		font-size: 20px;
+	}
+	.notice-detail-type1-1 h5 {
+		display: inline;
+	}
+	.notice-detail-type1-1 span h3 {
+		display: none;
+	}
+	.notice-detail-type1-2 {
+		display: block;
+		overflow: hidden;
+	}
+	.notice-detail-type1-2 span a img {
+		width: 40px;
+		float: right;
+		padding-right: 10px;
+		padding-left: 10px;
+		padding-top: 5px;
+	}
+
+	/*///////////////////////////////////////////////////////
+/////////////////////////공지사항 글쓰기 페이지////////////////////
+/////////////////////////////////////////////////////////
+*/
+
+	/*1. 공지사항 글 등록 전체영역*/
+	.notice-write-container {
+		width: 100%;
+		padding: 0px;
+	}
+
+	/*2.공지사항 글 등록 페이지 머리말*/
+	.notice-write-type1 {
+		width: 100%;
+		margin-top: 0px;
+	}
+
+	/*3. 공지사항 글 등록 폼 */
+	.notice-write-type2 {
+		width: 100%;
+	}
+}
