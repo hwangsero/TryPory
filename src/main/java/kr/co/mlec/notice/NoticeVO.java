@@ -3,6 +3,7 @@ package kr.co.mlec.notice;
 public class NoticeVO {
 	private int no;
 	private String title;
+	private String writer;
 	private String content;
 	private int viewCnt;
 	private String registerDate;
@@ -12,10 +13,11 @@ public class NoticeVO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public NoticeVO(int no, String title, String content, int viewCnt, String registerDate) {
+	public NoticeVO(int no, String title, String writer, String content, int viewCnt, String registerDate) {
 		super();
 		this.no = no;
 		this.title = title;
+		this.writer = writer;
 		this.content = content;
 		this.viewCnt = viewCnt;
 		this.registerDate = registerDate;
@@ -35,6 +37,14 @@ public class NoticeVO {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getWriter() {
+		return writer;
+	}
+
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 
 	public String getContent() {
@@ -63,10 +73,10 @@ public class NoticeVO {
 
 	@Override
 	public String toString() {
-		return "NoticeVO [no=" + no + ", title=" + title + ", content=" + content + ", viewCnt=" + viewCnt
-				+ ", registerDate=" + registerDate + "]";
+		return "NoticeVO [no=" + no + ", title=" + title + ", writer=" + writer + ", content=" + content + ", viewCnt="
+				+ viewCnt + ", registerDate=" + registerDate + "]";
 	}
-	
+
 	
 	
 }

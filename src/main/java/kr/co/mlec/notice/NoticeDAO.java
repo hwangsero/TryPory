@@ -18,4 +18,9 @@ public class NoticeDAO implements NoticeDAOInter{
 		return sqlSession.selectList("kr.co.mlec.notice.selectAllNotice",pageMap);
 	}
 
+	@Override
+	public void insertNotice(NoticeVO noticeVO) {
+		sqlSession.insert("kr.co.mlec.notice.insertNotice", noticeVO);
+	}
+
 }

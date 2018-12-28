@@ -16,8 +16,10 @@
 		where r>= #{start} and r <= #{end}
 		]]>
 	</select>
-
 	
-
+	<insert id="insertNotice" parameterType="noticeVO">
+		insert into d_notice(no, title, content, writer)
+		values(d_notice_seq.nextval, #{title}, #{content}, '1')
+	</insert>
 
 </mapper>

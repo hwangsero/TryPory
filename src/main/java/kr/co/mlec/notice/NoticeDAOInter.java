@@ -6,5 +6,5 @@ import java.util.Map;
 public interface NoticeDAOInter {
 	
 	public List<NoticeVO> selectAllNotice(Map<String, Integer> pageMap); 
-
+	public void insertNotice(NoticeVO noticeVO);
 }
