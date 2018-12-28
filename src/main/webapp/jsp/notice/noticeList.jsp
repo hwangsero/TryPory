@@ -19,42 +19,51 @@
 	<!-- 1. 공지사항 전체영역 -->
 	<div class="Notice-Box">
 		<!--2. 공지사항 머리말-->
-		<div class="type1-1">
+		<div class="type1">
 			<h1>공지사항</h1>
-			<h2>
-				전체<span>3</span>건
-			</h2>
+			<div class="type1-1">
+				<h2>
+					전체<span>3</span>건
+				</h2>
+				<div class="type1-2">
+					<a href="<%=request.getContextPath()%>/jsp/notice/notice-write.jsp">
+						<img
+						src="<%=request.getContextPath()%>/assets/img/notice-img/notice_write_button-01.png">
+						<h2>글쓰기</h2>
+					</a>
+				</div>
+			</div>
 		</div>
+
 		<!--END 2. 공지사항 머리말  -->
 
 		<!--3. 공지사항 머리말 하단-->
-		<div class="type1-2">
+		<div class="type2">
+				<div class="search-box">
+					<input type="text" placeholder="검색어 입력">
+					<button>
+						<h2>검색</h2>
+					</button>
+				</div>
 
-			<div class="notice-write-btn">
-				<a href="<%=request.getContextPath()%>/jsp/notice/notice-write.jsp">
-					<img
-					src="<%=request.getContextPath()%>/assets/img/notice-img/notice_write_button-01.png">
-					<h2>글쓰기</h2>
-				</a>
-			</div>
-
-
-			<div class="search-box">
-				<input type="text" placeholder="검색어 입력">
-				<button>
-					<h2>검색</h2>
-				</button>
-			</div>
+				<select name="notice-search">
+					<option value="">전체</option>
+					<option value="">작성자</option>
+					<option value="">제목</option>
+					<option value="">내용</option>
+				</select>
 		</div>
 		<!--END 3.공지사항 머리말 하단-->
 
 		<!--4. 공지사항 테이블 -->
-		<table class="type2">
+		<table class="type3">
 			<thead>
 				<tr>
 					<th scope="cols">번호</th>
 					<th scope="cols">제목</th>
-					<th scope="cols">날짜</th>
+					<th scope="cols">첨부</th>
+					<th scope="cols">등록일</th>
+					<th scope="cols">조회수</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -64,6 +73,8 @@
 						href="<%=request.getContextPath()%>/jsp/notice/notice-detail.jsp">내용이
 							들어갑니다.</a></td>
 					<td>2018/12/20</td>
+					<td></td>
+					<td></td>
 				</tr>
 
 				<tr>
@@ -72,6 +83,8 @@
 						href="<%=request.getContextPath()%>/jsp/notice/notice-detail.jsp">내용이
 							들어갑니다.</a></td>
 					<td>2018/12/20</td>
+					<td></td>
+					<td></td>
 				</tr>
 				<tr>
 					<th scope="row">3</th>
@@ -79,6 +92,8 @@
 						href="<%=request.getContextPath()%>/jsp/notice/notice-detail.jsp">내용이
 							들어갑니다.</a></td>
 					<td>2018/12/20</td>
+					<td></td>
+					<td></td>
 				</tr>
 
 				<tr>
@@ -87,6 +102,8 @@
 						href="<%=request.getContextPath()%>/jsp/notice/notice-detail.jsp">내용이
 							들어갑니다.</a></td>
 					<td>2018/12/20</td>
+					<td></td>
+					<td></td>
 				</tr>
 			</tbody>
 		</table>
