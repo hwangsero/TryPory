@@ -24,11 +24,11 @@
 			<h1>공지사항 등록</h1>
 		</div>
 		<!--END 2. 공지사항 글 등록 페이지 머리말-->
-
 		<!--3. 공지사항 글 등록 폼 -->
+		
 		<div class="notice-write-type2">
 			<form method="post"
-				action="<%= request.getContextPath() %>/board/write.do?proNo=${ param.proNo }&type=${ param.type }"
+				action="${pageContext.request.contextPath }/notice/write"
 				onsubmit="return checkForm()" name="wForm" class="write_form">
 				<div class="notice-write-type2-1">
 					<div class="notice-write-type2-1_date">
@@ -46,18 +46,18 @@
 					<div class="notice-write-type2-2_title">
 						<h2>제목을 입력하세요</h2>
 					</div>
-					<input></input>
+					<input name="title"></input>
 
 					<div class="notice-write-type2-2_context">
 						<h2>내용을 입력하세요</h2>
 					</div>
-					<textarea></textarea>
+					<textarea name="content"></textarea>
 				</div>
 
 				<!--4. 공지사항 글등록 버튼 -->
 				<div class="notice-write-type2-btn">
-					<input type="button" value="초기화" onclick="history.go(-1)">
 					<input type="submit" value="등록">
+					<input type="button" value="초기화" onclick="history.go(-1)">
 				</div>
 				<!--END 4. 공지사항 글등록 버튼 -->
 			</form>
