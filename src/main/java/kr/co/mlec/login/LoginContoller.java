@@ -1,13 +1,13 @@
 package kr.co.mlec.login;
 
-import javax.validation.Valid;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -21,22 +21,21 @@ public class LoginContoller {
 		return "login/loginForm";
 	}
 	
+	@ResponseBody
 	@PostMapping("/login")
-	public ModelAndView login(MemberVO member, Model model) {
-		
+	public String login(MemberVO member, HttpSession session) {
+		System.out.println("로그인");
 		ModelAndView mav = new ModelAndView();
 		MemberVO userVO = loginService.loginMember(member);
-		
+		String loginMsg;
 		if(userVO == null) {
-			String loginMsg = "로그인에 실패했습니다";
-			model.addAttribute(loginMsg);
+			loginMsg = "로그인에 실패했습니다";
 		} else {
-			mav.addObject("userVO", userVO);
 			System.out.println(userVO);
+			loginMsg = "로그인에 성공했습니다";
+			session.setAttribute("userVO", userVO);
 		}
-		mav.setViewName("redirect:/index.jsp");
-		
-		return mav;
+		return loginMsg;
 	}
 	
 	@GetMapping("/join")
