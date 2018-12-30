@@ -11,8 +11,22 @@
     http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<context:component-scan base-package="kr.co.mlec" />
-    <mvc:annotation-driven/>
-    
+	
+<!-- ajax 한글 -->    
+    <mvc:annotation-driven>
+         <!-- messageConvertert -->
+         <mvc:message-converters>
+                  <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                           <property name="supportedMediaTypes">
+                                   <list>
+                                            <value>text/html; charset=UTF-8</value>
+                                   </list>
+                           </property>
+                  </bean>
+         </mvc:message-converters>
+</mvc:annotation-driven>
+
+
      <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
     	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
     	<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />

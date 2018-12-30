@@ -11,8 +11,8 @@
 	
 	function checkData() {
 		var f = document.inputForm;
-//이메일		
-		if(f.email_id.value.length == 0 ) {
+//이메일	
+		if(f.email.value.length == 0 ) {
 			alert('이메일을 입력하세요.');
 			f.email.focus();
 			return false;
@@ -20,12 +20,7 @@
 		
 		if(f.email_domain.value.length == 0 ) {
 			alert('이메일 형식을 다 채워주세요');
-			f.email.focus();
-			return false;
-		}
-		
-		if(f.email_id.value.length > 31 ) {
-			alert('이메일을 30자 이내로 입력하세요.');
+			f.email_domain.focus();
 			return false;
 		}
 		
@@ -48,9 +43,6 @@
 			alert('비밀번호가 다릅니다. 다시 입력해주세요.');
 			return false;
 		}
-		
-	 
-		
 //핸드폰		
 		if(f.tel1.value.length == 0 ) {
 			alert('핸드폰 첫 번호를 입력하세요.');
@@ -92,7 +84,6 @@
 				<div class="join-form-h2">
 					<h1>회원가입</h1>
 				</div>
-			
 				
 				<form method="post" action="${pageContext.request.contextPath }/join"
 					onsubmit="return checkData()" name="inputForm">
