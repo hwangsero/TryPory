@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.mag-posts-area{
+.diary_container{
 	width:640px; 
 	margin:0 auto; 
 }
@@ -70,11 +70,6 @@
     display: block;
     font-size: 30px;
     width:50%;
-}
-
-.container {
-	width:640px;
-	padding:0; 
 }
 
 /*option*/
