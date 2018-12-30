@@ -35,7 +35,7 @@
 				},
 				success : function ( msg ){
 					alert(msg);
-					location.href="${request.getContextPath()}";
+					location.href="<%= request.getContextPath() %>";
 				}
 			});
 		});

@@ -60,7 +60,7 @@
 	                            </button>
 	                         </form> 
 	                    </div>
-	                    <c:if test="${sessionScope.login_id eq 'admin' }">
+	                    <c:if test="${userVO.email eq 'admin' }">
 	                     <a href="${pageContext.request.contextPath}/jsp/login/logoutProcess.jsp" class="login-btn">
 	                    	로그아웃
 	                    </a>
@@ -68,8 +68,7 @@
 	                    	관리자페이지
 	                    </a>
 	                    </c:if>
-	                    ${ userVO }
-	                    <c:if test="${empty sessionScope.login_id }">
+	                    <c:if test="${empty userVO }">
 	                     <a href="${pageContext.request.contextPath}/login" class="login-btn">
 	                    	로그인
 	                    </a>
@@ -77,8 +76,7 @@
 	                    	회원가입
 	                    </a>
 	                    </c:if>
-	                    
-						<c:if test="${not empty sessionScope.login_id and sessionScope.login_id ne 'admin'}">
+						<c:if test="${not empty userVO and userVO.email ne 'admin'}">
 	                     <a href="${pageContext.request.contextPath}/jsp/login/logoutProcess.jsp" class="login-btn">
 	                    	로그아웃
 	                    </a>
