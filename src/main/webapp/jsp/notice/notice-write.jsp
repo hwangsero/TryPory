@@ -30,25 +30,16 @@
 			<form method="post"
 				action="${pageContext.request.contextPath }/notice/write"
 				onsubmit="return checkForm()" name="wForm" class="write_form">
+				
+
 				<div class="notice-write-type2-1">
-					<div class="notice-write-type2-1_date">
-						<h2>현재 날짜로 입력됩니다.</h2>
-					</div>
 
-					<div class="notice-write-type2-1_writer">
-						<span><h2>작성자</h2></span>
-					</div>
-
-				</div>
-
-				<div class="notice-write-type2-2">
-
-					<div class="notice-write-type2-2_title">
+					<div class="notice-write-type2-1_title">
 						<h2>제목을 입력하세요</h2>
 					</div>
 					<input name="title"></input>
 
-					<div class="notice-write-type2-2_context">
+					<div class="notice-write-type2-1_context">
 						<h2>내용을 입력하세요</h2>
 					</div>
 					<textarea name="content"></textarea>
