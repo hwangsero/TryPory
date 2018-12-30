@@ -2,6 +2,7 @@ $j(document).ready(function(){
 	var file_input = $j("input[id=cover_image]");
 	var tag_input = $j("div.tag_input input");
 	var date = new Date();
+	var first_date;
 	
 	$j("div.content_datebox span").text(date.getFullYear() + '.' + (date.getMonth()+1) + '.' + date.getDate() );
 	
@@ -102,112 +103,134 @@ $j(document).ready(function(){
 			
 		});
 		
-		function files_sort(files, img_wrap){
-			var count = 0;
-			var init_count = 0;
-			for (var i = 0; i < files.length; i++) {
-				var file = files[i];
-				var dataurl_reader = new FileReader();
+	}
+	function files_sort(files, img_wrap){
+		var count = 0;
+		var init_count = 0;
+		for (var i = 0; i < files.length; i++) {
+			var file = files[i];
+			var dataurl_reader = new FileReader();
+			
+			dataurl_reader.onloadend = function(img) {
+				file_init(atob(this.result.replace(/^.*?,/,'')), img, count, this.result );
+				count++;
+			}
+			
+			function file_init(data, img, count, src) {
+				console.log("file init");
+				var file = files[count];
+				var jpeg = new this.JpegMeta.JpegFile(data, img);
 				
-				dataurl_reader.onloadend = function(img) {
-					file_init(atob(this.result.replace(/^.*?,/,'')), img, count, this.result );
-					count++;
-				}
-				
-				function file_init(data, img, count, src) {
-					console.log("file init");
-					var file = files[count];
-				    var jpeg = new this.JpegMeta.JpegFile(data, img);
-				    
-				    file.src = src;
+				file.src = src;
 //				    console.log(jpeg);
-
-				    if( jpeg.tiff != undefined && jpeg.tiff.Orientation != undefined ) {
-				    	file.orientation = jpeg.tiff.Orientation.value;
-				    }
-				    
-				    if( jpeg.tiff != undefined && jpeg.gps != undefined ) {
-				    	if (jpeg.gps.GPSLatitude) {
-				    	    var latitude;
-				    	    latitude = jpeg.gps.GPSLatitude.value[0].asFloat() +
-				    		(1 / 60) * jpeg.gps.GPSLatitude.value[1].asFloat() +
-				    		(1 / 3600) * jpeg.gps.GPSLatitude.value[2].asFloat();
-				    	    if (jpeg.gps.GPSLatitudeRef.value === "S") {
-				    	    	latitude = -latitude;
-				    	    }
-				    	    file.latitude = latitude;
-				    	}
-				    	if (jpeg.gps.GPSLongitude) {
-				    	    var longitude;
-				    	    longitude = jpeg.gps.GPSLongitude.value[0].asFloat() +
-				    		(1 / 60) * jpeg.gps.GPSLongitude.value[1].asFloat() +
-				    		(1 / 3600) * jpeg.gps.GPSLongitude.value[2].asFloat();
-				    	    if (jpeg.gps.GPSLongitudeRef.value === "W") {
-				    	    	longitude = -longitude;
-				    	    }
-				    	    file.longitude = longitude;
-				    	}
-				    	
-				    }
-				    if( jpeg.tiff.DateTime) {
-				    	var dateTime = jpeg.tiff.DateTime.value;
-
-				    	var parts = dateTime.replace(' ', ':').split(':');
-				        file.dateTime = new Date(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5]);
-				        
-				    }
-				    
-				    init_count++;
-				    
-				    if( init_count == files.length){ // init 완료
-				    	var array = [].slice.call(files);
-						files = array.sort(sortFunction);
-						console.log(files);
-						files_view(files, img_wrap);
-				    }
-				}
-
-				dataurl_reader.readAsDataURL(file);
-			}
-			return files;
-		}
-		function sortFunction(a,b){  
-		    var dateA = a.dateTime;
-		    var dateB = b.dateTime;
-		    return dateA > dateB ? 1 : -1;  
-		}; 
-
-		function files_view(files, img_wrap){
-			console.log('files_view');
-			console.log(files);
-			for (var i = 0; i < files.length; i++) {
-				var file = files[i];
 				
-				function display(file, img){
-					switch(file.orientation) {
-						case 2: img.addClass('flip'); break;
-						case 3: img.addClass('rotate-180'); break;
-						case 4: img.addClass('flip-and-rotate-180'); break;
-						case 5: img.addClass('flip-and-rotate-270'); break;
-						case 6: img.addClass('rotate-90'); break;
-						case 7: img.addClass('flip-and-rotate-90'); break;
-						case 8: img.addClass('rotate-270'); break;
-					}
+				if( jpeg.tiff != undefined && jpeg.tiff.Orientation != undefined ) {
+					file.orientation = jpeg.tiff.Orientation.value;
 				}
-				img_wrap.append(
-					"<div class='img_row'>" +
-						"<div class='img_content'>" +
-							"<img class='picture' src='" + file.src + "' alt=''>" +
-						"</div>" +
-					"</div>"
-				);
-				var img = img_wrap.find(".img_row:last-child img");
-				console.log(img);
-				display(file, img);
-				$j(img).bind('load', function() {
-					image_resize($j(this).parent() );
-				});
+				
+				if( jpeg.tiff != undefined && jpeg.gps != undefined ) {
+					if (jpeg.gps.GPSLatitude) {
+						var latitude;
+						latitude = jpeg.gps.GPSLatitude.value[0].asFloat() +
+						(1 / 60) * jpeg.gps.GPSLatitude.value[1].asFloat() +
+						(1 / 3600) * jpeg.gps.GPSLatitude.value[2].asFloat();
+						if (jpeg.gps.GPSLatitudeRef.value === "S") {
+							latitude = -latitude;
+						}
+						file.latitude = latitude;
+					}
+					if (jpeg.gps.GPSLongitude) {
+						var longitude;
+						longitude = jpeg.gps.GPSLongitude.value[0].asFloat() +
+						(1 / 60) * jpeg.gps.GPSLongitude.value[1].asFloat() +
+						(1 / 3600) * jpeg.gps.GPSLongitude.value[2].asFloat();
+						if (jpeg.gps.GPSLongitudeRef.value === "W") {
+							longitude = -longitude;
+						}
+						file.longitude = longitude;
+					}
+					
+				}
+				if( jpeg.tiff.DateTime) {
+					var dateTime = jpeg.tiff.DateTime.value;
+					
+					var parts = dateTime.replace(' ', ':').split(':');
+					file.dateTime = new Date(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5]);
+					
+				}
+				
+				init_count++;
+				
+				if( init_count == files.length){ // init 완료
+					var array = [].slice.call(files);
+					files = array.sort(sortFunction);
+					console.log(files);
+					files_view(files, img_wrap);
+				}
 			}
+			
+			dataurl_reader.readAsDataURL(file);
+		}
+		return files;
+	}
+	function sortFunction(a,b){  
+		var dateA = a.dateTime;
+		var dateB = b.dateTime;
+		return dateA > dateB ? 1 : -1;  
+	}; 
+	
+	function files_view(files, img_wrap){
+		var write_con = $j("div#write_wrap .container.C");
+		
+		
+		for (var i = 0; i < files.length; i++) {
+			var file = files[i];
+			if( i == 0){ // 첫번째 사진
+				start_date = first_date = file.dateTime;
+				write_con.find("div.content_datebox").first().find("span").text(first_date.getFullYear() + '.' + (first_date.getMonth()+1) + '.' + first_date.getDate() );
+				
+			}
+			
+			if(file.dateTime.getDate() - start_date.getDate() > 0){
+				var date_box_clone = write_con.find("div.content_datebox").first().clone();
+				var content_box_clone = write_con.find("div.content_box").first().clone();
+				
+				date_box_clone.find("h4").text( (file.dateTime.getDate() - first_date.getDate() + 1) +"일차");
+				start_date = file.dateTime;
+				date_box_clone.find("span").text(start_date.getFullYear() + '.' + (start_date.getMonth()+1) + '.' + start_date.getDate() );
+				
+				content_box_clone.find("textarea.autosize").val("");
+				content_box_clone.find("div.img_wrap *").remove();
+				content_box_clone.find("div.tool_box").css("display","none");
+				write_con.append(date_box_clone);
+				write_con.append(content_box_clone);
+				img_wrap = content_box_clone.find(".img_wrap");
+			}
+			
+			function display(file, img){
+				switch(file.orientation) {
+				case 2: img.addClass('flip'); break;
+				case 3: img.addClass('rotate-180'); break;
+				case 4: img.addClass('flip-and-rotate-180'); break;
+				case 5: img.addClass('flip-and-rotate-270'); break;
+				case 6: img.addClass('rotate-90'); break;
+				case 7: img.addClass('flip-and-rotate-90'); break;
+				case 8: img.addClass('rotate-270'); break;
+				}
+			}
+			img_wrap.append(
+					"<div class='img_row'>" +
+					"<div class='img_content'>" +
+					"<img class='picture' src='" + file.src + "' alt=''>" +
+					"</div>" +
+					"</div>"
+			);
+			var img = img_wrap.find(".img_row:last-child img");
+			console.log(img);
+			display(file, img);
+			$j(img).bind('load', function() {
+				image_resize($j(this).parent() );
+			});
 		}
 	}
 	
