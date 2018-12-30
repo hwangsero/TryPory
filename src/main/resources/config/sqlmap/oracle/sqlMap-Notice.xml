@@ -11,7 +11,7 @@
 	
 	<select id="selectAllNotice" resultMap="noticeMap" parameterType="hashmap">
 		<![CDATA[
-		select no, title, content, view_cnt, to_char(register_date, 'yyyy-mm-dd') as register_date
+		select no, title, content, writer, view_cnt, to_char(register_date, 'yyyy-mm-dd') as register_date
 		from (select rownum r, b.* from( select a.* from d_notice a order by no desc) b )
 		where r>= #{start} and r <= #{end}
 		]]>
@@ -21,5 +21,60 @@
 		insert into d_notice(no, title, content, writer)
 		values(d_notice_seq.nextval, #{title}, #{content}, '1')
 	</insert>
-
+	
+	<select id= "selectCountNotice" resultType="int">
+		select count(*) count
+		from d_notice
+	</select>
+	
+	
+	<select id="selectByNoNotice" resultMap="noticeMap" parameterType="int">
+		select no, title, content, writer, view_cnt, to_char(register_date, 'yyyy-mm-dd') as register_date
+		from d_notice
+		where no = #{no}
+	</select>
+	
+	<delete id="deleteNotice" parameterType="int">
+		delete from d_notice
+		where no = #{no}
+	</delete>
+	
+	<update id="updateNotice" parameterType="noticeVO">
+		update d_notice
+		set title=#{title}, content=#{content}
+		where no = #{no}
+	</update>
+	
+	<select id="selectSearchNotice" resultMap="noticeMap" parameterType="hashmap">
+		<choose>
+			<when test="#{type}.equals('제목')">
+			<![CDATA[
+			select no, title, content, writer, view_cnt, to_char(register_date, 'yyyy-mm-dd') as register_date
+			from (select rownum r, b.* from( select a.* from d_notice a order by no desc)
+			where title = ${word}
+			 b )
+			where r>= #{start} and r <= #{end}
+			]]>
+			</when>
+			<when test="#{type}.equals('내용')">
+			<![CDATA[
+			select no, title, content, writer, view_cnt, to_char(register_date, 'yyyy-mm-dd') as register_date
+			from (select rownum r, b.* from( select a.* from d_notice a order by no desc)
+			where content = ${word}
+			 b )
+			where r>= #{start} and r <= #{end}
+			]]>
+			</when>
+			<when test="#{type}.equals('작성자')">
+			<![CDATA[
+			select no, title, content, writer, view_cnt, to_char(register_date, 'yyyy-mm-dd') as register_date
+			from (select rownum r, b.* from( select a.* from d_notice a order by no desc)
+			where writer = ${word}
+			 b )
+			where r>= #{start} and r <= #{end}
+			]]>
+			</when>
+		</choose>
+	</select>
+	
 </mapper>

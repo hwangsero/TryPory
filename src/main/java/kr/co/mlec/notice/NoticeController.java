@@ -1,16 +1,23 @@
 package kr.co.mlec.notice;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.mlec.login.MemberVO;
@@ -20,14 +27,36 @@ public class NoticeController {
 
 	@Autowired
 	private NoticeService noticeService;
+	private int prevNo = 0;
+	private int nextNo = 3;
+	private int startNo = 1;
+	private int endNo = 2;
+	private int pageCnt;
 	
 	@RequestMapping("/notice/{pageNo}")
 	public ModelAndView noticeList(@PathVariable("pageNo") int pageNo,Model model) {
 		ModelAndView mav = new ModelAndView();
 		model.addAttribute(pageNo);
-		List<NoticeVO> notice =  noticeService.selectAllNotice(pageNo);
 		
-		mav.addObject("notice", notice);
+		int noticeCnt = noticeService.selectCountNotice();
+		
+		if(noticeCnt % 10 == 0)
+			pageCnt = noticeCnt / 10;
+		else
+			pageCnt = noticeCnt / 10 + 1;
+		
+		
+		
+		List<NoticeVO> noticeVO =  noticeService.selectAllNotice(pageNo);
+		
+		
+		System.out.println("--------------------------");
+		Map<String, Object> noticeMap = new HashMap<>();
+		noticeMap.put("pageCnt", pageCnt);
+		noticeMap.put("noticeCnt", noticeCnt);
+		noticeMap.put("noticeVO", noticeVO);
+		mav.addAllObjects(noticeMap);
+		
 		mav.setViewName("notice/noticeList");
 		
 		return mav;
@@ -46,9 +75,7 @@ public class NoticeController {
 		mav.setViewName("notice/notice-write");
 		return mav;
 	}
-//	오호라 창규없는 창규팀 그럼 나는 시간을 어떻게 해야되지? 에? 응? 에? 뭐? 내일 만난다고? 하다가 나는 먼저 갈게 그냥 한소리긴한데 너 일요일도 나와야되 나올거야 안나올거야? 그냥 집에서 할까? 형은 간다고? 나는 어차피 약속이... 나는 어차피 6시쯤 갈거야 아침 6시부터 그건좀 심한데
-//  너네 어차피 집에서 할꺼잖아 알바하는데... 그런거야 너도하는걸로? ㅇㅇ 응 지금 예매하는거야? 성진오빠 예매라고 하면 뭔간 영화같잖아 예매지 예약이지 매표도아니고 그래서 너 안할거냐고 알바하면 해야지 편의점? 어 너 편의점알바 하며는 폐기좀 갖고오자 근데 거기 장사가 잘 안되서 아니야 나 되게 잘먹어 나 시간대 폐기나오면 하나도 안남기고 다먹어
-	// 괜찮아 너희는 맣ㄴ이 했으니까 
+	
 	@PostMapping("/notice/write")
 	public String noticeWriter(NoticeVO noticeVO) {
 		
@@ -56,4 +83,55 @@ public class NoticeController {
 		
 		return "redirect:/notice/1";
 	}
+	
+	@GetMapping("/notice/detail/{noticeNo}")
+	public ModelAndView noticeDitail(@PathVariable("noticeNo") int noticeNo) {
+		
+		NoticeVO notice = noticeService.selectByNoNotice(noticeNo);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("notice",notice);
+		mav.setViewName("notice/notice-detail");
+		
+		return mav;
+		
+	}
+	@ResponseBody
+	@DeleteMapping("/notice/{noticeNo}")
+	public String noticeDelete(@PathVariable("noticeNo") int noticeNo) {
+		noticeService.deleteNotice(noticeNo);
+		String msg = "게시물이 삭제되었습니다.";
+		return msg;
+	}
+	
+	@GetMapping("/notice/update/{noticeNo}")
+	public ModelAndView noticeUpdateForm(@PathVariable("noticeNo") int noticeNo) {
+		NoticeVO notice = noticeService.selectByNoNotice(noticeNo);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("notice",notice);
+		mav.setViewName("notice/notice-update");
+		
+		return mav;
+	}
+	
+	@PutMapping("/notice/update")
+	public String noticeUpdate(NoticeVO notice) {
+		noticeService.updateNotice(notice);
+		
+		return "redirect:/notice/detail/" + notice.getNo();
+	}
+	
 }
+	
+/*	@RequestMapping("/notice/search")
+	public ModelAndView noticeSearch(HttpServletRequest request) {
+		
+		String Word = request.getParameter("searchWord");
+		String Type = request.getParameter("searchType");
+		
+		List<NoticeVO> noticeList = noticeService.selectSearchNotice(Word, Type);	
+		
+	}*/
+	
+
+

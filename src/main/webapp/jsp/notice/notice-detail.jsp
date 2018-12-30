@@ -5,13 +5,6 @@
 
 <head>
 <%@ include file="/WEB-INF/include/head.jsp"%>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-
-<title>Blog Post - Start Bootstrap Template</title>
 <!--공지사항 목록페이지 css-->
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/assets/css/notice/notice.css">
@@ -21,11 +14,35 @@
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
 <!-- Custom styles for this template -->
 <link href="css/blog-post.css" rel="stylesheet">
+<script>
+
+function updateNotice() {
+	location.href="${pageContext.request.contextPath}/notice/update/${noticeNo}";
+}
 
 
+$j(document).ready(function() {
+		$j('#deleteBtn').click(function() {
+			if(confirm('삭제하사겠습니까?')) {
+			$j.ajax({
+				url : "${pageContext.request.contextPath}/notice/${noticeNo}",
+				type : "delete",
+				success : function(data) {
+					alert(data);
+					location.href="${pageContext.request.contextPath}/notice/1";
+				},
+				error : function() {
+					alert('삭제에 실패했습니다');
+				}
+			})
+			}
+		})
+		
+	
+})
+</script>
 </head>
 
 <body>
@@ -46,16 +63,16 @@
 		<!-- 3.공지사항 머리말 하단부분  -->
 		<div class="notice-detail-type1-1">
 			<span>
-				<h3 id="notice-detail-title">공지제목</h3>
+				<h3 id="notice-detail-title">${notice.title }</h3>
 			</span>			
-			<span>
-				<a><h3>수정</h3></a>
+			<span onclick="updateNotice()">
+				<a href="#"><h3>수정</h3></a>
+			</span>
+			<span id="deleteBtn">
+				<a href="#"><h3>삭제</h3></a>
 			</span>
 			<span>
-				<a><h3>삭제</h3></a>
-			</span>
-			<span>
-				<h5>2018-12-22</h5>
+				<h5>${notice.registerDate }</h5>
 			</span>
 		</div>
 		<!--모바일 화면에만 나타나게-->
@@ -75,15 +92,8 @@
 
 		<!--4. 공지사항 글 상세내용 -->
 		<div class="notice-detail-type2-2">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe
-				quibusdam sit excepturi nam quia corporis eligendi eos magni
-				recusandae laborum minus inventore?</p>
+			<p>${notice.content }</p>
 
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut,
-				tenetur natus doloremque laborum quos iste ipsum rerum obcaecati
-				impedit odit illo dolorum ab tempora nihil dicta earum fugiat.
-				Temporibus, voluptatibus.</p>
 		</div>
 		<!--END 4. 공지사항 글 상세내용 -->
 		

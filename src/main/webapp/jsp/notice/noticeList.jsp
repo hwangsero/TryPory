@@ -23,7 +23,7 @@
 			<h1>공지사항</h1>
 			<div class="type1-1">
 				<h2>
-					전체<span>3</span>건
+					전체<span>${noticeCnt }</span>건
 				</h2>
 				<div class="type1-2">
 					<a href="<%=request.getContextPath()%>/jsp/notice/notice-write.jsp">
@@ -38,21 +38,23 @@
 		<!--END 2. 공지사항 머리말  -->
 
 		<!--3. 공지사항 머리말 하단-->
+		<form action="">
 		<div class="type2">
 				<div class="search-box">
-					<input type="text" placeholder="검색어 입력">
-					<button>
+					<input type="searchWord" placeholder="검색어 입력">
+					<button on>
 						<h2>검색</h2>
 					</button>
 				</div>
 
-				<select name="notice-search">
+				<select name="searchType">
 					<option value="">전체</option>
 					<option value="">작성자</option>
 					<option value="">제목</option>
 					<option value="">내용</option>
 				</select>
 		</div>
+		</form>
 		<!--END 3.공지사항 머리말 하단-->
 
 		<!--4. 공지사항 테이블 -->
@@ -66,40 +68,15 @@
 				</tr>
 			</thead>
 			<tbody>
+			<c:forEach items="${noticeVO }" var="notice">
 				<tr>
-					<th scope="row">1</th>
+					<th scope="row">${notice.no }</th>
 					<td><a
-						href="<%=request.getContextPath()%>/jsp/notice/notice-detail.jsp">내용이
-							들어갑니다.</a></td>
-					<td>2018/12/20</td>
-					<td></td>
+						href="${pageContext.request.contextPath }/notice/detail/${notice.no}">${notice.title }</a></td>
+					<td>${notice.registerDate}</td>
+					<td>${notice.viewCnt}</td>
 				</tr>
-
-				<tr>
-					<th scope="row">2</th>
-					<td><a
-						href="<%=request.getContextPath()%>/jsp/notice/notice-detail.jsp">내용이
-							들어갑니다.</a></td>
-					<td>2018/12/20</td>
-					<td></td>
-				</tr>
-				<tr>
-					<th scope="row">3</th>
-					<td><a
-						href="<%=request.getContextPath()%>/jsp/notice/notice-detail.jsp">내용이
-							들어갑니다.</a></td>
-					<td>2018/12/20</td>
-					<td></td>
-				</tr>
-
-				<tr>
-					<th scope="row">4</th>
-					<td><a
-						href="<%=request.getContextPath()%>/jsp/notice/notice-detail.jsp">내용이
-							들어갑니다.</a></td>
-					<td>2018/12/20</td>
-					<td></td>
-				</tr>
+			</c:forEach>
 			</tbody>
 		</table>
 	</div>
@@ -108,10 +85,11 @@
 		<!--5. 페이징 번호 관련-->
 		<div class="paging">
 			<ul>
-			
-			<%-- 	<c:forEach begin="${pageNo / 5}" end="" var="">
-				<li><a href="#">1</a></li>
-				</c:forEach> --%>
+			<a href="${pageContext.request.contextPath }/notice/${prevNo}"><button>좌측</button></a>
+			<c:forEach begin="1" end="${pageCnt }" var="pageNo">
+				<li><a href="${pageContext.request.contextPath }/notice/${pageNo}">${ pageNo }</a></li>
+				</c:forEach> 
+			<a href="${pageContext.request.contextPath }/notice/${nextNo}"><button>우측</button></a>
 			</ul>
 		</div>
 		<!--END 5. 페이징 번호 관련 -->
