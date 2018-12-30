@@ -1,23 +1,100 @@
 @charset "UTF-8";
 
+.mag-posts-area{
+	width:640px; 
+	margin:0 auto; 
+}
+
 /* search_keyword */
 
 .search_box{
 	font-size:20px; 
 	text-align:center;
 	width:100%; 
-	border-bottom:1px solid #eee; 
-	padding:40px 0; 
+	padding:40px 0 0; 
 }
 
 .search_keyword {
-    border: 1px solid gray; 
+    border: 1px solid #eee; 
     border-radius: 50px;
     font-size:20px; 
     padding:5px 15px;
     margin-right: 5px; 
 }
 
+.search_categories{ 
+	margin:0 auto; 
+	margin-top:40px;
+	border-bottom:1px solid #eee; 
+}
+
+.nav-pills, .nav-tabs {
+    border: 0;
+    border-radius: 3px;
+    width:640px;
+    margin:0 auto; 
+}
+
+.nav .nav-item {
+    position: relative;
+}
+
+.nav-pills.nav-pills-icons .nav-item .nav-link {
+    border-radius:0; 
+}
+
+.nav-pills .nav-item .nav-link.active {
+    color: #555;
+    background-color: #fff;
+    border-bottom: 1px solid #84B1ED ;
+    margin-bottom:-1px;
+    
+}
+
+.nav-pills .nav-item .nav-link {
+    line-height: 30px;
+    font-size: 12px;
+    font-weight: 500;
+    width: 100%;
+    color: #555;
+    border-radius: 30px;
+    padding: 0 auto;
+    text-align: center;
+    border-bottom: 1px solid #eee ;
+    margin-bottom:-1px;
+}
+
+
+
+.nav-pills .nav-item {
+    display: block;
+    font-size: 30px;
+    width:50%;
+}
+
+.container {
+	width:640px;
+	padding:0; 
+}
+
+/*option*/
+.select_box{
+	width:100%;
+	margin:0 auto; 
+}
+
+.select_box select{
+	width: 130px; 
+	height:35px; 
+	border:1px solid #eee; 
+	margin-top:20px; 
+	float:right;
+}
+
+
+.tab-pane{
+	margin:0 auto; 
+}
 
 /*diary_post*/
 
@@ -102,7 +179,7 @@
 }
 
 .img_snsBtn {   
-   margin: 20px 0 5px; 
+   margin: 10px 0 5px; 
    width: 100%; 
    height: auto;
 }
@@ -280,3 +357,6 @@ img.thumb_default {
 		position:absolute;
 	}
    /* img wrap */
+   
+   
+ 

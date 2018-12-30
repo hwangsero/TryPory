@@ -2,6 +2,20 @@
 
 @media only screen and (max-width: 767px) {
 	
+	
+	.tab-pane{
+		width:100%; 
+	}
+	
+	.container {
+		width:100%;
+		padding:0 15px; 
+	}
+	
+	.nav{
+	width:100%;
+	}
+
 	.nav-pills .nav-item i {
 	    display: block;
 	    font-size: 30px;
@@ -30,6 +44,63 @@
 	.join-buttons button {
 		width:48%; 
 		
+	}
+	
+	
+	/* contents */
+	
+	.tab-space{
+		padding:0;
+	}
+	
+	.mt-30{
+		margin:0 !important; 
+	}
+	
+	.img_posts_container{
+		width:100%;
+	}
+	
+	.diary_post {
+	   width: 100%; 
+	   height:auto; 
+	   margin:20px auto 0; 
+	}
+
+	.img_posts_container {
+		padding: 30px 10px !important;
+	}
+	.img_posts {
+		width: 100%;
+	}
+	.img_content img {
+		height: 75px;
+		width: auto;
+	}
+	
+	.img_wrap {
+		width:100%;
+		margin: 0 auto;
+	} 
+
+	/* profile wrap */
+	.profile_area {
+		width: 100%;
+	}
+	.profile_wrap {
+		max-width: 100%;
+	}
+	.profile_thumb {
+		width: 35px;
+		height: 35px;
+	}
+	.link_profile {
+		line-height: 35px;
+	}
+	
+	/* sns */
+	.img_snsBtn{
+		margin:10px auto; 
 	}
 	
 	
