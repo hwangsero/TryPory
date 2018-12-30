@@ -82,37 +82,71 @@
 				<!-- 컨텐츠 영역 시작 -->
 
 				<div class="tab-content tab-space">
-					<div class="tab-pane active text-center gallery" id="studio">
+				
+					<div class="tab-pane active" id="studio">
 
-						<div class="trending-now-posts mb-30">
-							<span class="d_day">2017/01/02~ 2017/02/03 </span>
-							<div class="d_title">다이어리제목</div>
-							<!-- Section Title -->
-
-							<div class="trending-posts">
-								<!--            <div class="trending-post-slides owl-carousel"> -->
-								<div class="single-trending-post"
-									style="width: 50%; height: 400px; float: left;">
-									<img
-										src="${pageContext.request.contextPath}/assets/img/bg-img/19.jpg"
-										alt="">
-									<div class="post-content">
-										<a href="#" class="post-cata">일본</a> <a href="video-post.html"
-											class="post-title">여행 다이어리</a>
+						<div class="diary_post">
+							<div class="profile_area">
+						        <div class="profile_wrap">
+						            <a href="/my/4550316/profile" class="link_profile" title="계정 상세페이지" data-persist-component="unique_idx2" onclick="nclk(this,'sea*t.profile','','');">
+						                <span class="profile_thumb">
+						                    <img class="thumb_default" src="https://img-pholar.pstatic.net/20171231_163/1514678074152X9488_JPEG/miya1220.jpg?type=fn80_80" onerror="this.src='https://ssl.pstatic.net/static/m/pholar/img/blank.png'" onclick="nclk(this,'sea*t.thumb','','');">
+						                    <span class="profile_thumb_mask"></span>
+						                </span>
+						                <span class="profile_name">최창규</span>
+						                <em class="data_date">2일 전</em>
+						            </a>
+						            
+					                <span class="location">
+					                    <a href="/gallery/location?code=ChIJ3eA7J_DdAGARil7_EwUaR_I&amp;name=%ED%95%98%EB%A3%A8%EC%B9%B4%EC%8A%A4%20300" onclick="nclk(this,'sea.location','','');">
+					                       <i class="fas fa-map-marker-alt location_name"></i>하루카스 300
+					                    </a>
+					                </span>
+						        </div>
+						    </div>
+					
+							<div class="trending-now-posts mb-30 img_posts">
+								<div style="margin-bottom: 10px; font-size: 20px;">
+									<h5>오사카 여행 일지</h5>
+									<b>#오사카 #하루카스300 #ハルカス300</b>
+								</div>
+								
+								<div class="trending-posts img_wrap clr">
+									<div class="img_content">
+										<img src="${pageContext.request.contextPath}/assets/img/bg-img/19.jpg"
+											alt="">
+									</div>
+									<div class="img_content">
+										<img src="${pageContext.request.contextPath}/assets/img/bg-img/20.jpg"
+											alt="">
+									</div>
+									<div class="img_content">
+										<img src="${pageContext.request.contextPath}/assets/img/bg-img/21.jpg"
+											alt="">
+									</div>
+									<div class="img_content">
+										<img src="${pageContext.request.contextPath}/assets/img/bg-img/22.jpg"
+											alt="">
+									</div>
+									<div class="img_content plus_content">
+										<img src="${pageContext.request.contextPath}/assets/img/bg-img/22.jpg"
+											alt="">
+										<div class="post-content" style="text-align: center">
+											<a href="video-post.html" class="post-title">+3</a>
+										</div>
 									</div>
 								</div>
-
-								<div class="single-trending-post"
-									style="width: 50%; height: 400px; float: left;">
-									<img
-										src="${pageContext.request.contextPath}/assets/img/bg-img/20.jpg"
-										alt="">
-									<div class="post-content">
-										<a href="#" class="post-cata">유럽</a> <a href="video-post.html"
-											class="post-title">여행 다이어리</a>
+								
+								<div class="img_snsBtn">
+									<div class="heart">
+										<i class="far fa-heart fa-2x"></i> 
+										<span>30</span>
+									</div>
+									<div class="comment">
+										<i class="far fa-comment-dots fa-2x"></i> 
+										<span>5</span>
 									</div>
 								</div>
-
 							</div>
 						</div>
 
@@ -120,60 +154,79 @@
 					
 					<!-- 1st End  -->
 
-					<div class="tab-pane text-center gallery" id="works">
-						<div class="trending-now-posts mb-30">
-							<!-- Section Title -->
-							<div>다이어리제목</div>
-							<div>2017/01/02~ 2017/02/03 </div>
-
-							<div class="trending-posts">
-								<!--            <div class="trending-post-slides owl-carousel"> -->
-								<div class="single-trending-post"
-									style="width: 100%; height: auto; float: left;">
-									<img
-										src="${pageContext.request.contextPath}/assets/img/bg-img/19.jpg"
-										alt="">
-									<div class="post-content">
-										<a href="#" class="post-cata">일본</a> <a href="video-post.html"
-											class="post-title">여행 다이어리</a>
+					<div class="tab-pane" id="works">
+						<div class="diary_post">
+							<div class="profile_area">
+						        <div class="profile_wrap">
+						            <a href="/my/4550316/profile" class="link_profile" title="계정 상세페이지" data-persist-component="unique_idx2" onclick="nclk(this,'sea*t.profile','','');">
+						                <span class="profile_thumb">
+						                    <img class="thumb_default" src="https://img-pholar.pstatic.net/20171231_163/1514678074152X9488_JPEG/miya1220.jpg?type=fn80_80" onerror="this.src='https://ssl.pstatic.net/static/m/pholar/img/blank.png'" onclick="nclk(this,'sea*t.thumb','','');">
+						                    <span class="profile_thumb_mask"></span>
+						                </span>
+						                <span class="profile_name">최창규</span>
+						                <em class="data_date">2일 전</em>
+						            </a>
+						            
+					                <span class="location">
+					                    <a href="/gallery/location?code=ChIJ3eA7J_DdAGARil7_EwUaR_I&amp;name=%ED%95%98%EB%A3%A8%EC%B9%B4%EC%8A%A4%20300" onclick="nclk(this,'sea.location','','');">
+					                       <i class="fas fa-map-marker-alt location_name"></i>하루카스 300
+					                    </a>
+					                </span>
+						        </div>
+						    </div>
+					
+							<div class="trending-now-posts mb-30 img_posts">
+								<div style="margin-bottom: 10px; font-size: 20px;">
+									<h5>오사카 여행 일지</h5>
+									<b>#오사카 #하루카스300 #ハルカス300</b>
+								</div>
+								
+								<div class="trending-posts img_wrap clr">
+									<div class="img_content">
+										<img src="${pageContext.request.contextPath}/assets/img/bg-img/19.jpg"
+											alt="">
+									</div>
+									<div class="img_content">
+										<img src="${pageContext.request.contextPath}/assets/img/bg-img/20.jpg"
+											alt="">
+									</div>
+									<div class="img_content">
+										<img src="${pageContext.request.contextPath}/assets/img/bg-img/21.jpg"
+											alt="">
+									</div>
+								
+									<div class="img_content plus_content">
+										<img src="${pageContext.request.contextPath}/assets/img/bg-img/22.jpg"
+											alt="">
+										<div class="post-content" style="text-align: center">
+											<a href="video-post.html" class="post-title">+3</a>
+										</div>
 									</div>
 								</div>
-
-
+								<div class="img_snsBtn">
+									<div class="heart">
+										<i class="far fa-heart fa-2x"></i> 
+										<span>30</span>
+									</div>
+									<div class="comment">
+										<i class="far fa-comment-dots fa-2x"></i> 
+										<span>5</span>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 					
 					<!-- 2nd End  -->
 
-					<div class="tab-pane text-center gallery" id="favorite">
-
-						<div class="tab-pane text-center gallery" id="works">
-							<div class="trending-now-posts mb-30">
-								<div style="margin-bottom: 10px; font-size: 20px">2017/01/03
-									~ 2017/02/03 &nbsp;&nbsp;&nbsp;&nbsp;다이어리제목</div>
-								<!-- Section Title -->
-
-								<div class="trending-posts">
-									<!--            <div class="trending-post-slides owl-carousel"> -->
-									<div class="single-trending-post"
-										style="width: 100%; height: auto; float: left;">
-										<img
-											src="${pageContext.request.contextPath}/assets/img/bg-img/19.jpg"
-											alt="">
-										<div class="post-content">
-											<a href="#" class="post-cata">일본</a> <a
-												href="video-post.html" class="post-title">여행 다이어리</a>
-										</div>
-									</div>
-
-
-								</div>
-							</div>
-						</div>
-
+					<div class="tab-pane" id="favorite">
+						
+						<h2 class="comment_none">작성한 댓글이 없습니다</h2>
+						
 					</div>
 					<!-- 3rd End  -->
+
+					</div>
 
 				</div>
 				<!-- mypage contents  -->

@@ -1,13 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<section class="mag-posts-area d-flex flex-wrap">
-
-	<div class="search_box">
-		<span class="search_keyword">#오사카</span>로 검색한 결과입니다
+<div class="search_box">
+	<span class="search_keyword">#오사카</span>로 검색한 결과입니다
+	<div class="search_categories">
+		<ul class="nav nav-pills nav-pills-icons justify-content-center"
+			role="tablist">
+			<li class="nav-item">
+				<a class="nav-link active" href="#lately" role="tab" data-toggle="tab">여행기</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#pop"	role="tab" data-toggle="tab">작성자</a>
+			</li>
+		</ul>
 	</div>
-	<div class="img_posts_container mt-30 mb-30 p-30">
-
-
+</div>
+<section class="mag-posts-area d-flex flex-wrap">
+	<div class="container tab-content tab-space">
+	<div class="select_box">
+		<select>
+			<option value="최신순" selected="selected">최신순</option>
+			<option value="인기순">인기순</option>
+		</select>
+	</div>
+	<div class="tab-pane active" id="lately">
 		<div class="diary_post">
 			<div class="profile_area">
 		        <div class="profile_wrap">
@@ -133,7 +148,10 @@
 				</div>
 			</div>
 		</div>
-		
+	</div>
+	
+	<!-- pop -->
+	<div class="tab-pane" id="pop">
 		<div class="diary_post">
 			<div class="profile_area">
 		        <div class="profile_wrap">
@@ -142,7 +160,7 @@
 		                    <img class="thumb_default" src="https://img-pholar.pstatic.net/20171231_163/1514678074152X9488_JPEG/miya1220.jpg?type=fn80_80" onerror="this.src='https://ssl.pstatic.net/static/m/pholar/img/blank.png'" onclick="nclk(this,'sea*t.thumb','','');">
 		                    <span class="profile_thumb_mask"></span>
 		                </span>
-		                <span class="profile_name">최창규</span>
+		                <span class="profile_name">오사카</span>
 		                <em class="data_date">2일 전</em>
 		            </a>
 		            
@@ -156,8 +174,8 @@
 	
 			<div class="trending-now-posts mb-30 img_posts">
 				<div style="margin-bottom: 10px; font-size: 20px;">
-					<h5>오사카 여행 일지</h5>
-					<b>#오사카 #하루카스300 #ハルカス300</b>
+					<h5>오사카가 여행갔다온 이야기</h5>
+					<b>#유럽 #유럽여행</b>
 				</div>
 				
 				<div class="trending-posts img_wrap clr">
@@ -189,5 +207,6 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </section>

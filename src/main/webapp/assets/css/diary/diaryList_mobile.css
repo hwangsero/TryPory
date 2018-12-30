@@ -2,13 +2,36 @@
 
 @media only screen and (max-width: 767px) {
 	
+	.mag-posts-area{
+		width:100%; 
+		padding: 0 15px;
+	}
+	
+	.container {
+		width:100%;
+		padding:0 10px; 
+	}
+	
 	/* search_box */
+	
 	.search_box{
 		font-size:16px;
 		padding: 30px 0; 
+		width:100%;
+		padding-bottom:0; 
 	}	
+	
 	.search_keyword{
 		font-size:16px;
+	}
+	
+	.search_categories{
+		width:100%;
+		margin-top:20px;
+	}
+	
+	.nav-pills, .nav-tabs {
+    width:100%; 
 	}
 	
 	/* mt-30 */
@@ -59,7 +82,7 @@
 	
 	/* sns */
 	.img_snsBtn{
-		margin:10px auto 5px; 
+		margin:10px auto; 
 	}
 	
 	/* profile wrap */
