@@ -7,6 +7,14 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/diary/diaryList.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/diary/diaryList_mobile.css">
 	<script src="${pageContext.request.contextPath}/assets/js/diary/image_resize.js"></script>
+	<script>
+		$(function() {
+		  $('.fa-heart')
+		    .bind('click', function(event) {
+		      $(this).toggleClass("fas");
+		    })
+		});
+	</script>
 </head>
 <body>
   <!-- Preloader -->
