@@ -42,6 +42,28 @@
 		<div class="div_pdt"></div>
 		
 		<div class="content_datebox">
+			<h4>1일차</h4>
+			<span></span>
+		</div>
+		<div class="content_box">
+			<div class="content_editbox">
+				<div class="tool_wrap">
+					<i class="fas fa-plus-circle fa-2x"></i>
+				</div>
+				<div class="tool_box" style="display:block">
+					<ul>
+						<li><i class="fas fa-image fa-3x"></i></li>
+						<li><i class="fas fa-map-marker-alt fa-3x"></i></li>
+					</ul>
+					<input type="file" multiple="multiple" style="display:none;">
+				</div>
+				<div class="img_wrap">
+				</div>
+				<textarea class="autosize" placeholder="문단 내에서 줄바꿈을 하려면 shift + enter를 누르세요"></textarea>	
+			</div>
+		</div>
+		
+<!-- 		<div class="content_datebox">
 			<div><h4>1일차</h4></div>
 			<div>2018.12.19</div>
 		</div>
@@ -54,7 +76,7 @@
 					<ul>
 						<li><i class="fas fa-image fa-3x"></i></li>
 						<li><i class="fas fa-map-marker-alt fa-3x"></i></li>
-						<!-- <li><i class="fas fa-route fa-3x"></i></li> -->
+						<li><i class="fas fa-route fa-3x"></i></li>
 					</ul>
 				</div>
 				<div class="img_wrap">
@@ -76,59 +98,9 @@
 				</div>
 				<textarea class="autosize" placeholder="문단 내에서 줄바꿈을 하려면 shift + enter를 누르세요"></textarea>	
 			</div>
-		</div>
+		</div> -->
 
-<!-- 		<div class="content_datebox">
-			<div><h4>2일차</h4></div>
-			<div>2018.12.20</div>
-		</div>
-		<div class="content_box">
-			<div class="content_editbox">
-				<div class="tool_wrap" style="display:none">
-					<i class="fas fa-plus-circle fa-2x"></i>
-				</div>
-				<div class="tool_box">
-					<ul>
-						<li><i class="fas fa-image fa-3x"></i></li>
-						<li><i class="fas fa-map-marker-alt fa-3x"></i></li>
-						<li><i class="fas fa-route fa-3x"></i></li>
-					</ul>
-				</div>
-				<div class="img_wrap">
-					<div class="img_content">
-						<img class="picture" src="/Travel-Diary/assets/img/bg-img/19.jpg" alt="">
-					</div>
-				</div>
-				<textarea class="autosize" placeholder="문단 내에서 줄바꿈을 하려면 shift + enter를 누르세요"></textarea>	
-			</div>
-		</div>
-		<div class="content_box">
-			<div class="content_editbox">
-				<div class="tool_wrap" style="display:none">
-					<i class="fas fa-plus-circle fa-2x"></i>
-				</div>
-				<div class="tool_box">
-					<ul>
-						<li><i class="fas fa-image fa-3x"></i></li>
-						<li><i class="fas fa-map-marker-alt fa-3x"></i></li>
-						<li><i class="fas fa-route fa-3x"></i></li>
-					</ul>
-				</div>
-				<div class="img_wrap">
-					<div class="img_content">
-						<img class="picture" src="/Travel-Diary/assets/img/bg-img/19.jpg" alt="">
-					</div>
-				</div>
-				<div class="img_wrap">
-					<div class="img_content">
-						<img class="picture" src="/Travel-Diary/assets/img/bg-img/19.jpg" alt="">
-					</div>
-				</div>
-				<textarea class="autosize" placeholder="문단 내에서 줄바꿈을 하려면 shift + enter를 누르세요"></textarea>	
-			</div>
-		</div>
-		 -->
-		<!--  -->
+		<!-- 
 		<div class="content_datebox">
 			<div><h4>2일차</h4></div>
 			<div>2018.12.20</div>
@@ -144,25 +116,16 @@
 							<i class="fas fa-image fa-3x"></i>
 						</li>
 						<li><i class="fas fa-map-marker-alt fa-3x"></i></li>
-						<!-- <li><i class="fas fa-route fa-3x"></i></li> -->
+						<li><i class="fas fa-route fa-3x"></i></li>
 					</ul>
 					<input type="file" multiple="multiple" style="display:none;">
 				</div>
 				<div class="img_wrap">
-					<!-- <div class="img_content">
-						<img class="picture" src="/Travel-Diary/assets/img/bg-img/19.jpg" alt="">
-					</div>
-					<div class="img_content">
-						<img class="picture" src="/Travel-Diary/assets/img/bg-img/19.jpg" alt="">
-					</div>
-					<div class="img_content">
-						<img class="picture" src="/Travel-Diary/assets/img/bg-img/19.jpg" alt="">
-					</div> -->
 				</div>
 				<textarea class="autosize" placeholder="문단 내에서 줄바꿈을 하려면 shift + enter를 누르세요"></textarea>	
 			</div>
 		</div>
-
+ 		-->
 	</div>
 	
 	<div class="tag_container container clr">
