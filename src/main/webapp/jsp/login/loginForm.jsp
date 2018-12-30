@@ -18,7 +18,28 @@
 			return false;
 		}		
 		return true;
-	}	
+	}
+
+	$j(document).ready(function(){
+		$j("form[name=lform]").submit(function(e){
+			e.preventDefault();
+			if( ! checkForm()){
+				return false;
+			}
+			$j.ajax({
+				url : '<%=request.getContextPath()%>/login',
+				type :'post',
+				data : {
+					email : $j("form[name=lform] input[name=email]").val(),
+					password : $j("form[name=lform] input[name=password]").val()
+				},
+				success : function ( msg ){
+					alert(msg);
+					location.href="${request.getContextPath()}";
+				}
+			});
+		});
+	});
 </script>
 </head>
 <body>
@@ -29,8 +50,7 @@
 					<h1><a href="<%= request.getContextPath() %>">로그인</a></h1>
 				</div>
 			
-				<form method="post" action="<%=request.getContextPath()%>/jsp/login/loginProcess.jsp"
-					name="lform" onsubmit="return checkForm()">
+				<form method="post"	name="lform">
 						<div class="login-form-input">
 							<h3>이메일</h3>
 							<span> 
