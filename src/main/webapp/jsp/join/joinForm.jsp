@@ -84,7 +84,6 @@
 				<div class="join-form-h2">
 					<h1>회원가입</h1>
 				</div>
-			
 				<form method="post" action="${pageContext.request.contextPath }/join"
 					onsubmit="return checkData()" name="inputForm">
 					<!--이메일-->

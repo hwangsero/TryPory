@@ -14,8 +14,8 @@
 		</ul>
 	</div>
 </div>
-<section class="mag-posts-area d-flex flex-wrap">
-	<div class="container tab-content tab-space">
+<section class="mag-posts-area d-flex flex-wrap tab-content tab-space">
+	<div class="diary_container tab-content tab-space">
 	<div class="select_box">
 		<select>
 			<option value="최신순" selected="selected">최신순</option>
