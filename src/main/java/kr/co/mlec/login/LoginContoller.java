@@ -20,12 +20,19 @@ public class LoginContoller {
 	public String loginForm() {
 		return "login/loginForm";
 	}
+	@ResponseBody
+	@PostMapping("/logout")
+	public String logout(HttpSession session) {
+		System.out.println("로그아웃");
+		session.removeAttribute("userVO");
+		
+		return "로그아웃 되었습니다";
+	}
 	
 	@ResponseBody
 	@PostMapping("/login")
 	public String login(MemberVO member, HttpSession session) {
 		System.out.println("로그인");
-		ModelAndView mav = new ModelAndView();
 		MemberVO userVO = loginService.loginMember(member);
 		String loginMsg;
 		if(userVO == null) {
@@ -44,8 +51,11 @@ public class LoginContoller {
 	}
 	
 	@PostMapping("/join")
-	public String join(MemberVO member) {
+	public String join(MemberVO member, HttpSession session) {
 		loginService.joinMember(member);
+		System.out.println(member);
+		session.setAttribute("userVO", member);
+		
 		return "redirect:/index.jsp";
 		
 	}

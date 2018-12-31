@@ -70,3 +70,6 @@ em {
 body{
 	background-color: #fff;
 }
+#logout{
+	cursor: pointer;
+}

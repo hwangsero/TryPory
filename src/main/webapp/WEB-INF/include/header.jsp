@@ -9,6 +9,17 @@
  			var tag = $("#topSearch").val();
  			location.href='${pageContext.request.contextPath}/diary/search/' + tag;
  		});
+ 		
+ 		$(".nav-content a#logout").click(function(event){
+ 			$j.ajax({
+				url : '<%=request.getContextPath()%>/logout',
+				type :'post',
+				success : function ( msg ){
+					alert(msg);
+					location.href="<%= request.getContextPath() %>";
+				}
+			});
+ 		});
  	})
 </script> 
 <header class="header-area">
@@ -61,7 +72,7 @@
 	                         </form> 
 	                    </div>
 	                    <c:if test="${userVO.email eq 'admin' }">
-	                     <a href="${pageContext.request.contextPath}/jsp/login/logoutProcess.jsp" class="login-btn">
+	                     <a class="login-btn" id="logout">
 	                    	로그아웃
 	                    </a>
 	                     <a href="${pageContext.request.contextPath}/jsp/main/adminPage.jsp" class="login-btn">
@@ -77,7 +88,7 @@
 	                    </a>
 	                    </c:if>
 						<c:if test="${not empty userVO and userVO.email ne 'admin'}">
-	                     <a href="${pageContext.request.contextPath}/jsp/login/logoutProcess.jsp" class="login-btn">
+	                     <a class="login-btn" id="logout">
 	                    	로그아웃
 	                    </a>
 	                    <a href="${pageContext.request.contextPath}/jsp/mypage/mypage.jsp" class="login-btn">
