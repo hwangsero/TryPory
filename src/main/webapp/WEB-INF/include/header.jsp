@@ -91,7 +91,7 @@
 	                     <a class="login-btn" id="logout">
 	                    	로그아웃
 	                    </a>
-	                    <a href="${pageContext.request.contextPath}/jsp/mypage/mypage.jsp" class="login-btn">
+	                    <a href="${pageContext.request.contextPath}/mypage" class="login-btn">
 	                    	마이페이지
 	                    </a>
 	                    </c:if>

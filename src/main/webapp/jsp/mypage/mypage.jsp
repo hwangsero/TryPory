@@ -3,11 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="${pageContext.request.contextPath}/assets/js/jquery/jquery-3.3.1.min.js"></script>
+	<%@ include file="/WEB-INF/include/head.jsp" %>
 	<script src="${pageContext.request.contextPath}/assets/js/mypage.js"></script>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage.css">	
 	<script src="${pageContext.request.contextPath}/assets/js/diary/image_resize.js"></script>
-	<%@ include file="/WEB-INF/include/head.jsp" %>
 	<script>
 		$(function() {
 		  $('.fa-heart')

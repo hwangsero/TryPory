@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-    
-    
 <!-- 이미지교체 팝업 -->
-
 <div class="cd-popup02" role="alert">
 	<div class="cd-popup-container">
 		<div class="button-area">
@@ -17,7 +13,6 @@
 	</div> 
 </div> 
 <!--배경이미지 교체 팝업 END-->
-
 <div class="cd-popup" role="alert">
 	<div class="cd-popup-container">
 		<div class="button-area">
@@ -52,8 +47,8 @@
 						</a>
 					</div>
 					<div class="name">
-						<h3 class="title">HACHO</h3>
-						<h6>hacho_2011@naver.com</h6>
+						<h3 class="title">${ userVO.name }</h3>
+						<h6>${ userVO.email }</h6>
 					</div>
 					<div class="description text-center">
 						<p>여행하는 걸 좋아하는 하초입니다 (^^)</p>
