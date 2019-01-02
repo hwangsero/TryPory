@@ -32,11 +32,14 @@ public class NoticeService implements NoticeServiceInter {
 	}
 
 	@Override
-	public List<NoticeVO> selectSearchNotice(String word, String type) {
-		Map<String, String> searchMap = new HashMap<>();
+	public List<NoticeVO> selectSearchNotice(String word, String type, int pageNo) {
+		Map<String, Object> searchMap = new HashMap<>();
+		int start = (pageNo - 1) * 10 + 1;
+		int end = pageNo * 10;
+		searchMap.put("start", start);
+		searchMap.put("end", end);
 		searchMap.put("word", word);
 		searchMap.put("type", type);
-		
 		return noticeDAO.selectSearchNotice(searchMap);
 	}
 
@@ -56,6 +59,20 @@ public class NoticeService implements NoticeServiceInter {
 	@Override
 	public NoticeVO selectByNoNotice(int noticeNo) {
 		return noticeDAO.selectByNoNotice(noticeNo);
+	}
+
+	@Override
+	public int selectSearchCountNotice(String word, String type) {
+		Map<String,String> searchCntMap = new HashMap<>();
+		searchCntMap.put("word", word);
+		searchCntMap.put("type", type);
+		return noticeDAO.selectSearchCountNotice(searchCntMap);
+	}
+
+	@Override
+	public void updateViewCnt(int noticeNo) {
+		noticeDAO.updateViewCnt(noticeNo);
+		
 	}
 
 }

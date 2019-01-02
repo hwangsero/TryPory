@@ -11,6 +11,47 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/assets/css/notice/notice_mobile.css">
 
+<script>
+$(document).ready(function() {
+	$('#updateBtn').click(function() {
+		if(document.updateForm.title.value == "") {
+			alert('제목을 입력하세요');
+			$('input[name=title]').focus();
+			return false;
+		} 
+		
+		if(document.updateForm.content.value == "") {
+			alert('내용을 입력하세요');
+			$('textarea[name=content]').focus();
+			return false;
+		} 
+		
+		var data = {
+				no : ${notice.no},
+				title : document.updateForm.title.value,
+				content: document.updateForm.content.value
+		};
+		
+		$.ajax({
+			url : "${pageContext.request.contextPath}/notice/update",
+			type : "put",
+			dataType : "json",
+			data : JSON.stringify(data),
+			contentType: 'application/json',
+			
+			success : function(data) {
+				alert(data);
+				location.href="${pageContext.request.contextPath}/notice/detail/${notice.no}/0"
+			}, error : function(error) {
+				alert('error');
+			}
+			
+		})
+	})
+	
+})
+
+</script>
 </head>
 
 <body>
@@ -27,9 +68,9 @@
 		<!--3. 공지사항 글 등록 폼 -->
 		
 		<div class="notice-write-type2">
-			<form method="put"
-				action="${pageContext.request.contextPath }/notice/update"
-				onsubmit="return checkForm()" name="wForm" class="write_form">
+			<form
+				
+				name="updateForm" class="write_form" >
 				<div class="notice-write-type2-1">
 					<div class="notice-write-type2-1_date">
 						<h2>현재 날짜로 입력됩니다.</h2>
@@ -56,7 +97,7 @@
 
 				<!--4. 공지사항 글등록 버튼 -->
 				<div class="notice-write-type2-btn">
-					<input type="submit" value="수정">
+					<input type="button" value="수정" id="updateBtn">
 					<input type="button" value="초기화" onclick="history.go(-1)">
 				</div>
 				<!--END 4. 공지사항 글등록 버튼 -->
