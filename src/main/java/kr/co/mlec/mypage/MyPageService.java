@@ -5,14 +5,16 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import kr.co.mlec.notice.NoticeDAO;
 import kr.co.mlec.notice.NoticeVO;
 
+@Service
 public class MyPageService implements MyPageServiceInter {
 
 	@Autowired
-	private NoticeDAO noticeDAO;
+	private MyPageDAO mypageDAO;
 	
 	public List<NoticeVO> selectAllNotice(int pageNo) {
 		Map<String, Integer> pageMap = new HashMap<>();
@@ -20,7 +22,7 @@ public class MyPageService implements MyPageServiceInter {
 		int end = pageNo * 10;
 		pageMap.put("start", start);
 		pageMap.put("end", end);
-		return noticeDAO.selectAllNotice(pageMap);
+		return mypageDAO.selectAllNotice(pageMap);
 	}
 	
 	public void insertNotice(NoticeVO noticeVO) {
