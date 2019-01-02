@@ -94,9 +94,28 @@ $j(document).ready(function(){
 		$j(".tool_box input[type=file]").change(function(e){
 			var files = e.target.files;
 			var img_wrap = $j(e.target).closest(".content_editbox").find("div.img_wrap");
+			
+			var formdata = new FormData($j(e.target).parent());
+
+			$j.ajax({
+				url : window.ctx + '/upload',
+				data : formdata,
+//				dataType : 'text',
+				processData : false,
+				contentType : false,
+				type : 'POST',
+				success : function(response) {
+					console.log('success');
+					console.log(response);
+				},
+				error : function(jqXHR) {
+					console.log('error');
+				}
+
+			});
 			console.log(files);
 			
-			files = files_sort(files, img_wrap);
+//			files = files_sort(files, img_wrap);
 			
 			console.log(files);
 //			files_view(files, e);
