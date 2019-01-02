@@ -33,6 +33,10 @@ public class DiaryController {
 	public String DiaryWrite() {
 		return "diary/write_diary_page";
 	}
+	@GetMapping("/diary/myMap")
+	public String MyMap() {
+		return "diary/my_map";
+	}
 	
 	@RequestMapping("/diary/search/{tag}")
 	public ModelAndView DiarySearchList(@PathVariable("tag") String tag, Model model) {

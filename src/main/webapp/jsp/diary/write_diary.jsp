@@ -55,7 +55,9 @@
 						<li><i class="fas fa-image fa-3x"></i></li>
 						<li><i class="fas fa-map-marker-alt fa-3x"></i></li>
 					</ul>
-					<input type="file" multiple="multiple" accept=".jpeg" style="display:none;">
+					<form id="uploadForm" enctype="multipart/form-data"> 
+						<input type="file" multiple="multiple" accept=".jpeg" style="display:none;">
+					</form>
 				</div>
 				<div class="img_wrap">
 				</div>
@@ -86,5 +88,8 @@
 				</ul>
 			</div>
 		</div>
+	</div>
+	<div id="form_data">
+	
 	</div>
 </div>

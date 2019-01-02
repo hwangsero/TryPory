@@ -30,7 +30,7 @@
 	        <nav class="classy-navbar justify-content-between" id="magNav">
 	
 	            <!-- Nav brand -->
-	            <a href="${pageContext.request.contextPath}/index.jsp" id="site_logo_title" class="nav-brand">Tripory</a>
+	            <a href="${pageContext.request.contextPath}" id="site_logo_title" class="nav-brand">Tripory</a>
 	
 	            <!-- Navbar Toggler -->
 	            <div class="classy-navbar-toggler">
@@ -53,7 +53,7 @@
 	                    <!-- Nav Start -->
 	                    <div class="classynav">
 	                        <ul>
-	                            <li><a href="${pageContext.request.contextPath}/diary/my_map.jsp">나의 여행지도</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/diary/myMap">나의 여행지도</a></li>
 	                            <li><a href="${pageContext.request.contextPath}/diary">다이어리 목록</a></li>
 	                            <li><a href="${pageContext.request.contextPath}/notice/1">공지사항</a></li>
 	                        </ul>
@@ -91,7 +91,7 @@
 	                     <a class="login-btn" id="logout">
 	                    	로그아웃
 	                    </a>
-	                    <a href="${pageContext.request.contextPath}/jsp/mypage/mypage.jsp" class="login-btn">
+	                    <a href="${pageContext.request.contextPath}/mypage" class="login-btn">
 	                    	마이페이지
 	                    </a>
 	                    </c:if>

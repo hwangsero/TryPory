@@ -45,36 +45,74 @@
 		where no = #{no}
 	</update>
 	
+	<update id="updateViewCnt" parameterType="int">
+		update d_notice
+		set view_cnt = view_cnt+1
+		where no = #{no}
+	</update>
+	
 	<select id="selectSearchNotice" resultMap="noticeMap" parameterType="hashmap">
 		<choose>
-			<when test="#{type}.equals('제목')">
+			<when test= 'type.equals("all")'>
 			<![CDATA[
 			select no, title, content, writer, view_cnt, to_char(register_date, 'yyyy-mm-dd') as register_date
-			from (select rownum r, b.* from( select a.* from d_notice a order by no desc)
-			where title = ${word}
-			 b )
+			from (select rownum r, b.* from( select a.* from d_notice a 
+			where title like '%'||#{word}||'%' or content like '%'||#{word}||'%' or writer like '%'||#{word}||'%'  order by no desc) b )
+			where r>= #{start} and r <= #{end} 
+			]]>
+			</when>
+			<when test= 'type.equals("title")'>
+			<![CDATA[
+			select no, title, content, writer, view_cnt, to_char(register_date, 'yyyy-mm-dd') as register_date
+			from (select rownum r, b.* from( select a.* from d_notice a where title like '%'||#{word}||'%' order by no desc) b )
+			where r>= #{start} and r <= #{end} 
+			]]>
+			</when>
+			<when test='type.equals("content")'>
+			<![CDATA[
+			select no, title, content, writer, view_cnt, to_char(register_date, 'yyyy-mm-dd') as register_date
+			from (select rownum r, b.* from( select a.* from d_notice a where content like '%'||#{word}||'%' order by no desc) b )
 			where r>= #{start} and r <= #{end}
 			]]>
 			</when>
-			<when test="#{type}.equals('내용')">
+			<when test='type.equals("writer")'>
 			<![CDATA[
 			select no, title, content, writer, view_cnt, to_char(register_date, 'yyyy-mm-dd') as register_date
-			from (select rownum r, b.* from( select a.* from d_notice a order by no desc)
-			where content = ${word}
-			 b )
+			from (select rownum r, b.* from( select a.* from d_notice a where writer like '%'||#{word}||'%' order by no desc) b )
 			where r>= #{start} and r <= #{end}
 			]]>
 			</when>
-			<when test="#{type}.equals('작성자')">
+		</choose> 
+	</select>
+	
+	<select id="selectSearchCountNotice" resultType="int" parameterType="hashmap">
+	<choose>
+			<when test= 'type.equals("all")'>
 			<![CDATA[
-			select no, title, content, writer, view_cnt, to_char(register_date, 'yyyy-mm-dd') as register_date
-			from (select rownum r, b.* from( select a.* from d_notice a order by no desc)
-			where writer = ${word}
-			 b )
-			where r>= #{start} and r <= #{end}
+			select count(*) count
+			from (select rownum r, b.* from( select a.* from d_notice a 
+			where title like '%'||#{word}||'%' or content like '%'||#{word}||'%' or writer like '%'||#{word}||'%'  order by no desc) b )
 			]]>
 			</when>
-		</choose>
+			<when test= 'type.equals("title")'>
+			<![CDATA[
+			select count(*) count
+			from (select rownum r, b.* from( select a.* from d_notice a where title like '%'||#{word}||'%' order by no desc) b )
+			]]>
+			</when>
+			<when test='type.equals("content")'>
+			<![CDATA[
+			select count(*) count
+			from (select rownum r, b.* from( select a.* from d_notice a where content like '%'||#{word}||'%' order by no desc) b )
+			]]>
+			</when>
+			<when test='type.equals("writer")'>
+			<![CDATA[
+			select count(*) count
+			from (select rownum r, b.* from( select a.* from d_notice a where writer like '%'||#{word}||'%' order by no desc) b )
+			]]>
+			</when>
+		</choose> 
 	</select>
 	
 </mapper>

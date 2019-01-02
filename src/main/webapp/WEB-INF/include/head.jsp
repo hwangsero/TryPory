@@ -21,3 +21,6 @@
 <script src="${pageContext.request.contextPath}/assets/js/jquery/jquery-2.2.4.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/jquery/jquery-3.3.1.min.js"></script>
 <script>var $j = jQuery.noConflict(true);</script>
+<script>
+	window.ctx = "${pageContext.request.contextPath}"; 
+</script>
