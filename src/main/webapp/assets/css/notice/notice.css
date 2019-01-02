@@ -187,6 +187,7 @@ table.type3 tbody td:nth-child(2){
 	width: 70%;
 	margin: auto;
 	padding-top: 30px;
+	margin-bottom: 40px;
 }
 
 .paging ul {
