@@ -27,15 +27,23 @@ public class DiaryController {
 	
 	@PostMapping("/diary")
 	@ResponseBody
-	public String addDiary(@RequestBody Map<String, Object> data, HttpSession session ) {
-		System.out.println("다이어리 작성");
-		System.out.println(data);
+	public int addDiary(@RequestBody Map<String, Object> data, HttpSession session ) {
+//		String writer = ((MemberVO)session.getAttribute("userVO")).getEmail();
+		String writer = "Test";
+		Map<String, Object> post_data = (Map<String, Object>) data.get("post_data");
+		System.out.println(post_data);
+		DiaryVO diary = new DiaryVO();
+		diary.setTitle((String)post_data.get("title"));
+		diary.setWriter(writer);
+		System.out.println(data.get("date_data").toString());
+		diary.setContent((String)data.get("date_data").toString());
+		diary.setStart_date((String)post_data.get("start_date"));
+		diary.setEnd_date((String)post_data.get("end_date"));
 		
-		String writer = ((MemberVO)session.getAttribute("userVO")).getEmail();
-		System.out.println(data.get("post_data"));
-		System.out.println(data.get("date_data"));
+		System.out.println((String)post_data.get("end_date"));
 		
-		return "test";
+		
+		return diaryService.insertDiary(diary);
 	}
 	
 	@RequestMapping("/diary")

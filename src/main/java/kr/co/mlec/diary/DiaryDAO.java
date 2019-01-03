@@ -25,4 +25,8 @@ public class DiaryDAO implements DiaryDAOInter {
 		return DiaryList;
 	}
 
+	public int insertDiary(DiaryVO diary) {
+		return sqlSession.insert("kr.co.mlec.diary.insertDiary", diary);
+	}
+
 }

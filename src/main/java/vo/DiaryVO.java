@@ -5,10 +5,11 @@ public class DiaryVO {
 	private int no;
 	private String title;
 	private String content;
+	private String writer;
 	private String coverImage;
 	private String isShare;
-	private String endDate;
-	private String startDate;
+	private String end_date;
+	private String start_date;
 	private String tag1;
 	private String tag2;
 	private String tag3;
@@ -22,6 +23,13 @@ public class DiaryVO {
 	}
 	public void setNo(int no) {
 		this.no = no;
+	}
+	
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 	public String getTitle() {
 		return title;
@@ -47,17 +55,17 @@ public class DiaryVO {
 	public void setIsShare(String isShare) {
 		this.isShare = isShare;
 	}
-	public String getEndDate() {
-		return endDate;
+	public String getEnd_date() {
+		return end_date;
 	}
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
+	public void setEnd_date(String end_date) {
+		this.end_date = end_date;
 	}
-	public String getStartDate() {
-		return startDate;
+	public String getStart_date() {
+		return start_date;
 	}
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
+	public void setStart_date(String start_date) {
+		this.start_date = start_date;
 	}
 	public String getTag1() {
 		return tag1;
@@ -107,14 +115,12 @@ public class DiaryVO {
 	public void setRegisterDate(String registerDate) {
 		this.registerDate = registerDate;
 	}
-	
-	
 	@Override
 	public String toString() {
-		return "DiaryVO [no=" + no + ", title=" + title + ", content=" + content + ", coverImage=" + coverImage
-				+ ", isShare=" + isShare + ", endDate=" + endDate + ", startDate=" + startDate + ", tag1=" + tag1
-				+ ", tag2=" + tag2 + ", tag3=" + tag3 + ", tag4=" + tag4 + ", tag5=" + tag5 + ", viewCnt=" + viewCnt
-				+ ", likeCnt=" + likeCnt + ", registerDate=" + registerDate + "]";
+		return "DiaryVO [no=" + no + ", title=" + title + ", content=" + content + ", writer=" + writer
+				+ ", coverImage=" + coverImage + ", isShare=" + isShare + ", endDate=" + end_date + ", startDate="
+				+ start_date + ", tag1=" + tag1 + ", tag2=" + tag2 + ", tag3=" + tag3 + ", tag4=" + tag4 + ", tag5="
+				+ tag5 + ", viewCnt=" + viewCnt + ", likeCnt=" + likeCnt + ", registerDate=" + registerDate + "]";
 	}
 	
 	

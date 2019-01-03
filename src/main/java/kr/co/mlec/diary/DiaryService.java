@@ -22,4 +22,8 @@ public class DiaryService {
 		List<DiaryVO> diaryList = diaryDAO.selectSearchDiary(tag);
 		return diaryList;
 	}
+	
+	public int insertDiary(DiaryVO diary) {
+		return diaryDAO.insertDiary(diary);
+	}
 }

@@ -13,9 +13,10 @@ $j(document).ready(function(){
 	cells[0].images = [];
 	date_data[0] = cells;
 	
-//	console.log(date_data);
+	var default_date_str = date.getFullYear() + '.' + (date.getMonth()+1) + '.' + date.getDate();
 	
-	$j("div.content_datebox span").text(date.getFullYear() + '.' + (date.getMonth()+1) + '.' + date.getDate() );
+	post_data.start_date = post_data.end_date = default_date_str; 
+	$j("div.content_datebox span").text(default_date_str );
 	
 	file_input.change(function(e){	// 커버사진 미리보기
 		var img_url = URL.createObjectURL(e.target.files[0]);
@@ -268,8 +269,9 @@ $j(document).ready(function(){
 			
 			if( i == 0){ // 첫번째 사진
 				start_date = first_date = file.dateTime;
-				write_con.find("div.content_datebox").first().find("span").text(first_date.getFullYear() + '.' + (first_date.getMonth()+1) + '.' + first_date.getDate() );
-				
+				var start_date_str = first_date.getFullYear() + '.' + (first_date.getMonth()+1) + '.' + first_date.getDate();
+				write_con.find("div.content_datebox").first().find("span").text(start_date_str);
+				post_data.start_date = start_date_str;
 			}
 			
 			if(file.dateTime.getDate() - start_date.getDate() > 0){
@@ -291,6 +293,10 @@ $j(document).ready(function(){
 				var cells = [new Object()];
 				cells[0].images = [];
 				date_data[div.prevAll("#date_wrap").length] = cells;
+				
+				var file_date = file.dateTime.getDate();
+				var end_date_str = file_date.getFullYear() + '.' + (file_date.getMonth()+1) + '.' + file_date.getDate();
+				post_data.end_date = end_date_str;
 			}
 			
 			function display(file, img){
