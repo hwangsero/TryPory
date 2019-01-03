@@ -2,6 +2,8 @@ package kr.co.mlec.notice;
 
 import java.util.List;
 
+import vo.NoticeVO;
+
 public interface NoticeServiceInter {
 	
 	public List<NoticeVO> selectAllNotice(int pageNo);

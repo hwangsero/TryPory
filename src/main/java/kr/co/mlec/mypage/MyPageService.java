@@ -7,8 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.mlec.notice.NoticeDAO;
-import kr.co.mlec.notice.NoticeVO;
+import vo.NoticeVO;
 
 @Service
 public class MyPageService implements MyPageServiceInter {

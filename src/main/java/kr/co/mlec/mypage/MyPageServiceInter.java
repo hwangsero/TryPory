@@ -2,7 +2,7 @@ package kr.co.mlec.mypage;
 
 import java.util.List;
 
-import kr.co.mlec.notice.NoticeVO;
+import vo.NoticeVO;
 
 public interface MyPageServiceInter {
 	public List<NoticeVO> selectAllNotice(int pageNo);

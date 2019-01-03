@@ -135,9 +135,6 @@ public class Pagination {
 	public int getCurRange() {
 		return curRange;
 	}
-	
-	
-
 	@Override
 	public String toString() {
 		return "Pagination [pageCnt=" + pageCnt + ", listCnt=" + listCnt + ", pageSize=" + pageSize + ", rangeSize="
@@ -145,10 +142,4 @@ public class Pagination {
 				+ ", prevPage=" + prevPage + ", nextPage=" + nextPage + ", curPage=" + curPage + ", curRange="
 				+ curRange + "]";
 	}
-
-	
-	
-	
-	
-	
 }
