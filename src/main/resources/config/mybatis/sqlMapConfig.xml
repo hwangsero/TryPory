@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
   <configuration>
   <typeAliases>
-  	<typeAlias type="kr.co.mlec.diary.DiaryVO" alias="diaryVO"/>
-  	<typeAlias type="kr.co.mlec.notice.NoticeVO" alias="noticeVO"/>
-  	<typeAlias type="kr.co.mlec.login.MemberVO" alias="memberVO"/>
+  	<typeAlias type="vo.DiaryVO" alias="diaryVO"/>
+  	<typeAlias type="vo.NoticeVO" alias="noticeVO"/>
+  	<typeAlias type="vo.MemberVO" alias="memberVO"/>
   </typeAliases>
   </configuration>
