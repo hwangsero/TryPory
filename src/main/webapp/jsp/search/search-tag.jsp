@@ -14,7 +14,7 @@
 	<div class="search-box">
 					<input type="text" name="searchWord" placeholder="검색어 입력">
 					<button id="searchBtn">
-						<i class="fas fa-search"></i>
+						<img src="<%=request.getContextPath()%>/assets/img/searchIcon.png">
 					</button>
 				</div>
 
