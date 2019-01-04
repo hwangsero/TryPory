@@ -15,6 +15,7 @@
 	<script src="assets/js/diary/image_resize.js"></script>
 </head>
 
+
 <body>
     <%@ include file="/WEB-INF/include/preload.jsp" %>
 

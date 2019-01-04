@@ -14,6 +14,7 @@ public class LoginDAO implements LoginDAOInter{
 	
 	@Override
 	public void joinMember(MemberVO member) {
+		System.out.println(member);
 		sqlSession.insert("kr.co.mlec.login.joinMember", member);
 	}
 	

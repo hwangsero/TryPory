@@ -11,6 +11,14 @@
 	
 	function checkData() {
 		var f = document.inputForm;
+		
+//이름 
+		if(f.name.value.length == 0 ) {
+			alert('이름을 입력하세요.');
+			f.email.focus();
+			return false;
+		}
+		
 //이메일	
 		if(f.email.value.length == 0 ) {
 			alert('이메일을 입력하세요.');
@@ -94,7 +102,7 @@
 						<span class="mail"> <input type="text" size="20" id="email"
 							name="email" placeholder="이메일을 30자 이내로 입력하세요.">
 						</span> <span class="text">@</span> <span class="mailAddr"> <input
-							type="text" size="20" name="email_domain">
+							type="text" size="20" name="domain">
 						</span>
 					</div>
 
@@ -128,11 +136,11 @@
 					<!--tel-->
 					<div>
 						<h3>휴대전화</h3>
-						<span class="tel1"> <input type="text" size="3" name="tel1">
+						<span class="tel1"> <input type="text" size="3" name="phone1">
 						</span> <span class="text telT">-</span> <span class="tel tel2"> <input
-							type="tel" size="4" name="tel2">
+							type="tel" size="4" name="phone2">
 						</span> <span class="text telT">-</span> <span class="tel tel3"> <input
-							type="tel" size="4" name="tel3">
+							type="tel" size="4" name="phone3">
 						</span>
 					</div>
 

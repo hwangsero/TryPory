@@ -20,6 +20,7 @@ public class LoginContoller {
 	public String loginForm() {
 		return "login/loginForm";
 	}
+	
 	@ResponseBody
 	@PostMapping("/logout")
 	public String logout(HttpSession session) {
