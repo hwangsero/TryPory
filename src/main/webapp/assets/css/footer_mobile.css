@@ -1,0 +1,21 @@
+@charset "EUC-KR";
+
+@media screen and (max-width : 767px) {
+	.triforyInfo-container {
+		width: 100%;
+		/* float: left; */
+		text-align: center;
+		margin: auto;
+	}
+	
+	.footer-content {
+		text-align: center;
+	}
+	
+	img {
+		max-width: 15%;
+		padding-left: 10px;
+		padding-top: 20px;
+	}
+	
+}
