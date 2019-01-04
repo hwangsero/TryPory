@@ -4,8 +4,10 @@
 <html>
 <head>
 	<%@ include file="/WEB-INF/include/head.jsp" %>
+	
 	<script src="${pageContext.request.contextPath}/assets/js/mypage.js"></script>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage.css">	
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage_mobile.css">
 	<script src="${pageContext.request.contextPath}/assets/js/diary/image_resize.js"></script>
 	<script>
 		$(function() {
