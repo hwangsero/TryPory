@@ -14,6 +14,11 @@ public class DiaryDAO implements DiaryDAOInter {
 	@Autowired
 	SqlSessionTemplate sqlSession;
 	
+	public DiaryVO selectDiary(int no) {
+		DiaryVO diary = sqlSession.selectOne("kr.co.mlec.diary.selectDiary", no);
+		return diary;
+	}
+	
 	@Override
 	public List<DiaryVO> selectAllDiary() {
 		List<DiaryVO> DiaryList = sqlSession.selectList("kr.co.mlec.diary.selectAllDiary");
@@ -23,6 +28,10 @@ public class DiaryDAO implements DiaryDAOInter {
 	public List<DiaryVO> selectSearchDiary(String tag) {
 		List<DiaryVO> DiaryList = sqlSession.selectList("kr.co.mlec.diary.selectSearchDiary", tag);
 		return DiaryList;
+	}
+
+	public int insertDiary(DiaryVO diary) {
+		return sqlSession.insert("kr.co.mlec.diary.insertDiary", diary);
 	}
 
 }

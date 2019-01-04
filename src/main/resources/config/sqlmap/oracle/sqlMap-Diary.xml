@@ -7,8 +7,8 @@
 	<resultMap type="DiaryVO" id="diaryMap">
 		<result column="is_share" property="isShare"/>
 		<result column="cover_image" property="coverImage"/>
-		<result column="end_date" property="endDate"/>
-		<result column="start_date" property="startDate"/>
+		<result column="end_date" property="end_date"/>
+		<result column="start_date" property="start_date"/>
 		<result column="tag_1" property="tag1"/>
 		<result column="tag_2" property="tag2"/>
 		<result column="tag_3" property="tag3"/>
@@ -19,6 +19,13 @@
 		<result column="register_date" property="registerDate"/>
 	</resultMap>
 	
+	<select id="selectDiary" resultType="diaryVO" parameterType="int">
+		select no, title, content, writer, cover_image, is_share, end_date, start_date,
+		tag_1, tag_2, tag_3, tag_4, tag_5, view_cnt, like_cnt, register_date
+		from D_diary
+		where no = #{no}
+	</select>
+
 	<select id="selectAllDiary" resultMap="diaryMap">
 		select *
 		from D_diary
@@ -31,6 +38,9 @@
 		 tag_4 = #{tag} or tag_5 = #{tag} 
 	</select>
 	
-
+	<insert id="insertDiary" parameterType="DiaryVO">
+		insert into d_diary(no, title, content, writer, end_date, start_date)
+		values(d_diary_seq.nextval, #{title}, #{content}, #{writer}, #{end_date}, #{start_date})
+	</insert>
 
 </mapper>

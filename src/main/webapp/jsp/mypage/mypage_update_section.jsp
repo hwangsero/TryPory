@@ -52,25 +52,24 @@
 
 					<div class="update-form-box">
 						<form method="post"
-							action="<%=request.getContextPath()%>/index.jsp"
+							action="${pageContext.request.contextPath }/mypage"
 							onsubmit="return checkData()" name="inputForm">
-
 
 							<!-- 프로필수정 form -->
 							<div class="update-form">
 								<h2>프로필 수정</h2>
 								<!--닉네임-->
 								<div class="inputBox">
-									<h3>닉네임</h3>
-									<span> <input type="text" size="40" id="id" name="id"
-										value ="HACHO">
+									<h3>이름</h3>
+									<span> <input type="text" size="40" id="name" name="name"
+										value ="${ userVO.name }">
 									</span>
 								</div>
 
 								<!--소개-->
 								<div class="inputBox">
 									<h3>소개</h3>
-									<span class="intro"> <textarea rows="6" cols="60" >여행하는 걸 좋아하는 하초입니다 (^^)</textarea>
+									<span class="intro"> <textarea rows="6" cols="60" name="intro" >${ userVO.intro }</textarea>
 									</span>
 								</div>
 							</div>
@@ -82,11 +81,11 @@
 								<div class="joinId">
 									<h3>이메일</h3>
 									<span class="mail"> <input type="text" size="20"
-										id="email" name="email_id" value="hacho_2011">
+										id="email" name="email" value="${ userVO.email }">
 									</span> 
 									<span class="text">@</span> 
 									<span class="mailAddr">
-										<input type="text" size="20" value="naver.com" name="email_domain">
+										<input type="text" size="20" value="${ userVO.domain }" name="domain">
 									</span>
 								</div>
 
@@ -94,7 +93,7 @@
 								<div class="inputBox">
 									<h3>비밀번호</h3>
 									<span> <input type="password" size="40" id="password"
-										name="password">
+										name="password" value="${ userVO.password }">
 									</span>
 								</div>
 
@@ -111,11 +110,11 @@
 									<h3>휴대전화</h3>
 									<div class="inputBox">
 										<span class="tel tel1"> <input type="text" size="3"
-											name="tel1" value="010">
+											name="phone1" value="${ userVO.phone1 }">
 										</span> <span class="text telT">-</span> <span class="tel tel2">
-											<input type="tel" size="4" name="tel2" value="5555">
+											<input type="tel" size="4" name="phone2" value="${ userVO.phone2 }">
 										</span> <span class="text telT">-</span> <span class="tel tel3">
-											<input type="tel" size="4" name="tel3" value="3333">
+											<input type="tel" size="4" name="phone3" value="${ userVO.phone3 }">
 										</span>
 									</div>
 								</div>
@@ -132,10 +131,6 @@
 					<!-- // end container -->
 				</div>
 			</div>
-
-
-
-
 
 		</div>
 	</div>
