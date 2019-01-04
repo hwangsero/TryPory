@@ -1,5 +1,8 @@
 package kr.co.mlec.login;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,18 +38,23 @@ public class LoginContoller {
 
 	@ResponseBody
 	@PostMapping("/login")
-	public String login(MemberVO member, HttpSession session) {
+	public Map<String,String> login(MemberVO member, HttpSession session) {
 		System.out.println("로그인");
 		MemberVO userVO = loginService.loginMember(member);
 		String loginMsg;
+		Map<String, String> loginMap = new HashMap<String, String>();
 		if (userVO == null) {
 			loginMsg = "로그인에 실패했습니다";
+			loginMap.put("loginMsg", loginMsg);
+			loginMap.put("result", "false");
 		} else {
 			System.out.println(userVO);
 			loginMsg = "로그인에 성공했습니다";
+			loginMap.put("loginMsg", loginMsg);
+			loginMap.put("result", "true");
 			session.setAttribute("userVO", userVO);
 		}
-		return loginMsg;
+		return loginMap;
 	}
 
 	@GetMapping("/join")
