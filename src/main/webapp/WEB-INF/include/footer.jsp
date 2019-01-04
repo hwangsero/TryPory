@@ -5,13 +5,16 @@
 	<!--footer content Area-->
 	<div class="footer-content">
 		<div class="triforyInfo-container">
-			<h5>(주)Trifory</h5>
-			<h5>저자권ⓒ에이콘아카데미</h5>
+			<h1>Trifory</h1>
+			<h5>Copyrightⓒ2019 by Trifory. 
+			<br>All pictures cannot be copied without permission.</h5>
 		</div>
-
+		
+		<div class="triforyInfo-picture">
 		<img src="<%=request.getContextPath()%>/assets/img/facebook.png">
 		<img src="<%=request.getContextPath()%>/assets/img/twitter.png">
 		<img src="<%=request.getContextPath()%>/assets/img/insta.png">
+		</div>
 	</div>
 
 	<div class="footer-bottom"></div>
