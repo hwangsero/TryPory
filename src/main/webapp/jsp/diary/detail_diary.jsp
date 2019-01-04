@@ -25,7 +25,7 @@
 <div id="write_wrap">
 	<div class="container C">
 		<div class="div_pdt"></div>
-		
+		${ content }
 		<div class="content_datebox">
 			<div><h4>1일차</h4></div>
 			<div>2018.12.19</div>

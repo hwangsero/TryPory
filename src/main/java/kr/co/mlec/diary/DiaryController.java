@@ -1,10 +1,13 @@
 package kr.co.mlec.diary;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,12 +29,16 @@ public class DiaryController {
 	private DiaryService diaryService;
 	
 	@GetMapping("/diary/{no}")
-	public ModelAndView SearchDiary(@PathVariable int no) {
+	public ModelAndView SearchDiary(@PathVariable int no) throws Exception {
 		DiaryVO diary = diaryService.selectDiary(no);
 		ModelAndView mav = new ModelAndView("diary/detail_diary_page");
-		
-		System.out.println(diary);
+		String content = diary.getContent();
+		JSONParser parser = new JSONParser();
+		JSONObject json = (JSONObject)parser.parse(content);
+		System.out.println(json);
+
 		mav.addObject("diary", diary);
+		mav.addObject("content", content);
 		
 		return mav;
 	}
@@ -42,17 +49,14 @@ public class DiaryController {
 //		String writer = ((MemberVO)session.getAttribute("userVO")).getEmail();
 		String writer = "Test";
 		Map<String, Object> post_data = (Map<String, Object>) data.get("post_data");
-		System.out.println(post_data);
 		DiaryVO diary = new DiaryVO();
+		
 		diary.setTitle((String)post_data.get("title"));
 		diary.setWriter(writer);
-		System.out.println(data.get("date_data").toString());
+		
 		diary.setContent((String)data.get("date_data").toString());
 		diary.setStart_date((String)post_data.get("start_date"));
 		diary.setEnd_date((String)post_data.get("end_date"));
-		
-		System.out.println((String)post_data.get("end_date"));
-		
 		
 		return diaryService.insertDiary(diary);
 	}

@@ -68,13 +68,12 @@
 	</bean>
 	<bean id="uploadPath" class="java.lang.String" name="uploadPath">
 		<constructor-arg
-			value="/Users/choi/lecture/apache-tomcat-8.0.53/webapps/upload"></constructor-arg>
+			value="/Users/choi/lecture/apache-tomcat-8.0.53/webapps/upload/"></constructor-arg>
 	</bean>
 
 	<mvc:default-servlet-handler />
 	<mvc:view-resolvers>
 		<mvc:jsp prefix="/jsp/" suffix=".jsp" />
 	</mvc:view-resolvers>
-
 
 </beans>

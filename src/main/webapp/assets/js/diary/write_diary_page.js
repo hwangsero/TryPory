@@ -32,7 +32,12 @@ $j(document).ready(function(){
 	}
 	
 	$j("button.save").click(function(){
-		post_data.title = $j("textarea#input_diary_title").val();
+		var title = $j("textarea#input_diary_title").val();
+		if( title == ''){
+			alert("여행일지의 제목을 입력하세요");
+			return false;
+		}
+		post_data.title = title;
 		diary_data.post_data = post_data;
 		
 		var date_list = $j("div#date_wrap");
@@ -44,7 +49,6 @@ $j(document).ready(function(){
 				var text = $j(content_box).find("textarea").val();
 				date_data[i][j].text = text;
 			}
-			
 		}
 		diary_data.date_data = date_data;
 		
@@ -294,7 +298,7 @@ $j(document).ready(function(){
 				cells[0].images = [];
 				date_data[div.prevAll("#date_wrap").length] = cells;
 				
-				var file_date = file.dateTime.getDate();
+				var file_date = file.dateTime;
 				var end_date_str = file_date.getFullYear() + '.' + (file_date.getMonth()+1) + '.' + file_date.getDate();
 				post_data.end_date = end_date_str;
 			}
