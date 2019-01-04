@@ -28,8 +28,6 @@
 			return false;
 		}
 		
-		f.email.value = f.email.value + '@' + f.email_domain.value;
-		
 //비번
 		if(f.password.value.length == 0 ) {
 			alert('비밀번호를  입력하세요.');
