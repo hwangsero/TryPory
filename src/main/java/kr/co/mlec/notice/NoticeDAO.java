@@ -7,6 +7,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import vo.NoticeVO;
+
 @Repository
 public class NoticeDAO implements NoticeDAOInter{
 	
@@ -29,7 +31,7 @@ public class NoticeDAO implements NoticeDAOInter{
 	}
 
 	@Override
-	public List<NoticeVO> selectSearchNotice(Map searchMap) {
+	public List<NoticeVO> selectSearchNotice(Map<String, Object> searchMap) {
 		return sqlSession.selectList("kr.co.mlec.notice.selectSearchNotice", searchMap);
 	}
 
@@ -51,5 +53,16 @@ public class NoticeDAO implements NoticeDAOInter{
 		return sqlSession.selectOne("kr.co.mlec.notice.selectByNoNotice", noticeNo);
 	}
 
+	@Override
+	public int selectSearchCountNotice(Map<String, String> searchCntMap) {
+		return sqlSession.selectOne("kr.co.mlec.notice.selectSearchCountNotice", searchCntMap);
+	}
+
+	@Override
+	public void updateViewCnt(int noticeNo) {
+		sqlSession.update("kr.co.mlec.notice.updateViewCnt", noticeNo);
+	}
+
+	
 
 }

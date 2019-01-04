@@ -4,60 +4,55 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.co.mlec.login.MemberVO;
+import vo.MemberVO;
+import vo.NoticeVO;
 
 @Controller
 public class NoticeController {
 
 	@Autowired
 	private NoticeService noticeService;
-	private int prevNo = 0;
-	private int nextNo = 3;
-	private int startNo = 1;
-	private int endNo = 2;
-	private int pageCnt;
 	
 	@RequestMapping("/notice/{pageNo}")
-	public ModelAndView noticeList(@PathVariable("pageNo") int pageNo,Model model) {
+	public ModelAndView noticeList(@PathVariable("pageNo") int pageNo) {
 		ModelAndView mav = new ModelAndView();
-		model.addAttribute(pageNo);
 		
 		int noticeCnt = noticeService.selectCountNotice();
-		
-		if(noticeCnt % 10 == 0)
-			pageCnt = noticeCnt / 10;
-		else
-			pageCnt = noticeCnt / 10 + 1;
-		
-		
-		
+		Pagination pagination = new Pagination(noticeCnt, pageNo);
+		int start = pagination.getStartPage();
+		int end = pagination.getEndPage();
+
 		List<NoticeVO> noticeVO =  noticeService.selectAllNotice(pageNo);
 		
-		
+		System.out.println(start);
+		System.out.println(end);
+		System.out.println(pagination);
 		System.out.println("--------------------------");
 		Map<String, Object> noticeMap = new HashMap<>();
-		noticeMap.put("pageCnt", pageCnt);
 		noticeMap.put("noticeCnt", noticeCnt);
-		noticeMap.put("noticeVO", noticeVO);
+		noticeMap.put("noticeVO",noticeVO);
+		noticeMap.put("start", start);
+		noticeMap.put("end", end);
+		noticeMap.put("pagination", pagination);
+		noticeMap.put("pageNo", pageNo);
 		mav.addAllObjects(noticeMap);
 		
 		mav.setViewName("notice/noticeList");
+		
 		
 		return mav;
 	}
@@ -84,8 +79,10 @@ public class NoticeController {
 		return "redirect:/notice/1";
 	}
 	
-	@GetMapping("/notice/detail/{noticeNo}")
-	public ModelAndView noticeDitail(@PathVariable("noticeNo") int noticeNo) {
+	@GetMapping("/notice/detail/{noticeNo}/{count}")
+	public ModelAndView noticeDitail(@PathVariable("noticeNo") int noticeNo, @PathVariable("count") int count) {
+		if(count==1)
+		noticeService.updateViewCnt(noticeNo);
 		
 		NoticeVO notice = noticeService.selectByNoNotice(noticeNo);
 		ModelAndView mav = new ModelAndView();
@@ -95,8 +92,9 @@ public class NoticeController {
 		return mav;
 		
 	}
+	
 	@ResponseBody
-	@DeleteMapping("/notice/{noticeNo}")
+	@DeleteMapping("/notice/{noticeNo}/")
 	public String noticeDelete(@PathVariable("noticeNo") int noticeNo) {
 		noticeService.deleteNotice(noticeNo);
 		String msg = "게시물이 삭제되었습니다.";
@@ -114,24 +112,55 @@ public class NoticeController {
 		return mav;
 	}
 	
+	@ResponseBody
 	@PutMapping("/notice/update")
-	public String noticeUpdate(NoticeVO notice) {
-		noticeService.updateNotice(notice);
+	public String noticeUpdate(@RequestBody NoticeVO notice) {
+		 
+		NoticeVO noticeVO = noticeService.selectByNoNotice(notice.getNo());
+		noticeVO.setTitle(notice.getTitle());
+		noticeVO.setContent(notice.getContent());
+
+//		
+		System.out.println(noticeVO);
+		noticeService.updateNotice(noticeVO);
 		
-		return "redirect:/notice/detail/" + notice.getNo();
+		
+		return "게시물이 수정되었습니다.";  
 	}
 	
-}
+
 	
-/*	@RequestMapping("/notice/search")
-	public ModelAndView noticeSearch(HttpServletRequest request) {
+	@RequestMapping("/notice/search/{pageNo}/{type}/{word}")
+	public ModelAndView noticeSearch(@PathVariable("pageNo") int pageNo, @PathVariable("type") String type, @PathVariable("word") String word) {
+		ModelAndView mav = new ModelAndView();
 		
-		String Word = request.getParameter("searchWord");
-		String Type = request.getParameter("searchType");
+		int noticeCnt = noticeService.selectSearchCountNotice(word, type);
+		Pagination pagination = new Pagination(noticeCnt, pageNo);
+		int start = pagination.getStartPage();
+		int end = pagination.getEndPage();
+
+		List<NoticeVO> noticeVO = noticeService.selectSearchNotice(word, type, pageNo);	
 		
-		List<NoticeVO> noticeList = noticeService.selectSearchNotice(Word, Type);	
+		System.out.println(start);
+		System.out.println(end);
+		System.out.println(pagination);
+		System.out.println("--------------------------");
+		Map<String, Object> noticeMap = new HashMap<>();
+		noticeMap.put("noticeCnt", noticeCnt);
+		noticeMap.put("noticeVO",noticeVO);
+		noticeMap.put("start", start);
+		noticeMap.put("end", end);
+		noticeMap.put("pagination", pagination);
+		noticeMap.put("pageNo", pageNo);
+		noticeMap.put("type", type);
+		noticeMap.put("word", word);
+		mav.addAllObjects(noticeMap);
+		System.out.println(noticeCnt);
+		mav.setViewName("notice/noticeList");
 		
-	}*/
+		return mav;
+	}
+}
 	
 
 

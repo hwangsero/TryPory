@@ -7,6 +7,14 @@ public class NoticeVO {
 	private String content;
 	private int viewCnt;
 	private String registerDate;
+	private String writer;
+	
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
 	public int getNo() {
 		return no;
 	}
@@ -37,15 +45,9 @@ public class NoticeVO {
 	public void setRegisterDate(String registerDate) {
 		this.registerDate = registerDate;
 	}
-	
-	
 	@Override
 	public String toString() {
 		return "NoticeVO [no=" + no + ", title=" + title + ", content=" + content + ", viewCnt=" + viewCnt
-				+ ", registerDate=" + registerDate + "]";
+				+ ", registerDate=" + registerDate + ", writer=" + writer + "]";
 	}
-	
-	
-	
-	
 }

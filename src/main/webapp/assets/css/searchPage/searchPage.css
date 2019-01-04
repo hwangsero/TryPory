@@ -1,0 +1,78 @@
+@charset "EUC-KR";
+
+/*검색창 관련*/
+
+.search-box {
+    width: 40%;
+    height: 45px;
+    /* border: 2px solid #84b1ed; */
+    /* float: right; */
+    margin: auto;
+    margin-top: 50px;
+    overflow: hidden;
+}
+
+.search-box input {
+    font-size: 16px;
+    padding: 10px;
+    border: 0px;
+    outline: none;
+    float: left;
+    width: 85%;
+    height: 100%;
+    border: solid 1px #5389d0;
+}
+
+
+/*탭박스*/
+
+.search-tab-box {
+    width: 80%;
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    overflow: hidden;
+    text-align: center;
+    margin-left: 10%
+}
+
+ .nav {
+	width: 80%;
+	margin: 0 auto;
+} 
+
+.nav-tabs {
+	border: 0;
+	border-radius: 3px;
+
+}
+
+.nav-pills .nav-item {
+	display: block;
+	font-size: 30px;
+	width: 10%;
+	margin: auto;
+}
+
+a.nav-link{
+	 font-size: 17px;
+}
+   
+/*클릭했을 때*/
+.nav-pills  .nav-link.active, .nav-pills .show>.nav-link {
+
+        color: #5389d0;
+    background-color: #ffffff;
+    /* background-color: #007bff; */
+    /* border-top-color: aqua; */
+    border-top: solid 1px #5389d0;
+    border-radius: 0px;
+}
+
+
+
+
+footer {
+	clear: both;
+}

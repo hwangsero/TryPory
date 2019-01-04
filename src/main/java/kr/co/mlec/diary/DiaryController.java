@@ -1,6 +1,7 @@
 package kr.co.mlec.diary;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -9,14 +10,52 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import vo.DiaryVO;
+import vo.MemberVO;
 
 @Controller
 public class DiaryController {
 
 	@Autowired
 	private DiaryService diaryService;
+	
+	@GetMapping("/diary/{no}")
+	public ModelAndView SearchDiary(@PathVariable int no) {
+		DiaryVO diary = diaryService.selectDiary(no);
+		ModelAndView mav = new ModelAndView("diary/detail_diary_page");
+		
+		System.out.println(diary);
+		mav.addObject("diary", diary);
+		
+		return mav;
+	}
+	
+	@PostMapping("/diary")
+	@ResponseBody
+	public int addDiary(@RequestBody Map<String, Object> data, HttpSession session ) {
+//		String writer = ((MemberVO)session.getAttribute("userVO")).getEmail();
+		String writer = "Test";
+		Map<String, Object> post_data = (Map<String, Object>) data.get("post_data");
+		System.out.println(post_data);
+		DiaryVO diary = new DiaryVO();
+		diary.setTitle((String)post_data.get("title"));
+		diary.setWriter(writer);
+		System.out.println(data.get("date_data").toString());
+		diary.setContent((String)data.get("date_data").toString());
+		diary.setStart_date((String)post_data.get("start_date"));
+		diary.setEnd_date((String)post_data.get("end_date"));
+		
+		System.out.println((String)post_data.get("end_date"));
+		
+		
+		return diaryService.insertDiary(diary);
+	}
 	
 	@RequestMapping("/diary")
 	public ModelAndView DiaryList() {

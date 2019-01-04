@@ -3,8 +3,20 @@ $j(document).ready(function(){
 	var tag_input = $j("div.tag_input input");
 	var date = new Date();
 	var first_date;
+	var diary_data = new Object();
 	
-	$j("div.content_datebox span").text(date.getFullYear() + '.' + (date.getMonth()+1) + '.' + date.getDate() );
+	var upload_data = [];
+	var post_data = new Object();
+	var date_data = [];
+	
+	var cells = [new Object()];
+	cells[0].images = [];
+	date_data[0] = cells;
+	
+	var default_date_str = date.getFullYear() + '.' + (date.getMonth()+1) + '.' + date.getDate();
+	
+	post_data.start_date = post_data.end_date = default_date_str; 
+	$j("div.content_datebox span").text(default_date_str );
 	
 	file_input.change(function(e){	// 커버사진 미리보기
 		var img_url = URL.createObjectURL(e.target.files[0]);
@@ -19,14 +31,47 @@ $j(document).ready(function(){
 		});
 	}
 	
-    function image_resize(imageContent){
+	$j("button.save").click(function(){
+		post_data.title = $j("textarea#input_diary_title").val();
+		diary_data.post_data = post_data;
+		
+		var date_list = $j("div#date_wrap");
+		for (var i = 0; i < date_list.length; i++) {
+			var date_wrap = date_list[i];
+			var content_box_list = $j(date_wrap).find("div.content_box");
+			for (var j = 0; j < content_box_list.length; j++) {
+				var content_box = content_box_list[j];
+				var text = $j(content_box).find("textarea").val();
+				date_data[i][j].text = text;
+			}
+			
+		}
+		diary_data.date_data = date_data;
+		
+		console.log(JSON.stringify(diary_data));
+		
+		$j.ajax({
+			url : window.ctx + '/diary',
+			type: 'POST',
+			contentType: 'application/json',
+			dataType : 'json',
+			data : JSON.stringify(diary_data),
+			success : function(response) {
+				console.log(response);
+			},
+			error : function(jqXHR) {
+				console.log('error');
+			}
+
+		});
+	});
+	
+    function image_resize(imageContent) {
     	var div = imageContent;
 		var divAspect = $j(div).height() / $j(div).width();
 
 		var img = $j(div).find('img');
 		var imgAspect = $j(img).height() / $j(img).width();
-		console.log('resize');
-		console.log(img);
 
 		if (imgAspect <= divAspect) {
 			// 이미지가 div보다 납작한 경우 세로를 div에 맞추고 가로는 잘라낸다
@@ -67,6 +112,12 @@ $j(document).ready(function(){
 				content_box.after(content_box_clone);
 				
 				content_event_init();
+				
+				var date_count = target.parent().parent().prevAll('.content_datebox').length;
+				var content = new Object();
+				date_data[date_count-1].push(content);
+				
+				console.log(date_data);
 			}
 		});
 		
@@ -94,85 +145,116 @@ $j(document).ready(function(){
 		$j(".tool_box input[type=file]").change(function(e){
 			var files = e.target.files;
 			var img_wrap = $j(e.target).closest(".content_editbox").find("div.img_wrap");
-			console.log(files);
+			var date_wrap = $j(e.target).closest("#date_wrap");
+			var date_count = date_wrap.prevAll('#date_wrap').length;
+			var upload_form_count = $j(e.target).closest(".content_box").prevAll(".content_box").length; 
 			
-			files = files_sort(files, img_wrap);
+			formdata = new FormData();
+			if (files.length != 0) {
+	            for (var i = 0; i < files.length; i++) {
+	                formdata.append(files[i].name, files[i]);
+	            }
+
+				$j.ajax({
+					url : window.ctx + '/upload',
+					data : formdata,
+					processData : false,
+					contentType : false,
+					type : 'POST',
+					async : false,
+					success : function(response) {
+						var data = JSON.parse(response);
+						upload_data = upload_data.concat(data);
+//						console.log(data);
+
+//						date_data[date_count][upload_form_count].images = data;
+					},
+					error : function(jqXHR) {
+						console.log('error');
+					}
+	
+				});
+			}
+//			console.log(files);
 			
-			console.log(files);
-//			files_view(files, e);
-			
+//			files = files_sort(files, img_wrap);
+			files_sort(files, 0, img_wrap);
+//		    setup_reader(files, 0);
+//			console.log(files);
 		});
 		
 	}
-	function files_sort(files, img_wrap){
-		var count = 0;
+	
+	function files_sort(files, index, img_wrap){
 		var init_count = 0;
-		for (var i = 0; i < files.length; i++) {
-			var file = files[i];
-			var dataurl_reader = new FileReader();
+//		for (var i = 0; i < files.length; i++) {
+			var file = files[index];
+		    var reader = new FileReader();
 			
-			dataurl_reader.onloadend = function(img) {
-				file_init(atob(this.result.replace(/^.*?,/,'')), img, count, this.result );
-				count++;
+		    reader.onload = function() {
+				file_init(atob(this.result.replace(/^.*?,/,'')), files, index, this.result, img_wrap );
 			}
 			
-			function file_init(data, img, count, src) {
-				console.log("file init");
-				var file = files[count];
-				var jpeg = new this.JpegMeta.JpegFile(data, img);
-				
-				file.src = src;
-//				    console.log(jpeg);
-				
-				if( jpeg.tiff != undefined && jpeg.tiff.Orientation != undefined ) {
-					file.orientation = jpeg.tiff.Orientation.value;
-				}
-				
-				if( jpeg.tiff != undefined && jpeg.gps != undefined ) {
-					if (jpeg.gps.GPSLatitude) {
-						var latitude;
-						latitude = jpeg.gps.GPSLatitude.value[0].asFloat() +
-						(1 / 60) * jpeg.gps.GPSLatitude.value[1].asFloat() +
-						(1 / 3600) * jpeg.gps.GPSLatitude.value[2].asFloat();
-						if (jpeg.gps.GPSLatitudeRef.value === "S") {
-							latitude = -latitude;
-						}
-						file.latitude = latitude;
-					}
-					if (jpeg.gps.GPSLongitude) {
-						var longitude;
-						longitude = jpeg.gps.GPSLongitude.value[0].asFloat() +
-						(1 / 60) * jpeg.gps.GPSLongitude.value[1].asFloat() +
-						(1 / 3600) * jpeg.gps.GPSLongitude.value[2].asFloat();
-						if (jpeg.gps.GPSLongitudeRef.value === "W") {
-							longitude = -longitude;
-						}
-						file.longitude = longitude;
-					}
-					
-				}
-				if( jpeg.tiff.DateTime) {
-					var dateTime = jpeg.tiff.DateTime.value;
-					
-					var parts = dateTime.replace(' ', ':').split(':');
-					file.dateTime = new Date(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5]);
-					
-				}
-				
-				init_count++;
-				
-				if( init_count == files.length){ // init 완료
-					var array = [].slice.call(files);
-					files = array.sort(sortFunction);
-					console.log(files);
-					files_view(files, img_wrap);
-				}
-			}
-			
-			dataurl_reader.readAsDataURL(file);
-		}
-		return files;
+		    reader.readAsDataURL(file);
+//		}
+//		return files;
 	}
+	
+	function file_init(data, files, i, src, img_wrap) {
+		var file = files[i];
+		
+		var jpeg = new this.JpegMeta.JpegFile(data, file);
+		console.log(file);
+		file.src = src;
+		
+		if( jpeg.tiff != undefined && jpeg.tiff.Orientation != undefined ) {
+			file.orientation = jpeg.tiff.Orientation.value;
+		}
+		
+		if( jpeg.tiff != undefined && jpeg.gps != undefined ) {
+			if (jpeg.gps.GPSLatitude) {
+				var latitude;
+				latitude = jpeg.gps.GPSLatitude.value[0].asFloat() +
+				(1 / 60) * jpeg.gps.GPSLatitude.value[1].asFloat() +
+				(1 / 3600) * jpeg.gps.GPSLatitude.value[2].asFloat();
+				if (jpeg.gps.GPSLatitudeRef.value === "S") {
+					latitude = -latitude;
+				}
+				file.latitude = latitude;
+			}
+			if (jpeg.gps.GPSLongitude) {
+				var longitude;
+				longitude = jpeg.gps.GPSLongitude.value[0].asFloat() +
+				(1 / 60) * jpeg.gps.GPSLongitude.value[1].asFloat() +
+				(1 / 3600) * jpeg.gps.GPSLongitude.value[2].asFloat();
+				if (jpeg.gps.GPSLongitudeRef.value === "W") {
+					longitude = -longitude;
+				}
+				file.longitude = longitude;
+			}
+			
+		}
+		if( jpeg.tiff.DateTime) {
+			var dateTime = jpeg.tiff.DateTime.value;
+			
+			var parts = dateTime.replace(' ', ':').split(':');
+			file.dateTime = new Date(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5]);
+		}
+		console.log(file);
+//		init_count++;
+		
+		if (i < files.length - 1) {
+			files_sort(files, i+1, img_wrap);
+	    } else {
+//		if( init_count == files.length){ // init 완료
+	    	console.log(files);
+			var array = [].slice.call(files);
+			files = array.sort(sortFunction);
+			console.log(files);
+			files_view(files, img_wrap);
+		}
+	}
+	
 	function sortFunction(a,b){  
 		var dateA = a.dateTime;
 		var dateB = b.dateTime;
@@ -181,14 +263,15 @@ $j(document).ready(function(){
 	
 	function files_view(files, img_wrap){
 		var write_con = $j("div#write_wrap .container.C");
-		
-		
+		var tag_con = $j(write_con).find(".tag_container");
 		for (var i = 0; i < files.length; i++) {
 			var file = files[i];
+			
 			if( i == 0){ // 첫번째 사진
 				start_date = first_date = file.dateTime;
-				write_con.find("div.content_datebox").first().find("span").text(first_date.getFullYear() + '.' + (first_date.getMonth()+1) + '.' + first_date.getDate() );
-				
+				var start_date_str = first_date.getFullYear() + '.' + (first_date.getMonth()+1) + '.' + first_date.getDate();
+				write_con.find("div.content_datebox").first().find("span").text(start_date_str);
+				post_data.start_date = start_date_str;
 			}
 			
 			if(file.dateTime.getDate() - start_date.getDate() > 0){
@@ -202,9 +285,18 @@ $j(document).ready(function(){
 				content_box_clone.find("textarea.autosize").val("");
 				content_box_clone.find("div.img_wrap *").remove();
 				content_box_clone.find("div.tool_box").css("display","none");
-				write_con.append(date_box_clone);
-				write_con.append(content_box_clone);
+				var div = $("<div id='date_wrap'>").append(date_box_clone).append(content_box_clone);
+				
+				tag_con.before(div);
 				img_wrap = content_box_clone.find(".img_wrap");
+				
+				var cells = [new Object()];
+				cells[0].images = [];
+				date_data[div.prevAll("#date_wrap").length] = cells;
+				
+				var file_date = file.dateTime.getDate();
+				var end_date_str = file_date.getFullYear() + '.' + (file_date.getMonth()+1) + '.' + file_date.getDate();
+				post_data.end_date = end_date_str;
 			}
 			
 			function display(file, img){
@@ -226,7 +318,21 @@ $j(document).ready(function(){
 					"</div>"
 			);
 			var img = img_wrap.find(".img_row:last-child img");
-			console.log(img);
+			var date_wrap_cnt = $j(img).closest("#date_wrap").prevAll("#date_wrap").length;
+			var img_row_cnt = $j(img).closest("div.content_box").prevAll("div.content_box").length;
+			
+			for (var j = 0; j < upload_data.length; j++) {
+				var upload_img = upload_data[j];
+				if(file.name == upload_img.origName){
+					if(date_data[date_wrap_cnt][img_row_cnt] == undefined){
+						date_data[date_wrap_cnt][img_row_cnt] = new Object();
+						date_data[date_wrap_cnt][img_row_cnt].images = [];
+					}
+					date_data[date_wrap_cnt][img_row_cnt].images.push(upload_img);
+					break;
+				}
+			}
+			
 			display(file, img);
 			$j(img).bind('load', function() {
 				image_resize($j(this).parent() );
