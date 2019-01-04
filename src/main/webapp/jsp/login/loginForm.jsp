@@ -21,8 +21,11 @@
 		}		
 		return true;
 	}
+	
+	
 
 	$j(document).ready(function(){
+		var result;
 		$j("form[name=lform]").submit(function(e){
 			e.preventDefault();
 			if( ! checkForm()){
@@ -35,13 +38,77 @@
 					email : $j("form[name=lform] input[name=email]").val(),
 					password : $j("form[name=lform] input[name=password]").val()
 				},
-				success : function ( msg ){
-					alert(msg);
-					location.href="<%= request.getContextPath() %>";
+				success : function ( data ){
+					alert(result = JSON.parse(data).loginMsg);
+					result = JSON.parse(data).result;
+					if(result == "true" ) {
+						if($('#emailSave').is(":checked")) 
+						saveLogin($('#email').val());
+							 else 
+								saveLogin("");
+							} else
+								saveLogin("");
+					location.href="<%= request.getContextPath() %>"; 
 				}
 			});
 		});
 	});
+	
+	
+	$(function() {
+		var cookieEmail = getLogin();
+		console.log("cookieEmail : " + cookieEmail)
+		if(cookieEmail != "") {
+			
+			$('#email').val(cookieEmail);
+			$('#emailSave').attr("checked",true);
+		}
+		
+			
+			
+		/* $('#loginBtn').click(function() {
+			alert("result : " + result)
+			if(result == "true" ) {
+			if($('#emailSave').is(":checked")) {
+				console.log("saveLogin")
+				saveLogin($('#email').val());
+			} else {
+				saveLogin("");
+			}
+			}
+		}) */
+		
+		
+	})
+	
+	function saveLogin(email) {
+		if(email != "") {
+			setSave("userEmail",email, 7);
+		} else {
+			setSave("userEmail", email, -1);
+		}
+	}
+	
+	function setSave(name, value, expiredays) {
+		var today = new Date();
+		today.setDate(today.getDate() + expiredays);
+		document.cookie = name + "=" + escape(value) + "; path=/;expires=" + today.toGMTString() + ";"
+	}
+	
+	function getLogin() {
+		var cook = document.cookie + ";";
+		var idx = cook.indexOf("userEmail",0);
+		var val = "";
+		
+		if(idx != -1) {
+			cook = cook.substring(idx, cook.length);
+			begin = cook.indexOf("=",0) + 1;
+			end = cook.indexOf(";",begin);
+			val = unescape(cook.substring(begin,end))
+		}
+		return val;
+	}
+	
 </script>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
@@ -72,7 +139,8 @@
 						
 						<div class=buttons>
 						 	<input class="join-btn"type="button" value="회원가입">
-						 	<input class="login-btn" type="submit" value="로그인">
+						 	<input id="loginBtn" class="login-btn" type="submit" value="로그인">
+						 	아이디저장<input type="checkbox" id="emailSave">
 						</div>
 						
 				</form>
