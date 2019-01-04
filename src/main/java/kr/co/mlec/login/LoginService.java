@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class LoginService {
+public class LoginService implements LoginServiceInter {
 
 	@Autowired
 	private LoginDAO loginDAO;
@@ -15,5 +15,10 @@ public class LoginService {
 	
 	public MemberVO loginMember(MemberVO member) {
 		return loginDAO.loginMember(member);
+	}
+
+	@Override
+	public MemberVO duplCheck(String email) {
+		return loginDAO.duplCheck(email);
 	}
 }

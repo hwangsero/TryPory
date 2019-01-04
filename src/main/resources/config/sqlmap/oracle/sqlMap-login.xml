@@ -20,5 +20,11 @@
 		from D_member
 		where email = #{email} and password = #{password}
 	</select>
+	
+	<select id="duplCheck" parameterType="string" resultMap="memberMap">
+		select *
+		from d_member
+		where email = #{email}
+	</select>
 
 </mapper>
