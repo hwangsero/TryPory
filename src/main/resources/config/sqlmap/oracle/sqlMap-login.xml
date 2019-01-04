@@ -10,15 +10,21 @@
    
    </resultMap>
 
-   <insert id="joinMember" parameterType="memberVO">
-      insert into D_member(email, domain, name, password, phone1, phone2, phone3 )
-      values( #{email}, #{domain}, #{name}, #{password}, #{phone1}, #{phone2}, #{phone3} )
-   </insert>
-   
-   <select id="loginMember" parameterType="memberVO" resultMap="memberMap">
-      select *
-      from D_member
-      where email = #{email} and password = #{password}
-   </select>
-
+	<insert id="joinMember" parameterType="memberVO">
+		insert into D_member(email, name, password)
+		values(#{email}, #{name}, #{password})
+	</insert>
+	
+	<select id="loginMember" parameterType="memberVO" resultMap="memberMap">
+		select *
+		from D_member
+		where email = #{email} and password = #{password}
+	</select>
+	
+	<select id="duplCheck" parameterType="string" resultMap="memberMap">
+		select *
+		from d_member
+		where email = #{email}
+	</select>
+	
 </mapper>

@@ -23,5 +23,10 @@ public class LoginDAO implements LoginDAOInter{
 		return sqlSession.selectOne("kr.co.mlec.login.loginMember", member);
 	}
 
+	@Override
+	public MemberVO duplCheck(String email) {
+		return sqlSession.selectOne("kr.co.mlec.login.duplCheck", email);
+	}
+
 
 }
