@@ -123,7 +123,7 @@
 
 							<div class="join-buttons">
 								<button class="jbutton" type="submit" value="가입 완료">수정하기</button>
-								<button class="back" onclick="location.href='${pageContext.request.contextPath}/jsp/mypage/mypage.jsp'">취소</button>
+								<button type="button" class="back" onclick="location.href='${pageContext.request.contextPath}/jsp/mypage/mypage.jsp'">취소</button>
 							</div>
 						</form>
 					</div>
