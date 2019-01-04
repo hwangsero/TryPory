@@ -8,7 +8,7 @@
     margin: auto;
     margin-top: 50px;
     overflow: hidden;
-    border: solid 1px #588ace;
+    border: solid 1px #5389D0;
     padding-top: 7px;
     padding-bottom: 7px;
 }
@@ -30,7 +30,7 @@ button#searchBtn {
     height: 100%;
     background-color: #ffe4c400;
     border: 0px;
-    border-left: solid 1px;
+    border-left: solid 1px #94bcf1;
 }
 
 .search-box img {
