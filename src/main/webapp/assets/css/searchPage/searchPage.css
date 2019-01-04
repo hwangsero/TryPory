@@ -3,14 +3,16 @@
 /*검색창 관련*/
 
 .search-box {
-    width: 40%;
+    width: 35%;
     height: 45px;
-    /* border: 2px solid #84b1ed; */
-    /* float: right; */
     margin: auto;
     margin-top: 50px;
     overflow: hidden;
+    border: solid 1px #588ace;
+    padding-top: 7px;
+    padding-bottom: 7px;
 }
+
 
 .search-box input {
     font-size: 16px;
@@ -18,12 +20,23 @@
     border: 0px;
     outline: none;
     float: left;
-    width: 85%;
+    width: 90%;
     height: 100%;
-    border: solid 1px #5389d0;
 }
 
+button#searchBtn {
+    float: right;
+    width: 7%;
+    height: 100%;
+    background-color: #ffe4c400;
+    border: 0px;
+    border-left: solid 1px;
+}
 
+.search-box img {
+    height: auto;
+    max-width: 50%;
+}
 /*탭박스*/
 
 .search-tab-box {

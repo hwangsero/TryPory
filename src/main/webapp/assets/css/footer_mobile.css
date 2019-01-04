@@ -1,21 +1,26 @@
 @charset "EUC-KR";
 
 @media screen and (max-width : 767px) {
-	.triforyInfo-container {
-		width: 100%;
-		/* float: left; */
-		text-align: center;
-		margin: auto;
-	}
-	
 	.footer-content {
-		text-align: center;
+		width: 90%;
+	}
+	.triforyInfo-container {
+		width: 80%;
+	}
+	.triforyInfo-container h5 {
+		font-size: 12px;
 	}
 	
-	img {
-		max-width: 15%;
-		padding-left: 10px;
-		padding-top: 20px;
-	}
-	
+	.triforyInfo-picture {
+    float: left;
+    width: 100%; 
+    padding-top: 0px;
+    margin-top: 10px;
+}
+.triforyInfo-picture img {
+    padding-left: 0px; 
+    float: left; 
+    width: 30px;
+    margin-right: 10px;
+}
 }

@@ -6,27 +6,41 @@
 
 .footer-content {
 	margin: auto;
-	width: 56%;
+	width: 60%;
 	margin-bottom: 40px;
 	overflow: hidden;
 }
 
 .triforyInfo-container {
-	width: 20%;
-	float: left;
+    width: 40%;
+    float: left;
+}
+
+
+.triforyInfo-container h1 {
+    color: #ffffff;
+    font-size: 40px;
+    font-family: 'Pacifico';
 }
 
 .triforyInfo-container h5 {
-	color: #c1c1c1;
-	font-size: 17px;
+    color: #cecccc;
+    margin-top: 20px;
+    font-size: 15px;
 }
 
-img {
-	height: auto;
-	max-width: 4%;
-	float: right;
-	padding-left: 10px;
-	padding-top: 20px;
+
+.triforyInfo-picture {
+    float: right;
+    width: 40%;
+    padding-top: 70px;
+}
+
+.triforyInfo-picture img {
+    height: auto;
+    padding-left: 10px;
+    float: right;
+    width: 10%;
 }
 
 .footer-bottom{
