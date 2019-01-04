@@ -1,8 +1,11 @@
 package kr.co.mlec.upload;
 
 import java.io.File;
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -20,33 +23,31 @@ public class UploadController {
 
 	@PostMapping("/upload")
 	@ResponseBody
-	public String upload(MultipartHttpServletRequest request) {
-		List<MultipartFile> fileList = request.getFiles("file");
-        String src = request.getParameter("src");
-        System.out.println("src value : " + src);
+	public List<Object> upload(MultipartHttpServletRequest request) throws Exception{
 
-        for (MultipartFile mf : fileList) {
-        	System.out.println(mf);
-        	
-            String originFileName = mf.getOriginalFilename(); // 원본 파일 명
-            long fileSize = mf.getSize(); // 파일 사이즈
+		Iterator<String> iter = request.getFileNames();
+		String fieldName = "";
+		MultipartFile mfile = null;
+		List<Object> resultList = new ArrayList<>();
+		
+		while (iter.hasNext()) { 
+			fieldName = (String) iter.next(); // 내용을 가져와서
+			System.out.println(fieldName);
+			mfile = request.getFile(fieldName); 
 
-            System.out.println("originFileName : " + originFileName);
-            System.out.println("fileSize : " + fileSize);
+			String originFileName = mfile.getOriginalFilename();
+			String file_name = System.currentTimeMillis() + '_' + originFileName;
+			File upload_file = new File(upload_path + file_name);
+//			mfile.transferTo(upload_file);
+			
+			Map<String, Object> file = new HashMap<>();
+			file.put("origName", originFileName);
+			file.put("fileName", upload_file.getName());
+			
+			resultList.add(file);
+		}
 
-            String safeFile = upload_path + System.currentTimeMillis() + originFileName;
-            try {
-                mf.transferTo(new File(safeFile));
-            } catch (IllegalStateException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }
-        
-        return "success";
+		return resultList;
 
 //		String savedName = file.getOriginalFilename();
 //

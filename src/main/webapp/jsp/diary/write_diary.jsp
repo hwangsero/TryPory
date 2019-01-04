@@ -4,11 +4,11 @@
 	<div class="lnb">
 		<div class="button_box">
 			<!-- <button type="button" class="cancel ">나가기</button> -->
-			 <a href="${pageContext.request.contextPath}/jsp/diary/detail_diary_page.jsp">
+			 <%-- <a href="${pageContext.request.contextPath}/jsp/diary/detail_diary_page.jsp"> --%>
 				<button type="button" class="save">
 	                저장하기
 		         </button>
-             </a>
+             <!-- </a> -->
 		</div>
 	</div>
 	<div id="header_content">
@@ -41,30 +41,58 @@
 	<div class="container C">
 		<div class="div_pdt"></div>
 		
-		<div class="content_datebox">
-			<h4>1일차</h4>
-			<span></span>
-		</div>
-		<div class="content_box">
-			<div class="content_editbox">
-				<div class="tool_wrap">
-					<i class="fas fa-plus-circle fa-2x"></i>
+		<div id="date_wrap">
+			<div class="content_datebox">
+				<h4>1일차</h4>
+				<span></span>
+			</div>
+			<div class="content_box">
+				<div class="content_editbox">
+					<div class="tool_wrap">
+						<i class="fas fa-plus-circle fa-2x"></i>
+					</div>
+					<div class="tool_box" style="display:block">
+						<ul>
+							<li><i class="fas fa-image fa-3x"></i></li>
+							<li><i class="fas fa-map-marker-alt fa-3x"></i></li>
+						</ul>
+						<form id="uploadForm" enctype="multipart/form-data">
+							<input type="file" multiple="multiple" accept=".jpeg" style="display:none;" name="file-data">
+						</form>
+					</div>
+					<div class="img_wrap">
+					</div>
+					<textarea class="autosize" placeholder="문단 내에서 줄바꿈을 하려면 shift + enter를 누르세요"></textarea>	
 				</div>
-				<div class="tool_box" style="display:block">
-					<ul>
-						<li><i class="fas fa-image fa-3x"></i></li>
-						<li><i class="fas fa-map-marker-alt fa-3x"></i></li>
-					</ul>
-					<form id="uploadForm" enctype="multipart/form-data"> 
-						<input type="file" multiple="multiple" accept=".jpeg" style="display:none;">
-					</form>
-				</div>
-				<div class="img_wrap">
-				</div>
-				<textarea class="autosize" placeholder="문단 내에서 줄바꿈을 하려면 shift + enter를 누르세요"></textarea>	
 			</div>
 		</div>
-	</div>
+		
+		<!-- <div id="date_wrap">
+			<div class="content_datebox">
+				<h4>2일차</h4>
+				<span></span>
+			</div>
+			<div class="content_box">
+				<div class="content_editbox">
+					<div class="tool_wrap">
+						<i class="fas fa-plus-circle fa-2x"></i>
+					</div>
+					<div class="tool_box" style="display:block">
+						<ul>
+							<li><i class="fas fa-image fa-3x"></i></li>
+							<li><i class="fas fa-map-marker-alt fa-3x"></i></li>
+						</ul>
+						<form id="uploadForm" enctype="multipart/form-data">
+							<input type="file" multiple="multiple" accept=".jpeg" style="display:none;" name="file-data">
+						</form>
+					</div>
+					<div class="img_wrap">
+					</div>
+					<textarea class="autosize" placeholder="문단 내에서 줄바꿈을 하려면 shift + enter를 누르세요"></textarea>	
+				</div>
+			</div>
+		</div>
+	</div> -->
 	
 	<div class="tag_container container clr">
 		<div class="tag_wrap">

@@ -3,6 +3,8 @@ package kr.co.mlec.notice;
 import java.util.List;
 import java.util.Map;
 
+import vo.NoticeVO;
+
 public interface NoticeDAOInter {
 	
 	public List<NoticeVO> selectAllNotice(Map<String, Integer> pageMap); 
