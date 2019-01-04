@@ -19,6 +19,13 @@
 		<result column="register_date" property="registerDate"/>
 	</resultMap>
 	
+	<select id="selectDiary" resultType="diaryVO" parameterType="int">
+		select no, title, content, writer, cover_image, is_share, end_date, start_date,
+		tag_1, tag_2, tag_3, tag_4, tag_5, view_cnt, like_cnt, register_date
+		from D_diary
+		where no = #{no}
+	</select>
+
 	<select id="selectAllDiary" resultMap="diaryMap">
 		select *
 		from D_diary

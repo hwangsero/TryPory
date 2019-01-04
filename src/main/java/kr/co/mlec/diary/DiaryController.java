@@ -25,6 +25,17 @@ public class DiaryController {
 	@Autowired
 	private DiaryService diaryService;
 	
+	@GetMapping("/diary/{no}")
+	public ModelAndView SearchDiary(@PathVariable int no) {
+		DiaryVO diary = diaryService.selectDiary(no);
+		ModelAndView mav = new ModelAndView("diary/detail_diary_page");
+		
+		System.out.println(diary);
+		mav.addObject("diary", diary);
+		
+		return mav;
+	}
+	
 	@PostMapping("/diary")
 	@ResponseBody
 	public int addDiary(@RequestBody Map<String, Object> data, HttpSession session ) {

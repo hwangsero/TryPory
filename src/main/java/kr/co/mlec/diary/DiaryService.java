@@ -13,6 +13,11 @@ public class DiaryService {
 	@Autowired
 	private DiaryDAO diaryDAO;
 
+	public DiaryVO selectDiary(int no) {
+		DiaryVO diary = diaryDAO.selectDiary(no);
+		return diary;
+	}
+	
 	public List<DiaryVO> selectAllDiary() {
 		List<DiaryVO> diaryList = diaryDAO.selectAllDiary();
 		return diaryList;
