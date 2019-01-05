@@ -143,7 +143,7 @@
                       <input type="checkbox" id="emailSave"> <p>아이디저장</p>
                       <div class="find">
                          <p><a>아이디/비밀번호 찾기</a></p>
-                         <p><a href="${pageContext.request.contextPath}/login">회원가입<a/></p>
+                         <p><a href="${pageContext.request.contextPath}/join">회원가입<a/></p>
                       </div>   
                       <div class="login-api-btn">    
                       <a class="login-api-button" id="naver_id_button" onclick="document.getElementById('naver_id_login_anchor').click();">네이버 계정으로 로그인</a>

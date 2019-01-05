@@ -12,7 +12,7 @@
 }
 
 .triforyInfo-container {
-    width: 40%;
+    width: 60%;
     float: left;
 }
 
@@ -40,7 +40,7 @@
     height: auto;
     padding-left: 10px;
     float: right;
-    width: 10%;
+    width: 45px;
 }
 
 .footer-bottom{
