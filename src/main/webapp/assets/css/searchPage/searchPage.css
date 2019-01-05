@@ -1,64 +1,58 @@
 @charset "EUC-KR";
 
 /*검색창 관련*/
-
 .search-box {
-    width: 35%;
-    height: 45px;
-    margin: auto;
-    margin-top: 50px;
-    overflow: hidden;
-    border: solid 1px #588ace;
-    padding-top: 7px;
-    padding-bottom: 7px;
+	width: 35%;
+	height: 45px;
+	margin: auto;
+	margin-top: 50px;
+	overflow: hidden;
+	border: solid 1px #588ace;
+	padding-top: 7px;
+	padding-bottom: 7px;
 }
 
-
 .search-box input {
-    font-size: 16px;
-    padding: 10px;
-    border: 0px;
-    outline: none;
-    float: left;
-    width: 90%;
-    height: 100%;
+	font-size: 16px;
+	padding: 10px;
+	border: 0px;
+	outline: none;
+	float: left;
+	width: 90%;
+	height: 100%;
 }
 
 button#searchBtn {
-    float: right;
-    width: 7%;
-    height: 100%;
-    background-color: #ffe4c400;
-    border: 0px;
-    border-left: solid 1px;
+	float: right;
+	width: 7%;
+	height: 100%;
+	background-color: #ffe4c400;
+	border: 0px;
 }
 
 .search-box img {
-    height: auto;
-    max-width: 50%;
+	height: auto;
+	max-width: 50%;
 }
 /*탭박스*/
-
 .search-tab-box {
-    width: 80%;
-    border-bottom: 1px solid #eee;
-    border-top: 1px solid #eee;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    overflow: hidden;
-    text-align: center;
-    margin-left: 10%
+	width: 80%;
+	border-bottom: 1px solid #eee;
+	border-top: 1px solid #eee;
+	margin-top: 50px;
+	overflow: hidden;
+	text-align: center;
+	margin-left: 10%
 }
 
- .nav {
+.nav {
 	width: 80%;
 	margin: 0 auto;
-} 
+}
 
 .nav-tabs {
 	border: 0;
 	border-radius: 3px;
-
 }
 
 .nav-pills .nav-item {
@@ -68,23 +62,35 @@ button#searchBtn {
 	margin: auto;
 }
 
-a.nav-link{
-	 font-size: 17px;
+a.nav-link {
+	font-size: 17px;
 }
-   
+
 /*클릭했을 때*/
 .nav-pills  .nav-link.active, .nav-pills .show>.nav-link {
-
-        color: #5389d0;
-    background-color: #ffffff;
-    /* background-color: #007bff; */
-    /* border-top-color: aqua; */
-    border-top: solid 1px #5389d0;
-    border-radius: 0px;
+	color: #5389d0;
+	background-color: #ffffff;
+	/* background-color: #007bff; */
+	/* border-top-color: aqua; */
+	border-top: solid 1px #5389d0;
+	border-radius: 0px;
 }
 
+/*검색결과 페이지*/
+.search-frame {
+	width: 80%;
+	height: 700px;
+	border-bottom: 2px solid #d4d4d4;
+	margin: auto;
+	margin-bottom: 50px;
+}
 
-
+.search-frame h2 {
+    text-align: center;
+    line-height: 700px;
+    font-weight: 600;
+    color: gainsboro;
+}
 
 footer {
 	clear: both;
