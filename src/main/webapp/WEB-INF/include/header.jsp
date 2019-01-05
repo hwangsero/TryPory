@@ -31,6 +31,7 @@
 	
 	            <!-- Nav brand -->
 	            <a href="${pageContext.request.contextPath}" id="site_logo_title" class="nav-brand">Tripory</a>
+	            <a href="${pageContext.request.contextPath}/jsp/diary/detail_diary_page.jsp"><input type="button" value="댓글보러가자"></a>
 	
 	            <!-- Navbar Toggler -->
 	            <div class="classy-navbar-toggler">

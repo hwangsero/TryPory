@@ -1,5 +1,88 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+
+<script>
+
+$(document).ready(function() {
+	
+	replyList()
+	
+	$('#addBtn').click(function() {
+		var data = {
+				diaryNo : 1,  //일단 임시로 diaryNo를 1로 해놈
+				content : $('#replyContent').val()
+		}
+		
+		$.ajax({
+			url : '${pageContext.request.contextPath}/reply',
+			type : "post",
+			data : data,
+			success : function() {
+				 $('#replyContent').val('')
+				replyList();
+			}, error : function(e) {
+				alert(e);
+			}
+		})
+	})
+	
+	$(document).on('click','.delBtn', function() {
+		if(!confirm('댓글을 삭제하시겠습니까?')) return;
+		var replyNo =$(this).attr('id');
+		
+		$.ajax({
+			url : '${pageContext.request.contextPath}/reply/' + replyNo,
+			type : 'delete',
+			success : function() {
+				$('#replyContent').val('')
+				replyList();
+			}, error : function(e) {
+				alert(e)
+			}
+		})
+	})
+
+	
+})
+
+function replyList() {	
+	$j('#commentList').empty();
+	
+	$j.ajax({
+		url : '${pageContext.request.contextPath}/reply/1', //일단 임시로 diaryNo를 1로 해놈
+		dataType : 'json',
+		success : function(data) {
+			console.log(data)
+			var i = 0;
+			$j(data).each(function() {
+			var str = '<li>'
+			str+=  '<div class="commenterImage">'
+			str+= '<img src="http://placekitten.com/50/50"/>'
+			str+= '</div>'
+			str+= '<div class="commentText">'
+			str+= '<div>' + data[i].content + '</div>'
+			str+= '<span class="date sub-text">' + data[i].writer + '&nbsp' + data[i].registerDate + '</span>'
+			str+= '&nbsp; <button class="delBtn" id="' + data[i].no + '">삭제</div>'
+				str+= '<hr>'
+			str+= '</li>'
+				
+			$j('#commentList').append(str);
+			
+			i += 1;
+			})
+			}, 
+			error : function(e) {
+			alert(e);
+			}
+	})
+}
+
+
+
+
+</script>
+	
 <div id="write_page_header" class="C">
 	<div id="header_content">
 		<div class="content_top_in">
@@ -120,43 +203,16 @@
 	
 	<div class="comment_container">
 	    <div class="actionBox">
-	        <ul class="commentList">
+	        <ul id="commentList">
 	            <li>
-	                <div class="commenterImage">
-	                  <img src="http://placekitten.com/50/50" />
-	                </div>
-	                <div class="commentText">
-	                    <p class="">테스트 댓글</p> 
-	                    <span>좋아요<i class="far fa-heart"></i></span> | <span class="date sub-text">2018-11-27 08:22</span>
-	                </div>
-	            </li>
-	            <li>
-	                <div class="commenterImage">
-	                  <img src="http://placekitten.com/45/45" />
-	                </div>
-	                <div class="commentText">
-	                    <p class="">테스트 댓글</p> 
-	                    <span>좋아요<i class="far fa-heart"></i></span> | <span class="date sub-text">2018-11-27 08:22</span>
-	                </div>
-	            </li>
-	            <li>
-	                <div class="commenterImage">
-	                  <img src="http://placekitten.com/40/40" />
-	                </div>
-	                <div class="commentText">
-	                    <p class="">테스트 댓글</p>
-	                    <span>좋아요<i class="far fa-heart"></i></span> | <span class="date sub-text">2018-11-27 08:22</span>
-	                </div>
 	            </li>
 	        </ul>
-	        <form class="form-inline" role="form">
 	            <div class="form-group">
-	                <input class="form-control" type="text" placeholder="댓글을 입력하세요" />
+	                <input id="replyContent" name="content" class="form-control" type="text" placeholder="댓글을 입력하세요" />
 	            </div>
 	            <div class="form-group">
-	                <button class="btn btn-default">등록</button>
+	                <button class="btn btn-default" id ="addBtn">등록</button>
 	            </div>
-	        </form>
 	    </div>
 	</div>
 	
