@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import kr.co.mlec.notice.NoticeDAO;
 import kr.co.mlec.notice.NoticeService;
-import vo.NoticeVO;
+import kr.co.mlec.vo.NoticeVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations= {"classpath:config/**/*.xml"})

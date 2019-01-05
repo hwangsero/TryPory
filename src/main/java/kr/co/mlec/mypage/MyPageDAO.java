@@ -4,7 +4,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import vo.MemberVO;
+import kr.co.mlec.vo.MemberVO;
+
 
 @Repository
 public class MyPageDAO implements MyPageDAOInter{

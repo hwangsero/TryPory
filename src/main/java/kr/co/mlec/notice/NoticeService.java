@@ -7,7 +7,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import vo.NoticeVO;
+import kr.co.mlec.vo.NoticeVO;
+
 
 @Service
 public class NoticeService implements NoticeServiceInter {

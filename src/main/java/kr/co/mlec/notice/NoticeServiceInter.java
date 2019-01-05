@@ -2,7 +2,8 @@ package kr.co.mlec.notice;
 
 import java.util.List;
 
-import vo.NoticeVO;
+import kr.co.mlec.vo.NoticeVO;
+
 
 public interface NoticeServiceInter {
 	

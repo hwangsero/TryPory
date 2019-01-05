@@ -1,6 +1,6 @@
 package kr.co.mlec.login;
 
-import vo.MemberVO;
+import kr.co.mlec.vo.MemberVO;
 
 public interface LoginDAOInter {
 

@@ -6,7 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import vo.DiaryVO;
+import kr.co.mlec.vo.DiaryVO;
+
 
 @Controller
 public class DiaryDAO implements DiaryDAOInter {

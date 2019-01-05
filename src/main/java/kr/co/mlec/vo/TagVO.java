@@ -1,4 +1,4 @@
-package vo;
+package kr.co.mlec.vo;
 
 public class TagVO {
 	
