@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import kr.co.mlec.login.LoginService;
-import vo.MemberVO;
+import kr.co.mlec.vo.MemberVO;
 
 @Controller
 public class MyPageController {

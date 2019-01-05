@@ -2,7 +2,8 @@ package kr.co.mlec.diary;
 
 import java.util.List;
 
-import vo.DiaryVO;
+import kr.co.mlec.vo.DiaryVO;
+
 
 public interface DiaryDAOInter {
 

@@ -3,7 +3,8 @@ package kr.co.mlec.notice;
 import java.util.List;
 import java.util.Map;
 
-import vo.NoticeVO;
+import kr.co.mlec.vo.NoticeVO;
+
 
 public interface NoticeDAOInter {
 	
