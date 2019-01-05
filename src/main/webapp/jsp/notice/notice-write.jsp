@@ -48,7 +48,6 @@ function submitContents(elClickedObj){
 		
 	}
 }
-
 </script>
 
 </head>
