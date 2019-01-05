@@ -10,6 +10,47 @@
 <!--공지사항 목록페이지 모바일 css-->
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/assets/css/notice/notice_mobile.css">
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+
+<!--fontaswesome 아아콘-->
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+
+
+<!--네이버 글쓰기 폼 편집 툴-->
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/naver_editor/js/HuskyEZCreator.js"
+	charset="utf-8"></script>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+
+<!--스마트에디터에서 쓴글을 textarea로 가져오는 코드-->
+<script type="text/javascript">
+window.onload = function(){
+	//버튼을 누를 때 실행
+	var btn = document.getElementById("updateBtn");
+	btn.onclick = function(){
+		submitContents(btn);
+	}
+}
+
+//저장 버튼을 누른 등 저장을 위한 액션을 했을 때 submitContents가 호출된다고 사정한다.
+function submitContents(elClickedObj){
+	//에디터의 내용이 textarea에 적용된다.
+	oEditors.getById["notice-write-content1"].exec("UPDATE_CONTENTS_FIELD", []);
+	
+	//에디터의 내용에대한 값 검증은 이곳에서
+	//document.getElemntById("notice-write-content1").value를 이용하여 처리한다.
+	
+	try{
+		//해당 오브젝트가 위치한 form이 submit됨
+		elClickedObj.form.submit();
+	}catch(e){
+		
+	}
+}
+
+</script>
+
 
 <script>
 $(document).ready(function() {
@@ -20,11 +61,11 @@ $(document).ready(function() {
 			return false;
 		} 
 		
-		if(document.updateForm.content.value == "") {
+ 		if(document.updateForm.content.value == "") {
 			alert('내용을 입력하세요');
 			$('textarea[name=content]').focus();
 			return false;
-		} 
+		}  
 		
 		var data = {
 				no : ${notice.no},
@@ -44,11 +85,9 @@ $(document).ready(function() {
 				location.href="${pageContext.request.contextPath}/notice/detail/${notice.no}/0"
 			}, error : function(error) {
 				alert('error');
-			}
-			
+			}			
 		})
-	})
-	
+	})	
 })
 
 </script>
@@ -65,40 +104,50 @@ $(document).ready(function() {
 			<h1>공지사항 수정</h1>
 		</div>
 		<!--END 2. 공지사항 글 등록 페이지 머리말-->
+
 		<!--3. 공지사항 글 등록 폼 -->
-		
 		<div class="notice-write-type2">
-			<form
-				
-				name="updateForm" class="write_form" >
-				<div class="notice-write-type2-1">
-					<div class="notice-write-type2-1_date">
-						<h2>현재 날짜로 입력됩니다.</h2>
-					</div>
+			<form name="updateForm" class="write_form">
 
-					<div class="notice-write-type2-1_writer">
-						<span><h2>작성자</h2></span>
-					</div>
+				<%-- <input type="hidden" value="${notice.no }" name="no"> --%>
 
-				</div>
-				<input type="hidden" value="${notice.no }" name="no">
-				<div class="notice-write-type2-2">
+				<!--제목-->
+				<input id="notice-write-title" name="title" value="${notice.title }"></input>
 
-					<div class="notice-write-type2-2_title">
-						<h2>제목</h2>
-					</div>
-					<input name="title" value="${notice.title }"></input>
-
-					<div class="notice-write-type2-2_context">
-						<h2>내용</h2>
-					</div>
-					<textarea name="content">${notice.content }</textarea>
+				<!--데스크탑 글쓰기폼(네이버 폰트에디터가 포함됨)-->
+				<div class="notice-write-content-box1">
+					<textarea id="notice-write-content1" name="content">${notice.content }</textarea>
+					<script type="text/javascript" class="naver-writeForm-editor">
+		 					var oEditors=[];
+							nhn.husky.EZCreator.createInIFrame({
+							oAppRef:oEditors,
+							elPlaceHolder:"notice-write-content1",
+							sSkinURI:"${pageContext.request.contextPath}/naver_editor/SmartEditor2Skin.html",
+							fCreator : "createSEditor2"
+						});
+				</script>
 				</div>
 
-				<!--4. 공지사항 글등록 버튼 -->
+				<!--모바일 글쓰기폼(네이버 폰트에디터가 포함되지 않은 글쓰기 폼)-->
+				<div class="notice-write-content-box2">
+					<textarea id="notice-write-content2" name="content">${notice.content }</textarea>
+				</div>
+
+
+
+				<!--첨부파일-->
+				<div class="notice-write-attachFile">
+					<button>찾아보기...</button>
+					<input></input>
+					<h2 class="file-attach-icon">
+						첨부파일 <i class="fas fa-folder-open"></i>
+					</h2>
+				</div>
+				<!--4. 공지사항 글수정 버튼 -->
 				<div class="notice-write-type2-btn">
-					<input type="button" value="수정" id="updateBtn">
-					<input type="button" value="초기화" onclick="history.go(-1)">
+					<input type="button" value="수정" id="updateBtn" name="updateBtn"> 
+					<input type="button"
+						value="취소" onclick="history.go(-1)">
 				</div>
 				<!--END 4. 공지사항 글등록 버튼 -->
 			</form>
