@@ -38,7 +38,7 @@ public class UploadController {
 			String originFileName = mfile.getOriginalFilename();
 			String file_name = System.currentTimeMillis() + '_' + originFileName;
 			File upload_file = new File(upload_path + file_name);
-//			mfile.transferTo(upload_file);
+			mfile.transferTo(upload_file);
 			
 			Map<String, Object> file = new HashMap<>();
 			file.put("origName", originFileName);
@@ -46,6 +46,7 @@ public class UploadController {
 			
 			resultList.add(file);
 		}
+		System.out.println(resultList);
 
 		return resultList;
 

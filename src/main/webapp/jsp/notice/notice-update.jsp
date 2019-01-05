@@ -24,38 +24,17 @@
 	src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
 
 <!--스마트에디터에서 쓴글을 textarea로 가져오는 코드-->
-<script type="text/javascript">
-window.onload = function(){
-	//버튼을 누를 때 실행
-	var btn = document.getElementById("updateBtn");
-	btn.onclick = function(){
-		submitContents(btn);
-	}
-}
+		//에디터의 내용이 textarea에 적용된다.
+		oEditors.getById["notice-write-content1"].exec("UPDATE_CONTENTS_FIELD", []);
 
-//저장 버튼을 누른 등 저장을 위한 액션을 했을 때 submitContents가 호출된다고 사정한다.
-function submitContents(elClickedObj){
-	//에디터의 내용이 textarea에 적용된다.
-	oEditors.getById["notice-write-content1"].exec("UPDATE_CONTENTS_FIELD", []);
-	
-	//에디터의 내용에대한 값 검증은 이곳에서
-	//document.getElemntById("notice-write-content1").value를 이용하여 처리한다.
-	
-	try{
-		//해당 오브젝트가 위치한 form이 submit됨
-		elClickedObj.form.submit();
-	}catch(e){
-		
-	}
-}
-
-</script>
 
 
 <script>
 $(document).ready(function() {
 	$('#updateBtn').click(function() {
-		if(document.updateForm.title.value == "") {
+
+		
+ 		if(document.updateForm.title.value == "") {
 			alert('제목을 입력하세요');
 			$('input[name=title]').focus();
 			return false;
@@ -86,11 +65,21 @@ $(document).ready(function() {
 			}, error : function(error) {
 				alert('error');
 			}			
-		})
+		}) 
 	})	
 })
 
 </script>
+
+<!-- <script type="text/javascript">
+	//버튼을 누를 때 실행
+	$("#updateBtn").click(function(){
+		//에디터의 내용이 textarea에 적용된다.
+		oEditors.getById["notice-write-content1"].exec("UPDATE_CONTENTS_FIELD", []);
+		return document.getElemntById("notice-write-content1").value;
+	})
+</script> -->
+
 </head>
 
 <body>
@@ -116,7 +105,7 @@ $(document).ready(function() {
 
 				<!--데스크탑 글쓰기폼(네이버 폰트에디터가 포함됨)-->
 				<div class="notice-write-content-box1">
-					<textarea id="notice-write-content1" name="content">${notice.content }</textarea>
+					<textarea id="notice-write-content1" name="content">${notice.content}</textarea>
 					<script type="text/javascript" class="naver-writeForm-editor">
 		 					var oEditors=[];
 							nhn.husky.EZCreator.createInIFrame({
@@ -130,7 +119,7 @@ $(document).ready(function() {
 
 				<!--모바일 글쓰기폼(네이버 폰트에디터가 포함되지 않은 글쓰기 폼)-->
 				<div class="notice-write-content-box2">
-					<textarea id="notice-write-content2" name="content">${notice.content }</textarea>
+					<textarea id="notice-write-content2" name="content">${notice.content}</textarea>
 				</div>
 
 
@@ -146,8 +135,7 @@ $(document).ready(function() {
 				<!--4. 공지사항 글수정 버튼 -->
 				<div class="notice-write-type2-btn">
 					<input type="button" value="수정" id="updateBtn" name="updateBtn"> 
-					<input type="button"
-						value="취소" onclick="history.go(-1)">
+					<input type="button" value="취소" onclick="history.go(-1)">
 				</div>
 				<!--END 4. 공지사항 글등록 버튼 -->
 			</form>

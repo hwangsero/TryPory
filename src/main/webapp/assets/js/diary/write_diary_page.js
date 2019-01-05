@@ -7,11 +7,28 @@ $j(document).ready(function(){
 	
 	var upload_data = [];
 	var post_data = new Object();
+	
+	
 	var date_data = [];
 	
-	var cells = [new Object()];
-	cells[0].images = [];
-	date_data[0] = cells;
+	var date_cell = new Object(); // 일별데이터
+	date_cell.content = []; // 일별 컨텐츠
+	date_cell.date = "2019.01.01";  // 일별 날짜
+
+	var date_cell_data = new Object(); // 첫번쨰 컨텐츠
+	date_cell_data.images = [];		// 첫번쨰 컨텐츠의 이미지
+	date_cell_data.text = '';		// 첫번쨰 컨텐츠의 텍스트
+	date_cell.content[0] = date_cell_data;
+
+	date_data[0] = date_cell;
+	
+	date_cell.date = "2019.01.02";
+	date_data[1] = date_cell;
+	
+	
+	
+	
+	console.log(date_data);
 	
 	var default_date_str = date.getFullYear() + '.' + (date.getMonth()+1) + '.' + date.getDate();
 	
@@ -47,7 +64,7 @@ $j(document).ready(function(){
 			for (var j = 0; j < content_box_list.length; j++) {
 				var content_box = content_box_list[j];
 				var text = $j(content_box).find("textarea").val();
-				date_data[i][j].text = text;
+				date_data[i].content[j].text = text;
 			}
 		}
 		diary_data.date_data = date_data;
@@ -64,6 +81,7 @@ $j(document).ready(function(){
 				console.log(response);
 			},
 			error : function(jqXHR) {
+				console.log(jqXHR);
 				console.log('error');
 			}
 
@@ -119,7 +137,7 @@ $j(document).ready(function(){
 				
 				var date_count = target.parent().parent().prevAll('.content_datebox').length;
 				var content = new Object();
-				date_data[date_count-1].push(content);
+				date_data[date_count-1].content.push(content);
 				
 				console.log(date_data);
 			}
@@ -275,7 +293,8 @@ $j(document).ready(function(){
 				start_date = first_date = file.dateTime;
 				var start_date_str = first_date.getFullYear() + '.' + (first_date.getMonth()+1) + '.' + first_date.getDate();
 				write_con.find("div.content_datebox").first().find("span").text(start_date_str);
-				post_data.start_date = start_date_str;
+				
+				date_data[0].date = post_data.start_date = start_date_str; // 정보 등록
 			}
 			
 			if(file.dateTime.getDate() - start_date.getDate() > 0){
@@ -294,13 +313,20 @@ $j(document).ready(function(){
 				tag_con.before(div);
 				img_wrap = content_box_clone.find(".img_wrap");
 				
-				var cells = [new Object()];
-				cells[0].images = [];
-				date_data[div.prevAll("#date_wrap").length] = cells;
+				// 정보 등록
+				var cell_data = new Object();
+				cell_data.content = [];
+				
+				var content_data = new Object();
+				cell_data.content[0] = content_data;
+				cell_data.content[0].images = [];
 				
 				var file_date = file.dateTime;
 				var end_date_str = file_date.getFullYear() + '.' + (file_date.getMonth()+1) + '.' + file_date.getDate();
-				post_data.end_date = end_date_str;
+				cell_data.date = post_data.end_date = end_date_str; // 일차 날짜
+
+				var cells = cell_data;
+				date_data[div.prevAll("#date_wrap").length] = cells;
 			}
 			
 			function display(file, img){
@@ -328,11 +354,11 @@ $j(document).ready(function(){
 			for (var j = 0; j < upload_data.length; j++) {
 				var upload_img = upload_data[j];
 				if(file.name == upload_img.origName){
-					if(date_data[date_wrap_cnt][img_row_cnt] == undefined){
-						date_data[date_wrap_cnt][img_row_cnt] = new Object();
-						date_data[date_wrap_cnt][img_row_cnt].images = [];
+					if(date_data[date_wrap_cnt].content[img_row_cnt] == undefined){
+						date_data[date_wrap_cnt].content[img_row_cnt] = new Object();
+						date_data[date_wrap_cnt].content[img_row_cnt].images = [];
 					}
-					date_data[date_wrap_cnt][img_row_cnt].images.push(upload_img);
+					date_data[date_wrap_cnt].content[img_row_cnt].images.push(upload_img);
 					break;
 				}
 			}

@@ -33,7 +33,7 @@ window.onload = function(){
 	}
 }
 
-//저장 버튼을 누른 등 저장을 위한 액션을 했을 때 submitContents가 호출된다고 사정한다.
+//저장 버튼을 누른 등 저장을 위한 액션을 했을 때 submitContents가 호출된다고 가정한다.
 function submitContents(elClickedObj){
 	//에디터의 내용이 textarea에 적용된다.
 	oEditors.getById["notice-write-content1"].exec("UPDATE_CONTENTS_FIELD", []);
@@ -48,7 +48,6 @@ function submitContents(elClickedObj){
 		
 	}
 }
-
 </script>
 
 </head>
