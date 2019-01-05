@@ -17,7 +17,7 @@
 	<select id="selectAllComment" parameterType="int" resultMap="commentMap">
 	select no, diary_no, writer, content, register_date
 	from d_comment
-	where diary_no = #{diaryNo}
+	where diary_no = #{diaryNo} order by no asc
 	</select>
 	
 	<delete id="deleteComment" parameterType="int">
