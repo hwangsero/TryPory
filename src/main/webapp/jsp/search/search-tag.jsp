@@ -12,10 +12,10 @@
 	href="<%=request.getContextPath()%>/assets/css/searchPage/searchPage.css">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/assets/css/searchPage/searchPage_mobile.css">
-
 </head>
 <body>
 	<%@ include file="/WEB-INF/include/header.jsp"%>
+
 	<div class="search-box">
 		<input type="text" name="searchWord" placeholder="검색어 입력">
 		<button id="searchBtn">
@@ -25,26 +25,25 @@
 
 
 	<!-- 탭 영역 시작 -->
+	    <div class="search-tab-box">
+        <ul class="nav nav-pills nav-pills-icons justify-content-center"
+            role="tablist">
+            <li class="nav-item"><a class="nav-link active" href="#studio"
+                role="tab" data-toggle="tab">태그</a></li>
+            <li class="nav-item"><a class="nav-link" href="#works"
+                role="tab" data-toggle="tab">작성자</a></li>
+            <li class="nav-item"><a class="nav-link" href="#favorite"
+                role="tab" data-toggle="tab">내용</a></li>
+            <li class="nav-item"><a class="nav-link" href="#favorite"
+                role="tab" data-toggle="tab">여행지</a></li>
+        </ul>
 
-	<div class="search-tab-box">
-		<ul class="nav nav-pills nav-pills-icons justify-content-center"
-			role="tablist">
-			<li class="nav-item"><a class="nav-link active" href="#studio"
-				role="tab" data-toggle="tab">태그</a></li>
-			<li class="nav-item"><a class="nav-link" href="#works"
-				role="tab" data-toggle="tab">작성자</a></li>
-			<li class="nav-item"><a class="nav-link" href="#favorite"
-				role="tab" data-toggle="tab">내용</a></li>
-			<li class="nav-item"><a class="nav-link" href="#favorite"
-				role="tab" data-toggle="tab">여행지</a></li>
-		</ul>
+    </div>
 
-	</div>
-
-	<!--검색 결과-->
-	<div class="search-frame">
-		<h2>검색해주세요</h2>
-	</div>
+    <!--검색 결과-->
+    <div class="search-frame">
+        <h2>검색해주세요</h2>
+    </div>
 
 	<%@ include file="/WEB-INF/include/footer.jsp"%>
 </body>
