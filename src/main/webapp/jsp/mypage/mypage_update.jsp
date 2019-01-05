@@ -22,20 +22,7 @@
 			f.name.focus();
 			return false;
 		}
-		
-//이메일	
-		if(f.email.value.length == 0 ) {
-			alert('이메일을 입력하세요.');
-			f.email.focus();
-			return false;
-		}
-		
-		if(f.domain.value.length == 0 ) {
-			alert('이메일 형식을 다 채워주세요');
-			f.domain.focus();
-			return false;
-		}
-		
+				
 //비번
 		if(f.password.value.length == 0 ) {
 			alert('비밀번호를  입력하세요.');

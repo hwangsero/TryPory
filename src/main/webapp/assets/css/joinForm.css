@@ -144,6 +144,30 @@
 }
 
 
+/* 중복체크 */
+.email{
+	display:inline-block;
+	margin-right: 5px;
+}
+
+.duplBtn_label {
+	padding: 2px 6px;
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	font-size: 13px;
+	background: #dadada;
+	font-weight:bold; 
+	color:#555;
+	line-height: 20px;
+	box-shadow: rgba(0, 0, 0, 0.2)
+}
+
+
+#duplBtn {
+	display:none;
+}
+
+
 @media only screen and (max-width: 767px) {
 	
 	.join-form {

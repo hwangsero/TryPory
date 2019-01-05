@@ -11,8 +11,8 @@
    </resultMap>
 
 	<insert id="joinMember" parameterType="memberVO">
-		insert into D_member(email, name, password)
-		values(#{email}, #{name}, #{password})
+		insert into D_member(email, name, password, phone1, phone2, phone3)
+		values(#{email}, #{name}, #{password} , #{phone1} , #{phone2} , #{phone3})
 	</insert>
 	
 	<select id="loginMember" parameterType="memberVO" resultMap="memberMap">
