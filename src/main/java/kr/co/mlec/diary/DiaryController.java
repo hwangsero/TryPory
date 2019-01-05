@@ -80,19 +80,6 @@ public class DiaryController {
 		return "diary/my_map";
 	}
 	
-	@RequestMapping("/diary/search/{tag}")
-	public ModelAndView DiarySearchList(@PathVariable("tag") String tag, Model model) {
-		List<DiaryVO> diary = diaryService.selectSearchDiary(tag);
-		
-		String msg = tag;
-		model.addAttribute("msg", msg);
-		
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("diary", diary);
-		mav.setViewName("diary/diaryList");
-		
-		return mav;
-		
-	}
+
 	
 }

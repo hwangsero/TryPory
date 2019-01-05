@@ -4,10 +4,11 @@ import java.util.List;
 
 import kr.co.mlec.vo.DiaryVO;
 
+public interface DiaryServiceInter {
 
-public interface DiaryDAOInter {
-
-	public List<DiaryVO> selectAllDiary();
 	public DiaryVO selectDiary(int no);
+	public List<DiaryVO> selectAllDiary();
 	public int insertDiary(DiaryVO diary);
+	
+	
 }

@@ -25,11 +25,6 @@ public class DiaryDAO implements DiaryDAOInter {
 		List<DiaryVO> DiaryList = sqlSession.selectList("kr.co.mlec.diary.selectAllDiary");
 		return DiaryList;
 	}
-	
-	public List<DiaryVO> selectSearchDiary(String tag) {
-		List<DiaryVO> DiaryList = sqlSession.selectList("kr.co.mlec.diary.selectSearchDiary", tag);
-		return DiaryList;
-	}
 
 	public int insertDiary(DiaryVO diary) {
 		return sqlSession.insert("kr.co.mlec.diary.insertDiary", diary);

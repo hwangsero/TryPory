@@ -9,7 +9,7 @@ import kr.co.mlec.vo.DiaryVO;
 
 
 @Service
-public class DiaryService {
+public class DiaryService implements DiaryServiceInter{
 
 	@Autowired
 	private DiaryDAO diaryDAO;
@@ -21,11 +21,6 @@ public class DiaryService {
 	
 	public List<DiaryVO> selectAllDiary() {
 		List<DiaryVO> diaryList = diaryDAO.selectAllDiary();
-		return diaryList;
-	}
-	
-	public List<DiaryVO> selectSearchDiary(String tag) {
-		List<DiaryVO> diaryList = diaryDAO.selectSearchDiary(tag);
 		return diaryList;
 	}
 	
