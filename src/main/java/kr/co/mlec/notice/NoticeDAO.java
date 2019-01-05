@@ -7,7 +7,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import vo.NoticeVO;
+import kr.co.mlec.vo.NoticeVO;
+
 
 @Repository
 public class NoticeDAO implements NoticeDAOInter{

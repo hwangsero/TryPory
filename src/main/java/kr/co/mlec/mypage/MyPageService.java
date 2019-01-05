@@ -3,7 +3,8 @@ package kr.co.mlec.mypage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import vo.MemberVO;
+import kr.co.mlec.vo.MemberVO;
+
 
 @Service
 public class MyPageService implements MyPageServiceInter {
