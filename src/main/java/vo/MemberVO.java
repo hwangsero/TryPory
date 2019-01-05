@@ -8,7 +8,6 @@ public class MemberVO {
 	private String userType;
 	private String registerDate;
 	private String intro; 
-	private String domain; 
 	private String phone1;
 	private String phone2;
 	private String phone3;
@@ -49,12 +48,6 @@ public class MemberVO {
 	public void setIntro(String intro) {
 		this.intro = intro;
 	}
-	public String getDomain() {
-		return domain;
-	}
-	public void setDomain(String domain) {
-		this.domain = domain;
-	}
 	public String getPhone1() {
 		return phone1;
 	}
@@ -76,8 +69,10 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [email=" + email + ", name=" + name + ", password=" + password + ", userType=" + userType
-				+ ", registerDate=" + registerDate + ", intro=" + intro + ", domain=" + domain + ", phone1=" + phone1
-				+ ", phone2=" + phone2 + ", phone3=" + phone3 + "]";
+				+ ", registerDate=" + registerDate + ", intro=" + intro + ", phone1=" + phone1 + ", phone2=" + phone2
+				+ ", phone3=" + phone3 + "]";
 	}
+
+	
 	
 }

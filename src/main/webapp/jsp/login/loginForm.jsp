@@ -7,6 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/login.css">
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <%@ include file="/WEB-INF/include/head.jsp" %>
  <script>
    function checkForm(){
@@ -119,7 +120,7 @@
       <div class="login-form">
          <div class="container">
             <div class="login-form-h2">
-               <h1><a href="<%= request.getContextPath() %>">로그인</a></h1>
+               <h1>로그인</h1>
             </div>
          
             <form method="post"   name="lform">
@@ -141,20 +142,26 @@
                       <input id="loginBtn" class="login-btn" type="submit" value="로그인">
                       <input type="checkbox" id="emailSave"> <p>아이디저장</p>
                       <div class="find">
-                         <p>비밀번호 찾기</p>
-                         <p>회원가입</p>
-                      </div>       
+                         <p><a>아이디/비밀번호 찾기</a></p>
+                         <p><a href="${pageContext.request.contextPath}/login">회원가입<a/></p>
+                      </div>   
+                      <div class="login-api-btn">    
+                      <a class="login-api-button" id="naver_id_button" onclick="document.getElementById('naver_id_login_anchor').click();">네이버 계정으로 로그인</a>
+                      <a class="login-api-button"  href="javascript:loginWithKakao()"  id="kakao_id_button">카카오 계정으로 로그인</a>
+                      </div>
                   </div>
                   
             </form>
-            <a id="kakao-login-btn"></a>
-<script type='text/javascript'>
+           
+           
+           
+<!-- <script type='text/javascript'>
   //<![CDATA[
     // 사용할 앱의 JavaScript 키를 설정해 주세요.
     Kakao.init('2fed101eab1c984c04b7979e17790867');
     // 카카오 로그인 버튼을 생성합니다.
     Kakao.Auth.createLoginButton({
-      container: '#kakao-login-btn',
+//       container: '#kakao-login-btn',
       success: function(authObj) {
         // 로그인 성공시, API를 호출합니다.
         Kakao.API.request({
@@ -174,7 +181,30 @@
       }
     });
   //]]>
+</script> -->
+
+<script type='text/javascript'>
+  //<![CDATA[
+    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('8a0eb548cc8e4502f32642ba5c48cb47');
+    function loginWithKakao() {
+      // 로그인 창을 띄웁니다.
+      Kakao.Auth.login({
+        success: function(authObj) {
+          alert(JSON.stringify(authObj));
+        },
+        fail: function(err) {
+          alert(JSON.stringify(err));
+        }
+      });
+    };
+  //]]>
 </script>
+
+
+
+
+
 <div id="naver_id_login"></div>
   <!-- //네이버아이디로로그인 버튼 노출 영역 -->
   <script type="text/javascript">

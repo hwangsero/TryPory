@@ -11,7 +11,7 @@ html *{
     font-weight: 500;
     font-family: Roboto,Helvetica,Arial,sans-serif;
     line-height: 1.5em;
-    text-transform: uppercase;
+    text-transform: uppercase;a
 }
 
 .name {
@@ -212,7 +212,7 @@ img.rounded {
     display: block;
 }
 
-/* µ¤¾î¾´°Å */
+/* ï¿½ï¿½ï¿½î¾´ï¿½ï¿½ */
 
 .mag-posts-area {
 	padding: 0 !important;
@@ -222,7 +222,7 @@ img.rounded {
 	margin-top: 200px !important;
 }
 
-/* ¸¶ÀÌÆäÀÌÁö ¼öÁ¤¹öÆ° */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ° */
 
 .profile label{
 	width:120px;
@@ -236,7 +236,7 @@ img.rounded {
 }
 
 
-/* ¹è°æÀÌ¹ÌÁö  */
+/* ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½  */
 
 #myUpdateBtn{
 	
@@ -391,7 +391,7 @@ input[type=file] {
 
 /* update */
 
-/* -------------------È¸¿ø°¡ÀÔ----------------------- */
+/* -------------------È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½----------------------- */
 
 .update-form-box{
 	width:95%; 
@@ -472,7 +472,7 @@ input[type=file] {
 }
 
 .update-form span.mail {
-    width: 50%;
+    width: 100%;
     float:left;
 }
 
@@ -627,7 +627,7 @@ input[type=file] {
    left: 0;
 }
 
-/* sns¹öÆ°  */
+/* snsï¿½ï¿½Æ°  */
 
 .img_snsBtn .heart , .img_snsBtn .comment{
 	display:inline-block;

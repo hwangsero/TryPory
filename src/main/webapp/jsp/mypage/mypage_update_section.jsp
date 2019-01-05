@@ -81,12 +81,8 @@
 								<div class="joinId">
 									<h3>이메일</h3>
 									<span class="mail"> <input type="text" size="20"
-										id="email" name="email" value="${ userVO.email }">
+										id="email" name="email" value="${ userVO.email }" readonly  >
 									</span> 
-									<span class="text">@</span> 
-									<span class="mailAddr">
-										<input type="text" size="20" value="${ userVO.domain }" name="domain">
-									</span>
 								</div>
 
 								<!--비번-->

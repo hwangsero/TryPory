@@ -53,8 +53,6 @@
 
 	function checkData() {
 		var f = document.inputForm;
-<<<<<<< HEAD
-		
 //이름 
 		if(f.name.value.length == 0 ) {
 			alert('이름을 입력하세요.');
@@ -94,7 +92,6 @@
 		}
 		if (f.password.value !== f.pwCk.value) {
 			alert('비밀번호가 다릅니다. 다시 입력해주세요.');
-			return false;
 		}
 		//핸드폰		
 		if (f.tel1.value.length == 0) {
@@ -147,10 +144,14 @@
 					onsubmit="return checkData()" name="inputForm">
 					<!--이메일-->
 					<div class="joinId">
-						<h3>
-							이메일 <input type="button" id="duplBtn" value="중복체크"> <b
-								id="duplSpan"></b>
-						</h3>
+						<div class="duplBtn_box">
+							<h3 class="email">
+								이메일
+							</h3>
+							<label class="duplBtn_label" for ="duplBtn">중복체크</label>
+							<input type="button" id="duplBtn" value="중복체크"> 
+							<b id="duplSpan"></b>
+						</div>
 						<span class="mail"> <input type="text" size="20" id="email"
 							name="email" placeholder="이메일을 30자 이내로 입력하세요.">
 						</span> <span class="text">@</span> <span class="mailAddr"> 
