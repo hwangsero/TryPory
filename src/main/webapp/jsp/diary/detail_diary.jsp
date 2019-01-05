@@ -22,7 +22,8 @@ $(document).ready(function() {
 				 $('#replyContent').val('')
 				replyList();
 			}, error : function(e) {
-				alert(e);
+				alert('내용을 입력해주세요');
+				$('#replyContent').focus();
 			}
 		})
 	})
