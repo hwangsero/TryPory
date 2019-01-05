@@ -11,7 +11,7 @@
 .Notice-Box {
 	width: 70%;
 	margin: auto;
-	margin-top: 30px;
+	margin-top: 80px;
 	padding-bottom: 20px;
 }
 
@@ -69,8 +69,8 @@
 .type2 h2 {
 	font-size: 17px;
 	color: white;
+	padding-top: 5px;
 }
-
 
 /*3-3 공지사항 검색창 관련 css*/
 .type2 {
@@ -82,6 +82,7 @@
 	height: 35px;
 	border: 2px solid #84b1ed;
 	float: right;
+	padding-left: 2px;
 }
 
 .search-box input {
@@ -91,7 +92,7 @@
 	outline: none;
 	float: left;
 	width: 85%;
-	height: 100%;
+	height: 99%;
 }
 
 .search-box button {
@@ -117,7 +118,7 @@ table.type3 {
 	border-collapse: collapse;
 	text-align: left;
 	line-height: 1.5;
-	border-bottom: 1px solid #84b1ed; 
+	border-bottom: 1px solid #84b1ed;
 	float: right;
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -125,68 +126,66 @@ table.type3 {
 }
 
 /*4-1. 공지사항 테이블  thead*/
-
-table.type3 thead{
-	    border-top: solid 3px #6a94cc;	
-	        text-align: center;
+table.type3 thead {
+	border-top: solid 3px #9fa1a5;
+	text-align: center;
 }
+
 table.type3 thead th {
-	    padding: 3px;
-    font-weight: bold;
-    color: black;
-    margin: 20px 10px;
-    font-size: 15px;
+	padding: 3px;
+	font-weight: bold;
+	color: black;
+	margin: 20px 10px;
+	font-size: 15px;
 }
 
 /*-----------------------------------------thead-글번호*/
-table.type3 thead th:first-child{
-	width:7%;
+table.type3 thead th:first-child {
+	width: 7%;
 }
 /*---------------------------------------------------*/
 
 /*-----------------------------------------thead-등록일*/
-table.type3 thead th:nth-child(3){
-	width:20%;
+table.type3 thead th:nth-child(3) {
+	width: 20%;
 }
 /*---------------------------------------------------*/
 
 /*-----------------------------------------thead-조회수*/
-table.type3 thead th:last-child{
-	width:10%;
+table.type3 thead th:last-child {
+	width: 10%;
 }
 
-
 /*4-2 공지사항 테이블 tbody*/
-table.type3 tbody{
-	border-bottom: solid 3px #84B1ED;
+table.type3 tbody {
+	border-bottom: solid 3px #b3b4b5;
 }
 
 table.type3 tbody tr {
-    margin: 500px;
-    font-size: 15px;
-    border-top: solid 1px #84B1ED;
+	margin: 500px;
+	font-size: 15px;
+	border-top: solid 1px #d6d6d6;
 }
-
 
 table.type3 tbody th {
 	text-align: center;
 }
 
-table.type3 tbody td{
+table.type3 tbody td {
 	text-align: center;
+	height: 35px;
 }
 
-table.type3 tbody td:nth-child(2){
+table.type3 tbody td:nth-child(2) {
 	text-align: left;
 }
-
-
 
 /*5. 페이징 번호 관련 */
 .paging {
 	width: 70%;
 	margin: auto;
 	padding-top: 30px;
+	margin-bottom: 80px;
 }
 
 .paging ul {
@@ -222,6 +221,19 @@ table.type3 tbody td:nth-child(2){
 	color: #fff;
 	border: 1px solid #60C5BA;
 	background-color: #60C5BA;
+}
+
+.paging button {
+	border: 0px;
+	background-color: #f0f8ff00;
+}
+
+.paging img {
+	width: 25px;
+}
+
+img#pre-left-arrow {
+	transform: rotate(180deg);
 }
 
 /*///////////////////////////////////////////////////////
@@ -355,85 +367,84 @@ table.type3 tbody td:nth-child(2){
 /*2.공지사항 글 등록 페이지 머리말*/
 .notice-write-type1 {
 	width: 80%;
-    margin: auto;
-    margin-top: 50px;
-    border-bottom: solid 3px #84B1ED;
-    text-align: left;
+	margin: auto;
+	margin-top: 50px;
+	border-bottom: solid 3px #84B1ED;
+	text-align: left;
 }
 
 .notice-write-type1 h1 {
 	font-family: "Poppins", sans-serif;
-    color: #4076bf;
-    line-height: 1.3;
-    font-weight: 500;
-    font-weight: bold;
-    margin-bottom: 0px;
+	color: #4076bf;
+	line-height: 1.3;
+	font-weight: 500;
+	font-weight: bold;
+	margin-bottom: 0px;
 }
 
 /*3.공지사항 글 등록 폼*/
 .notice-write-type2 {
-    width: 80%;
-    margin: auto;
+	width: 80%;
+	margin: auto;
 }
 
 form.write_form {
-    text-align: left;
-    padding-left: 20px;
-    padding-right: 20px;
-    background-color: #80808017;
-    margin-top: 10px;
+	text-align: left;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: #80808017;
+	margin-top: 10px;
 }
 
 #notice-write-title {
-    width: 100%;
-    height: 30px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border: solid 1px gray;
-    border-radius:5px;
+	width: 100%;
+	height: 30px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: solid 1px gray;
+	border-radius: 5px;
 }
 
 textarea#notice-write-content1 {
-    width: 100%;
-    height: 500px;
-    margin-bottom: 20px;
-    border-radius: 5px;
+	width: 100%;
+	height: 500px;
+	margin-bottom: 20px;
+	border-radius: 5px;
 }
 
 /* 모바일 글쓰기폼(네이버 폰트에디터가 포함되지 않은 글쓰기 폼) */
-.notice-write-content-box2{
+.notice-write-content-box2 {
 	display: none;
 }
 
 /*첨부파일*/
-.notice-write-attachFile{
+.notice-write-attachFile {
 	overflow: hidden;
 	margin-top: 20px;
 }
 
 .notice-write-attachFile h2 {
-    font-size: 17px;
-    font-weight: bold;
-    float: right;
-    margin-bottom: 0px;
-    padding-top: 3px;
-    margin-right: 20px;
-    color: #5d5959;
+	font-size: 17px;
+	font-weight: bold;
+	float: right;
+	margin-bottom: 0px;
+	padding-top: 3px;
+	margin-right: 20px;
+	color: #5d5959;
 }
 
-
-.notice-write-attachFile button{	
-    height: 30px;
-    width: 70px;
-    float:right;
+.notice-write-attachFile button {
+	height: 30px;
+	width: 70px;
+	float: right;
 }
 
-.notice-write-attachFile input{
+.notice-write-attachFile input {
 	width: 50%;
-    height: 30px;
-    border: solid 1px gray;
-    float:right;
-    margin-right: 10px;
+	height: 30px;
+	border: solid 1px gray;
+	float: right;
+	margin-right: 10px;
 }
 /*4. 공지사항 글등록 버튼*/
 .notice-write-type2-btn {
@@ -455,9 +466,6 @@ textarea#notice-write-content1 {
 	font-weight: bold;
 	cursor: pointer;
 }
-
-
-
 
 footer {
 	clear: both;

@@ -32,8 +32,7 @@
 				role="tab" data-toggle="tab">작성자</a></li>
 			<li class="nav-item"><a class="nav-link" href="#favorite"
 				role="tab" data-toggle="tab">내용</a></li>
-			<li class="nav-item"><a class="nav-link" href="#favorite"
-				role="tab" data-toggle="tab">여행지</a></li>
+			<li class="nav-item"><a class="nav-link" href="#favorite				role="tab" data-toggle="tab">여행지</a></li>
 		</ul>
 	</div>
 

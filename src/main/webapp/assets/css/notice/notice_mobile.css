@@ -26,6 +26,7 @@
 	/*3-3 공지사항 검색창 관련 css*/
 	.search-box {
 		width: 80%;
+		padding-top: 1px;
 	}
 	.search-box input {
 		margin: 0px;

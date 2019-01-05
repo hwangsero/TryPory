@@ -91,7 +91,6 @@
 			</c:forEach>
 			</tbody>
 		</table>
-	</div>
 
 
 		<!--5. 페이징 번호 관련-->
@@ -100,21 +99,31 @@
 			<c:if test="${empty type }">
 			<c:choose>
 			<c:when test="${pagination.curPage > 1 }">
-			<a href="${pageContext.request.contextPath }/notice/1"><button>최좌측</button></a>
+			<a href="${pageContext.request.contextPath }/notice/1">
+			<button><img id="pre-left-arrow" src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon1.png"></button>
+			</a>
 			</c:when>
 			<c:otherwise>
-			<a href="#"><button>최좌측</button></a>
+			<a href="#">
+			<button><img id="pre-left-arrow" src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon1.png"></button>
+			</a>
 			</c:otherwise>
 			</c:choose>
 			
 			<c:choose>
 			<c:when test="${pagination.curRange > 1 }">
-			<a href="${pageContext.request.contextPath }/notice/${start - 1}"><button>좌측</button></a>
+			<a href="${pageContext.request.contextPath }/notice/${start - 1}">
+			<button><img id="pre-left-arrow" src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon2.png"></button>
+			</a>
 			</c:when>
 			<c:otherwise>
-			<a href="#"><button>좌측</button></a>
+			<a href="#">
+			<button><img id="pre-left-arrow" src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon2.png"></button>
+			</a>
 			</c:otherwise>
 			</c:choose>
+			
+			
 			<c:forEach begin="${start }" end="${end}" var="pageNo">
 			
 				<li><a href="${pageContext.request.contextPath }/notice/${pageNo}">
@@ -132,19 +141,27 @@
 				</c:forEach> 
 			<c:choose>
 			<c:when test="${pagination.rangeCnt gt pagination.curRange }">
-			<a href="${pageContext.request.contextPath }/notice/${end + 1}"><button>우측</button></a>
+			<a href="${pageContext.request.contextPath }/notice/${end + 1}">
+			<button><img src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon2.png"></button>
+			</a>
 			</c:when>
 			<c:otherwise>
-			<a href="#"><button>우측</button></a>
+			<a href="#">
+			<button><img src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon2.png"></button>
+			</a>
 			</c:otherwise>
 			</c:choose>
 
 			<c:choose>
 			<c:when test="${pagination.curPage < pagination.pageCnt }">
-			<a href="${pageContext.request.contextPath }/notice/${pagination.pageCnt}"><button>최우측</button></a>
+			<a href="${pageContext.request.contextPath }/notice/${pagination.pageCnt}">
+			<button><img src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon1.png"></button>
+			</a>
 			</c:when>
 			<c:otherwise>
-			<a href="#"><button>최우측</button></a>
+			<a href="#">
+			<button><img src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon1.png"></button>
+			</a>
 			</c:otherwise>
 			</c:choose>
 			</c:if>
@@ -153,19 +170,27 @@
 			<c:if test="${not empty type }">
 			<c:choose>
 			<c:when test="${pagination.curPage > 1 }">
-			<a href="${pageContext.request.contextPath }/notice/search/1/${type}/${word}"><button>최좌측</button></a>
+			<a href="${pageContext.request.contextPath }/notice/search/1/${type}/${word}">
+			<button><img id="pre-left-arrow" src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon1.png"></button>
+			</a>
 			</c:when>
 			<c:otherwise>
-			<a href="#"><button>최좌측</button></a>
+			<a href="#">
+			<button><img id="pre-left-arrow" src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon1.png"></button>
+			</a>
 			</c:otherwise>
 			</c:choose>
 			
 			<c:choose>
 			<c:when test="${pagination.curRange > 1 }">
-			<a href="${pageContext.request.contextPath }/notice/search/${start - 1}/${type}/${word}"><button>좌측</button></a>
+			<a href="${pageContext.request.contextPath }/notice/search/${start - 1}/${type}/${word}">
+			<button><img id="pre-left-arrow" src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon2.png"></button>
+			</a>
 			</c:when>
 			<c:otherwise>
-			<a href="#"><button>좌측</button></a>
+			<a href="#">
+			<button><img id="pre-left-arrow" src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon2.png"></button>
+			</a>
 			</c:otherwise>
 			</c:choose>
 			<c:forEach begin="${start }" end="${end}" var="pageNo">
@@ -185,27 +210,30 @@
 				</c:forEach> 
 			<c:choose>
 			<c:when test="${pagination.rangeCnt gt pagination.curRange }">
-			<a href="${pageContext.request.contextPath }/notice/search/${end + 1}/${type}/${word}"><button>우측</button></a>
+			<a href="${pageContext.request.contextPath }/notice/search/${end + 1}/${type}/${word}">
+			<button><img src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon2.png"></button>
+			</a>
 			</c:when>
 			<c:otherwise>
-			<a href="#"><button>우측</button></a>
+			<a href="#"><button><img src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon2.png"></button></a>
 			</c:otherwise>
 			</c:choose>
 
 			<c:choose>
 			<c:when test="${pagination.curPage < pagination.pageCnt }">
-			<a href="${pageContext.request.contextPath }/notice/search/${pagination.pageCnt}/${type}/${word}"><button>최우측</button></a>
+			<a href="${pageContext.request.contextPath }/notice/search/${pagination.pageCnt}/${type}/${word}">
+			<button><img src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon1.png"></button>
+			</a>
 			</c:when>
 			<c:otherwise>
-			<a href="#"><button>최우측</button></a>
+			<a href="#"><button><img src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon1.png"></button></a>
 			</c:otherwise>
 			</c:choose>
-			</c:if>
-			
-			
+			</c:if>			
 			</ul>
 		</div>
 		<!--END 5. 페이징 번호 관련 -->
+	</div>
 	<!--END 1. 공지사항 전체영역 -->
 	<%@ include file="/WEB-INF/include/footer.jsp"%>
 </body>
