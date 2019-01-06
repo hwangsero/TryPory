@@ -13,12 +13,16 @@
 		<div class="content_top_in">
 			<div class="content_left">
 				<ul class="control_box C clr">
-					<li><i class="fas fa-image fa-3x"></i><br> <label
-						for="cover_image">커버 사진</label> <input type="file" class="none"
-						id="cover_image"></li>
+					<li><i class="fas fa-image fa-3x"></i><br> 
+				<!--	<label for="cover_image">커버 사진</label>  -->
+						<label>커버 사진</label>
+						<input type="file" class="none"	id="cover_image">
+					</li>
 
-					<li><i class="fas fa-unlock-alt fa-3x"></i>
-						<p>공개 / 비공개</p></li>
+					<li id="post_lock">
+						<i class="fas fa-unlock fa-3x"></i>
+						<p>공개</p>
+					</li>
 				</ul>
 			</div>
 			<div class="content_right">
@@ -27,8 +31,8 @@
 					<textarea placeholder="여행일지 제목" id="input_diary_title"></textarea>
 				</div>
 				<div class="date_box">
-					<i class="far fa-calendar-check fa-2x"></i> <span>2018.12.15
-						~ 2018.12.18</span>
+					<i class="far fa-calendar-check fa-2x"></i> 
+					<span>2018.12.15 ~ 2018.12.18</span>
 				</div>
 			</div>
 		</div>

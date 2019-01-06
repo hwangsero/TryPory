@@ -51,30 +51,24 @@ public class DiaryController {
 			System.out.println(date_data.get(i));
 			Map<String, Object> date_content = (Map<String, Object>) date_data.get(i);
 			String date_content_str = JsonUtil.getJsonStringFromMap(date_content).toJSONString();
-//			System.out.println(JsonUtil.getJsonStringFromMap(date_content).toJSONString() );
 
-			//			List<Object> list = (List<Object>) date_data.get(i);
-//			List<String> content_data = new ArrayList<String>();
-//			for (int j = 0; j < list.size(); j++) {
-////				System.out.println(JsonUtil.getJsonStringFromMap((Map<String, Object>)list.get(j)));
-//				
-//				Map<String, Object> map = (Map<String, Object>) list.get(j);
-//				content_data.add(JsonUtil.getJsonStringFromMap(map).toJSONString() );
-//			}
 			content.add(date_content_str);
 		}
 		System.out.println(content.toString());
 		
 		DiaryVO diary = new DiaryVO();
 		
-		diary.setTitle((String)post_data.get("title"));
 		diary.setWriter(writer);
 		diary.setContent(content.toString());
+		diary.setTitle((String)post_data.get("title"));
+		diary.setCover_image((String)post_data.get("cover_image"));
+		diary.setIs_share((String)post_data.get("lock"));
 		diary.setStart_date((String)post_data.get("start_date"));
 		diary.setEnd_date((String)post_data.get("end_date"));
 
 //		return 1;
-		return diaryService.insertDiary(diary);
+		diaryService.insertDiary(diary);
+		return diary.getNo();
 	}
 	
 	@RequestMapping("/diary")

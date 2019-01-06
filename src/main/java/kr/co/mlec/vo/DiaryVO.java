@@ -6,8 +6,8 @@ public class DiaryVO {
 	private String title;
 	private String content;
 	private String writer;
-	private String coverImage;
-	private String isShare;
+	private String cover_image;
+	private String is_share;
 	private String end_date;
 	private String start_date;
 	private String tag1;
@@ -43,17 +43,17 @@ public class DiaryVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getCoverImage() {
-		return coverImage;
+	public String getCover_image() {
+		return cover_image;
 	}
-	public void setCoverImage(String coverImage) {
-		this.coverImage = coverImage;
+	public void setCover_image(String cover_image) {
+		this.cover_image = cover_image;
 	}
-	public String getIsShare() {
-		return isShare;
+	public String getIs_share() {
+		return is_share;
 	}
-	public void setIsShare(String isShare) {
-		this.isShare = isShare;
+	public void setIs_share(String is_share) {
+		this.is_share = is_share;
 	}
 	public String getEnd_date() {
 		return end_date;
@@ -118,7 +118,7 @@ public class DiaryVO {
 	@Override
 	public String toString() {
 		return "DiaryVO [no=" + no + ", title=" + title + ", content=" + content + ", writer=" + writer
-				+ ", coverImage=" + coverImage + ", isShare=" + isShare + ", endDate=" + end_date + ", startDate="
+				+ ", cover_image=" + cover_image + ", is_share=" + is_share + ", endDate=" + end_date + ", startDate="
 				+ start_date + ", tag1=" + tag1 + ", tag2=" + tag2 + ", tag3=" + tag3 + ", tag4=" + tag4 + ", tag5="
 				+ tag5 + ", viewCnt=" + viewCnt + ", likeCnt=" + likeCnt + ", registerDate=" + registerDate + "]";
 	}

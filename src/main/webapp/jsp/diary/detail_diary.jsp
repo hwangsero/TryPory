@@ -76,10 +76,6 @@ function replyList() {
 			}
 	})
 }
-
-
-
-
 </script>
 <script>
 var detail_data = JSON.parse( JSON.stringify(${content}));
@@ -87,7 +83,6 @@ var detail_data = JSON.parse( JSON.stringify(${content}));
 console.log(detail_data);
 var start_date = new Date('${diary.start_date}');
 var write_wrap = $j("#write_wrap");
-
 
 var content_list = new Array(); // 날짜, 내용 div저장할 배열;
 
@@ -119,7 +114,7 @@ $j(detail_data).each(function(date){ // 일차별
 		if( image_list != undefined ){
 			$j(image_list).each(function(image_index){
 				var image_content = $j("<div class='img_content'/>");
-				var img = $j("<img src='${pageContext.request.contextPath}/upload/" + image_list[image_index].fileName + "' />");
+				var img = $j("<img src='${pageContext.request.contextPath}/image/" + image_list[image_index].fileName + "' />");
 				$j(image_content).append(img);
 				$j(image_wrap).append(image_content);
 			});
@@ -136,11 +131,14 @@ $j(detail_data).each(function(date){ // 일차별
 console.log(content_list);
 
 $j(document).ready(function(){
+	$j("div#write_page_header").css("background-image", "url(" +  window.ctx + "/image/" + '${ diary.cover_image }' + ")");
+	
 	for (var i = 0; i < content_list.length; i++) {
 		var div = content_list[i];
 		var last_element = $j("div#write_wrap div.container > div").last();
 		$j(last_element).after(div);
 	}
+	
 });
 </script>
 
@@ -149,11 +147,11 @@ $j(document).ready(function(){
 		<div class="content_top_in">
 			<div class="content_wrap">
 				<div class="textarea_box">
-					<h4 id="input_diary_title">오사카 여행일지</h4>
+					<h4 id="input_diary_title">${diary.title }</h4>
 				</div>
 				<div class="date_box">
 					<i class="far fa-calendar-check fa-2x"></i> 
-					<span>2018.12.15 ~ 2018.12.18</span>
+					<span>${diary.start_date} ~ ${diary.end_date}</span>
 				</div>
 				
 				<div class="tag_box">
