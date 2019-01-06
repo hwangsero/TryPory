@@ -5,8 +5,8 @@
 <mapper namespace="kr.co.mlec.diary">
 
 	<resultMap type="DiaryVO" id="diaryMap">
-		<result column="is_share" property="isShare"/>
-		<result column="cover_image" property="coverImage"/>
+		<result column="is_share" property="is_share"/>
+		<result column="cover_image" property="cover_image"/>
 		<result column="end_date" property="end_date"/>
 		<result column="start_date" property="start_date"/>
 		<result column="tag_1" property="tag1"/>
