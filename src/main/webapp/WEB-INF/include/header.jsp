@@ -64,14 +64,17 @@
 	
 	                <div class="top-meta-data d-flex align-items-center">
 	                    <!-- Top Search Area -->
-	                    <div class="top-search-area">
+	                    <%-- <div class="top-search-area">
 	                         <form action="${pageContext.request.contextPath }/jsp/diary/search/" name="search"> 
 	                            <input type="search" name="top-search" id="topSearch" placeholder="#바다 #여행">
 	                            <button onclick="search()" class="btn">
-	                            <i class="fa fa-search" aria-hidden="true"></i>
+	                            	<i class="fa fa-search" aria-hidden="true"></i>
 	                            </button>
 	                         </form> 
-	                    </div>
+	                    </div> --%>
+	                     <a href="${pageContext.request.contextPath}/search">
+	                     	<i class="fa fa-search fa-lg" aria-hidden="true"></i>
+	                     </a>
 	                    <c:if test="${userVO.email eq 'admin' }">
 	                     <a class="login-btn" id="logout">
 	                    	로그아웃

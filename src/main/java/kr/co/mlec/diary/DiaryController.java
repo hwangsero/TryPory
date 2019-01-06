@@ -31,15 +31,6 @@ public class DiaryController {
 		DiaryVO diary = diaryService.selectDiary(no);
 		ModelAndView mav = new ModelAndView("diary/detail_diary_page");
 		String content = diary.getContent();
-//		JsonParser parser = new JsonParser();
-//		JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES;
-
-//		Object obj = parser.
-//		JSONObject json = (JSONObject)parser.parse(content);
-		
-//		System.out.println(obj);
-
-
 
 		mav.addObject("diary", diary);
 		mav.addObject("content", content);

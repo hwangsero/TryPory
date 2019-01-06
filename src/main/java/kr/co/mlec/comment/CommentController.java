@@ -19,12 +19,22 @@ public class CommentController {
 	@Autowired
 	CommentService commentService;
 
+	/**
+	 * 댓글 등록
+	 * @param commentVO
+	 */
 	@PostMapping("/reply")
 	public void insertComment(CommentVO commentVO) {
 		commentVO.setWriter("writer");
 		commentService.insertComment(commentVO);
 	}
 	
+	/**
+	 * 게시글의 댓글 조회
+	 * @param diaryNo
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/reply/{diaryNo}")
 	public List<CommentVO> selectAllComment(@PathVariable("diaryNo") int diaryNo, Model model) {
 		
@@ -32,6 +42,10 @@ public class CommentController {
 		return comment;
 	}
 	
+	/**
+	 * 댓글 삭제
+	 * @param replyNo
+	 */
 	@DeleteMapping("/reply/{replyNo}")
 	public void deleteComment(@PathVariable("replyNo") int replyNo) {
 		commentService.deleteComment(replyNo);

@@ -73,8 +73,6 @@
 			return false;
 		}
 
-		f.email.value = f.email.value + '@' + f.email_domain.value;
-
 		//비번
 		if (f.password.value.length == 0) {
 			alert('비밀번호를  입력하세요.');
@@ -94,30 +92,30 @@
 			alert('비밀번호가 다릅니다. 다시 입력해주세요.');
 		}
 		//핸드폰		
-		if (f.tel1.value.length == 0) {
+		if (f.phone1.value.length == 0) {
 			alert('핸드폰 첫 번호를 입력하세요.');
-			f.tel1.focus();
+			f.phone1.focus();
 			return false;
 		}
-		if (f.tel1.value.length > 5) {
+		if (f.phone1.value.length > 5) {
 			alert('핸드폰 첫 번호를 3자 이내로 입력하세요.');
 			return false;
 		}
-		if (f.tel2.value.length == 0) {
+		if (f.phone2.value.length == 0) {
 			alert('핸드폰 가운데 번호를 입력하세요.');
-			f.tel2.focus();
+			f.phone2.focus();
 			return false;
 		}
-		if (f.tel2.value.length > 5) {
+		if (f.phone2.value.length > 5) {
 			alert('핸드폰 가운데 번호를 4자 이내로 입력하세요.');
 			return false;
 		}
-		if (f.tel3.value.length == 0) {
+		if (f.phone3.value.length == 0) {
 			alert('핸드폰 끝 번호를 입력하세요.');
-			f.tel3.focus();
+			f.phone3.focus();
 			return false;
 		}
-		if (f.tel3.value.length > 5) {
+		if (f.phone3.value.length > 5) {
 			alert('핸드폰 끝 번호를 4자 이내로 입력하세요.');
 			return false;
 		}
@@ -126,6 +124,8 @@
 			alert('아이디 중복체크를 해주세요');
 			return false;
 		}
+		
+		f.email.value = f.email.value + '@' + f.email_domain.value;
 
 	}
 </script>

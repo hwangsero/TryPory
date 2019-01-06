@@ -13,7 +13,6 @@ $j(document).ready(function(){
 	
 	var date_cell = new Object(); // 일별데이터
 	date_cell.content = []; // 일별 컨텐츠
-	date_cell.date = "2019.01.01";  // 일별 날짜
 
 	var date_cell_data = new Object(); // 첫번쨰 컨텐츠
 	date_cell_data.images = [];		// 첫번쨰 컨텐츠의 이미지
@@ -22,11 +21,7 @@ $j(document).ready(function(){
 
 	date_data[0] = date_cell;
 	
-	date_cell.date = "2019.01.02";
 	date_data[1] = date_cell;
-	
-	
-	
 	
 	console.log(date_data);
 	

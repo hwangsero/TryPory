@@ -128,7 +128,7 @@
 	display: inline-block;
 	overflow: hidden;
 	position: relative;
-	width: calc(100% - 11px);
+	/* width: calc(100% - 11px); */
 	height: auto;
 	float: left;
 	margin: 10px 0 0 10px;

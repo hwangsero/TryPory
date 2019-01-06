@@ -8,10 +8,10 @@ $(document).ready(function() {
 	
 	$('#addBtn').click(function() {
 		var data = {
-				diaryNo : 1,  //일단 임시로 diaryNo를 1로 해놈
+				diaryNo : ${diary.no},  //일단 임시로 diaryNo를 1로 해놈
 				content : $('#replyContent').val()
 		}
-		
+
 		$.ajax({
 			url : '${pageContext.request.contextPath}/reply',
 			type : "post",
@@ -49,7 +49,7 @@ function replyList() {
 	$j('#commentList').empty();
 	
 	$j.ajax({
-		url : '${pageContext.request.contextPath}/reply/1', //일단 임시로 diaryNo를 1로 해놈
+		url : '${pageContext.request.contextPath}/reply/${diary.no}', //일단 임시로 diaryNo를 1로 해놈
 		dataType : 'json',
 		success : function(data) {
 			console.log(data)
