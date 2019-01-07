@@ -43,13 +43,17 @@
                alert(result = JSON.parse(data).loginMsg);
                result = JSON.parse(data).result;
                if(result == "true" ) {
-                  if($('#emailSave').is(":checked")) 
-                  saveLogin($('#email').val());
-                      else 
-                        saveLogin("");
-                     } else
-                        saveLogin("");
-               location.href="<%= request.getContextPath() %>"; 
+                  if($('#emailSave').is(":checked")){ 
+                  	saveLogin($('#email').val());
+                  }
+                  else { 
+                  	saveLogin("");
+                  }
+                  
+					location.href="<%= request.getContextPath() %>"; 
+               } else {
+                	saveLogin("");
+               }
             }
          });
       });

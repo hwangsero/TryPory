@@ -17,6 +17,11 @@ public class SearchController {
 	@Autowired
 	SearchService searchService;
 	
+	@RequestMapping("/search")
+	public String search() {
+		return "search/search-tag";
+	}
+	
 	@RequestMapping("/search/tag/{tag}")
 	public ModelAndView searchTag(@PathVariable("tag") String tag, Model model) {
 		List<DiaryVO> diary = searchService.selectSearchTag(tag);

@@ -5,8 +5,8 @@
 <mapper namespace="kr.co.mlec.diary">
 
 	<resultMap type="DiaryVO" id="diaryMap">
-		<result column="is_share" property="isShare"/>
-		<result column="cover_image" property="coverImage"/>
+		<result column="is_share" property="is_share"/>
+		<result column="cover_image" property="cover_image"/>
 		<result column="end_date" property="end_date"/>
 		<result column="start_date" property="start_date"/>
 		<result column="tag_1" property="tag1"/>
@@ -32,9 +32,11 @@
 	</select>
 	
 
-	<insert id="insertDiary" parameterType="DiaryVO">
-		insert into d_diary(no, title, content, writer, end_date, start_date)
-		values(d_diary_seq.nextval, #{title}, #{content}, #{writer}, #{end_date}, #{start_date})
+	<insert id="insertDiary" parameterType="DiaryVO"
+	>
+		insert into d_diary(no, title, content, writer, end_date, start_date, cover_image, is_share)
+		values(d_diary_seq.nextval, #{title}, #{content}, #{writer}, #{end_date}, #{start_date}, #{cover_image}, #{is_share} )
+		<selectKey keyProperty="no" resultType="Integer" order="AFTER"> SELECT d_diary_seq.currval FROM dual </selectKey>
 	</insert>
 
 </mapper>

@@ -16,7 +16,7 @@ public class CommentDAO implements CommentDAOInter{
 
 	@Override
 	public void insertComment(CommentVO commentVO) {
-		System.out.println("dao");
+		System.out.println(commentVO);
 		sqlSession.insert("kr.co.mlec.comment.insertComment", commentVO);
 	}
 

@@ -1,6 +1,6 @@
-@charset "EUC-KR";
+@charset "UTF-8";
 
-/*°Ë»öÃ¢ °ü·Ã*/
+/*ê²€ìƒ‰ì°½ ê´€ë ¨*/
 .search-box {
 	width: 35%;
 	height: 45px;
@@ -35,7 +35,7 @@ button#searchBtn {
 	height: auto;
 	max-width: 50%;
 }
-/*ÅÇ¹Ú½º*/
+/*íƒ­ë°•ìŠ¤*/
 .search-tab-box {
 	width: 80%;
 	border-bottom: 1px solid #eee;
@@ -67,7 +67,7 @@ a.nav-link {
 	font-size: 17px;
 }
 
-/*Å¬¸¯ÇßÀ» ¶§*/
+/*í´ë¦­í–ˆì„ ë•Œ*/
 .nav-pills  .nav-link.active, .nav-pills .show>.nav-link {
 	color: #5389d0;
 	background-color: #ffffff;
@@ -77,7 +77,7 @@ a.nav-link {
 	border-radius: 0px;
 }
 
-/*°Ë»ö°á°ú ÆäÀÌÁö*/
+/*ê²€ìƒ‰ê²°ê³¼ í˜ì´ì§€*/
 .search-frame {
 	width: 80%;
 	height: 700px;
@@ -95,4 +95,43 @@ a.nav-link {
 
 footer {
 	clear: both;
+}
+
+
+/* ê²€ìƒ‰ ê²°ê³¼ */
+.list_search_wrap .item_search {
+    position: relative;
+    width: 630px;
+    margin: 0 auto;
+}
+
+.list_search_wrap .link_sch_tag {
+    display: block;
+    height: 94px;
+    font-size: 14px;
+    line-height: 90px;
+    color: #555;
+}
+
+.list_search_wrap .sch_tag {
+    display: inline-block;
+    overflow: hidden;
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.list_search_wrap .sch_match_up {
+    color: #384cd8;
+}
+
+.list_search_wrap .sch_count {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 90px;
+    color: #a9abb2;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
