@@ -66,7 +66,6 @@ public class DiaryController {
 		diary.setStart_date((String)post_data.get("start_date"));
 		diary.setEnd_date((String)post_data.get("end_date"));
 
-//		return 1;
 		diaryService.insertDiary(diary);
 		return diary.getNo();
 	}

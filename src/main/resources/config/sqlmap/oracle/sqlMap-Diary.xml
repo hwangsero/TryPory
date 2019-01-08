@@ -32,8 +32,7 @@
 	</select>
 	
 
-	<insert id="insertDiary" parameterType="DiaryVO"
-	>
+	<insert id="insertDiary" parameterType="DiaryVO">
 		insert into d_diary(no, title, content, writer, end_date, start_date, cover_image, is_share)
 		values(d_diary_seq.nextval, #{title}, #{content}, #{writer}, #{end_date}, #{start_date}, #{cover_image}, #{is_share} )
 		<selectKey keyProperty="no" resultType="Integer" order="AFTER"> SELECT d_diary_seq.currval FROM dual </selectKey>

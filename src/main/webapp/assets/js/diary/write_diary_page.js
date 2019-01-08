@@ -97,7 +97,6 @@ $j(document).ready(function(){
 			},
 			error : function(jqXHR) {
 				console.log(jqXHR);
-				console.log('error');
 			}
 
 		});

@@ -14,9 +14,9 @@ public class LoginDAO implements LoginDAOInter{
 	SqlSessionTemplate sqlSession;
 	
 	@Override
-	public void joinMember(MemberVO member) {
+	public int joinMember(MemberVO member) {
 		System.out.println(member);
-		sqlSession.insert("kr.co.mlec.login.joinMember", member);
+		return sqlSession.insert("kr.co.mlec.login.joinMember", member);
 	}
 	
 	@Override
@@ -27,6 +27,28 @@ public class LoginDAO implements LoginDAOInter{
 	@Override
 	public MemberVO duplCheck(String email) {
 		return sqlSession.selectOne("kr.co.mlec.login.duplCheck", email);
+	}
+
+	@Override
+	public void createAuthKey(String user_email, String user_authCode) {
+		MemberVO member = new MemberVO();
+		member.setEmail(user_email);
+		member.setAuth_key(user_authCode);
+
+		sqlSession.update("kr.co.mlec.login.createAuthKey", member);
+	}
+
+	@Override
+	public MemberVO keyConfirm(String email, String key) {
+		MemberVO member = new MemberVO();
+		member.setEmail(email);
+		member.setAuth_key(key);
+		return sqlSession.selectOne("kr.co.mlec.login.keyConfirm", member);
+	}
+
+	@Override
+	public void authUpdate(String email) {
+		sqlSession.update("kr.co.mlec.login.authUpdate", email);
 	}
 
 

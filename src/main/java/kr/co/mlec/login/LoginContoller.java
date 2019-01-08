@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.co.mlec.mail.MailService;
 import kr.co.mlec.vo.MemberVO;
 
 
@@ -22,6 +24,9 @@ public class LoginContoller {
 
 	@Autowired
 	private LoginService loginService;
+	
+	@Autowired
+	private MailService mailService;
 
 	@GetMapping("/login")
 	public String loginForm() {
@@ -63,13 +68,22 @@ public class LoginContoller {
 		return "join/joinForm";
 	}
 
+	@Transactional
 	@PostMapping("/join")
-	public String join(MemberVO member, HttpSession session) {
-		loginService.joinMember(member);
+	public String join(MemberVO member, HttpSession session) throws Exception {
+		member.setEmail(member.getEmail() + '@' + member.getEmail_domain());
+		int cnt = loginService.joinMember(member);
+		
 		System.out.println(member);
-		session.setAttribute("userVO", member);
 
-		return "redirect:/index.jsp";
+		if( cnt == 1 ) { // 회원가입 성공
+			session.setAttribute("userVO", member); // 회원가입시 바로 로그인
+			mailService.sendEmail(member);
+			return "redirect:/emailConfirm";
+		} else {
+			return "join/joinForm";
+		}
+//		return "redirect:/index.jsp";
 	}
 
 	@ResponseBody

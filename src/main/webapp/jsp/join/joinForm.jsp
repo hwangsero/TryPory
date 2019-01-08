@@ -124,9 +124,6 @@
 			alert('아이디 중복체크를 해주세요');
 			return false;
 		}
-		
-		f.email.value = f.email.value + '@' + f.email_domain.value;
-
 	}
 </script>
 </head>

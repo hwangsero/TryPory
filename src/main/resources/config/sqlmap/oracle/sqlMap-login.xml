@@ -27,4 +27,18 @@
 		where email = #{email}
 	</select>
 	
+	<update id="createAuthKey" parameterType="memberVO">
+		update d_member set auth_key = #{auth_key} where email = #{email}
+	</update>
+	
+	<select id="keyConfirm" parameterType="memberVO" resultType="memberVO">
+		select *
+		from d_member
+		where email = #{email} and auth_key = #{auth_key}
+	</select>
+	<update id="authUpdate" parameterType="string">
+		update d_member set is_auth = 1
+		where email = #{email}
+	</update>
+	
 </mapper>
