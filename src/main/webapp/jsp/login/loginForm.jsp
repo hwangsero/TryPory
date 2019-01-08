@@ -149,7 +149,11 @@
                          <p><a>아이디/비밀번호 찾기</a></p>
                          <p><a href="${pageContext.request.contextPath}/join">회원가입<a/></p>
                       </div>   
-                      <div class="login-api-btn">    
+                      <div class="login-api-btn">
+                      <a href="${facebook_url}">facebook</a>
+                      		<!-- <button class="btn btn-primary btn-round" style="width: 100%">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>Facebook Login
+                                </button></a> -->     
                       <a class="login-api-button" id="naver_id_button" onclick="document.getElementById('naver_id_login_anchor').click();">네이버 계정으로 로그인</a>
                       <a class="login-api-button"  href="javascript:loginWithKakao()"  id="kakao_id_button">카카오 계정으로 로그인</a>
                       </div>
@@ -193,14 +197,15 @@
     Kakao.init('407280bcdba9bde46f3475b7659d876b');
     function loginWithKakao() {
       // 로그인 창을 띄웁니다.
-      Kakao.Auth.login({
+     location.href="https://kauth.kakao.com/oauth/authorize?client_id=eff8d04801f7c728c9a2e97ab5283d84&redirect_uri=http://localhost:8888/Travel-Diary/kakaoLogin&response_type=code";
+      /* Kakao.Auth.login({
         success: function(authObj) {
           alert(JSON.stringify(authObj));
         },
         fail: function(err) {
           alert(JSON.stringify(err));
         }
-      });
+      }); */
     };
   //]]>
 </script>

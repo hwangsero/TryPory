@@ -86,6 +86,17 @@
 			</props>
 		</property>
 	</bean>
+	<bean id="connectionFactory"
+        class="org.springframework.social.facebook.connect.FacebookConnectionFactory">
+        <constructor-arg value="2295481060483016" />
+        <constructor-arg value="cc6e1257aa7400c5d6ad0120517a47cc" />
+    </bean>
+ 
+    <bean id="oAuth2Parameters"
+        class="org.springframework.social.oauth2.OAuth2Parameters">
+        <property name="scope" value="email" />
+        <property name="redirectUri" value="http://localhost:8888/Travel-Diary/fbLogin" />
+    </bean>
 
 	<mvc:default-servlet-handler />
 	<mvc:view-resolvers>
