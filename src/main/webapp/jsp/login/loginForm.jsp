@@ -190,7 +190,7 @@
 <script type='text/javascript'>
   //<![CDATA[
     // 사용할 앱의 JavaScript 키를 설정해 주세요.
-    Kakao.init('8a0eb548cc8e4502f32642ba5c48cb47');
+    Kakao.init('407280bcdba9bde46f3475b7659d876b');
     function loginWithKakao() {
       // 로그인 창을 띄웁니다.
       Kakao.Auth.login({
