@@ -833,4 +833,72 @@ img.thumb_default {
    		line-height: 200px;
    		margin-top:40px;
    }
+   
+/*    table.mypage_comments_form {
+    width: 98%;
+    margin: 0 auto;
+    border-top: solid 2px #bcbcbc;
+    border-bottom: solid 2px #7c7b7b;
+	}
+	
+		
+	.mypage_comments_form h2 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 5px;
+    background-color: aqua;
+	}
+	
+	.mypage_comments_form th:first-child {
+		width: 7%;
+    text-align: center;
+	}
+	
+	.mypage_comments_form th:last-child {
+		width: 10%;
+		text-align: center;
+	}
+	
+	
+	
+	.mypage_comments_form tbody {
+    	border-top: solid 1px #cecece;
+	}
+	
+	.mypage_comments_form td:first-child{
+		text-align: center;
+	}
+	
+	.mypage_comments_form h5 {
+    	font-size: 13px;
+    	scroll-margin-top: 10px;
+    	padding-top: 7px;
+    	float: left;
+	}
+	
+	.mypage_comments_form button{
+	float: right;
+    margin-right: 15px;
+    line-height: center;
+    margin-top: 3px;
+    background-color: #84B1ED;
+    border-radius: 2px;
+    border: 0px;
+    color: white;
+    width: 60px;
+    height: 25px;
+    padding: 5px;
+    font-size: 12px;
+	}
+	
+	.mypage_comments_form td:last-child h5{
+		text-align: right;
+		float: right;
+	} 
+*/
+	
+	.tab-pane{
+	height: 500px;
+	}
+
 	
