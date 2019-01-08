@@ -101,7 +101,7 @@
 				<h4>#태그(최대5개)</h4>
 				<div class="tag_input_wrap">
 					<ul class="tag_list clr">
-						<li>
+						<!-- <li>
 							<div class="tag_info">
 								<div class="link_tag">
 									#태그
@@ -110,7 +110,7 @@
 									</button>
 								</div>
 							</div>
-						</li>
+						</li> -->
 						<li>
 							<div class="tag_input">
 								<input type="text" placeholder="원하는 태그를 입력한후 스페이스를 입력하세요">
