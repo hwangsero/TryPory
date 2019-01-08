@@ -23,16 +23,17 @@
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
 
-<!--스마트에디터에서 쓴글을 textarea로 가져오는 코드-->
-		//에디터의 내용이 textarea에 적용된다.
-		oEditors.getById["notice-write-content1"].exec("UPDATE_CONTENTS_FIELD", []);
 
 
 
 <script>
-$(document).ready(function() {
+ $(document).ready(function() {
 	$('#updateBtn').click(function() {
-
+		//스마트에디터에서 값을 가져오는 코드
+		oEditors.getById["notice-write-content1"].exec("UPDATE_CONTENTS_FIELD", []);
+		
+		//확인 코드 
+		//document.getElementById("notice-write-content1").value
 		
  		if(document.updateForm.title.value == "") {
 			alert('제목을 입력하세요');
@@ -40,8 +41,9 @@ $(document).ready(function() {
 			return false;
 		} 
 		
- 		if(document.updateForm.content.value == "") {
+ 		if(document.getElementById("notice-write-content1").value == "") {
 			alert('내용을 입력하세요');
+			console.log(document.updateForm.content.value);
 			$('textarea[name=content]').focus();
 			return false;
 		}  
@@ -49,7 +51,7 @@ $(document).ready(function() {
 		var data = {
 				no : ${notice.no},
 				title : document.updateForm.title.value,
-				content: document.updateForm.content.value
+				content: document.getElementById("notice-write-content1").value
 		};
 		
 		$.ajax({
@@ -67,19 +69,9 @@ $(document).ready(function() {
 			}			
 		}) 
 	})	
-})
+}) 
 
 </script>
-
-<!-- <script type="text/javascript">
-	//버튼을 누를 때 실행
-	$("#updateBtn").click(function(){
-		//에디터의 내용이 textarea에 적용된다.
-		oEditors.getById["notice-write-content1"].exec("UPDATE_CONTENTS_FIELD", []);
-		return document.getElemntById("notice-write-content1").value;
-	})
-</script> -->
-
 </head>
 
 <body>
@@ -98,7 +90,7 @@ $(document).ready(function() {
 		<div class="notice-write-type2">
 			<form name="updateForm" class="write_form">
 
-				<%-- <input type="hidden" value="${notice.no }" name="no"> --%>
+				<input type="hidden" value="${notice.no }" name="no"> 
 
 				<!--제목-->
 				<input id="notice-write-title" name="title" value="${notice.title }"></input>

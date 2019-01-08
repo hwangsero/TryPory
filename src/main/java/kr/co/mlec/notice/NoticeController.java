@@ -91,11 +91,10 @@ public class NoticeController {
 		mav.setViewName("notice/notice-detail");
 		
 		return mav;
-		
 	}
 	
 	@ResponseBody
-	@DeleteMapping("/notice/{noticeNo}/")
+	@DeleteMapping("/notice/{noticeNo}")
 	public String noticeDelete(@PathVariable("noticeNo") int noticeNo) {
 		noticeService.deleteNotice(noticeNo);
 		String msg = "게시물이 삭제되었습니다.";

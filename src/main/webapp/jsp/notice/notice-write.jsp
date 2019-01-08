@@ -39,14 +39,15 @@ function submitContents(elClickedObj){
 	oEditors.getById["notice-write-content1"].exec("UPDATE_CONTENTS_FIELD", []);
 	
 	//에디터의 내용에대한 값 검증은 이곳에서
-	//document.getElemntById("notice-write-content1").value를 이용하여 처리한다.
+	//document.getElementById("notice-write-content1").value 를 이용하여 처리한다.
 	
-	try{
+ 	try{
 		//해당 오브젝트가 위치한 form이 submit됨
 		elClickedObj.form.submit();
 	}catch(e){
 		
 	}
+	 
 }
 </script>
 

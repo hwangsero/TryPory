@@ -16,8 +16,17 @@
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="css/blog-post.css" rel="stylesheet">
-<script>
 
+
+<!--네이버 글쓰기 폼 편집 툴-->
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/naver_editor/js/HuskyEZCreator.js"
+	charset="utf-8"></script>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+	
+	
+<script>
 function updateNotice() {
 	location.href="${pageContext.request.contextPath}/notice/update/${noticeNo}";
 }
@@ -29,6 +38,13 @@ function noticeList() {
 
 $j(document).ready(function() {
 		$j('#deleteBtn').click(function() {
+			
+			//스마트에디터에서 값을 가져오는 코드
+			//oEditors.getById["notice-write-content1"].exec("UPDATE_CONTENTS_FIELD", []);
+			
+			//확인 코드 
+			//document.getElementById("notice-write-content1").value
+			console.log("삭제하기 ajax로 넘긴다.")
 			if(confirm('삭제하사겠습니까?')) {
 			$j.ajax({
 				url : "${pageContext.request.contextPath}/notice/${noticeNo}",
@@ -99,7 +115,6 @@ $j(document).ready(function() {
 		<!--4. 공지사항 글 상세내용 -->
 		<div class="notice-detail-type2-2">
 			<p>${notice.content }</p>
-
 		</div>
 		<!--END 4. 공지사항 글 상세내용 -->
 		
