@@ -9,11 +9,7 @@
 		<result column="cover_image" property="cover_image"/>
 		<result column="end_date" property="end_date"/>
 		<result column="start_date" property="start_date"/>
-		<result column="tag_1" property="tag1"/>
-		<result column="tag_2" property="tag2"/>
-		<result column="tag_3" property="tag3"/>
-		<result column="tag_4" property="tag4"/>
-		<result column="tag_5" property="tag5"/>
+		<result column="tag" property="tag"/>
 		<result column="view_cnt" property="viewCnt"/>
 		<result column="like_cnt" property="likeCnt"/>
 		<result column="register_date" property="registerDate"/>
@@ -21,7 +17,7 @@
 	
 	<select id="selectDiary" resultType="diaryVO" parameterType="int">
 		select no, title, content, writer, cover_image, is_share, end_date, start_date,
-		tag_1, tag_2, tag_3, tag_4, tag_5, view_cnt, like_cnt, register_date
+		tag, view_cnt, like_cnt, register_date
 		from D_diary
 		where no = #{no}
 	</select>
@@ -33,8 +29,8 @@
 	
 
 	<insert id="insertDiary" parameterType="DiaryVO">
-		insert into d_diary(no, title, content, writer, end_date, start_date, cover_image, is_share)
-		values(d_diary_seq.nextval, #{title}, #{content}, #{writer}, #{end_date}, #{start_date}, #{cover_image}, #{is_share} )
+		insert into d_diary(no, title, content, writer, end_date, start_date, cover_image, is_share, tag)
+		values(d_diary_seq.nextval, #{title}, #{content}, #{writer}, #{end_date}, #{start_date}, #{cover_image, jdbcType=VARCHAR}, #{is_share}, #{tag} )
 		<selectKey keyProperty="no" resultType="Integer" order="AFTER"> SELECT d_diary_seq.currval FROM dual </selectKey>
 	</insert>
 

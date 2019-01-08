@@ -139,9 +139,16 @@ $j(document).ready(function(){
 		$j(last_element).after(div);
 	}
 	
+	/* 댓글 */
+	var tag = '${ diary.tag }'; 
+	tag = tag.split(', ');
+	$j(tag).each(function(index){
+		$j(".tag_box ul").append("<li>#" + tag[index] + "</li>");
+	});
+	/* 댓글 */
+	
 });
 </script>
-
 <div id="write_page_header" class="C">
 	<div id="header_content">
 		<div class="content_top_in">
@@ -156,8 +163,8 @@ $j(document).ready(function(){
 				
 				<div class="tag_box">
 					<ul>
-						<li>#여행</li>
-						<li>#태그</li>
+						<!-- <li>#여행</li>
+						<li>#태그</li> -->
 					</ul>
 				</div>
 			</div>

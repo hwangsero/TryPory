@@ -6,7 +6,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,14 +16,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.co.mlec.tag.TagService;
 import kr.co.mlec.util.JsonUtil;
+import kr.co.mlec.util.ListUtil;
 import kr.co.mlec.vo.DiaryVO;
+import kr.co.mlec.vo.MemberVO;
+import kr.co.mlec.vo.TagVO;
 
 @Controller
 public class DiaryController {
 
 	@Autowired
 	private DiaryService diaryService;
+	@Autowired
+	private TagService tagService;
 	
 	@GetMapping("/diary/{no}")
 	public ModelAndView SearchDiary(@PathVariable int no) throws Exception {
@@ -40,12 +45,20 @@ public class DiaryController {
 	
 	@PostMapping("/diary")
 	@ResponseBody
-	public int addDiary(@RequestBody Map<String, Object> data, HttpSession session ) throws ParseException {
-//		String writer = ((MemberVO)session.getAttribute("userVO")).getEmail();
-		String writer = "Test";
+	public int addDiary(@RequestBody Map<String, Object> data, HttpSession session ) throws Exception {
+		DiaryVO diary = new DiaryVO();
+		MemberVO member = (MemberVO)session.getAttribute("userVO");
+		String writer;
+		if( member != null) {
+			writer = member.getEmail();
+		} else {
+			writer = "Test";
+		}
 		Map<String, Object> post_data = (Map<String, Object>) data.get("post_data");
 		List<List<Object>> date_data = (List<List<Object>>)data.get("date_data");
 		List<String> content = new ArrayList<String>();
+		List<String> tag_list = (List<String>) post_data.get("tag");
+		///////////////////////////////////////변수////////////////////////////////////
 
 		for (int i = 0; i < date_data.size(); i++) { // 일차
 			System.out.println(date_data.get(i));
@@ -54,9 +67,9 @@ public class DiaryController {
 
 			content.add(date_content_str);
 		}
-		System.out.println(content.toString());
+//		System.out.println(content.toString());
 		
-		DiaryVO diary = new DiaryVO();
+		diary.setTag(ListUtil.toString(tag_list));
 		
 		diary.setWriter(writer);
 		diary.setContent(content.toString());
@@ -66,8 +79,20 @@ public class DiaryController {
 		diary.setStart_date((String)post_data.get("start_date"));
 		diary.setEnd_date((String)post_data.get("end_date"));
 
+		System.out.println(diary);
+
 		diaryService.insertDiary(diary);
-		return diary.getNo();
+		
+		int insert_diary_no = diary.getNo();
+		for (int i = 0; i < tag_list.size(); i++) {
+			TagVO tag = new TagVO();
+			tag.setTag_name(tag_list.get(i));
+			tag.setDiary_no(insert_diary_no);
+			tagService.insertTag(tag);
+		}
+		
+		return insert_diary_no;
+//		return 1;
 	}
 	
 	@RequestMapping("/diary")

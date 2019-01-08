@@ -10,11 +10,7 @@ public class DiaryVO {
 	private String is_share;
 	private String end_date;
 	private String start_date;
-	private String tag1;
-	private String tag2;
-	private String tag3;
-	private String tag4;
-	private String tag5;
+	private String tag;
 	private int viewCnt;
 	private int likeCnt;
 	private String registerDate;
@@ -67,35 +63,11 @@ public class DiaryVO {
 	public void setStart_date(String start_date) {
 		this.start_date = start_date;
 	}
-	public String getTag1() {
-		return tag1;
+	public String getTag() {
+		return tag;
 	}
-	public void setTag1(String tag1) {
-		this.tag1 = tag1;
-	}
-	public String getTag2() {
-		return tag2;
-	}
-	public void setTag2(String tag2) {
-		this.tag2 = tag2;
-	}
-	public String getTag3() {
-		return tag3;
-	}
-	public void setTag3(String tag3) {
-		this.tag3 = tag3;
-	}
-	public String getTag4() {
-		return tag4;
-	}
-	public void setTag4(String tag4) {
-		this.tag4 = tag4;
-	}
-	public String getTag5() {
-		return tag5;
-	}
-	public void setTag5(String tag5) {
-		this.tag5 = tag5;
+	public void setTag(String tag) {
+		this.tag = tag;
 	}
 	public int getViewCnt() {
 		return viewCnt;
@@ -119,8 +91,7 @@ public class DiaryVO {
 	public String toString() {
 		return "DiaryVO [no=" + no + ", title=" + title + ", content=" + content + ", writer=" + writer
 				+ ", cover_image=" + cover_image + ", is_share=" + is_share + ", endDate=" + end_date + ", startDate="
-				+ start_date + ", tag1=" + tag1 + ", tag2=" + tag2 + ", tag3=" + tag3 + ", tag4=" + tag4 + ", tag5="
-				+ tag5 + ", viewCnt=" + viewCnt + ", likeCnt=" + likeCnt + ", registerDate=" + registerDate + "]";
+				+ start_date + ", tag=" + tag + ", viewCnt=" + viewCnt + ", likeCnt=" + likeCnt + ", registerDate=" + registerDate + "]";
 	}
 	
 	

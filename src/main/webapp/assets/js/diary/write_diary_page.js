@@ -7,6 +7,7 @@ $j(document).ready(function(){
 	
 	var upload_data = [];
 	var post_data = new Object();
+	post_data.tag = [];
 	
 	
 	var date_data = [];
@@ -43,14 +44,6 @@ $j(document).ready(function(){
 		}
 	})
 	
-	function tag_remove_init(){ // 태그 삭제 버튼 이벤트 설정
-		$j(".tag_list li button.tag_remove").click(function(e){
-			$(e.target).closest("li").remove();
-//			$j(".tag_list li:last-child").css("display","list-item");
-			$j(".tag_list li:last-child input").prop("readonly",null);
-		});
-	}
-	
 	$j("button.save").click(function(){
 		var title = $j("textarea#input_diary_title").val();
 		if( title == ''){
@@ -60,17 +53,11 @@ $j(document).ready(function(){
 		// 글정보
 		post_data.title = title;
 		
-//		if( $j("ul.control_box li#post_lock i").hasClass("fa-unlock") ){
-//			post_data.lock = "true";			
-//		} else{
-//			post_data.lock = "false";
-//		}
 		post_data.lock = ($j("ul.control_box li#post_lock i").hasClass("fa-unlock") ) ? "true" : "false";
 		
 		diary_data.post_data = post_data;
 
 		// 글내용
-		
 		var date_list = $j("div#date_wrap");
 		for (var i = 0; i < date_list.length; i++) {
 			var date_wrap = date_list[i];
@@ -386,7 +373,7 @@ $j(document).ready(function(){
 			});
 		}
 	}
-	
+	/** 태그 **/
 	function tag_event_init(){
 		$j(tag_input).on('keyup', function(event){
 	    	
@@ -403,6 +390,8 @@ $j(document).ready(function(){
 	    						"</div>" +
 	    					"</div>" +
 	    				"</li>");
+	    		post_data.tag.push(tag_input.val().trim());
+	    		
 	    		tag_input.val('');
 	    		if( $j(".tag_list li").length -1 > 4 ){
 	    		// 	$j(".tag_list li:last-child").css("display","none");
@@ -414,7 +403,19 @@ $j(document).ready(function(){
 
 		tag_remove_init();
 	}
-    
+  
+	function tag_remove_init(){ // 태그 삭제 버튼 이벤트 설정
+		$j(".tag_list li button.tag_remove").off();
+		$j(".tag_list li button.tag_remove").on('click', function(e){
+			var li = $j(e.target).closest("li");
+			var tag_index = $j(".tag_list li").index(li);
+			post_data.tag.splice(tag_index, 1);
+
+			li.remove();
+			$j(".tag_list li:last-child input").prop("readonly",null);
+		});
+	}
+	
     content_event_init();
     tag_event_init();
 });
