@@ -41,8 +41,6 @@ public class KakaoLogin {
         String name = properties.path("nickname").asText();
         String email = kakao_account.path("email").asText();
         
-        System.out.println(name);
-        System.out.println(email);
         model.addAttribute("name", name);
         model.addAttribute("email", email);
         model.addAttribute("id", id);

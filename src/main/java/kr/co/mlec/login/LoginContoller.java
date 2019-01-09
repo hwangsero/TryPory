@@ -3,10 +3,13 @@ package kr.co.mlec.login;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.social.facebook.connect.FacebookConnectionFactory;
+import org.springframework.social.google.connect.GoogleConnectionFactory;
 import org.springframework.social.oauth2.GrantType;
 import org.springframework.social.oauth2.OAuth2Operations;
 import org.springframework.social.oauth2.OAuth2Parameters;
@@ -31,19 +34,28 @@ public class LoginContoller {
 	private LoginService loginService;
 	@Autowired
 	private MailService mailService;
+	
 	@Autowired
-    private FacebookConnectionFactory connectionFactory;
+    private FacebookConnectionFactory facebookConnectionFactory;
+	
+	@Resource(name="facebook")
+    private OAuth2Parameters facebookOAuth2Parameters;
     @Autowired
-    private OAuth2Parameters oAuth2Parameters;
+    private GoogleConnectionFactory googleConnectionFactory;
+    @Resource(name="google")
+    private OAuth2Parameters googleOAuth2Parameters;
 
 	@GetMapping("/login")
 	public String loginForm(Model model) {
-		OAuth2Operations oauthOperations = connectionFactory.getOAuthOperations();
-        String facebook_url = oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE, oAuth2Parameters);
-    
+		OAuth2Operations facebook = facebookConnectionFactory.getOAuthOperations();
+        String facebook_url = facebook.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE, facebookOAuth2Parameters);
         model.addAttribute("facebook_url", facebook_url);
-        System.out.println("/facebook" + facebook_url);
-		return "login/loginForm";
+   
+        OAuth2Operations google = googleConnectionFactory.getOAuthOperations();
+        String google_url = google.buildAuthenticateUrl(GrantType.AUTHORIZATION_CODE, googleOAuth2Parameters);
+        model.addAttribute("google_url", google_url);
+
+        return "login/loginForm";
 	}
 
 	@ResponseBody

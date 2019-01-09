@@ -1,5 +1,7 @@
 package kr.co.mlec.apiLogin;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.MissingAuthorizationException;
 import org.springframework.social.connect.Connection;
@@ -12,6 +14,8 @@ import org.springframework.social.oauth2.AccessGrant;
 import org.springframework.social.oauth2.OAuth2Operations;
 import org.springframework.social.oauth2.OAuth2Parameters;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,17 +24,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class FacebookLogin {
 	@Autowired
     private FacebookConnectionFactory connectionFactory;
-    @Autowired
-    private OAuth2Parameters oAuth2Parameters;
+	@Resource(name="facebook")
+    private OAuth2Parameters facebookOAuth2Parameters;
 	
-	@RequestMapping(value = "/fbLogin", method = { RequestMethod.GET, RequestMethod.POST })
-    public String facebookSignInCallback(@RequestParam String code) throws Exception {
+	@GetMapping("/fbLogin")
+    public String facebookSignInCallback(@RequestParam String code, Model model) throws Exception {
  
         try {
-             String redirectUri = oAuth2Parameters.getRedirectUri();
-            System.out.println("Redirect URI : " + redirectUri);
-            System.out.println("Code : " + code);
- 
+             String redirectUri = facebookOAuth2Parameters.getRedirectUri();
             OAuth2Operations oauthOperations = connectionFactory.getOAuthOperations();
             AccessGrant accessGrant = oauthOperations.exchangeForAccess(code, redirectUri, null);
             String accessToken = accessGrant.getAccessToken();
@@ -48,13 +49,17 @@ public class FacebookLogin {
             Facebook facebook = connection == null ? new FacebookTemplate(accessToken) : connection.getApi();
             UserOperations userOperations = facebook.userOperations();
             
-            try
-            {            
+            try{            
                 String [] fields = { "id", "email",  "name"};
                 User userProfile = facebook.fetchObject("me", User.class, fields);
+                System.out.println("페이스북 로그인");
                 System.out.println("유저이메일 : " + userProfile.getEmail());
                 System.out.println("유저 id : " + userProfile.getId());
                 System.out.println("유저 name : " + userProfile.getName());
+                
+                model.addAttribute("email", userProfile.getEmail());
+        		model.addAttribute("name", userProfile.getName());
+        		model.addAttribute("id", userProfile.getId());
                 
             } catch (MissingAuthorizationException e) {
                 e.printStackTrace();

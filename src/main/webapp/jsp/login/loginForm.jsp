@@ -151,6 +151,7 @@
                       </div>   
                       <div class="login-api-btn">
                       <a href="${facebook_url}">facebook</a>
+                      <a href="${google_url}">google</a>
                       		<!-- <button class="btn btn-primary btn-round" style="width: 100%">
                                     <i class="fa fa-facebook" aria-hidden="true"></i>Facebook Login
                                 </button></a> -->     
