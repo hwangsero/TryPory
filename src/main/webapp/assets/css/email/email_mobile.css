@@ -1,0 +1,49 @@
+@charset "EUC-KR";
+
+@media
+screen
+and
+(max-width
+:
+767px)
+{
+
+/*이메일 인증 폼입니다.*/
+.email-check-form {
+	width: 90%;
+	text-align: center;
+}
+
+.email-check-form h2 {
+	padding-left: 0px;
+}
+
+.email-check-form pre {
+	padding-left: 0px;
+	font-size: 13px;
+}
+
+.email-check-form input#resend_email {
+	margin-left: 0px;
+}
+
+/*이메일 인증 폼 성공 처리*/
+.email-check-success-form {
+	width: 90%;
+	text-align: center;
+}
+
+.email-check-success-form h1 {
+	font-size: 20px;
+}
+
+.email-check-success-form pre {
+	font-size: 12px;
+	margin-top: 30px;
+	padding-left: 0px;
+}
+
+.email-check-success-form h5 {
+	text-align: left;
+}
+}
