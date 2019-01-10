@@ -220,34 +220,29 @@
 					<!-- 2nd End  -->
 
 					<div class="tab-pane" id="favorite">
-					<!--작성한 댓글이 없을 때-->
+						<!--작성한 댓글이 없을 때-->
 						<!-- <h2 class="comment_none">작성한 댓글이 없습니다</h2> -->
 
-						<!-- 	<table class="mypage_comments_form">
-							<thead>
-								<tr>
-									<th> 
-									<input type="checkbox"
-										class="AllSellect-comments">
-									</th>
-									<th><h2>댓글내용</h2></th>
-									<th><h2>날짜</h2></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><input type="checkbox" class="Sellect-comment"></td>
-									<td>
-										<h5>댓글내용</h5>
-										<button>보러가기</button>
-									</td>
-									<td><h5>날짜</h5></td>
-								</tr>
-							</tbody>
-						</table> 
-					-->
-					
 						<div class="mypage_comments_form">
+							<div class="comments_form_type1">
+								<input type="checkbox" id="c1" /> <label for="c1"><span></span></label>
+								<h2>
+									전체 댓글 <span>5</span>건
+								</h2>
+								<span> <img
+									src="<%=request.getContextPath()%>/assets/img/deleteIcon.png">
+								</span>
+							</div>
+
+							<div class="comments_form_type2">
+								<input type="checkbox" id="c2" /> <label for="c2"><span></span></label>
+								<div class="comments_form_type2_(1)">
+									<h2>댓글내용</h2>
+									<h5>2019-01-01</h5>
+								</div>
+								<button>보러가기</button>
+							</div>
+
 						</div>
 
 					</div>
