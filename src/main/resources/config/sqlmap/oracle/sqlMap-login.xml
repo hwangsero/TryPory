@@ -5,14 +5,15 @@
 <mapper namespace="kr.co.mlec.login">
 
    <resultMap type="MemberVO" id="memberMap">
-      <result column="user_type" property="userType"/>
+      <result column="user_type" property="user_type"/>
       <result column="register_date" property="registerDate"/>
    
    </resultMap>
 
 	<insert id="joinMember" parameterType="memberVO">
-		insert into D_member(email, name, password, phone1, phone2, phone3)
-		values(#{email}, #{name}, #{password} , #{phone1} , #{phone2} , #{phone3})
+		insert into D_member(no, email, name, password, user_type, phone1, phone2, phone3)
+		values(d_member_seq.nextval, #{email}, #{name}, #{password}, #{user_type, jdbcType=VARCHAR}, 
+		#{phone1, jdbcType=VARCHAR} , #{phone2, jdbcType=VARCHAR} , #{phone3, jdbcType=VARCHAR}	)
 	</insert>
 	
 	<select id="loginMember" parameterType="memberVO" resultMap="memberMap">
@@ -21,10 +22,10 @@
 		where email = #{email} and password = #{password}
 	</select>
 	
-	<select id="duplCheck" parameterType="string" resultMap="memberMap">
+	<select id="duplCheck" parameterType="Map" resultMap="memberMap">
 		select *
 		from d_member
-		where email = #{email}
+		where email = #{email} and user_type = #{user_type}
 	</select>
 	
 	<update id="createAuthKey" parameterType="memberVO">
