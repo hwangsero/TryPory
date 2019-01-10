@@ -139,6 +139,21 @@
    	
 }
 
+#google_api_button {
+	background:#1EC800 url(https://wedityourself.cdn3.cafe24.com/layout/login/google.png) no-repeat 15px 14px;
+    background-size: 18px 18px;
+	background-color:#e05340;
+	color: #FFF;
+   	cursor: pointer;
+}
+
+#facebook_api_button {
+	background:#1EC800 url(https://wedityourself.cdn3.cafe24.com/layout/login/facebook.png) no-repeat 15px 14px;
+    background-size: 18px 18px;
+	background-color:#4263a2;
+	color: #FFF;
+   	cursor: pointer;
+}
 
 #kakao_id_button{
 	background:#FFDE00 url(https://wedityourself.cdn3.cafe24.com/layout/login/kakao.png) no-repeat 15px 15px;

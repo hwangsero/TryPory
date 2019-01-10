@@ -4,9 +4,12 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.Connection;
@@ -19,8 +22,10 @@ import org.springframework.social.oauth2.AccessGrant;
 import org.springframework.social.oauth2.OAuth2Operations;
 import org.springframework.social.oauth2.OAuth2Parameters;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import kr.co.mlec.login.LoginService;
+import kr.co.mlec.vo.MemberVO;
 
 @Controller
 public class GoogleLogin {
@@ -28,9 +33,11 @@ public class GoogleLogin {
 	private GoogleConnectionFactory googleConnectionFactory;
 	@Resource(name="google")
 	private OAuth2Parameters googleOAuth2Parameters;
+	@Autowired
+	private LoginService loginService;
 
 	@GetMapping("/googleLogin")
-	public String doSessionAssignActionPage(HttpServletRequest request, Model model) throws Exception {
+	public String doSessionAssignActionPage(HttpServletRequest request, HttpSession session) throws Exception {
 
 		String code = request.getParameter("code");
 
@@ -54,14 +61,27 @@ public class GoogleLogin {
 		PlusOperations plusOperations = google.plusOperations();
 		Person profile = plusOperations.getGoogleProfile();
 		System.out.println("구글 로그인");
-		System.out.println("User Uid : " + profile.getId());
-		System.out.println("User Name : " + profile.getDisplayName());
-		System.out.println("User Email : " + profile.getAccountEmail());
-		System.out.println("User Profile : " + profile.getImageUrl());
+		String id = profile.getId(); // api 고유키값
+        String name = profile.getDisplayName();
+        String email = profile.getAccountEmail();
+		System.out.println("User Uid : " + id);
+		System.out.println("User Name : " + name);
+		System.out.println("User Email : " + email);
+//		System.out.println("User Profile : " + profile.getImageUrl());
 		
-		model.addAttribute("email", profile.getAccountEmail());
-		model.addAttribute("name", profile.getDisplayName());
-		model.addAttribute("id", profile.getId());
+		Map<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("email", email);
+        parameters.put("user_type", "G");
+		MemberVO selectMember = loginService.duplCheck(parameters);
+        if(selectMember != null) { // 이메일로 가입되어있는 계정이 있는 경우
+        	session.setAttribute("userVO", selectMember);
+        	System.out.println("구글 로그인");
+        } else {
+        	MemberVO apiMember = new MemberVO(email, name, id, "G");
+        	loginService.joinMember(apiMember);
+        	System.out.println("구글 회원가입");
+        	session.setAttribute("userVO", apiMember);
+        }
 		// Access Token 취소
 		try {
 			System.out.println("Closing Token....");
@@ -82,7 +102,7 @@ public class GoogleLogin {
 
 			e.printStackTrace();
 		}
-		return "redirect:/join";
+		return "redirect:/";
 
 	}
 
