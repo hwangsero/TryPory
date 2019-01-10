@@ -7,166 +7,186 @@
        <!-- Trending Now Posts Area -->
        <div class="trending-now-posts mb-30 posts">
            <!-- Section Title -->
-           <div class="section-heading">
-               <h5>인기 다이어리</h5>
-           </div>
 
-           <div class="trending-posts">
-<!--            <div class="trending-post-slides owl-carousel"> -->
 
-				<div class="single-post-wrap img_wrap">
-	               <div class="single-trending-post single-post diary-post img_content">
-	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/19.jpg" alt="">
-	                   <div class="post-content">
-	                   		<a href="${pageContext.request.contextPath}/jsp/diary/detail_diary_page.jsp" class="post-title">오사카 여행</a>
-	                   		<p class="post-date">2018.10.05 ~ 2018.10.10</p>
-	                       <a href="#" class="post-cata">#일본</a>
-	                       <a href="#" class="post-cata">#오사카</a>
-	                   </div>
-	               </div>
-	            </div>
-				<div class="single-post-wrap img_wrap">
-	               <div class="single-trending-post single-post diary-post img_content">
-	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/20.jpg" alt="">
-	                   <div class="post-content">
-	                   		<p class="post-title">오사카 여행</p>
-	                   		<p class="post-date">2018.10.05 ~ 2018.10.10</p>
-	                       <a href="#" class="post-cata">#일본</a>
-	                       <a href="#" class="post-cata">#오사카</a>
-	                   </div>
-	               </div>
+           <div class="favorite-diary">
+           		<div class="main-category ">
+          			<hr>
+            		<h5 class="mb-70">인기 다이어리</h5>
+           		</div>
+          		<div class="main-content clr">
+					<div id ="main-img">
+						<img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
+					</div>
+					
+					<div id ="main-text">
+						<div class="main-detail">
+							<span class="travel-period">기간 | 2019.01.01 - 2019.01.10</span>
+							<h2>제목입니다</h2>
+							<span class="tag">#태그</span> <span class="tag">#태그</span> <span
+								class="tag">#태그태그</span> <span class="tag">#태그태그</span> <span
+								class="tag">#태그</span>
+						</div>
+						<div class="main-profile">
+							<span class="profile_thumb"> <img class="thumb_default"
+								src="https://img-pholar.pstatic.net/20171231_163/1514678074152X9488_JPEG/miya1220.jpg?type=fn80_80"
+								onerror="this.src='https://ssl.pstatic.net/static/m/pholar/img/blank.png'"
+								onclick="nclk(this,'sea*t.thumb','','');"> <span
+								class="profile_thumb_mask"></span>
+							</span> <span class="profile_name">최창규</span>
+							<div class="travel-like">
+								<i class="far fa-heart fa-lg"></i> <span>15</span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="main-thumb-box clr">
+						<div class="main-thumb"> 
+							<img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
+						</div>
+						<div class="main-thumb"> 
+							<img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
+						</div>
+						<div class="main-thumb"> 
+							<img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
+						</div>
+						<div class="main-thumb"> 
+							<img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
+						</div>
+					</div>
 				</div>
-				<div class="single-post-wrap img_wrap">
-	               <div class="single-trending-post single-post diary-post img_content">
-	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/21.jpg" alt="">
-	                   <div class="post-content">
-	                   		<p class="post-title">오사카 여행</p>
-	                   		<p class="post-date">2018.10.05 ~ 2018.10.10</p>
-	                       <a href="#" class="post-cata">#일본</a>
-	                       <a href="#" class="post-cata">#오사카</a>
-	                   </div>
-	               </div>
-	               </div>
-				<div class="single-post-wrap img_wrap">
-	               <div class="single-trending-post single-post diary-post img_content">
-	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/22.jpg" alt="">
-	                   <div class="post-content">
-	                   		<p class="post-title">오사카 여행</p>
-	                   		<p class="post-date">2018.10.05 ~ 2018.10.10</p>
-	                       <a href="#" class="post-cata">#일본</a>
-	                       <a href="#" class="post-cata">#오사카</a>
-	                   </div>
-	               </div>
-	            </div>
            </div>
-       </div>
-       <div class="trending-now-posts mb-30 posts">
-           <!-- Section Title -->
-           <div class="section-heading">
-               <h5>인기 태그</h5>
-           </div>
+           
 
-           <div class="trending-posts bestTag">
-<!--            <div class="trending-post-slides owl-carousel"> -->
-				<div class="single-post-wrap img_wrap">
-	               <div class="single-trending-tag single-post img_content" >
-	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/19.jpg" alt="">
-	                   <div class="post-content">
-	                       <a href="#" class="post-cata">#일본</a>
-	                   </div>
-	               </div>
+           
+            <div class="favorite-tags">
+           
+           		<div class="main-category">
+          			<hr>
+            		<h5>인기 태그</h5>
+          	 	</div>
+          		<div class="tags-container clr">
+          			<div class="tag-box01 clr">
+          				<div class="tag-top">
+							<div class="tags tag1">
+								586 224
+							</div>
+							<div class="tags tag2"> 
+								289 224
+							</div>
+							</div>
+						<div class="tag-bottom">
+							<div class="tags tag3"> 
+								283 219
+							</div>
+							<div class="tags tag4">
+								593 219
+							</div>
+						</div>
+					</div>
+					<div class="tag-box02">
+						284 460
+					</div>
 				</div>
-				<div class="single-post-wrap img_wrap">
-	               <div class="single-trending-tag single-post img_content" >
-	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/20.jpg" alt="">
-	                   <div class="post-content">
-	                       <a href="#" class="post-cata">#유럽</a>
-	                   </div>
-	               </div>
-				</div>
-				<div class="single-post-wrap img_wrap">
-	               <div class="single-trending-tag single-post img_content" >
-	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/21.jpg" alt="">
-	                   <div class="post-content">
-	                       <a href="#" class="post-cata">#대만</a>
-	                   </div>
-	               </div>
-	             </div>
-				<div class="single-post-wrap img_wrap"> 
-	               <div class="single-trending-tag single-post img_content">
-	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/22.jpg" alt="">
-	                   <div class="post-content">
-	                       <a href="#" class="post-cata">#알프스</a>
-	                   </div>
-	               </div>
-	             </div>
            </div>
+           
+           
+
+           <div class="all-diary">
+           
+           		<div class="main-category">
+          			<hr>
+            		<h5>전체 다이어리</h5>
+          	 	</div>
+           
+				<div class="all-diary-view">
+					<div class="diary-box">
+						<div class="img-box">230</div>
+						<div class="text-box">
+							<div class="travel-detail">
+								<span class="travel-period">기간 | 2019.01.01 - 2019.01.10</span>
+								<h2>제목입니다</h2>
+								<span class="tag">#태그</span> <span class="tag">#태그</span> <span
+									class="tag">#태그태그</span> <span class="tag">#태그태그</span> <span
+									class="tag">#태그</span>
+							</div>
+							<div class="travle-profile">
+								<span class="profile_thumb"> <img class="thumb_default"
+									src="https://img-pholar.pstatic.net/20171231_163/1514678074152X9488_JPEG/miya1220.jpg?type=fn80_80"
+									onerror="this.src='https://ssl.pstatic.net/static/m/pholar/img/blank.png'"
+									onclick="nclk(this,'sea*t.thumb','','');"> <span
+									class="profile_thumb_mask"></span>
+								</span> <span class="profile_name">최창규</span>
+								<div class="travel-like">
+									<i class="far fa-heart fa-lg"></i> <span>15</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="diary-box">
+						<div class="img-box">230</div>
+						<div class="text-box">
+							<div class="travel-detail">
+								<span class="travel-period">기간 | 2019.01.01 - 2019.01.10</span>
+								<h2>제목입니다</h2>
+								<span class="tag">#태그</span> <span class="tag">#태그</span> <span
+									class="tag">#태그태그</span> <span class="tag">#태그태그</span> <span
+									class="tag">#태그</span>
+							</div>
+							<div class="travle-profile">
+								<span class="profile_thumb"> <img class="thumb_default"
+									src="https://img-pholar.pstatic.net/20171231_163/1514678074152X9488_JPEG/miya1220.jpg?type=fn80_80"
+									onerror="this.src='https://ssl.pstatic.net/static/m/pholar/img/blank.png'"
+									onclick="nclk(this,'sea*t.thumb','','');"> <span
+									class="profile_thumb_mask"></span>
+								</span> <span class="profile_name">최창규</span>
+								<div class="travel-like">
+									<i class="far fa-heart fa-lg"></i> <span>15</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="diary-box">
+						<div class="img-box">230</div>
+						<div class="text-box">
+							<div class="travel-detail">
+								<span class="travel-period">기간 | 2019.01.01 - 2019.01.10</span>
+								<h2>제목입니다</h2>
+								<span class="tag">#태그</span> <span class="tag">#태그</span> <span
+									class="tag">#태그태그</span> <span class="tag">#태그태그</span> <span
+									class="tag">#태그</span>
+							</div>
+							<div class="travle-profile">
+								<span class="profile_thumb"> <img class="thumb_default"
+									src="https://img-pholar.pstatic.net/20171231_163/1514678074152X9488_JPEG/miya1220.jpg?type=fn80_80"
+									onerror="this.src='https://ssl.pstatic.net/static/m/pholar/img/blank.png'"
+									onclick="nclk(this,'sea*t.thumb','','');"> <span
+									class="profile_thumb_mask"></span>
+								</span> <span class="profile_name">최창규</span>
+								<div class="travel-like">
+									<i class="far fa-heart fa-lg"></i> <span>15</span>
+								</div>
+							</div>
+						</div>
+					</div>
+<!-- diary-box -->
+				</div>
+<!-- all-diary-view -->
+			</div>
+<!-- trending-posts -->
+			
+			
        </div>
        
-       <div class="trending-now-posts mb-30 posts">
-           <!-- Section Title -->
-           <div class="section-heading">
-               <h5>전체 다이어리</h5>
-           </div>
-
-           <div class="trending-posts">
-<!--            <div class="trending-post-slides owl-carousel"> -->
-				<div class="single-post-wrap img_wrap">
-	               <div class="single-trending-post single-post img_content" >
-	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/19.jpg" alt="">
-	                   <div class="post-content">
-	                       <a href="#" class="post-cata">일본</a>
-	                       <a href="video-post.html" class="post-title">여행 다이어리</a>
-	                   </div>
-	               </div>
-	               <div class="post-add-info">
-		           		<img src="${pageContext.request.contextPath}/assets/img/heart.png" alt="" >
-		           		<img src="${pageContext.request.contextPath}/assets/img/speechbubble.png" alt="" >
-		           	</div>
-		         </div>
-
-				<div class="single-post-wrap img_wrap">
-	               <div class="single-trending-post single-post img_content" >
-	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/20.jpg" alt="">
-	                   <div class="post-content">
-	                       <a href="#" class="post-cata">유럽</a>
-	                       <a href="video-post.html" class="post-title">여행 다이어리</a>
-	                   </div>
-	               </div>
-	               <div class="post-add-info">
-		           		<img src="${pageContext.request.contextPath}/assets/img/heart.png" alt="" >
-		           		<img src="${pageContext.request.contextPath}/assets/img/speechbubble.png" alt="" >
-		           	</div>
-	           	</div>
-				<div class="single-post-wrap img_wrap">
-	               <div class="single-trending-post single-post img_content">
-	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/21.jpg" alt="">
-	                   <div class="post-content">
-	                       <a href="#" class="post-cata">대만</a>
-	                       <a href="video-post.html" class="post-title">여행 다이어리</a>
-	                   </div>
-	               </div>
-	               <div class="post-add-info">
-		           		<img src="${pageContext.request.contextPath}/assets/img/heart.png" alt="" >
-		           		<img src="${pageContext.request.contextPath}/assets/img/speechbubble.png" alt="" >
-		           	</div>
-	             </div>
-               
-               <div class="single-post-wrap img_wrap">
-	               <div class="single-trending-post single-post img_content">
-	                   <img class="picture" src="${pageContext.request.contextPath}/assets/img/bg-img/22.jpg" alt="">
-	                   <div class="post-content">
-	                       <a href="#" class="post-cata">알프스</a>
-	                       <a href="video-post.html" class="post-title">여행 다이어리</a>
-	                   </div>
-	                </div>
-	               	<div class="post-add-info"> 
-		           		<img src="${pageContext.request.contextPath}/assets/img/heart.png" alt="" >
-		           		<img src="${pageContext.request.contextPath}/assets/img/speechbubble.png" alt="" >
-		           	</div>
-               </div>
-           </div>
-       </div>
-    </div>
+		
+	</div>
+	<div id="background-img01">
+		<img
+			src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
+	</div>
+	<div id="background-img02">
+		<img
+			src="${pageContext.request.contextPath}/assets/img/main/background-01.jpg">
+	</div>
 
 </section>
