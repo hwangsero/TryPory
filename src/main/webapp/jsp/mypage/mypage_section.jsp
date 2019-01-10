@@ -225,18 +225,23 @@
 
 						<div class="mypage_comments_form">
 							<div class="comments_form_type1">
-								<input type="checkbox" id="c1" /> <label for="c1"><span></span></label>
+<!-- 								<input type="checkbox" id="c1" /> <label for="c1"><span></span></label>
+ -->
+								<input type="checkbox" id="c1" /> 
+								<label for="c1"></label>
+												
 								<h2>
 									전체 댓글 <span>5</span>건
 								</h2>
-								<span> <img
-									src="<%=request.getContextPath()%>/assets/img/deleteIcon.png">
+								<span> 
+								<img src="<%=request.getContextPath()%>/assets/img/deleteIcon.png">
 								</span>
 							</div>
 
 							<div class="comments_form_type2">
-								<input type="checkbox" id="c2" /> <label for="c2"><span></span></label>
-								<div class="comments_form_type2_(1)">
+								<input type="checkbox" id="c2" /> 
+								<label for="c2"></label>
+								<div class="comments_form_type2_box1">
 									<h2>댓글내용</h2>
 									<h5>2019-01-01</h5>
 								</div>
