@@ -20,3 +20,371 @@
 	color: white;
 	font-size: 18px;
 }
+
+/* 인기 게시글 */
+
+.favorite-diary {
+	margin-bottom: 120px; 
+}
+
+.main-content {
+	position:relative;
+}
+
+#main-img {
+	width: 55%; 
+	padding-bottom:40%;
+	float: left;
+	box-shadow: -15px 16px 30px 5px rgba(0,0,0, 0.1);
+	overflow: hidden;
+	position: relative;
+}
+
+#main-img img{
+	position: absolute;
+	top: 0;
+	left: 0; 
+	right: 0; 
+	bottom: 0; 
+	max-width: 100%; 
+	height: 100%;
+}
+
+#main-text {
+	width:43%; 
+	float:right;
+	margin-top: 30px;
+}
+
+.main-thumb-box{
+	z-index: 100px;
+	float: right;
+	position:absolute;
+	bottom: 40px;
+	right:0; 
+	width:68%;
+}
+
+.main-thumb {
+	border: 5px solid #eee; 
+	width:23.5%; 
+	padding-bottom:10%;
+	overflow: hidden;
+	float:left;
+	margin-right:2%; 
+	position:relative;
+}
+
+.main-thumb{
+	position: absolute;
+	top: 0;
+	left: 0; 
+	right: 0; 
+	bottom: 0; 
+	max-width: 100%; 
+	height: 100%;
+}
+
+
+
+.main-detail {
+	padding:15px 15px 10px; 
+	box-sizing: border-box;
+}
+
+
+.main-detail .travel-period {
+	color: #aaa; 	
+	font-size:16px;
+}
+
+.main-detail h2 {
+	font-size: 36px; 
+	margin-bottom:5px;
+	line-height:80px;
+	font-weight: bold;
+}
+
+.main-thumb:last-child {
+	margin-right:0; 
+}
+.main-detail .tag {
+	font-size:14px;
+	padding : 5px 10px; 
+	border:1px solid #ed3974;
+	color: #ed3974; 
+	margin-right: 3px; 
+	margin-bottom: 15px;
+	border-radius: 20px;
+	display: inline-block;
+}
+
+.main-detail .tag:last-child {
+	margin-right:0; 
+}
+
+.main-profile {
+	border-top : 1px solid #aaa; 
+	padding:10px 15px; 
+	box-sizing: border-box;
+}
+
+.profile_thumb {
+   width: 30px;
+   height: 30px;
+   display: inline-block;
+   position: relative;
+   vertical-align: top;
+   border-radius: 50%;
+}
+
+img.thumb_default {
+   display: inline-block;
+   width: 100%;
+   height: auto;
+   border-radius: 50%;
+   vertical-align: top;
+}
+
+.profile_thumb_mask {
+   width: 100%;
+   height: 100%;
+   display: block;
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 5;
+   opacity: 0.12;
+   filter: alpha(opacity = 12);
+   box-sizing: border-box;
+   border-radius: 50%;
+   border: 1px solid #000;
+}
+
+.profile_name {
+   display: inline-block;
+   font-size: 14px;
+   font-weight: bold;
+   color: #000;
+   margin-top:2px;
+   margin-left: 2px;
+}
+
+
+
+/* category-title */
+.main-category {
+	margin: 100px 0 40px;
+}
+
+
+.main-category hr {
+    display: inline-block;
+    width: 80px;
+    color: #000;
+    margin-right: 10px;
+    margin: 0 10px 0 0;
+    padding-bottom: 7px;
+	
+}
+
+.main-category h5 {
+	display: inline-block;
+}
+
+/* 인기태그 */
+
+.favorite-tags {
+	margin-bottom: 120px; 
+}
+
+.tags-container {
+}
+
+.tag-box01{
+	width: 76%;
+	heigth: 300px; 
+	float:left;
+}
+
+.tag-box02{
+	width: 24%;
+	height:455px;
+	background: #eee;
+	float:left;
+}
+
+.tag-top {
+	margin-bottom: 15px;
+}
+
+
+.tag-top:after {
+	clear:both; 
+	content:"";	
+}
+
+.tags{
+	margin-right : 15px;
+	margin-bottom: 15px;
+	width: calc(67% - 15px);
+	background: #eee;
+	height: 220px;
+	float:left;
+	
+	
+}
+
+.tag2, .tag3{
+	width: calc(33% - 15px); 
+}
+
+.tag3 , .tag4 {
+	margin-bottom:0;
+}
+
+/* 전체 게시글 폼  */
+
+.all-diary {
+	margin-bottom: 120px; 
+}
+
+#background-img01 {
+	position: absolute;
+	width:860px; 
+	height:480px;
+    top: 245px;
+    opacity: 0.4;
+    z-index: -50;
+    overflow: hidden;
+    
+}
+
+#background-img02 {
+	position: absolute;
+    bottom: 0;
+    opacity: 50;
+    z-index: -50;
+}
+
+.diary-box {
+	width: 30%; 
+	height: 400px; 
+	background: #fff; 	
+	float:left; 
+	margin-right:5%; 
+	z-index: 100;
+}
+
+.diary-box:last-child {
+	margin-right:0; 
+}
+
+.diary-box .img-box{
+	width:100%; 
+	height:230px; 
+	background: black;
+}
+
+.diary-box .text-box{
+	box-sizing: border-box; 
+}
+
+.travel-detail {
+	padding:15px 15px 10px; 
+	box-sizing: border-box;
+}
+
+
+.travel-detail .travel-period {
+	color: #aaa; 	
+	font-size:12px;
+}
+
+.travel-detail h2 {
+	font-size: 20px; 
+	margin-bottom:5px;
+	line-height:40px;
+	font-weight: bold;
+}
+
+
+.travel-detail .tag {
+	font-size:12px;
+	padding : 2px 4px; 
+	border:1px solid #ed3974;
+	color: #ed3974; 
+	margin-right: 3px; 
+	border-radius: 12px;
+	display: inline-block;
+}
+
+.travel-detail .tag:last-child {
+	margin-right:0; 
+}
+
+.travle-profile {
+	border-top : 1px solid #aaa; 
+	padding:10px 15px; 
+	box-sizing: border-box;
+}
+
+.profile_thumb {
+   width: 30px;
+   height: 30px;
+   display: inline-block;
+   position: relative;
+   vertical-align: top;
+   border-radius: 50%;
+}
+
+img.thumb_default {
+   display: inline-block;
+   width: 100%;
+   height: auto;
+   border-radius: 50%;
+   vertical-align: top;
+}
+
+.profile_thumb_mask {
+   width: 100%;
+   height: 100%;
+   display: block;
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 5;
+   opacity: 0.12;
+   filter: alpha(opacity = 12);
+   box-sizing: border-box;
+   border-radius: 50%;
+   border: 1px solid #000;
+}
+
+.profile_name {
+   display: inline-block;
+   font-size: 14px;
+   font-weight: bold;
+   color: #000;
+   margin-top:2px;
+   margin-left: 2px;
+}
+
+.travel-like{
+	float:right; 
+	font-size: 14px; 
+}
+
+.all-diary-view {
+}
+
+.mag-posts-area {
+	padding:0;
+}
+
+.mag-posts-content {
+	background-color: rgba( 255, 255, 255, 0 ) ;
+}
+
+
+
