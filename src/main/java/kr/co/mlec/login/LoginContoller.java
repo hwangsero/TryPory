@@ -3,18 +3,29 @@ package kr.co.mlec.login;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.social.facebook.connect.FacebookConnectionFactory;
+import org.springframework.social.google.connect.GoogleConnectionFactory;
+import org.springframework.social.oauth2.GrantType;
+import org.springframework.social.oauth2.OAuth2Operations;
+import org.springframework.social.oauth2.OAuth2Parameters;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.github.scribejava.core.model.OAuth2AccessToken;
+
+import kr.co.mlec.apiLogin.NaverLogin;
 import kr.co.mlec.mail.MailService;
 import kr.co.mlec.vo.MemberVO;
 
@@ -24,13 +35,34 @@ public class LoginContoller {
 
 	@Autowired
 	private LoginService loginService;
-	
 	@Autowired
 	private MailService mailService;
+	@Autowired
+	private NaverLogin naverLogin;
+	@Autowired
+    private FacebookConnectionFactory facebookConnectionFactory;
+	
+	@Resource(name="facebook")
+    private OAuth2Parameters facebookOAuth2Parameters;
+    @Autowired
+    private GoogleConnectionFactory googleConnectionFactory;
+    @Resource(name="google")
+    private OAuth2Parameters googleOAuth2Parameters;
 
 	@GetMapping("/login")
-	public String loginForm() {
-		return "login/loginForm";
+	public String loginForm(Model model, HttpSession session) {
+		OAuth2Operations facebook = facebookConnectionFactory.getOAuthOperations();
+        String facebook_url = facebook.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE, facebookOAuth2Parameters);
+        model.addAttribute("facebook_url", facebook_url);
+   
+        OAuth2Operations google = googleConnectionFactory.getOAuthOperations();
+        String google_url = google.buildAuthenticateUrl(GrantType.AUTHORIZATION_CODE, googleOAuth2Parameters);
+        model.addAttribute("google_url", google_url);
+        
+        String naver_url = naverLogin.getAuthorizationUrl(session);
+        model.addAttribute("naver_url", naver_url);
+
+        return "login/loginForm";
 	}
 
 	@ResponseBody
@@ -89,7 +121,10 @@ public class LoginContoller {
 	@ResponseBody
 	@RequestMapping("/join/check")
 	public String duplCheck(@RequestBody MemberVO vo) {
-		MemberVO member = loginService.duplCheck(vo.getEmail());
+		Map<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("email", vo.getEmail());
+        parameters.put("user_type", "U");
+		MemberVO member = loginService.duplCheck(parameters);
 		String check = "";
 		if (member == null)
 			check = "true";
@@ -97,16 +132,6 @@ public class LoginContoller {
 			check = "false";
 		return check;
 
-	}
-	
-	@GetMapping("/login/kko/{name}")
-	public String kkoLogin(@PathVariable("name") String name, HttpSession session) {
-		System.out.println(name);
-		
-		MemberVO userVO = new MemberVO();
-		userVO.setName(name);
-		session.setAttribute("userVO", userVO);
-		return "redirect:/";
 	}
 
 }

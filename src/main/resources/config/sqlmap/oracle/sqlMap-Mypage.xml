@@ -5,7 +5,7 @@
 <mapper namespace="kr.co.mlec.mypage">
 
 	<resultMap type="MemberVO" id="memberMap">
-		<result column="user_type" property="userType"/>
+		<result column="user_type" property="user_type"/>
 		<result column="register_date" property="registerDate"/>
 	</resultMap>
 

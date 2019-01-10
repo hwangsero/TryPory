@@ -86,6 +86,31 @@
 			</props>
 		</property>
 	</bean>
+	<bean id="facebookConnectionFactory"
+        class="org.springframework.social.facebook.connect.FacebookConnectionFactory">
+        <constructor-arg value="2295481060483016" />
+        <constructor-arg value="cc6e1257aa7400c5d6ad0120517a47cc" />
+    </bean>
+ 
+    <bean id="facebookOAuth2Parameters" name="facebook"
+        class="org.springframework.social.oauth2.OAuth2Parameters">
+        <property name="scope" value="email" />
+        <property name="redirectUri" value="http://localhost:8888/Travel-Diary/fbLogin" />
+    </bean>
+    
+    <bean id="googleConnectionFactory"
+    	class="org.springframework.social.google.connect.GoogleConnectionFactory">
+		<constructor-arg value="813262121526-vkh46bbob0be5rc4885fdv0nbp5nr2us.apps.googleusercontent.com"/>
+		<constructor-arg value="VJrPZcLZYE1mJUstBRjhtcCR"/>    
+	</bean>
+		 
+	<bean id="googleOAuth2Parameters" name="google"
+		class="org.springframework.social.oauth2.OAuth2Parameters">
+		<!-- <property name="scope" value="https://www.googleapis.com/auth/plus.login"></property> -->
+		<property name="scope" value="https://www.googleapis.com/auth/userinfo.email"></property>
+		<property name="redirectUri" value="http://localhost:8888/Travel-Diary/googleLogin"/>
+	</bean>
+    
 
 	<mvc:default-servlet-handler />
 	<mvc:view-resolvers>

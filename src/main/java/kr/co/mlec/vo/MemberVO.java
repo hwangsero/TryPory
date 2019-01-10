@@ -2,11 +2,12 @@ package kr.co.mlec.vo;
 
 public class MemberVO {
 	
+	private int no;
 	private String email;
 	private String email_domain;
 	private String name;
 	private String password;
-	private String userType;
+	private String user_type;
 	private String registerDate;
 	private String intro; 
 	private String phone1;
@@ -15,6 +16,12 @@ public class MemberVO {
 	private String auth_key;
 	private String is_auth;
 
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
 	public String getEmail() {
 		return email;
 	}
@@ -39,11 +46,11 @@ public class MemberVO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getUserType() {
-		return userType;
+	public String getUser_type() {
+		return user_type;
 	}
-	public void setUserType(String userType) {
-		this.userType = userType;
+	public void setUser_type(String user_type) {
+		this.user_type = user_type;
 	}
 	public String getRegisterDate() {
 		return registerDate;
@@ -89,8 +96,18 @@ public class MemberVO {
 	}
 	@Override
 	public String toString() {
-		return "MemberVO [email=" + email + ", name=" + name + ", password=" + password + ", userType=" + userType
-				+ ", registerDate=" + registerDate + ", intro=" + intro + ", phone1=" + phone1 + ", phone2=" + phone2
-				+ ", phone3=" + phone3 + ", auth_key=" + auth_key + ", is_auth=" + is_auth + "]";
+		return "MemberVO [no=" + no + ", email=" + email + ", email_domain=" + email_domain + ", name=" + name
+				+ ", password=" + password + ", user_type=" + user_type + ", registerDate=" + registerDate + ", intro="
+				+ intro + ", phone1=" + phone1 + ", phone2=" + phone2 + ", phone3=" + phone3 + ", auth_key=" + auth_key
+				+ ", is_auth=" + is_auth + "]";
+	}
+	public MemberVO() {
+	}
+	public MemberVO(String email, String name, String password, String user_type) {
+		super();
+		this.user_type = user_type;
+		this.email = email;
+		this.name = name;
+		this.password = password;
 	}
 }
