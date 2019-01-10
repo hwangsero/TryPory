@@ -18,8 +18,44 @@
 		<result column="like_cnt" property="likeCnt"/>
 		<result column="register_date" property="registerDate"/>
 	</resultMap>
+	
+	<select id="selectSearch" resultType="string" parameterType="hashmap">
+	<choose>
+		<when test= 'type.equals("tag")'>
+		
+		select tag_name
+		from
+		(select tag_name
+		from d_tag
+		group by tag_name
+		having tag_name like #{word}||'%' order by tag_name asc)
+		where rownum <![CDATA[<=]]> 10
+		</when>	
+		
+		<when test= 'type.equals("writer")'>
+		select writer
+		from
+		(select writer
+		from d_diary
+		where writer like #{word}||'%' order by writer asc)
+		where rownum <![CDATA[<=]]> 10
+		</when>	
+		
+		<when test= 'type.equals("content")'>
+		select content
+		from
+		(select content
+		from d_diary
+		where content like '%'||#{word}||'%')
+		where rownum <![CDATA[<=]]> 10
+		</when>	
+	
+	</choose>
+		
+		
+	</select>
 
-	<select id="selectSearchTag" resultMap="diaryMap" parameterType="string">
+	<select id="selectSearchTagList" resultMap="diaryMap" parameterType="string">
 		select *
 		from D_diary
 		where tag_1 = #{tag} or tag_2 = #{tag} or tag_3 = #{tag} or
