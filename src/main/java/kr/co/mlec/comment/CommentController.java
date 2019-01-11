@@ -61,9 +61,7 @@ public class CommentController {
 	@ResponseBody
 	@RequestMapping("/reply/myReply/{pageNo}")
 	public Map<String, Object> selectMyComment(@RequestBody CommentVO comment, @PathVariable("pageNo") int pageNo, Model model) {
-		System.out.println("컨트롤러는 들어옴?");
 		String email = comment.getEmail();
-		System.out.println(email);
 		int commentCnt = commentService.selectCountComment(email);
 		CommentPagination pagination = new CommentPagination(commentCnt, pageNo);
 		int start = pagination.getStartPage();
