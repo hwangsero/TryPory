@@ -1,9 +1,11 @@
 @charset "EUC-KR";
 
 @media only screen and (max-width: 767px) {
+	.hero-blog-post {
+		height: 350px;
+	}
 	
-	
-	.tab-pane{
+		.tab-pane{
 		width:100%; 
 	}
 	
@@ -97,7 +99,5 @@
 	.img_snsBtn{
 		margin:10px auto; 
 	}
-	
-	
 	
 }

@@ -31,7 +31,7 @@
 		width:35%; 
 		height:100%; 
 		float:right; 
-		padding: 0 70px;
+		padding-left:60px;
 		background: rgba(255,255,255,0.85); 
 	}
 	
@@ -161,7 +161,7 @@
 	border:1px solid #ed3974;
 	color: #ed3974; 
 	margin-right: 3px; 
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 	border-radius: 20px;
 	display: inline-block;
 }
@@ -228,7 +228,7 @@ img.thumb_default {
 
 /* category-title */
 .main-category {
-	margin: 100px 0 40px;
+	margin: 40px 0 40px;
 }
 
 
@@ -369,7 +369,7 @@ img.thumb_default {
 	position: absolute;
 	width:45%; 
 	padding-bottom:25%;
-    top: 245px;
+    top: 180px;
     opacity: 0.4;
     z-index: -50;
     overflow: hidden; 
@@ -525,6 +525,138 @@ img.thumb_default {
 
 .mag-posts-content {
 	background-color: rgba( 255, 255, 255, 0 ) ;
+}
+
+
+
+
+@media only screen and (min-width: 1200px) and (max-width: 1800px) {
+	
+	#main-text {
+		margin-top: 20px;
+	
+	}
+	.main-detail {
+		padding:15px 15px 10px; 
+		box-sizing: border-box;
+	}
+	
+	
+	.main-detail .travel-period {
+		color: #aaa; 	
+		font-size:14px;
+	}
+	
+	.main-detail .travel-point {
+		color: #aaa; 	
+		font-size:13px;
+	}
+	
+	.main-detail h2 {
+		font-size: 34px; 
+		margin-bottom:5px;
+		line-height:60px;
+		font-weight: bold;
+	}
+	
+	.main-detail .tag {
+	    font-size: 13px;
+	    padding: 4px 8px;
+	    margin-right: 3px;
+	    margin-bottom: 5px;
+	    border-radius: 20px;
+	    display: inline-block;
+	}
+	
+	.main-thumb-box{
+		bottom: 25px;
+		width: 65%;
+	}
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+		#main-text {
+		margin-top: 0;
+	
+	}
+	.main-detail {
+		padding:15px 15px 10px; 
+		box-sizing: border-box;
+	}
+	
+	
+	.main-detail .travel-period {
+		color: #aaa; 	
+		font-size:14px;
+	}
+	
+	.main-detail .travel-point {
+		color: #aaa; 	
+		font-size:13px;
+	}
+	
+	.main-detail h2 {
+		font-size: 30px; 
+		margin-bottom:5px;
+		line-height:60px;
+		font-weight: bold;
+	}
+	
+	.main-detail .tag {
+	    font-size: 13px;
+	    padding: 3px 7px;
+	    margin-right: 3px;
+	    margin-bottom: 15px;
+	    border-radius: 20px;
+	    display: inline-block;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	#main-text {
+		margin-top: 0;
+	
+	}
+	.main-detail {
+		padding:15px 15px 10px; 
+		box-sizing: border-box;
+	}
+	
+	
+	.main-detail .travel-period {
+		color: #aaa; 	
+		font-size:12px;
+	}
+	
+	.main-detail .travel-point {
+		color: #aaa; 	
+		font-size:12px;
+	}
+	
+	.main-detail h2 {
+		font-size: 28px; 
+		margin-bottom:5px;
+		line-height:50px;
+		font-weight: bold;
+	}
+	
+	.main-detail .tag {
+	    font-size: 12px;
+	    padding: 2px 6px;
+	    margin-right: 3px;
+	    margin-bottom: 5px;
+	    border-radius: 20px;
+	    display: inline-block;
+	}
+	
+	.main-thumb-box{
+		bottom: 25px;
+		width: 65%;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	
 }
 
 
