@@ -2,92 +2,91 @@
 
 /*이메일 인증 폼입니다.*/
 .email-check-form {
-width: 500px;
-    margin: 80px auto 100px;
-    /* border: solid; */
-    border-top: solid 3px #78adf3;
-    border-bottom: solid 2px #b0d1ff;
-    padding-bottom: 50px;
+	width: 500px;
+	margin: 80px auto 100px;
+	/* border: solid; */
+	border-top: solid 3px #78adf3;
+	border-bottom: solid 2px #b0d1ff;
+	padding-bottom: 50px;
+	margin-top: 200px;
+	margin-bottom: 200px;
 }
 
-.email-check-form h2{
-    margin-top: 30px;
-    padding-left: 20px;
-    margin-bottom: 30px;
-    color: #514d4d;
-    font-weight: 600;
+.email-check-form h2 {
+	margin-top: 30px;
+	padding-left: 20px;
+	margin-bottom: 30px;
+	color: #514d4d;
+	font-weight: 600;
 }
 
 .email-check-form span {
-    color: #2284ed;
-    font-weight: 600;
+	color: #2284ed;
+	font-weight: 600;
 }
 
-.email-check-form pre{
-    display: block;
-    font-size: 15px;
-    color: #787676;
-    padding-left: 20px;
-    font-weight: 550;
-
+.email-check-form pre {
+	display: block;
+	font-size: 15px;
+	color: #787676;
+	padding-left: 20px;
+	font-weight: 550;
 }
 
 .email-check-form input#resend_email {
-    margin-left: 20px;
-    width: 80px;
-    height: 32px;
-    border: 0px;
-    color: #ffffffe8;
-    background-color: #016de1;
-    border-radius: 3px;
-    font-size: 15px;
-    font-weight: 550;
+	margin-left: 20px;
+	width: 80px;
+	height: 32px;
+	border: 0px;
+	color: #ffffffe8;
+	background-color: #016de1;
+	border-radius: 3px;
+	font-size: 15px;
+	font-weight: 550;
 }
 
 /*이메일 인증 폼 성공 처리*/
-.email-check-success-form{
-	
+.email-check-success-form {
 	width: 500px;
-    margin: 80px auto 100px;
-    
+	margin: 80px auto 100px;
+	    margin-top: 200px;
+    margin-bottom: 200px;
 }
 
-.email-check-success-form h2{
-    margin-bottom: 30px;
-    padding-bottom: 30px;
-    color: #3a3939;
-    font-family: 'Pacifico';
-    font-size: 50px;
-    border-bottom: solid 3px #78adf3;
-    text-align: center;
+.email-check-success-form h2 {
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+	color: #3a3939;
+	font-family: 'Pacifico';
+	font-size: 50px;
+	border-bottom: solid 3px #78adf3;
+	text-align: center;
 }
 
-.email-check-success-form h1{	
-    font-size: 25px;
-    font-weight: 600;
-    color: #5d5858;
-    text-align: center;
+.email-check-success-form h1 {
+	font-size: 25px;
+	font-weight: 600;
+	color: #5d5858;
+	text-align: center;
 }
 
 .email-check-success-form span {
-    color: #2284ed;
+	color: #2284ed;
 }
 
 .email-check-success-form pre {
-    display: block;
-    font-size: 15px;
-    color: #5b5656;
-    margin-top: 50px;
-    font-weight: 600;
-    padding-left: 20px;
+	display: block;
+	font-size: 15px;
+	color: #5b5656;
+	margin-top: 50px;
+	font-weight: 600;
+	padding-left: 20px;
 }
 
 .email-check-success-form h5 {
-    border-top: solid 2px #b0d1ff;
-    padding-top: 10px;
-    font-size: 13px;
-    /* font-weight: 600; */
-    color: #7a7373;
+	border-top: solid 2px #b0d1ff;
+	padding-top: 10px;
+	font-size: 13px;
+	/* font-weight: 600; */
+	color: #7a7373;
 }
-
-
