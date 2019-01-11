@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-	
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/assets/css/notice/notice.css">
 <script>
 
-function commentList() {
+function commentList(e) {
 	var data = {
 			email : '${userVO.email}'
 		}
+	
 	$.ajax({
-		url : '${pageContext.request.contextPath}/reply/myReply/1',
+		url : '${pageContext.request.contextPath}/reply/myReply/' + e,
 		dataType : 'json',
 		type : 'post',
 		data : JSON.stringify(data),
@@ -18,8 +19,25 @@ function commentList() {
 		success : function(data) {
 			var i = 0;
 			var id = 2;
+			 $('#commentTitle').empty();
 			 $('#contentList').empty();
+			 $('#paging').empty();
 			 console.log(data)
+			 
+			 var title = '<div class="comments_form_type1">'
+			 title += '<input type="checkbox" id="c1" /> '
+			 title += '<label for="c1"></label>'
+			 title += '<h2>'
+			 title += '전체 댓글 <span>' + data.commentCnt + '</span>건'
+			 title += '</h2>'
+			 title += '<span> '
+			 title += '<a href="#" id="delBtn"><img src="<%=request.getContextPath()%>/assets/img/deleteIcon.png"></a>'
+			 title += '</span>'
+			 title += '</div>'
+			 
+			 $('#commentTitle').append(title);
+			 
+			 
 			$(data.commentList).each(function() {
 				 var str = '<div class="comments_form_type2">'
 				str += '<input name=chk type="checkbox" id="'+ data.commentList[i].no + '"/>'
@@ -40,8 +58,12 @@ function commentList() {
 			var page = ''
 			page += '<ul>'
 			
+			console.log(data.pagination.curPage)
+			console.log(data.pagination.curRange)
+			console.log(data.pagination.rangeCnt)
+			
 			if(data.pagination.curPage > 1) {
-				page += '<a href="${pageContext.request.contextPath }/reply/myReply/1">'
+				page += '<a class="rangeBtn" name = "1" href="#">'
 				page += '<button><img id="pre-left-arrow" src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon1.png"></button>'
 				page += '</a>'
 			} else {
@@ -51,7 +73,7 @@ function commentList() {
 			}
 			
 			if(data.pagination.curRange > 1) {
-				page += '<a href="${pageContext.request.contextPath }/reply/myReply/'+ (data.start - 1) +'">'
+				page += '<a class="rangeBtn" name = "'+ (parseInt(data.start) -1) + '" href="#">'
 				page += '<button><img id="pre-left-arrow" src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon2.png"></button>'
 				page += '</a>'
 			} else {
@@ -61,7 +83,7 @@ function commentList() {
 			}
 			
 			for(var i = data.start ; i <= data.end; i++) {
-				page += '<li><a href="#">'
+				page += '<li><a href="#" class="pageBtn">'
 				
 				if(data.pagination.curPage == i) {
 					page += '<strong>' + i + '</strong>'
@@ -72,7 +94,7 @@ function commentList() {
 			}
 			
 			if(data.pagination.rangeCnt > data.pagination.curRange) {
-				page += '<a href="${pageContext.request.contextPath }/reply/myReply/' + (data.end + 1) + '">'
+				page += '<a class="rangeBtn" name = "'+(parseInt(data.end) +1) + '" href="#">'
 				page += '<button><img src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon2.png"></button>'
 				page += '</a>'
 			} else {
@@ -83,7 +105,7 @@ function commentList() {
 			
 			
 			if(data.pagination.curPage < data.pagination.pageCnt) {
-				page += '<a href="${pageContext.request.contextPath }/reply/myReply/ '+ data.pagination.pageCnt +'">'
+				page += '<a class="rangeBtn" name = " ' + data.pagination.pageCnt + '" href="#">'
 				page += '<button><img src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon1.png"></button>'
 				page += '</a>'
 			} else {
@@ -105,8 +127,7 @@ function commentList() {
 
 $(document).ready(function() {
 	
-	
-	$('#c1').click(function() {
+	$(document).on('click','#c1', function() {
 		if($('#c1').prop('checked')){
 			$('input[name=chk]').prop("checked",true);
 		} else {
@@ -114,8 +135,8 @@ $(document).ready(function() {
 		}
 	})
 	
-	$('#delBtn').click(function() {
-		
+	
+	$(document).on('click','#delBtn', function() {
 		if(confirm('삭제하시겠습니까?')) {
 			$("input[name=chk]:checked").each(function(e) {
 				var no = $(this).attr('id');
@@ -123,7 +144,7 @@ $(document).ready(function() {
 				url : '${pageContext.request.contextPath}/reply/' + no,
 				type : 'delete',
 				success : function() {
-					commentList();
+					commentList(1);
 				}, error : function() {
 					alert('삭제 실패')
 				}
@@ -132,52 +153,24 @@ $(document).ready(function() {
 		})
 	}
 	})
-			
 	
 	$(document).on('click', '.pageBtn', function(e) {
 		console.log(e)
-		alert(e.target.val());
+		alert($(e.target).text());
+		commentList($(e.target).text());
+	})
+	
+	$(document).on('click', '.rangeBtn', function(e) {
+		console.log(e)
+ 		commentList($(this).attr('name')); 
 	})
 	
 	
 	
 	$('#myComment').click(function() {
-		
-		commentList();
-		
-		 /* $.ajax({
-			url : '${pageContext.request.contextPath}/reply/myReply',
-			dataType : 'json',
-			type : 'post',
-			data : JSON.stringify(data),
-			contentType: 'application/json',
-			success : function(data) {
-				var i = 0;
-				var id = 2;
-				$('#contentList').empty();
-				$(data).each(function() {
-					var str = '<div class="comments_form_type2">'
-					str += '<input name=chk type="checkbox" id="'+ data[i].no + '"/>'
-					str += '<label for="' + data[i].no + '"></label>'
-					str += '<div class="comments_form_type2_box1">'
-					str += '<h2>' + data[i].content +'</h2>'
-					str += '<h5>'+ data[i].registerDate +'</h5>'
-					str += '</div>'
-					str += '<a href="#"><button>보러가기</button></a>'
-					str += '</div>'
-					str += '</div>'
-					i = i+1;
-					id = id+1;
-					$('#contentList').append(str);
-					
-					
-				})
-			}, error : function(e) {
-				alert(e)
-			}
-		
-		}) */ 	
+		commentList(1);
 	})
+	
 })
 
 </script>
@@ -404,8 +397,9 @@ $(document).ready(function() {
 						<!--작성한 댓글이 없을 때-->
 						<!-- <h2 class="comment_none">작성한 댓글이 없습니다</h2> -->
 
-						<div class="mypage_comments_form">
-							<div class="comments_form_type1">
+						<div  class="mypage_comments_form">
+						<div id ="commentTitle">
+							<%-- <div class="comments_form_type1">
 <!-- 								<input type="checkbox" id="c1" /> <label for="c1"><span></span></label>
  -->
 								<input type="checkbox" id="c1" /> 
@@ -417,6 +411,7 @@ $(document).ready(function() {
 								<span> 
 								<a href="#" id="delBtn"><img src="<%=request.getContextPath()%>/assets/img/deleteIcon.png"></a>
 								</span>
+							</div> --%>
 							</div>
 						<div id="contentList">
 							<!-- <div class="comments_form_type2">
@@ -429,7 +424,7 @@ $(document).ready(function() {
 								<button>보러가기</button>
 							</div> -->
 						</div>
-						<div id = "paging">
+						<div class = "paging" id = "paging">
 						
 						</div>
 						

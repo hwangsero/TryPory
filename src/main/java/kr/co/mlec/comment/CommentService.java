@@ -37,7 +37,9 @@ public class CommentService implements CommentServiceInter{
 		int start = (pageNo - 1) * 10 + 1;
 		int end = pageNo * 10;
 		commentPageMap.put("start", start);
+		System.out.println("start : " + start);
 		commentPageMap.put("end", end);
+		System.out.println("end : " + end );
 		commentPageMap.put("email", email);
 		return commentDAO.selectMyComment(commentPageMap);
 	}

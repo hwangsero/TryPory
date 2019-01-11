@@ -29,10 +29,11 @@
 	<![CDATA[
 	select *
 	from
-	(select *
-	from d_comment
-	where email = #{email} order by no asc)
-	where rownum >=#{start} and rownum <= #{end}
+	(select rownum r, b.* 
+	from (select a.*
+	from d_comment a
+	where email = #{email} order by no asc) b)
+	where r >=#{start} and r <= #{end}
 	]]>
 	</select>
 	
