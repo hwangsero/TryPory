@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.mlec.spot">
+
+	<resultMap type="spotVO" id="spotMap">
+		<result column="no" property="no"/>
+		<result column="diary_no" property="diary_no"/>
+		<result column="country" property="country"/>
+		<result column="spot_name" property="spot_name"/>
+		<result column="addr" property="addr"/>
+		<result column="lat" property="lat"/>
+		<result column="lng" property="lng"/>
+		<result column="date_cnt" property="date_cnt"/>
+		<result column="date_index" property="date_index"/>
+	</resultMap>
+	
+	<insert id="insertSpot" parameterType="spotVO">
+		insert into d_spot(no, diary_no, country, spot_name, addr, lat, lng, date_cnt, date_index)
+  		 values(d_spot_seq.nextval, #{diary_no}, #{country}, #{spot_name}, #{addr}, #{lat}, #{lng}, #{date_cnt}, #{date_index} )
+	</insert>
+	
+	<select id="selectDiarySpot" parameterType="int" resultMap="spotMap">
+		select no, diary_no, country, spot_name, addr, lat, lng, date_cnt, date_index
+		from d_spot
+		where diary_no = #{diary_no} order by no asc
+	</select>
+	
+	
+
+</mapper>

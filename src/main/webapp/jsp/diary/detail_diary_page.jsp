@@ -12,6 +12,7 @@
 <body>
 	<%@ include file="/WEB-INF/include/preload.jsp"%>
 	<%@ include file="/WEB-INF/include/header.jsp"%>
+	<script src="${pageContext.request.contextPath}/assets/js/diary/write_map.js"></script>
 	<%@ include file="/jsp/diary/detail_diary.jsp"%>
 	<%@ include file="/WEB-INF/include/footer.jsp"%>
 </html>

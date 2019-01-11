@@ -27,12 +27,13 @@ $j(document).ready(function(){
 	var default_date_str = date.getFullYear() + '.' + (date.getMonth()+1) + '.' + date.getDate();
 	
 ////////////////////////////////////////////////////MAP//////////////////////////////////////////////////////
-console.log(maps);
-	
+	var map_data = [];
+	var geocoder = new google.maps.Geocoder; // 좌표로 주소 검색
 ////////////////////////////////////////////////////MAP//////////////////////////////////////////////////////
 	
 	post_data.start_date = post_data.end_date = default_date_str; 
-	$j("div.content_datebox span").text(default_date_str );
+	$j("div.content_datebox span").text( default_date_str );
+	$j("div.date_box span").text( default_date_str );
 	
 	/*file_input.change(function(e){	// 커버사진 미리보기
 		var img_url = URL.createObjectURL(e.target.files[0]);
@@ -74,6 +75,7 @@ console.log(maps);
 			}
 		}
 		diary_data.date_data = date_data;
+		diary_data.map_data = map_data;
 		
 		console.log(diary_data);
 		
@@ -85,7 +87,7 @@ console.log(maps);
 			data : JSON.stringify(diary_data),
 			success : function(response) {
 				alert("게시글이 등록되었습니다");
-				location.href= window.ctx + "/diary/" + response;
+				//location.href= window.ctx + "/diary/" + response;
 			},
 			error : function(jqXHR) {
 				console.log(jqXHR);
@@ -287,10 +289,13 @@ console.log(maps);
 	function files_view(files, img_wrap){
 		var write_con = $j("div#write_wrap .container.C");
 		var tag_con = $j(write_con).find(".tag_container");
+		
 		var map_element = document.getElementById("map1");
 		var map = maps[0];
 		var marker_pos = [];
 		var poly_pos = [];
+		var date_index = 1;
+		map_data[date_index-1] = [];
 		
 		for (var i = 0; i < files.length; i++) {
 			var file = files[i];
@@ -319,7 +324,7 @@ console.log(maps);
 				content_box_clone.find("div.tool_box").css("display","none");
 				
 				
-				var date_index = $j("div#date_wrap").index($j("div#date_wrap").last() ) + 2;
+				date_index = $j("div#date_wrap").index($j("div#date_wrap").last() ) + 2;
 				// 지도
 				var map_clone = $j("<div id='map"+date_index + "' style='height:400px;'></div>");
 				
@@ -332,6 +337,8 @@ console.log(maps);
 				initialize_map(map_element); // init
 				map = maps[date_index-1];
 				poly_pos = [];
+				marker_pos = [];
+				map_data[date_index-1] = [];
 				// 지도 
 				img_wrap = content_box_clone.find(".img_wrap");
 				
@@ -412,7 +419,7 @@ console.log(maps);
 				});
 				
 				marker_pos.push(myLatlng);
-				if(marker_pos.length == 2 ){
+				if(marker_pos.length == 2 ){ //  중심좌표 이동
 					var newPosLat = ((marker_pos[0].lat() + marker_pos[1].lat() ) / 2).toFixed(4);
 			        var newPosLng = ((marker_pos[0].lng() + marker_pos[1].lng() ) / 2).toFixed(4);
 			        var newPosition = new google.maps.LatLng(newPosLat, newPosLng);
@@ -424,7 +431,7 @@ console.log(maps);
 				}
 				
 				poly_pos.push(myLatlng);
-				if(files[i+1] == undefined || files[i+1].dateTime.getDate() - start_date.getDate() > 0){
+				if(files[i+1] == undefined || files[i+1].dateTime.getDate() - start_date.getDate() > 0){ // 선그리기
 					var flightPath = new google.maps.Polyline({
 					    path: poly_pos,
 					    strokeColor: "#FF0000",
@@ -435,13 +442,36 @@ console.log(maps);
 				  flightPath.setMap(map);
 				  
 				}
+				var lat = myLatlng.lat();
+				var lng = myLatlng.lng();
+				
+				geocoding(lat, lng, date_index);
+				
 			}
+			
 		}
+		console.log(map_data);
 	}
 	
-	//////////////////////////// ROADS //////////////////////////
-	
-	//////////////////////////// ROADS //////////////////////////
+	//////////////////////////// MAPS //////////////////////////
+	function geocoding(lat, lng, date_index){
+		var place_data = new Object();
+		place_data.lat = lat;
+		place_data.lng = lng;
+		
+		geocoder.geocode({'location': {lat: lat, lng: lng} }, function(results, status) {
+			if (status === 'OK') {
+				if (results[0]) {
+					place_data.name = results[0].formatted_address;
+				} else {
+					window.alert('No results found');
+            	}
+			} else {
+        	  		window.alert('Geocoder failed due to: ' + status);
+			}
+        });
+		map_data[date_index-1].push(place_data);
+	}
 	
 	function initMap() {
 		
@@ -456,6 +486,7 @@ console.log(maps);
 			center : location
 		});
 	}
+	//////////////////////////// MAPS //////////////////////////
 	/** 태그 **/
 	function tag_event_init(){
 		$j(tag_input).on('keyup', function(event){

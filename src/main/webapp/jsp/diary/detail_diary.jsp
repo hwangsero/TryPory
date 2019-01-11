@@ -2,11 +2,11 @@
 	pageEncoding="UTF-8"%>
 <script>
 
-$(document).ready(function() {
-	
+$j(document).ready(function() {
+	console.log( JSON.parse('${spot_list}') );
 	replyList()
 	
-	$('#addBtn').click(function() {
+	$j('#addBtn').click(function() {
 		var data = {
 				diaryNo : ${diary.no},  //일단 임시로 diaryNo를 1로 해놈
 				content : $('#replyContent').val(),
@@ -14,37 +14,35 @@ $(document).ready(function() {
 				writer : ${userVO.name}
 		}
 
-		$.ajax({
+		$j.ajax({
 			url : '${pageContext.request.contextPath}/reply',
 			type : "post",
 			data : data,
 			success : function() {
-				 $('#replyContent').val('')
+				 $j('#replyContent').val('')
 				replyList();
 			}, error : function(e) {
 				alert('내용을 입력해주세요');
-				$('#replyContent').focus();
+				$j('#replyContent').focus();
 			}
 		})
 	})
 	
-	$(document).on('click','.delBtn', function() {
+	$j(document).on('click','.delBtn', function() {
 		if(!confirm('댓글을 삭제하시겠습니까?')) return;
-		var replyNo =$(this).attr('id');
+		var replyNo = $j(this).attr('id');
 		
 		$.ajax({
 			url : '${pageContext.request.contextPath}/reply/' + replyNo,
 			type : 'delete',
 			success : function() {
-				$('#replyContent').val('')
+				$j('#replyContent').val('')
 				replyList();
 			}, error : function(e) {
 				alert(e)
 			}
 		})
 	})
-
-	
 })
 
 function replyList() {	
@@ -129,8 +127,23 @@ $j(detail_data).each(function(date){ // 일차별
 		content_list.push(content_box);
 	});
 	
+	var map = $j("<div id='map"+(date+1) + "' style='height:400px;'></div>");
+	content_list.push(map);
+	
 });
-console.log(content_list);
+
+function initialize_map(map_element){
+	var location = {
+			lat : 37.601204,
+			lng : 127.132373
+	};
+    var myOptions = {
+        zoom: 14,
+        center: location
+    };
+    var map = new google.maps.Map(map_element, myOptions);
+    
+}
 
 $j(document).ready(function(){
 	$j("div#write_page_header").css("background-image", "url(" +  window.ctx + "/image/" + '${ diary.cover_image }' + ")");
@@ -139,14 +152,21 @@ $j(document).ready(function(){
 		var div = content_list[i];
 		var last_element = $j("div#write_wrap div.container > div").last();
 		$j(last_element).after(div);
+		
+		if( (i - 2) % 3 == 0 ){
+			var map_element = document.getElementById("map" + (i+1) );
+			initialize_map(map_element); // init
+		}
 	}
 	
 	/* 댓글 */
 	var tag = '${ diary.tag }'; 
-	tag = tag.split(', ');
-	$j(tag).each(function(index){
-		$j(".tag_box ul").append("<li>#" + tag[index] + "</li>");
-	});
+	if( tag != ''){
+		tag = tag.split(', ');
+		$j(tag).each(function(index){
+			$j(".tag_box ul").append("<li>#" + tag[index] + "</li>");
+		});
+	}
 	/* 댓글 */
 	
 });
@@ -178,7 +198,7 @@ $j(document).ready(function(){
 		<div class="div_pdt"></div>
 		
 	</div>
-	
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6xArRw-nczVJ9vZLjCa-H1uSAE1PN3Ks"></script>	
 	<div class="comment_container">
 	    <div class="actionBox">
 	        <ul id="commentList">
