@@ -319,7 +319,6 @@ img {
 }
 
 .bg-overlay::after {
-	background-color: rgba(0, 0, 0, 0.5);
 	position: absolute;
 	z-index: -1;
 	top: 0;
@@ -763,11 +762,11 @@ input:focus {
 	margin-bottom: 20px;
 }
 
-.hero-blog-post .post-content .post-meta a {
+.hero-blog-post .post-content .post-meta p {
 	position: relative;
 	z-index: 1;
 	display: inline-block;
-	font-size: 13px;
+	font-size: 26px;
 	font-weight: 500;
 	letter-spacing: 2px;
 	text-transform: uppercase;
