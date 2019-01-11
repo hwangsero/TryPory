@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+
+
 .diary-post div.post-content {
 	text-align: center;
 	top: calc(50% - 65px);
@@ -20,6 +22,46 @@
 	color: white;
 	font-size: 18px;
 }
+
+
+/* 메인 슬라이더  */
+
+	
+	.hero-blog-post .main-slide-text-box{
+		width:35%; 
+		height:100%; 
+		float:right; 
+		padding: 0 70px;
+		background: rgba(255,255,255,0.85); 
+	}
+	
+	.hero-blog-post .post-content img {
+		width: 85%;
+		margin-bottom: 40px;
+	}
+	
+	.hero-blog-post .post-content .post-meta p {
+		font-size: 30px; 
+		font-weight: bold; 
+		color: #222; 
+		margin-bottom:0; 
+	}
+	
+	.hero-blog-post .post-content .login-btn {
+		display:inline-block; 
+		border:1px solid #000; 
+		padding:10px 20px; 
+		font-size:20px;
+	}
+	
+	.hero-blog-post .post-content .login-btn i {
+		margin-left: 10px;
+	}
+
+
+
+
+
 
 /* 인기 게시글 */
 
