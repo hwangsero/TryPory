@@ -832,6 +832,7 @@ img.thumb_default {
     margin: auto;
     /* margin-bottom: 20px; */
     overflow: hidden;
+    margin-top: 30px;
 }
 .comments_form_type1 input[type=checkbox] {
 	display: none;
