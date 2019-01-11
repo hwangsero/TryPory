@@ -50,7 +50,7 @@ function commentList() {
 				page += '</a>'
 			}
 			
-			if(data.pagination.curPage > 1) {
+			if(data.pagination.curRange > 1) {
 				page += '<a href="${pageContext.request.contextPath }/reply/myReply/'+ (data.start - 1) +'">'
 				page += '<button><img id="pre-left-arrow" src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon2.png"></button>'
 				page += '</a>'
