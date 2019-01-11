@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/assets/css/findPassword.css">
 
@@ -11,7 +12,6 @@
 
 <%@ include file="/WEB-INF/include/head.jsp"%>
 
-<meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
 <body>
@@ -35,7 +35,7 @@
 				</span>
 				<div class="find_password_form_type2-1_button">
 					<button id="backBtn">취소</button>
-					<button>확인</button>
+					<button id="checked-email">확인</button>
 				</div>
 			</div>
 

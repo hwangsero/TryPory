@@ -13,12 +13,12 @@
 <!-- Favicon -->
 <link rel="icon" href="${pageContext.request.contextPath}/assets/img/core-img/favicon.ico">
 <!-- Stylesheet -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/style.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/style2.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/footer.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/footer_mobile.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/cck_mobile.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/fontawesome/css/all.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/style.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/style2.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/assets/css/footer.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/assets/css/footer_mobile.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/cck_mobile.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/fontawesome/css/all.css">
 <script src="${pageContext.request.contextPath}/assets/js/jquery/jquery-2.2.4.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/jquery/jquery-3.3.1.min.js"></script>
 <script>var $j = jQuery.noConflict(true);</script>
