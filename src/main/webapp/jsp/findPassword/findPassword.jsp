@@ -34,6 +34,7 @@
 					type="text" size="20" name="email_domain" id="email_domain">
 				</span>
 				<div class="find_password_form_type2-1_button">
+					<button id="backBtn">취소</button>
 					<button>확인</button>
 				</div>
 			</div>
