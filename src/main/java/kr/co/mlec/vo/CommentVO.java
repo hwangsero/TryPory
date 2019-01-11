@@ -4,6 +4,7 @@ public class CommentVO {
 
 	private int no;
 	private int diaryNo;
+	private String email;
 	private String writer;
 	private String content;
 	private String registerDate;
@@ -14,6 +15,12 @@ public class CommentVO {
 	}
 	public void setNo(int no) {
 		this.no = no;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public int getDiaryNo() {
 		return diaryNo;

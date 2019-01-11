@@ -1,6 +1,8 @@
 package kr.co.mlec.comment;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -8,9 +10,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.co.mlec.notice.Pagination;
 import kr.co.mlec.vo.CommentVO;
 
 @RestController
@@ -48,7 +54,38 @@ public class CommentController {
 	 */
 	@DeleteMapping("/reply/{replyNo}")
 	public void deleteComment(@PathVariable("replyNo") int replyNo) {
+		System.out.println("삭제 컨트롤러");
 		commentService.deleteComment(replyNo);
+	}
+	
+	@ResponseBody
+	@RequestMapping("/reply/myReply/{pageNo}")
+	public Map<String, Object> selectMyComment(@RequestBody CommentVO comment, @PathVariable("pageNo") int pageNo, Model model) {
+		System.out.println("컨트롤러는 들어옴?");
+		String email = comment.getEmail();
+		System.out.println(email);
+		int commentCnt = commentService.selectCountComment(email);
+		CommentPagination pagination = new CommentPagination(commentCnt, pageNo);
+		int start = pagination.getStartPage();
+		int end = pagination.getEndPage();
+		System.out.println(commentCnt);
+		List<CommentVO> commentList = commentService.selectMyComment(email, pageNo);
+		
+		Map<String, Object> commentMap = new HashMap<>();
+		commentMap.put("commentCnt", commentCnt);
+		commentMap.put("commentList", commentList);
+		commentMap.put("start", start);
+		commentMap.put("end", end);
+		commentMap.put("pagination", pagination);
+		commentMap.put("pageNo", pageNo);
+		
+		model.addAttribute("commentCnt", commentCnt);
+		model.addAttribute("commentList", commentList);
+		model.addAttribute("start", start);
+		model.addAttribute("end", end);
+		model.addAttribute("pagination", pagination);
+		model.addAttribute("pageNo", pageNo);
+		return commentMap;
 	}
 	
 }

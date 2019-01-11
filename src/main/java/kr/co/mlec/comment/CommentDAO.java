@@ -1,6 +1,7 @@
 package kr.co.mlec.comment;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,16 @@ public class CommentDAO implements CommentDAOInter{
 	public void deleteComment(int replyNo) {
 		sqlSession.delete("kr.co.mlec.comment.deleteComment", replyNo);
 		
+	}
+
+	@Override
+	public List<CommentVO> selectMyComment(Map<String, Object> commentPageMap) {
+		return sqlSession.selectList("kr.co.mlec.comment.selectMyComment", commentPageMap);
+	}
+
+	@Override
+	public int selectCountComment(String email) {
+		return sqlSession.selectOne("kr.co.mlec.comment.selectCountComment", email);
 	}
 
 
