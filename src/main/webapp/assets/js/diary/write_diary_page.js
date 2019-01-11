@@ -26,6 +26,11 @@ $j(document).ready(function(){
 	
 	var default_date_str = date.getFullYear() + '.' + (date.getMonth()+1) + '.' + date.getDate();
 	
+////////////////////////////////////////////////////MAP//////////////////////////////////////////////////////
+console.log(maps);
+	
+////////////////////////////////////////////////////MAP//////////////////////////////////////////////////////
+	
 	post_data.start_date = post_data.end_date = default_date_str; 
 	$j("div.content_datebox span").text(default_date_str );
 	
@@ -111,7 +116,7 @@ $j(document).ready(function(){
 			var imgHeightActual = div.outerWidth() / imgAspect;
 			var imgHeightToBe = div.outerWidth() / divAspect;
 			var marginTop = Math.round((imgHeightActual - imgHeightToBe) / 2);
-//			var marginTop = Math.round((div.height() - $(img).height()) / 2);
+//			var marginTop = Math.round((div.height() - $j(img).height()) / 2);
 			$j(img).css({
 				'width' : '100%',
 				'height' : 'auto',
@@ -157,12 +162,12 @@ $j(document).ready(function(){
 		});
 		
 		$j(".tool_box i.fa-image").click(function(e){ // 내용에 사진등록 버튼 클릭
-	    	$(e.target).closest(".tool_box").find("input[type=file]").trigger('click');
+	    	$j(e.target).closest(".tool_box").find("input[type=file]").trigger('click');
 	    });
 		
 		$j("textarea.autosize").on('keydown', function (e) { // 내용에 Textarea 높이 조절
 //			e.preventDefault();
-			$j(this).height(1).height( $(this).prop('scrollHeight')+12 );	
+			$j(this).height(1).height( $j(this).prop('scrollHeight')+12 );	
 	    });
 		
 		$j(".tool_box input[type=file]").change(function(e){
@@ -282,6 +287,11 @@ $j(document).ready(function(){
 	function files_view(files, img_wrap){
 		var write_con = $j("div#write_wrap .container.C");
 		var tag_con = $j(write_con).find(".tag_container");
+		var map_element = document.getElementById("map1");
+		var map = maps[0];
+		var marker_pos = [];
+		var poly_pos = [];
+		
 		for (var i = 0; i < files.length; i++) {
 			var file = files[i];
 			
@@ -307,9 +317,22 @@ $j(document).ready(function(){
 				content_box_clone.find("textarea.autosize").val("");
 				content_box_clone.find("div.img_wrap *").remove();
 				content_box_clone.find("div.tool_box").css("display","none");
-				var div = $("<div id='date_wrap'>").append(date_box_clone).append(content_box_clone);
+				
+				
+				var date_index = $j("div#date_wrap").index($j("div#date_wrap").last() ) + 2;
+				// 지도
+				var map_clone = $j("<div id='map"+date_index + "' style='height:400px;'></div>");
+				
+				var div = $j("<div id='date_wrap'>").append(date_box_clone).append(content_box_clone).append(map_clone);
 				
 				tag_con.before(div);
+
+				// 지도 init
+				map_element = document.getElementById("map" + date_index);
+				initialize_map(map_element); // init
+				map = maps[date_index-1];
+				poly_pos = [];
+				// 지도 
 				img_wrap = content_box_clone.find(".img_wrap");
 				
 				// 정보 등록
@@ -371,7 +394,67 @@ $j(document).ready(function(){
 			$j(img).bind('load', function() {
 				image_resize($j(this).parent() );
 			});
+			
+			/* map */
+			console.log(file.latitude);
+			console.log(file.longitude);
+			if( file.latitude != undefined && file.longitude != undefined ){
+				var myLatlng = new google.maps.LatLng(file.latitude, file.longitude);
+				var mapOptions = {
+				  zoom: 4,
+				  center: myLatlng
+				}
+
+				var marker = new google.maps.Marker({
+				    position: myLatlng,
+				    title:"Hello World!",
+				    map : map
+				});
+				
+				marker_pos.push(myLatlng);
+				if(marker_pos.length == 2 ){
+					var newPosLat = ((marker_pos[0].lat() + marker_pos[1].lat() ) / 2).toFixed(4);
+			        var newPosLng = ((marker_pos[0].lng() + marker_pos[1].lng() ) / 2).toFixed(4);
+			        var newPosition = new google.maps.LatLng(newPosLat, newPosLng);
+			        marker_pos[0] = marker_pos[1];
+			        marker_pos.pop();
+			        map.setCenter(newPosition);
+				} else {
+			        map.setCenter(myLatlng);
+				}
+				
+				poly_pos.push(myLatlng);
+				if(files[i+1] == undefined || files[i+1].dateTime.getDate() - start_date.getDate() > 0){
+					var flightPath = new google.maps.Polyline({
+					    path: poly_pos,
+					    strokeColor: "#FF0000",
+					    strokeOpacity: 1.0,
+					    strokeWeight: 2
+					  });
+
+				  flightPath.setMap(map);
+				  
+				}
+			}
 		}
+	}
+	
+	//////////////////////////// ROADS //////////////////////////
+	
+	//////////////////////////// ROADS //////////////////////////
+	
+	function initMap() {
+		
+		var location = {
+				lat : 37.601204,
+				lng : 127.132373
+		};
+		// The map, centered at Uluru
+		
+		var map = new google.maps.Map(document.getElementById('map'), {
+			zoom : 15,
+			center : location
+		});
 	}
 	/** 태그 **/
 	function tag_event_init(){
@@ -402,6 +485,21 @@ $j(document).ready(function(){
 	    });
 
 		tag_remove_init();
+	}
+	
+	function initialize_map(map_element){
+		var location = {
+				lat : 37.601204,
+				lng : 127.132373
+		};
+	    var myOptions = {
+	        zoom: 14,
+	        center: location
+	    };
+	    var map = new google.maps.Map(map_element, myOptions);
+	    
+	    maps.push(map);
+		console.log(maps);
 	}
   
 	function tag_remove_init(){ // 태그 삭제 버튼 이벤트 설정

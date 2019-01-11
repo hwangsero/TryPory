@@ -10,12 +10,12 @@
 	</resultMap>
 	
 	<insert id="insertComment" parameterType="commentVO">
-	insert into d_comment(no, diary_no, writer, content)
-  	 values(d_comment_seq.nextval, #{diaryNo}, #{writer}, #{content})
+	insert into d_comment(no, diary_no, writer, email, content)
+  	 values(d_comment_seq.nextval, #{diaryNo}, #{writer}, #{email}, #{content})
 	</insert>
 	
 	<select id="selectAllComment" parameterType="int" resultMap="commentMap">
-	select no, diary_no, writer, content, register_date
+	select no, diary_no, writer, email, content, register_date
 	from d_comment
 	where diary_no = #{diaryNo} order by no asc
 	</select>
@@ -24,6 +24,23 @@
 	delete from d_comment
 	where no = #{replyNo}
 	</delete>
+	
+	<select id="selectMyComment" parameterType="hashmap" resultMap="commentMap">
+	<![CDATA[
+	select *
+	from
+	(select *
+	from d_comment
+	where email = #{email} order by no asc)
+	where rownum >=#{start} and rownum <= #{end}
+	]]>
+	</select>
+	
+	<select id="selectCountComment" parameterType="string" resultType="int">
+	select count(*)
+	from d_comment
+	where email = #{email}
+	</select>
 	
 
 </mapper>

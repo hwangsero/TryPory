@@ -6,7 +6,8 @@ import kr.co.mlec.vo.DiaryVO;
 
 public interface SearchServiceInter {
 
-	public List<DiaryVO> selectSearchTag(String tag);
-	public List<DiaryVO> selectSearchContent(String content);
+	public List<String> selectSearch(String type, String word);
+	public List<DiaryVO> selectSearchTagList(String tag);
+	public List<DiaryVO> selectSearchContentList(String content);
 	public List<DiaryVO> selectSearchWriter(String writer);
 }

@@ -1,5 +1,186 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+	
+<script>
+
+function commentList() {
+	var data = {
+			email : '${userVO.email}'
+		}
+	$.ajax({
+		url : '${pageContext.request.contextPath}/reply/myReply/1',
+		dataType : 'json',
+		type : 'post',
+		data : JSON.stringify(data),
+		contentType: 'application/json',
+		success : function(data) {
+			var i = 0;
+			var id = 2;
+			 $('#contentList').empty();
+			 console.log(data)
+			$(data.commentList).each(function() {
+				 var str = '<div class="comments_form_type2">'
+				str += '<input name=chk type="checkbox" id="'+ data.commentList[i].no + '"/>'
+				str += '<label for="' + data.commentList[i].no + '"></label>'
+				str += '<div class="comments_form_type2_box1">'
+				str += '<h2>' + data.commentList[i].content +'</h2>'
+				str += '<h5>'+ data.commentList[i].registerDate +'</h5>'
+				str += '</div>'
+				str += '<a href="#"><button>보러가기</button></a>'
+				str += '</div>'
+				str += '</div>'
+				i = i+1;
+				id = id+1;
+				$('#contentList').append(str); 
+				
+			})
+			
+			var page = ''
+			page += '<ul>'
+			
+			if(data.pagination.curPage > 1) {
+				page += '<a href="${pageContext.request.contextPath }/reply/myReply/1">'
+				page += '<button><img id="pre-left-arrow" src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon1.png"></button>'
+				page += '</a>'
+			} else {
+				page += '<a href="#">'
+				page += '<button><img id="pre-left-arrow" src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon1.png"></button>'
+				page += '</a>'
+			}
+			
+			if(data.pagination.curPage > 1) {
+				page += '<a href="${pageContext.request.contextPath }/reply/myReply/'+ (data.start - 1) +'">'
+				page += '<button><img id="pre-left-arrow" src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon2.png"></button>'
+				page += '</a>'
+			} else {
+				page += '<a href="#">'
+				page += '<button><img id="pre-left-arrow" src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon2.png"></button>'
+				page += '</a>'
+			}
+			
+			for(var i = data.start ; i <= data.end; i++) {
+				page += '<li><a href="#">'
+				
+				if(data.pagination.curPage == i) {
+					page += '<strong>' + i + '</strong>'
+				} else {
+					page += i
+				}
+				page += '</a></li>'
+			}
+			
+			if(data.pagination.rangeCnt > data.pagination.curRange) {
+				page += '<a href="${pageContext.request.contextPath }/reply/myReply/' + (data.end + 1) + '">'
+				page += '<button><img src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon2.png"></button>'
+				page += '</a>'
+			} else {
+				page += '<a href="#">'
+				page += '<button><img src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon2.png"></button>'
+				page += '</a>'
+			}
+			
+			
+			if(data.pagination.curPage < data.pagination.pageCnt) {
+				page += '<a href="${pageContext.request.contextPath }/reply/myReply/ '+ data.pagination.pageCnt +'">'
+				page += '<button><img src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon1.png"></button>'
+				page += '</a>'
+			} else {
+				page += '<a href="#">'
+				page += '<button><img src="<%=request.getContextPath()%>/assets/img/arrow-img/arrowIcon1.png"></button>'
+				page += '</a>'
+			}
+			page += '</ul>'
+			
+			
+			$('#paging').append(page);
+			
+		}, error : function(e) {
+			alert(e)
+		}
+	
+	})
+}
+
+$(document).ready(function() {
+	
+	
+	$('#c1').click(function() {
+		if($('#c1').prop('checked')){
+			$('input[name=chk]').prop("checked",true);
+		} else {
+			$('input[name=chk]').prop("checked",false);
+		}
+	})
+	
+	$('#delBtn').click(function() {
+		
+		if(confirm('삭제하시겠습니까?')) {
+			$("input[name=chk]:checked").each(function(e) {
+				var no = $(this).attr('id');
+			$.ajax({
+				url : '${pageContext.request.contextPath}/reply/' + no,
+				type : 'delete',
+				success : function() {
+					commentList();
+				}, error : function() {
+					alert('삭제 실패')
+				}
+				
+			})
+		})
+	}
+	})
+			
+	
+	$(document).on('click', '.pageBtn', function(e) {
+		console.log(e)
+		alert(e.target.val());
+	})
+	
+	
+	
+	$('#myComment').click(function() {
+		
+		commentList();
+		
+		 /* $.ajax({
+			url : '${pageContext.request.contextPath}/reply/myReply',
+			dataType : 'json',
+			type : 'post',
+			data : JSON.stringify(data),
+			contentType: 'application/json',
+			success : function(data) {
+				var i = 0;
+				var id = 2;
+				$('#contentList').empty();
+				$(data).each(function() {
+					var str = '<div class="comments_form_type2">'
+					str += '<input name=chk type="checkbox" id="'+ data[i].no + '"/>'
+					str += '<label for="' + data[i].no + '"></label>'
+					str += '<div class="comments_form_type2_box1">'
+					str += '<h2>' + data[i].content +'</h2>'
+					str += '<h5>'+ data[i].registerDate +'</h5>'
+					str += '</div>'
+					str += '<a href="#"><button>보러가기</button></a>'
+					str += '</div>'
+					str += '</div>'
+					i = i+1;
+					id = id+1;
+					$('#contentList').append(str);
+					
+					
+				})
+			}, error : function(e) {
+				alert(e)
+			}
+		
+		}) */ 	
+	})
+})
+
+</script>
 <!-- 이미지교체 팝업 -->
 <div class="cd-popup02" role="alert">
 	<div class="cd-popup-container">
@@ -65,7 +246,7 @@
 							href="#studio" role="tab" data-toggle="tab">내 다이어리</a></li>
 						<li class="nav-item"><a class="nav-link" href="#works"
 							role="tab" data-toggle="tab">좋아요</a></li>
-						<li class="nav-item"><a class="nav-link" href="#favorite"
+						<li class="nav-item"><a id = "myComment" class="nav-link" href="#favorite"
 							role="tab" data-toggle="tab">내 댓글</a></li>
 					</ul>
 				</div>
@@ -234,11 +415,11 @@
 									전체 댓글 <span>5</span>건
 								</h2>
 								<span> 
-								<img src="<%=request.getContextPath()%>/assets/img/deleteIcon.png">
+								<a href="#" id="delBtn"><img src="<%=request.getContextPath()%>/assets/img/deleteIcon.png"></a>
 								</span>
 							</div>
-
-							<div class="comments_form_type2">
+						<div id="contentList">
+							<!-- <div class="comments_form_type2">
 								<input type="checkbox" id="c2" /> 
 								<label for="c2"></label>
 								<div class="comments_form_type2_box1">
@@ -246,8 +427,12 @@
 									<h5>2019-01-01</h5>
 								</div>
 								<button>보러가기</button>
-							</div>
-
+							</div> -->
+						</div>
+						<div id = "paging">
+						
+						</div>
+						
 						</div>
 
 					</div>

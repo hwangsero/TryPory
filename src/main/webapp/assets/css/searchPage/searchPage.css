@@ -80,7 +80,7 @@ a.nav-link {
 /*검색결과 페이지*/
 .search-frame {
 	width: 80%;
-	height: 700px;
+	min-height: 700px;
 	border-bottom: 2px solid #d4d4d4;
 	margin: auto;
 	margin-bottom: 50px;

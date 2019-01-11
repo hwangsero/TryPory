@@ -1,6 +1,7 @@
 package kr.co.mlec.search;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,17 +15,22 @@ public class SearchDAO implements SearchDAOInter{
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
-	public List<DiaryVO> selectSearchTag(String tag) {
-		return sqlSession.selectList("kr.co.mlec.search.selectSearchTag", tag);
+	public List<DiaryVO> selectSearchTagList(String tag) {
+		return sqlSession.selectList("kr.co.mlec.search.selectSearchTagList", tag);
 	}
 
 	@Override
-	public List<DiaryVO> selectSearchContent(String content) {
+	public List<DiaryVO> selectSearchContentList(String content) {
 		return sqlSession.selectList("kr.co.mlec.search.selectSearchContent", content);
 	}
 
 	@Override
 	public List<DiaryVO> selectSearchWriter(String writer) {
 		return sqlSession.selectList("kr.co.mlec.search.selectSearchWriter", writer);
+	}
+
+	@Override
+	public List<String> selectSearch(Map<String,String> search) {
+		return sqlSession.selectList("kr.co.mlec.search.selectSearch", search);
 	}
 }

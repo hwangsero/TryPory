@@ -1,5 +1,7 @@
 package kr.co.mlec.login;
 
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,18 +17,20 @@ public class LoginDAO implements LoginDAOInter{
 	
 	@Override
 	public int joinMember(MemberVO member) {
-		System.out.println(member);
 		return sqlSession.insert("kr.co.mlec.login.joinMember", member);
 	}
 	
+	/**
+	 * 회원조회
+	 */
 	@Override
 	public MemberVO loginMember(MemberVO member) {
 		return sqlSession.selectOne("kr.co.mlec.login.loginMember", member);
 	}
 
 	@Override
-	public MemberVO duplCheck(String email) {
-		return sqlSession.selectOne("kr.co.mlec.login.duplCheck", email);
+	public MemberVO duplCheck(Map<String, Object> parameters) {
+		return sqlSession.selectOne("kr.co.mlec.login.duplCheck", parameters);
 	}
 
 	@Override

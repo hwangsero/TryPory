@@ -67,35 +67,13 @@
 						placeholder="문단 내에서 줄바꿈을 하려면 shift + enter를 누르세요"></textarea>
 				</div>
 			</div>
+			<div id="map1" style="height:400px;"></div>
 		</div>
 
-		<!-- <div id="date_wrap">
-			<div class="content_datebox">
-				<h4>2일차</h4>
-				<span></span>
-			</div>
-			<div class="content_box">
-				<div class="content_editbox">
-					<div class="tool_wrap">
-						<i class="fas fa-plus-circle fa-2x"></i>
-					</div>
-					<div class="tool_box" style="display:block">
-						<ul>
-							<li><i class="fas fa-image fa-3x"></i></li>
-							<li><i class="fas fa-map-marker-alt fa-3x"></i></li>
-						</ul>
-						<form id="uploadForm" enctype="multipart/form-data">
-							<input type="file" multiple="multiple" accept=".jpeg" style="display:none;" name="file-data">
-						</form>
-					</div>
-					<div class="img_wrap">
-					</div>
-					<textarea class="autosize" placeholder="문단 내에서 줄바꿈을 하려면 shift + enter를 누르세요"></textarea>	
-				</div>
-			</div>
-		</div>
-	</div> -->
-
+		<!--  map -->
+		
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6xArRw-nczVJ9vZLjCa-H1uSAE1PN3Ks&callback=initialize"></script>
+		<!--  map -->
 		<div class="tag_container container clr">
 			<div class="tag_wrap">
 				<h4>#태그(최대5개)</h4>

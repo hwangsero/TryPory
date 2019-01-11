@@ -9,7 +9,9 @@ $(document).ready(function() {
 	$('#addBtn').click(function() {
 		var data = {
 				diaryNo : ${diary.no},  //일단 임시로 diaryNo를 1로 해놈
-				content : $('#replyContent').val()
+				content : $('#replyContent').val(),
+				email : ${userVO.email},
+				writer : ${userVO.name}
 		}
 
 		$.ajax({
