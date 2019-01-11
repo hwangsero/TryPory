@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,11 +18,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
+
+import kr.co.mlec.spot.SpotService;
 import kr.co.mlec.tag.TagService;
 import kr.co.mlec.util.JsonUtil;
 import kr.co.mlec.util.ListUtil;
 import kr.co.mlec.vo.DiaryVO;
 import kr.co.mlec.vo.MemberVO;
+import kr.co.mlec.vo.SpotVO;
 import kr.co.mlec.vo.TagVO;
 
 @Controller
@@ -31,15 +36,26 @@ public class DiaryController {
 	private DiaryService diaryService;
 	@Autowired
 	private TagService tagService;
+	@Autowired
+	private SpotService spotService;
 	
 	@GetMapping("/diary/{no}")
 	public ModelAndView SearchDiary(@PathVariable int no) throws Exception {
 		DiaryVO diary = diaryService.selectDiary(no);
+		List<SpotVO> spot_list = spotService.selectDiarySpot(no);
 		ModelAndView mav = new ModelAndView("diary/detail_diary_page");
 		String content = diary.getContent();
 
 		mav.addObject("diary", diary);
 		mav.addObject("content", content);
+		
+		Gson gson = new Gson();
+		System.out.println(spot_list);
+		String json = gson.toJsonTree(spot_list).toString();
+		mav.addObject("spot_list", json );
+//		mav.addObject("spot_list", spot_list);
+
+
 		
 		return mav;
 	}
@@ -56,11 +72,14 @@ public class DiaryController {
 			writer = "Test";
 		}
 		Map<String, Object> post_data = (Map<String, Object>) data.get("post_data");
+		List<String> tag_list = (List<String>) post_data.get("tag");
+
 		List<List<Object>> date_data = (List<List<Object>>)data.get("date_data");
 		List<String> content = new ArrayList<String>();
-		List<String> tag_list = (List<String>) post_data.get("tag");
-		///////////////////////////////////////변수////////////////////////////////////
-
+		
+		List<List<Object>> map_data = (List<List<Object>>)data.get("map_data");
+		
+		
 		for (int i = 0; i < date_data.size(); i++) { // 일차
 			System.out.println(date_data.get(i));
 			Map<String, Object> date_content = (Map<String, Object>) date_data.get(i);
@@ -68,6 +87,8 @@ public class DiaryController {
 
 			content.add(date_content_str);
 		}
+		
+		///////////////////////////////////////변수////////////////////////////////////
 //		System.out.println(content.toString());
 		
 		diary.setTag(ListUtil.toString(tag_list));
@@ -85,11 +106,36 @@ public class DiaryController {
 		diaryService.insertDiary(diary);
 		
 		int insert_diary_no = diary.getNo();
-		for (int i = 0; i < tag_list.size(); i++) {
+		
+		for (int i = 0; i < tag_list.size(); i++) { // 태그 등록
 			TagVO tag = new TagVO();
 			tag.setTag_name(tag_list.get(i));
 			tag.setDiary_no(insert_diary_no);
 			tagService.insertTag(tag);
+		}
+		
+		for (int m = 0; m < map_data.size(); m++) { // 일차
+			List<Object> map_contents = (List<Object>) map_data.get(m);
+			System.out.println();
+			System.out.println();
+			for (int n = 0; n < map_contents.size(); n++) {
+				System.out.println(m + " : " + n );
+				System.out.println();
+				Map<String, Object> map_content = (Map<String, Object>) map_contents.get(n);
+				SpotVO spot = new SpotVO();
+				spot.setDiary_no(insert_diary_no);
+				spot.setAddr((String)map_content.get("name"));
+				spot.setSpot_name((String)map_content.get("name"));
+				spot.setCountry("JP");
+	//			spot.setCountry((String)map_content.get("country"));
+				spot.setLat((Double)map_content.get("lat"));
+				spot.setLng((Double)map_content.get("lng"));
+				spot.setDate_cnt(m);
+				
+				System.out.println(spot);
+				spotService.insertSpot(spot);
+			}
+			
 		}
 		
 		return insert_diary_no;

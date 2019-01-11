@@ -32,7 +32,7 @@
 				</div>
 				<div class="date_box">
 					<i class="far fa-calendar-check fa-2x"></i> 
-					<span>2018.12.15 ~ 2018.12.18</span>
+					<span id="start_date"></span> ~ <span id=""></span>
 				</div>
 			</div>
 		</div>
@@ -71,8 +71,7 @@
 		</div>
 
 		<!--  map -->
-		
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6xArRw-nczVJ9vZLjCa-H1uSAE1PN3Ks&callback=initialize"></script>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6xArRw-nczVJ9vZLjCa-H1uSAE1PN3Ks&callback=initialize"></script>
 		<!--  map -->
 		<div class="tag_container container clr">
 			<div class="tag_wrap">
