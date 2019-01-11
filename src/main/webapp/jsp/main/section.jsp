@@ -12,7 +12,7 @@
            <div class="favorite-diary">
            		<div class="main-category ">
           			<hr>
-            		<h5 class="mb-70">인기 다이어리</h5>
+            		<h5 class="mb-70"><span>인기</span> 다이어리</h5>
            		</div>
           		<div class="main-content clr">
 					<div id ="main-img">
@@ -22,6 +22,7 @@
 					<div id ="main-text">
 						<div class="main-detail">
 							<span class="travel-period">기간 | 2019.01.01 - 2019.01.10</span>
+							<span class="travel-point">오사카</span>
 							<h2>제목입니다</h2>
 							<span class="tag">#태그</span> <span class="tag">#태그</span> <span
 								class="tag">#태그태그</span> <span class="tag">#태그태그</span> <span
@@ -35,7 +36,7 @@
 								class="profile_thumb_mask"></span>
 							</span> <span class="profile_name">최창규</span>
 							<div class="travel-like">
-								<i class="far fa-heart fa-lg"></i> <span>15</span>
+								<i class="far fa-heart fa-2x"></i> <span class="like-count">15</span>
 							</div>
 						</div>
 					</div>
@@ -63,45 +64,55 @@
            
            		<div class="main-category">
           			<hr>
-            		<h5>인기 태그</h5>
+            		<h5><span>인기</span> 태그</h5>
           	 	</div>
           		<div class="tags-container clr">
           			<div class="tag-box01 clr">
           				<div class="tag-top">
 							<div class="tags tag1">
-								586 224
+								<div class="blur"></div>
+								<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
+								<h2>#겨울</h2>
 							</div>
 							<div class="tags tag2"> 
-								289 224
+								<div class="blur"></div>
+								<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
+								<h2>#겨울</h2>
 							</div>
 							</div>
 						<div class="tag-bottom">
 							<div class="tags tag3"> 
-								283 219
+								<div class="blur"></div>
+								<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
+								<h2>#겨울</h2>
 							</div>
 							<div class="tags tag4">
-								593 219
+								<div class="blur"></div>
+								<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
+								<h2>#겨울</h2>
 							</div>
 						</div>
 					</div>
 					<div class="tag-box02">
-						284 460
+						<div class="blur"></div>
+						<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
+						<h2>#겨울</h2>
 					</div>
 				</div>
            </div>
            
            
 
-           <div class="all-diary">
+           <div class="all-diary clr">
            
            		<div class="main-category">
           			<hr>
-            		<h5>전체 다이어리</h5>
+            		<h5><span>전체</span> 다이어리</h5>
           	 	</div>
            
 				<div class="all-diary-view">
 					<div class="diary-box">
-						<div class="img-box">230</div>
+						<div class="img-box"><img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg"></div>
 						<div class="text-box">
 							<div class="travel-detail">
 								<span class="travel-period">기간 | 2019.01.01 - 2019.01.10</span>
@@ -124,7 +135,7 @@
 						</div>
 					</div>
 					<div class="diary-box">
-						<div class="img-box">230</div>
+						<div class="img-box"><img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg"></div>
 						<div class="text-box">
 							<div class="travel-detail">
 								<span class="travel-period">기간 | 2019.01.01 - 2019.01.10</span>
@@ -147,7 +158,7 @@
 						</div>
 					</div>
 					<div class="diary-box">
-						<div class="img-box">230</div>
+						<div class="img-box"><img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg"></div>
 						<div class="text-box">
 							<div class="travel-detail">
 								<span class="travel-period">기간 | 2019.01.01 - 2019.01.10</span>

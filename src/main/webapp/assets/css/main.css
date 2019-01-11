@@ -33,7 +33,7 @@
 
 #main-img {
 	width: 55%; 
-	padding-bottom:40%;
+	padding-bottom:35%;
 	float: left;
 	box-shadow: -15px 16px 30px 5px rgba(0,0,0, 0.1);
 	overflow: hidden;
@@ -68,21 +68,21 @@
 .main-thumb {
 	border: 5px solid #eee; 
 	width:23.5%; 
-	padding-bottom:10%;
+	padding-bottom:13%;
 	overflow: hidden;
 	float:left;
 	margin-right:2%; 
 	position:relative;
 }
 
-.main-thumb{
+.main-thumb img{
 	position: absolute;
 	top: 0;
 	left: 0; 
 	right: 0; 
 	bottom: 0; 
 	max-width: 100%; 
-	height: 100%;
+/* 	height: 100%; */
 }
 
 
@@ -94,6 +94,11 @@
 
 
 .main-detail .travel-period {
+	color: #aaa; 	
+	font-size:16px;
+}
+
+.main-detail .travel-point {
 	color: #aaa; 	
 	font-size:16px;
 }
@@ -127,11 +132,12 @@
 	border-top : 1px solid #aaa; 
 	padding:10px 15px; 
 	box-sizing: border-box;
+	font-size:16px;
 }
 
-.profile_thumb {
-   width: 30px;
-   height: 30px;
+.main-profile .profile_thumb {
+   width: 40px;
+   height: 40px;
    display: inline-block;
    position: relative;
    vertical-align: top;
@@ -146,7 +152,7 @@ img.thumb_default {
    vertical-align: top;
 }
 
-.profile_thumb_mask {
+.main-profile .profile_thumb_mask {
    width: 100%;
    height: 100%;
    display: block;
@@ -161,14 +167,20 @@ img.thumb_default {
    border: 1px solid #000;
 }
 
-.profile_name {
+.main-profile .profile_name {
    display: inline-block;
-   font-size: 14px;
+   font-size: 16px;
    font-weight: bold;
    color: #000;
-   margin-top:2px;
+   margin-top:7px;
    margin-left: 2px;
 }
+
+.main-profile .like-count {
+	color: #ff0000;
+	font-size:16px;
+}
+
 
 
 
@@ -180,8 +192,9 @@ img.thumb_default {
 
 .main-category hr {
     display: inline-block;
-    width: 80px;
-    color: #000;
+    width: 40px;
+    color: #ed3974;
+    border-top:2px solid #ed3974;
     margin-right: 10px;
     margin: 0 10px 0 0;
     padding-bottom: 7px;
@@ -190,6 +203,12 @@ img.thumb_default {
 
 .main-category h5 {
 	display: inline-block;
+	font-weight:bold;
+	font-size:26px;
+}
+
+.main-category h5 span {
+	color:#ed3974;
 }
 
 /* 인기태그 */
@@ -212,6 +231,18 @@ img.thumb_default {
 	height:455px;
 	background: #eee;
 	float:left;
+	position:relative;
+}
+
+.tag-box02 .img{
+	position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0; 
 }
 
 .tag-top {
@@ -224,6 +255,37 @@ img.thumb_default {
 	content:"";	
 }
 
+.blur {
+	position: relative;
+    height: 100%;
+    background-color: #1a1a1a;
+    opacity: 0.25;
+    z-index: 1;
+}
+
+
+.tags h2 , .tag-box02 h2 {
+	position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+	font-size: 36px; 
+    color:#fff; 
+    font-size:bold; 
+    text-align: center;
+    font-weight:bold; 
+}
+
+.tags h2 {
+	line-height: 220px;
+}
+
+.tag-box02 h2 {
+	line-height: 455px; 
+}
+
 .tags{
 	margin-right : 15px;
 	margin-bottom: 15px;
@@ -231,8 +293,20 @@ img.thumb_default {
 	background: #eee;
 	height: 220px;
 	float:left;
+	overflow: hidden;
+	position: relative;
 	
-	
+}
+
+.tags .img {
+	position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 
 .tag2, .tag3{
@@ -246,18 +320,29 @@ img.thumb_default {
 /* 전체 게시글 폼  */
 
 .all-diary {
-	margin-bottom: 120px; 
+	margin-bottom: 100px; 
 }
 
 #background-img01 {
 	position: absolute;
-	width:860px; 
-	height:480px;
+	width:45%; 
+	padding-bottom:25%;
     top: 245px;
     opacity: 0.4;
     z-index: -50;
-    overflow: hidden;
-    
+    overflow: hidden; 
+    background: #ddd; 
+}
+
+#background-img01 img {
+	
+	position: absolute;
+	top: 0;
+	left: 0; 
+	right: 0; 
+	bottom: 0; 
+	max-width: 100%; 
+	opacity: 0.4;
 }
 
 #background-img02 {
@@ -269,7 +354,7 @@ img.thumb_default {
 
 .diary-box {
 	width: 30%; 
-	height: 400px; 
+	height: auto; 
 	background: #fff; 	
 	float:left; 
 	margin-right:5%; 
@@ -282,8 +367,21 @@ img.thumb_default {
 
 .diary-box .img-box{
 	width:100%; 
-	height:230px; 
+	padding-bottom:60%;
 	background: black;
+	overflow: hidden;
+	position: relative;
+	
+	
+}
+
+.diary-box .img-box img{
+	position: absolute;
+	top:0; 
+	left:0;
+	width:100%; 
+	height:100%; 
+	 
 }
 
 .diary-box .text-box{
@@ -300,6 +398,7 @@ img.thumb_default {
 	color: #aaa; 	
 	font-size:12px;
 }
+
 
 .travel-detail h2 {
 	font-size: 20px; 
