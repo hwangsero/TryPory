@@ -87,7 +87,7 @@ $j(document).ready(function(){
 			data : JSON.stringify(diary_data),
 			success : function(response) {
 				alert("게시글이 등록되었습니다");
-				//location.href= window.ctx + "/diary/" + response;
+				location.href= window.ctx + "/diary/" + response;
 			},
 			error : function(jqXHR) {
 				console.log(jqXHR);

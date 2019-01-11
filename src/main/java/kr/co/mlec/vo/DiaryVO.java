@@ -5,6 +5,7 @@ public class DiaryVO {
 	private int no;
 	private String title;
 	private String content;
+	private String map_content;
 	private String writer;
 	private String cover_image;
 	private String is_share;
@@ -26,6 +27,12 @@ public class DiaryVO {
 	}
 	public void setWriter(String writer) {
 		this.writer = writer;
+	}
+	public String getMap_content() {
+		return map_content;
+	}
+	public void setMap_content(String map_content) {
+		this.map_content = map_content;
 	}
 	public String getTitle() {
 		return title;
@@ -89,10 +96,10 @@ public class DiaryVO {
 	}
 	@Override
 	public String toString() {
-		return "DiaryVO [no=" + no + ", title=" + title + ", content=" + content + ", writer=" + writer
-				+ ", cover_image=" + cover_image + ", is_share=" + is_share + ", endDate=" + end_date + ", startDate="
-				+ start_date + ", tag=" + tag + ", viewCnt=" + viewCnt + ", likeCnt=" + likeCnt + ", registerDate=" + registerDate + "]";
+		return "DiaryVO [no=" + no + ", title=" + title + ", content=" + content + ", map_content=" + map_content
+				+ ", writer=" + writer + ", cover_image=" + cover_image + ", is_share=" + is_share + ", end_date="
+				+ end_date + ", start_date=" + start_date + ", tag=" + tag + ", viewCnt=" + viewCnt + ", likeCnt="
+				+ likeCnt + ", registerDate=" + registerDate + "]";
 	}
-	
 	
 }

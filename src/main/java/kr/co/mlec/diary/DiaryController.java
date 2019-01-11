@@ -42,20 +42,14 @@ public class DiaryController {
 	@GetMapping("/diary/{no}")
 	public ModelAndView SearchDiary(@PathVariable int no) throws Exception {
 		DiaryVO diary = diaryService.selectDiary(no);
-		List<SpotVO> spot_list = spotService.selectDiarySpot(no);
+//		List<SpotVO> spot_list = spotService.selectDiarySpot(no);
 		ModelAndView mav = new ModelAndView("diary/detail_diary_page");
 		String content = diary.getContent();
+		String map_content = diary.getMap_content();
 
 		mav.addObject("diary", diary);
 		mav.addObject("content", content);
-		
-		Gson gson = new Gson();
-		System.out.println(spot_list);
-		String json = gson.toJsonTree(spot_list).toString();
-		mav.addObject("spot_list", json );
-//		mav.addObject("spot_list", spot_list);
-
-
+		mav.addObject("map_content", map_content);
 		
 		return mav;
 	}
@@ -78,7 +72,7 @@ public class DiaryController {
 		List<String> content = new ArrayList<String>();
 		
 		List<List<Object>> map_data = (List<List<Object>>)data.get("map_data");
-		
+		List<String> content_map = new ArrayList<String>();
 		
 		for (int i = 0; i < date_data.size(); i++) { // 일차
 			System.out.println(date_data.get(i));
@@ -87,14 +81,14 @@ public class DiaryController {
 
 			content.add(date_content_str);
 		}
-		
-		///////////////////////////////////////변수////////////////////////////////////
-//		System.out.println(content.toString());
+
+		Gson gson = new Gson();
 		
 		diary.setTag(ListUtil.toString(tag_list));
 		
 		diary.setWriter(writer);
 		diary.setContent(content.toString());
+		diary.setMap_content(gson.toJson(map_data));
 		diary.setTitle((String)post_data.get("title"));
 		diary.setCover_image((String)post_data.get("cover_image"));
 		diary.setIs_share((String)post_data.get("lock"));
@@ -116,11 +110,7 @@ public class DiaryController {
 		
 		for (int m = 0; m < map_data.size(); m++) { // 일차
 			List<Object> map_contents = (List<Object>) map_data.get(m);
-			System.out.println();
-			System.out.println();
 			for (int n = 0; n < map_contents.size(); n++) {
-				System.out.println(m + " : " + n );
-				System.out.println();
 				Map<String, Object> map_content = (Map<String, Object>) map_contents.get(n);
 				SpotVO spot = new SpotVO();
 				spot.setDiary_no(insert_diary_no);

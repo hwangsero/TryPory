@@ -3,7 +3,6 @@
 <script>
 
 $j(document).ready(function() {
-	console.log( JSON.parse('${spot_list}') );
 	replyList()
 	
 	$j('#addBtn').click(function() {
@@ -77,6 +76,8 @@ function replyList() {
 </script>
 <script>
 var detail_data = JSON.parse( JSON.stringify(${content}));
+var map_datas = JSON.parse('${map_content}');
+var maps = [];
 
 console.log(detail_data);
 var start_date = new Date('${diary.start_date}');
@@ -140,21 +141,71 @@ function initialize_map(map_element){
         center: location
     };
     var map = new google.maps.Map(map_element, myOptions);
+    maps.push(map);
     
 }
 
 $j(document).ready(function(){
 	$j("div#write_page_header").css("background-image", "url(" +  window.ctx + "/image/" + '${ diary.cover_image }' + ")");
 	
+	var map_cnt = 1;
 	for (var i = 0; i < content_list.length; i++) {
 		var div = content_list[i];
 		var last_element = $j("div#write_wrap div.container > div").last();
 		$j(last_element).after(div);
 		
 		if( (i - 2) % 3 == 0 ){
-			var map_element = document.getElementById("map" + (i+1) );
+			var map_element = document.getElementById("map" + map_cnt );
 			initialize_map(map_element); // init
+
+			map_event( map_datas[map_cnt-1], map_cnt );
+			map_cnt++;
+			
 		}
+	}
+	
+	function map_event(map_datas, map_cnt){ // 1일차, 2일차, 3일차 ...
+		var marker_pos = [];
+		var poly_pos = [];
+		var map = maps[map_cnt-1];
+		
+		for (var i = 0; i < map_datas.length; i++) { // 일차의 좌표1, 좌표2, 좌표3 ...
+			var map_data = map_datas[i];
+			
+			var myLatlng = new google.maps.LatLng(map_data.lat, map_data.lng);
+			var mapOptions = {
+			  zoom: 4,
+			  center: myLatlng
+			}
+
+			var marker = new google.maps.Marker({
+			    position: myLatlng,
+			    map : map
+			});
+			
+			marker_pos.push(myLatlng);
+			if(marker_pos.length == 2 ){ //  중심좌표 이동
+				var newPosLat = ((marker_pos[0].lat() + marker_pos[1].lat() ) / 2).toFixed(4);
+		        var newPosLng = ((marker_pos[0].lng() + marker_pos[1].lng() ) / 2).toFixed(4);
+		        var newPosition = new google.maps.LatLng(newPosLat, newPosLng);
+		        marker_pos[0] = marker_pos[1];
+		        marker_pos.pop();
+		        map.setCenter(newPosition);
+			} else {
+		        map.setCenter(myLatlng);
+			}
+			
+			poly_pos.push(myLatlng);
+			
+		}
+		var flightPath = new google.maps.Polyline({
+		    path: poly_pos,
+		    strokeColor: "#FF0000",
+		    strokeOpacity: 1.0,
+		    strokeWeight: 2
+		  });
+
+	  	flightPath.setMap(map);
 	}
 	
 	/* 댓글 */
