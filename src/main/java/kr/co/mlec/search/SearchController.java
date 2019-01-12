@@ -26,7 +26,6 @@ public class SearchController {
 	@ResponseBody
 	@RequestMapping("/search/{type}/{word}")
 	public List<String> searchTag(@PathVariable("type") String type, @PathVariable("word") String word) {
-		System.out.println("controller들어옴");
 		List<String> searchList = searchService.selectSearch(type, word);
 		return searchList;
 	}

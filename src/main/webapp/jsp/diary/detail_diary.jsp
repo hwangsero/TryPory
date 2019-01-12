@@ -7,7 +7,7 @@ $j(document).ready(function() {
 	
 	$j('#addBtn').click(function() {
 		var data = {
-				diaryNo : ${diary.no},  //일단 임시로 diaryNo를 1로 해놈
+				diaryNo : ${diary.no},
 				content : $j('#replyContent').val()
 		}
 

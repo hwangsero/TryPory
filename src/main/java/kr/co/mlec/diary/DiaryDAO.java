@@ -1,6 +1,7 @@
 package kr.co.mlec.diary;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,16 @@ public class DiaryDAO implements DiaryDAOInter {
 		return DiaryList;
 	}
 
+	@Override
 	public int insertDiary(DiaryVO diary) {
 		return sqlSession.insert("kr.co.mlec.diary.insertDiary", diary);
+	}
+
+	@Override
+	public List<DiaryVO> selectFiveDiary(Map<String, Object> parameters) {
+		System.out.println(parameters);
+		List<DiaryVO> DiaryList = sqlSession.selectList("kr.co.mlec.diary.selectFiveDiary", parameters);
+		return DiaryList;
 	}
 
 }

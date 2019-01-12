@@ -26,7 +26,13 @@
 		select *
 		from D_diary
 	</select>
-	
+	<select id="selectFiveDiary" resultMap="diaryMap" parameterType="map">
+		<![CDATA[ 
+		select * from (
+			select rownum r, b.* from( select a.* from d_diary a order by no desc) b 
+		) where r >= #{start} and r <= #{end}
+		]]>
+	</select>
 
 	<insert id="insertDiary" parameterType="DiaryVO">
 		insert into d_diary(no, title, content, map_content, writer, end_date, start_date, cover_image, is_share, tag)
