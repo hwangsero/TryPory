@@ -26,6 +26,7 @@
 
 /* 메인 슬라이더  */
 
+
 	
 	.hero-blog-post .main-slide-text-box{
 		width:35%; 
@@ -65,6 +66,31 @@
 
 /* 인기 게시글 */
 
+.main-btn  {
+	
+	width:50px; 
+	height:67px;
+	position: absolute; 
+	z-index: 1000;
+	
+}
+
+.main-btn:hover {
+	cursor: pointer;
+}
+
+.pre{
+	
+	top: 20%;
+	left:0;
+	
+}
+
+.next {
+	top: 20%;
+	right:0;
+}
+
 .favorite-diary {
 	margin-bottom: 120px; 
 }
@@ -72,6 +98,9 @@
 .main-content {
 	position:relative;
 }
+
+
+
 
 #main-img {
 	width: 55%; 
@@ -129,6 +158,8 @@
 
 
 
+
+
 .main-detail {
 	padding:15px 15px 10px; 
 	box-sizing: border-box;
@@ -171,7 +202,7 @@
 }
 
 .main-profile {
-	border-top : 1px solid #aaa; 
+	border-top : 1px solid #ddd; 
 	padding:10px 15px; 
 	box-sizing: border-box;
 	font-size:16px;
@@ -184,6 +215,18 @@
    position: relative;
    vertical-align: top;
    border-radius: 50%;
+}
+
+.travel-like {
+	display: inline-block;	
+}
+
+
+.main-profile .travel-like img {
+	
+	width:30px; 
+	height: 30px;
+	margin-right:5px;
 }
 
 img.thumb_default {
@@ -219,8 +262,12 @@ img.thumb_default {
 }
 
 .main-profile .like-count {
-	color: #ff0000;
+	color: #000;
 	font-size:16px;
+	margin-top: 7px; 
+	font-weight: bold;
+	display: inline-block;
+	
 }
 
 
@@ -370,28 +417,35 @@ img.thumb_default {
 	width:45%; 
 	padding-bottom:25%;
     top: 180px;
-    opacity: 0.4;
     z-index: -50;
-    overflow: hidden; 
-    background: #ddd; 
+    background-color:#eee;
+   
+/*  	background: rgba(0,0,0,0.1); */
 }
 
-#background-img01 img {
-	
-	position: absolute;
-	top: 0;
-	left: 0; 
-	right: 0; 
-	bottom: 0; 
-	max-width: 100%; 
-	opacity: 0.4;
+#bg-img {
+	position:absolute;
+	width:100%; 
+	height:100%; 
+    opacity: 0.4;
+    background-image: url(../img/main/main-img.jpg);
+    background-position:center center;
+    background-size: 150%;
+   
+/*  	background: rgba(0,0,0,0.1); */
 }
+
 
 #background-img02 {
 	position: absolute;
+	width:100%; 
+	padding-bottom: 400px; 
     bottom: 0;
     opacity: 50;
     z-index: -50;
+    background-image: url(../img/main/background-01.jpg);
+    
+/*     background: #eee; */
 }
 
 .diary-box {
@@ -458,10 +512,12 @@ img.thumb_default {
 	margin-right: 3px; 
 	border-radius: 12px;
 	display: inline-block;
+	margin-bottom:5px;
 }
 
 .travel-detail .tag:last-child {
 	margin-right:0; 
+	margin-bottom:0;
 }
 
 .travle-profile {
@@ -516,6 +572,11 @@ img.thumb_default {
 	font-size: 14px; 
 }
 
+.travel-like img {
+	width: 20px;
+	height: 20px;
+}
+
 .all-diary-view {
 }
 
@@ -530,14 +591,15 @@ img.thumb_default {
 
 
 
-@media only screen and (min-width: 1200px) and (max-width: 1800px) {
+@media only screen and (min-width: 1350px) and (max-width: 1800px) {
+	
 	
 	#main-text {
-		margin-top: 20px;
+		margin-top: 10px;
 	
 	}
 	.main-detail {
-		padding:15px 15px 10px; 
+		padding:10px; 
 		box-sizing: border-box;
 	}
 	
@@ -550,12 +612,13 @@ img.thumb_default {
 	.main-detail .travel-point {
 		color: #aaa; 	
 		font-size:13px;
+		float:right;
 	}
 	
 	.main-detail h2 {
-		font-size: 34px; 
+		font-size: 30px; 
 		margin-bottom:5px;
-		line-height:60px;
+		line-height:50px;
 		font-weight: bold;
 	}
 	
@@ -572,10 +635,38 @@ img.thumb_default {
 		bottom: 25px;
 		width: 65%;
 	}
+	
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-		#main-text {
+@media only screen and (min-width: 992px) and (max-width: 1349px) {
+	/* 메인 슬라이더 */
+	.hero-blog-post .main-slide-text-box {
+		width: 40%;
+		padding-left: 4 0px;
+		background: rgba(255, 255, 255, 0.85);
+	}
+	.hero-blog-post .post-content img {
+		width: 85%;
+		margin-bottom: 40px;
+	}
+	.hero-blog-post .post-content .post-meta p {
+		font-size: 26px;
+		font-weight: bold;
+		color: #222;
+		margin-bottom: 0;
+	}
+	.hero-blog-post .post-content .login-btn {
+		display: inline-block;
+		border: 1px solid #000;
+		padding: 10px 20px;
+		font-size: 20px;
+	}
+	.hero-blog-post .post-content .login-btn i {
+		margin-left: 10px;
+	}
+	
+	
+	#main-text {
 		margin-top: 0;
 	
 	}
@@ -596,9 +687,9 @@ img.thumb_default {
 	}
 	
 	.main-detail h2 {
-		font-size: 30px; 
+		font-size: 28px; 
 		margin-bottom:5px;
-		line-height:60px;
+		line-height:45px;
 		font-weight: bold;
 	}
 	
@@ -610,15 +701,75 @@ img.thumb_default {
 	    border-radius: 20px;
 	    display: inline-block;
 	}
+	
+	.main-profile .profile_thumb {
+		width:35px;
+		height:35px;
+		margin-top:2px;
+	}
+	
+	.main-thumb-box{
+		
+		bottom: 20px;
+		width: 65%;
+	}
+	   
+   
+   #background-img01 {
+      width: 47%;
+      padding-bottom: 28%;
+      
+   }
+   
+   #bg-img {
+      background-size: 180%;
+   }
+   
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+	
+	/* 메인 슬라이더 */
+	
+	.hero-blog-post .main-slide-text-box {
+		width: 45%;
+		padding-left: 40px;
+		background: rgba(255, 255, 255, 0.85);
+	}
+	.hero-blog-post .post-content img {
+		width: 85%;
+		margin-bottom: 40px;
+	}
+	.hero-blog-post .post-content .post-meta p {
+		font-size: 22px;
+		font-weight: bold;
+		color: #222;
+		margin-bottom: 0;
+	}
+	.hero-blog-post .post-content .login-btn {
+		display: inline-block;
+		border: 1px solid #000;
+		padding: 10px 20px;
+		font-size: 20px;
+	}
+	.hero-blog-post .post-content .login-btn i {
+		margin-left: 10px;
+	}
+	
+	
+	#main-img {
+		width:46%;
+	}
+	
 	#main-text {
+		width:52%;	
 		margin-top: 0;
 	
 	}
+	
+	
 	.main-detail {
-		padding:15px 15px 10px; 
+		padding:5px; 
 		box-sizing: border-box;
 	}
 	
@@ -634,29 +785,371 @@ img.thumb_default {
 	}
 	
 	.main-detail h2 {
-		font-size: 28px; 
+		font-size: 26px; 
 		margin-bottom:5px;
-		line-height:50px;
+		line-height:40px;
 		font-weight: bold;
 	}
 	
 	.main-detail .tag {
 	    font-size: 12px;
-	    padding: 2px 6px;
+	    padding: 2px 5px;
 	    margin-right: 3px;
-	    margin-bottom: 5px;
+	    margin-bottom: 10px;
 	    border-radius: 20px;
 	    display: inline-block;
 	}
 	
+	.main-profile{
+		padding:5px;
+	}
+	
+	.main-profile .profile_thumb {
+		width:30px;
+		height:30px;
+		margin-top:2px;
+	}
+	
+	.main-profile .profile_name {
+		font-size:14px;
+	}
+	
+	.main-profile .like-count {
+		font-size:14px;
+	}
+	
+	.main-profile .travel-like img {
+		width:25px; 
+		height: 25px;
+	}
+	
 	.main-thumb-box{
-		bottom: 25px;
+		
+		bottom: 15px;
 		width: 65%;
 	}
+	
+	.main-category {
+         margin: 40px 0 20px;
+   }
+   
+   
+   #background-img01 {
+      width: 40%;
+      padding-bottom: 30%;
+      
+   }
+   
+   #bg-img {
+      background-size: 180%;
+   }
+   
 }
 
 @media only screen and (max-width: 767px) {
 	
+	
+	/* 메인슬라이더 */
+	
+	.hero-blog-post .main-slide-text-box {
+		width: 60%;
+		background: rgba(255, 255, 255, 0.75);
+		padding-left: 30px;
+	}
+	
+	.hero-blog-post .post-content img {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	
+	.hero-blog-post .post-content .post-meta p {
+		font-size: 18px;
+		font-weight: bold;
+		color: #222;
+		margin-bottom: 0;
+		display:none;
+	}
+	
+	.hero-blog-post .post-content .login-btn {
+		display: inline-block;
+		border: 1px solid #000;
+		padding: 10px 20px;
+		font-size: 16px;
+	}
+	
+	.hero-blog-post .post-content .login-btn i {
+		margin-left: 10px;
+	}
+	
+	
+	.main-content {
+		width:100%; 
+		margin-top:150px; 
+		box-shadow: -15px 16px 60px 5px rgba(0,0,0, 0.1);
+	}
+	
+	.main-content #main-img{
+		width:100%; 
+		padding-bottom:60%;	
+		box-shadow: 0;
+		box-shadow: -15px 16px 60px 5px rgba(0,0,0, 0);
+	}
+	
+	.main-content #main-img img{
+		width:100%; 
+		height:auto; 
+	}
+	
+	#main-text {
+		margin-top: 20px;
+		width:100%;
+		position: relative;
+	
+	}
+	
+	.main-detail {
+		margin-top: 0px;
+		padding:20px 20px 10px; 
+		box-sizing: border-box;
+	}
+	
+	
+	.main-detail .travel-period {
+		color: #aaa; 	
+		font-size:16px;
+	}
+	
+	.main-detail .travel-point {
+		color: #aaa; 	
+		font-size:16px;
+		float:right;
+	}
+	
+	.main-detail h2 {
+		font-size: 30px; 
+		margin-bottom:5px;
+		line-height:65px;
+		font-weight: bold;
+	}
+	
+	.mb-70 {
+		margin-bottom:0 !important;
+	}
+	
+	.main-thumb:last-child {
+		margin-right:0; 
+	}
+	
+	.main-detail .tag {
+		font-size:14px;
+		padding : 5px 10px; 
+		border:1px solid #ed3974;
+		color: #ed3974; 
+		margin-right: 3px; 
+		margin-bottom: 15px;
+		border-radius: 20px;
+		display: inline-block;
+	}
+	
+	.main-thumb-box{
+		top: -60px;
+		width: 96%;
+		position: absolute;
+		margin: 0 2%;
+		display:none;
+		;
+		 
+	}
+	
+	
+	.main-profile {
+		padding: 20px;
+	}
+	
+	
+	/* 인기태그  */
+	
+	.tag4 , .tag2 {
+		margin-right:0;
+	}
+	
+	.tag2, .tag3 {
+		width: 33%;
+	}
+	
+	.tag-box01 {
+		width:100%;
+		margin-bottom:15px;
+	}
+	
+	.tag-box02 {
+		width:100%; 
+		height: 220px;
+	}
+	
+	.tag-box02 h2 {
+		line-height: 220px; 
+	}
+	
+	/* 전체 게시글 */
+	
+	.diary-box {
+		width:100%; 
+		margin-bottom: 40px;
+		margin-right: 0;
+		border: 1px solid #ddd;
+		 
+	}
+		
+	.travel-detail .travel-period {
+		color: #aaa; 	
+		font-size:15px;
+	}
+	
+	.travel-detail {
+		padding: 15px 20px 10px
+	}
+
+
+	.travel-detail h2 {
+		font-size: 26px; 
+		margin-bottom:5px;
+		line-height:50px;
+		font-weight: bold;
+	}
+	
+	
+	.travel-detail .tag {
+		font-size:14px;
+		padding : 2px 4px; 
+		border:1px solid #ed3974;
+		color: #ed3974; 
+		margin-right: 3px; 
+		border-radius: 20px;
+		display: inline-block;
+		margin-bottom:8px;
+	}
+	
+	.travel-detail .tag:last-child {
+		margin-right:0; 
+		margin-bottom:0;
+	}
+	
+	.travle-profile {
+		border-top : 1px solid #ddd; 
+		padding:15px 20px; 
+		box-sizing: border-box;
+	}
+	
+	.profile_thumb {
+	   width: 40px;
+	   height: 40px;
+	   display: inline-block;
+	   position: relative;
+	   vertical-align: top;
+	   border-radius: 50%;
+	}
+	
+	img.thumb_default {
+	   display: inline-block;
+	   width: 100%;
+	   height: auto;
+	   border-radius: 50%;
+	   vertical-align: top;
+	}
+	
+	.profile_thumb_mask {
+	   width: 100%;
+	   height: 100%;
+	   display: block;
+	   position: absolute;
+	   top: 0;
+	   left: 0;
+	   z-index: 5;
+	   opacity: 0.12;
+	   filter: alpha(opacity = 12);
+	   box-sizing: border-box;
+	   border-radius: 50%;
+	   border: 1px solid #000;
+	}
+	
+	.profile_name {
+	   display: inline-block;
+	   font-size: 16px;
+	   font-weight: bold;
+	   color: #000;
+	   margin-top:8px;
+	   margin-left: 4px;
+	}
+	
+	.travel-like{
+		float:right; 
+		font-size: 16px; 
+/* 		margin-top:3px; */
+	}
+	
+	
+	.travel-like span {
+		display: inline-block;
+		margin-top: 7px; 
+		font-weight: bold;
+	}
+	
+	.travel-like img{
+		width:30px; 
+		height: 30px;
+	}
+	
+	
+	.pre{
+		top: 10%;
+	}
+
+	.next {
+		top: 10%;
+	}
+	
+	
+		
+	#background-img01 {
+		position: absolute;
+		width:100%; 
+		padding-bottom:55%;
+	    top: 150px;
+	    z-index: -50;
+	    background-color:#eee;
+	   
+	/*  	background: rgba(0,0,0,0.1); */
+	}
+	
+	#bg-img {
+		position:absolute;
+		width:100%; 
+		height:100%; 
+	    opacity: 0.4;
+	    background-image: url(../img/main/main-img.jpg);
+	    background-position:center center;
+	    background-size: 190%;
+	   
+	/*  	background: rgba(0,0,0,0.1); */
+	}
+	
+	
+	#background-img02 {
+		position: absolute;
+		width:100%; 
+		padding-bottom:75%;
+	    bottom: 0;
+	    opacity: 50;
+	    z-index: -50;
+	    background-image: url(../img/main/background-01.jpg);
+	    
+	/*     background: #eee; */
+	}
+	
+	
+	
+		
 }
 
 

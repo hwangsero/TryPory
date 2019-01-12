@@ -14,12 +14,30 @@
           			<hr>
             		<h5 class="mb-70"><span>인기</span> 다이어리</h5>
            		</div>
+    
           		<div class="main-content clr">
+          		
+          			
 					<div id ="main-img">
 						<img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
 					</div>
 					
 					<div id ="main-text">
+						<div class="main-thumb-box clr">
+							<div class="main-thumb"> 
+								<img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
+							</div>
+							<div class="main-thumb"> 
+								<img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
+							</div>
+							<div class="main-thumb"> 
+								<img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
+							</div>
+							<div class="main-thumb"> 
+								<img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
+							</div>
+						</div>
+						
 						<div class="main-detail">
 							<span class="travel-period">기간 | 2019.01.01 - 2019.01.10</span>
 							<span class="travel-point">오사카</span>
@@ -28,33 +46,24 @@
 								class="tag">#태그태그</span> <span class="tag">#태그태그</span> <span
 								class="tag">#태그</span>
 						</div>
+						
+						
 						<div class="main-profile">
 							<span class="profile_thumb"> <img class="thumb_default"
-								src="https://img-pholar.pstatic.net/20171231_163/1514678074152X9488_JPEG/miya1220.jpg?type=fn80_80"
+								src="https://	img-pholar.pstatic.net/20171231_163/1514678074152X9488_JPEG/miya1220.jpg?type=fn80_80"
 								onerror="this.src='https://ssl.pstatic.net/static/m/pholar/img/blank.png'"
 								onclick="nclk(this,'sea*t.thumb','','');"> <span
 								class="profile_thumb_mask"></span>
-							</span> <span class="profile_name">최창규</span>
+							</span> 
+							<span class="profile_name">최창규</span>
 							<div class="travel-like">
-								<i class="far fa-heart fa-2x"></i> <span class="like-count">15</span>
+								<img src ="${pageContext.request.contextPath}/assets/img/heart-off.png">
+								<span class="like-count">15</span>
 							</div>
 						</div>
 					</div>
 					
-					<div class="main-thumb-box clr">
-						<div class="main-thumb"> 
-							<img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
-						</div>
-						<div class="main-thumb"> 
-							<img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
-						</div>
-						<div class="main-thumb"> 
-							<img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
-						</div>
-						<div class="main-thumb"> 
-							<img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
-						</div>
-					</div>
+			
 				</div>
            </div>
            
@@ -129,7 +138,8 @@
 									class="profile_thumb_mask"></span>
 								</span> <span class="profile_name">최창규</span>
 								<div class="travel-like">
-									<i class="far fa-heart fa-lg"></i> <span>15</span>
+									<img src ="${pageContext.request.contextPath}/assets/img/heart-off.png">
+									<span>15</span>
 								</div>
 							</div>
 						</div>
@@ -152,7 +162,8 @@
 									class="profile_thumb_mask"></span>
 								</span> <span class="profile_name">최창규</span>
 								<div class="travel-like">
-									<i class="far fa-heart fa-lg"></i> <span>15</span>
+									<img src ="${pageContext.request.contextPath}/assets/img/heart-off.png">
+									<span>15</span>
 								</div>
 							</div>
 						</div>
@@ -168,14 +179,17 @@
 									class="tag">#태그</span>
 							</div>
 							<div class="travle-profile">
-								<span class="profile_thumb"> <img class="thumb_default"
-									src="https://img-pholar.pstatic.net/20171231_163/1514678074152X9488_JPEG/miya1220.jpg?type=fn80_80"
-									onerror="this.src='https://ssl.pstatic.net/static/m/pholar/img/blank.png'"
-									onclick="nclk(this,'sea*t.thumb','','');"> <span
-									class="profile_thumb_mask"></span>
-								</span> <span class="profile_name">최창규</span>
+								<span class="profile_thumb"> 
+									<img class="thumb_default"
+										src="https://img-pholar.pstatic.net/20171231_163/1514678074152X9488_JPEG/miya1220.jpg?type=fn80_80"
+										onerror="this.src='https://ssl.pstatic.net/static/m/pholar/img/blank.png'"
+										onclick="nclk(this,'sea*t.thumb','','');"> 
+									<span class="profile_thumb_mask"></span>
+								</span> 
+								<span class="profile_name">최창규</span>
 								<div class="travel-like">
-									<i class="far fa-heart fa-lg"></i> <span>15</span>
+										<img src ="${pageContext.request.contextPath}/assets/img/heart-off.png">
+										<span>15</span>
 								</div>
 							</div>
 						</div>
@@ -191,13 +205,18 @@
        
 		
 	</div>
+	
+	<img src="${pageContext.request.contextPath}/assets/img/main/pre.png" class="main-btn pre">
+   	<img src="${pageContext.request.contextPath}/assets/img/main/next.png" class="main-btn next">
+   
+	
 	<div id="background-img01">
-		<img
-			src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
+		<div id="bg-img">
+		
+		</div>
 	</div>
+	
 	<div id="background-img02">
-		<img
-			src="${pageContext.request.contextPath}/assets/img/main/background-01.jpg">
 	</div>
 
 </section>
