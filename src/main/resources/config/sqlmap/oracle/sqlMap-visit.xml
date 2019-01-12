@@ -4,10 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.mlec.visit">
 
-	<resultMap type="VisitVO" id="visitMap">
+	<!-- <resultMap type="VisitVO" id="visitMap">
 		<result column="visit_cnt" property="visitCnt"/>
 		<result column="visit_date" property="visitDate"/>
-	</resultMap>
+	</resultMap> -->
 	
 	<select id="selectDiary" resultType="diaryVO" parameterType="int">
 		select no, title, content, writer, cover_image, is_share, end_date, start_date,
