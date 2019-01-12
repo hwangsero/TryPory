@@ -13,6 +13,34 @@
 
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+
+<script>
+
+$(document).ready(function() {
+	
+$('#submitBtn').click(function () {
+	
+	if($('#password').val() == '') {
+		alert('패스워드를 입력해주세요')
+		$('#password').focus();
+		return false;
+	}
+	
+	if($('#passwordChk').val() == '') {
+		alert('패스워드확인을 입력해주세요')
+		$('#passwordChk').focus();
+		return false;
+	}
+	
+	if($('#passwordChk').val() != $('#password').val()) {
+		alert('패스워드가 일치하지 않습니다')
+		$('#passwordChk').focus();
+		return false;
+	}
+	
+})
+})
+</script>
 </head>
 
 <body>
@@ -27,22 +55,25 @@
 		</div>
 		<div class="change_password_form_type2">
 			<div class="change_password_form_type2-1">
+			<form action="${pageContext.request.contextPath }/changePassword" method="post">
+			<input type="hidden" value="${param.email }" name="email">
 				<div class="change_password_form_type2-1_input">
 					<h5>새 비밀번호</h5>
-					<span class="changePW"> <input type="text" size="20"
-						id="changePW" name="changePW" placeholder="">
+					<span class="changePW"> <input type="password" size="20"
+						id="password" name="password" placeholder="">
 					</span>
 
 					<h5>비밀번호 확인</h5>
-					<span class="checkedPW"> <input type="text" size="20"
-						name="checkedPW" id="checkedPW">
+					<span class="checkedPW"> <input type="password" size="20"
+						name="passwordChk" id="passwordChk">
 					</span>
 				</div>
-
+				
 
 				<div class="change_password_form_type2-1_button">
+					<button type="submit" id="submitBtn">확인</button>
 					<button id="backBtn">취소</button>
-					<button>확인</button>
+					</form>
 				</div>
 
 			</div>

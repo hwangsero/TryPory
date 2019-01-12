@@ -55,5 +55,19 @@ public class LoginDAO implements LoginDAOInter{
 		sqlSession.update("kr.co.mlec.login.authUpdate", email);
 	}
 
+	@Override
+	public void changePassword(MemberVO member) {
+		sqlSession.update("kr.co.mlec.login.changePassword", member);
+	}
+
+	@Override
+	public boolean emailCheck(MemberVO member) {
+		int cnt = sqlSession.selectOne("kr.co.mlec.login.emailCheck", member);
+		if(cnt == 1)
+			return true;
+		else
+			return false;
+	}
+
 
 }

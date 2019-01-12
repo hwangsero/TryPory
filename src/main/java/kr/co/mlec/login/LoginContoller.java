@@ -134,5 +134,28 @@ public class LoginContoller {
 		return check;
 
 	}
+	
+	@GetMapping("/findPassword")
+	public String findPW() {
+		return "findPassword/findPassword";
+	}
+	
+	@ResponseBody
+	@PostMapping("/emailCheck")
+	public boolean emailCheck(MemberVO member) {
+		System.out.println(member);
+		boolean emailCheck = loginService.emailCheck(member);
+
+		return emailCheck;
+	}
+	
+	@PostMapping("/changePassword")
+	public String changePW(MemberVO member) {
+		
+		loginService.changePassword(member);
+		return "redirect:/";
+	}
+	
+	
 
 }
