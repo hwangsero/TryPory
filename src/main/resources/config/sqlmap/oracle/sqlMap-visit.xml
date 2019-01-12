@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.mlec.visit">
+
+	<resultMap type="VisitVO" id="visitMap">
+		<result column="visit_cnt" property="visitCnt"/>
+		<result column="visit_date" property="visitDate"/>
+	</resultMap>
+	
+	<select id="selectDiary" resultType="diaryVO" parameterType="int">
+		select no, title, content, writer, cover_image, is_share, end_date, start_date,
+		tag, view_cnt, like_cnt, register_date
+		from D_diary
+		where no = #{no}
+	</select>
+
+	<select id="selectAllDiary" resultMap="diaryMap">
+		select *
+		from D_diary
+	</select>
+	
+
+	<insert id="insertDiary" parameterType="DiaryVO">
+		insert into d_diary(no, title, content, writer, end_date, start_date, cover_image, is_share, tag)
+		values(d_diary_seq.nextval, #{title}, #{content}, #{writer}, #{end_date}, #{start_date}, #{cover_image, jdbcType=VARCHAR}, #{is_share}, #{tag} )
+		<selectKey keyProperty="no" resultType="Integer" order="AFTER"> SELECT d_diary_seq.currval FROM dual </selectKey>
+	</insert>
+
+</mapper>

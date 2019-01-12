@@ -43,5 +43,15 @@ public class LoginService implements LoginServiceInter {
 	public void AuthUpdate(String email) {
 		loginDAO.authUpdate(email);
 	}
+
+	@Override
+	public void changePassword(MemberVO member) {
+		loginDAO.changePassword(member);
+	}
+
+	@Override
+	public boolean emailCheck(MemberVO member) {
+		return loginDAO.emailCheck(member);
+	}
 	
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.mlec.login.LoginService;
@@ -60,5 +61,14 @@ public class MailController {
 		return "이메일 재전송";
 	}
 	
+	@PostMapping("/find/resendEmail")
+	public String findResendEmail(MemberVO vo) throws Exception {
+		MemberVO member = new MemberVO();
+		member.setEmail(vo.getEmail() + "@" +vo.getEmail_domain());
+		System.out.println(member.getEmail());
+		mailService.findSendEmail(member);
+		System.out.println("여기를 못넘어오지?");
+		return "findPassword/findAuthRequest";
+	}
 	
 }

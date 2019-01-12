@@ -58,9 +58,6 @@ function commentList(e) {
 			var page = ''
 			page += '<ul>'
 			
-			console.log(data.pagination.curPage)
-			console.log(data.pagination.curRange)
-			console.log(data.pagination.rangeCnt)
 			
 			if(data.pagination.curPage > 1) {
 				page += '<a class="rangeBtn" name = "1" href="#">'

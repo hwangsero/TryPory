@@ -12,4 +12,6 @@ public interface LoginServiceInter {
 	public MemberVO keyConfirm(String email, String key);
 	public void AuthUpdate(String email);
 	public MemberVO duplCheck(Map<String, Object> parameters);
+	public void changePassword(MemberVO member);
+	public boolean emailCheck(MemberVO member);
 }

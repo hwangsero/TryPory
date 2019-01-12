@@ -37,9 +37,21 @@
 		from d_member
 		where email = #{email} and auth_key = #{auth_key}
 	</select>
+	
 	<update id="authUpdate" parameterType="string">
 		update d_member set is_auth = 1
 		where email = #{email}
 	</update>
+	
+	<update id="changePassword" parameterType="memberVO">
+		update d_member set password = #{password}
+		where email = #{email}
+	</update>
+	
+	<select id="emailCheck" parameterType="memberVO" resultType="int">
+		select count(*)
+		from d_member
+		where email = #{email}
+	</select>
 	
 </mapper>
