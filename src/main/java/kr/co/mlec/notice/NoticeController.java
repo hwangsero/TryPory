@@ -103,12 +103,12 @@ public class NoticeController {
 	
 	@GetMapping("/notice/update/{noticeNo}")
 	public ModelAndView noticeUpdateForm(@PathVariable("noticeNo") int noticeNo) {
-		NoticeVO notice = noticeService.selectByNoNotice(noticeNo);
+		NoticeVO notice = noticeService.selectByNoNotice(noticeNo);	//게시물 번호를 통해 게시물 VO 추출
 		
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("notice",notice);
-		mav.setViewName("notice/notice-update");
-		
+		mav.addObject("notice",notice); //공유영역에 가져온 게시물 VO를 notice란 이름으로 등록하는 과정
+		mav.setViewName("notice/notice-update");	//이 경로로 이동 
+				
 		return mav;
 	}
 	

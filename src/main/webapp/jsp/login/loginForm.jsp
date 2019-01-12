@@ -127,7 +127,7 @@
                       <input id="loginBtn" class="login-btn" type="submit" value="로그인">
                       <input type="checkbox" id="emailSave"> <p>아이디저장</p>
                       <div class="find">
-                         <p><a>아이디/비밀번호 찾기</a></p>
+                         <p><a href="${pageContext.request.contextPath}/findPassword">아이디/비밀번호 찾기</a></p>
                          <p><a href="${pageContext.request.contextPath}/join">회원가입<a/></p>
                       </div>   
                       <div class="login-api-btn">
