@@ -132,19 +132,29 @@ public class DiaryController {
 	}
 
 	@GetMapping("/diary")
-	public ModelAndView DiaryList() {
+	public ModelAndView DiaryList(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
 		// 최신글 5개
+		String keyword = request.getParameter("keyword");
+		String type = request.getParameter("type");
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("start", 1);
 		parameters.put("end", 5);
-		
-		List<DiaryVO> diaryList = diaryService.selectFiveDiary(parameters);
+		List<DiaryVO> diaryList = null;
+		if( keyword != null && type != null) {
+			parameters.put("keyword", keyword);
+			parameters.put("type", type);
+			diaryList = diaryService.selectSearchFiveDiary(parameters);
+			
+			mav.addObject("keyword", keyword);
+			mav.addObject("type", type);
+			System.out.println("검색 결과");
+			System.out.println(diaryList);
+		} else {
+			diaryList = diaryService.selectFiveDiary(parameters);
+		}
 
-		ModelAndView mav = new ModelAndView();
 		mav.setViewName("diary/diaryList");
-		mav.addObject("diaryList", diaryList);
-		System.out.println(diaryList);
-
 		Gson gson = new Gson();
 		mav.addObject("diaryListJ", gson.toJson(diaryList) );
 		return mav;
@@ -155,14 +165,27 @@ public class DiaryController {
 	public List<DiaryVO> DiaryListPlus(HttpServletRequest request) {
 		int start = Integer.parseInt(request.getParameter("start"));
 		int end = Integer.parseInt(request.getParameter("end"));
+		String keyword = request.getParameter("keyword");
+		String type = request.getParameter("type");
 		// 최신글 5개
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("start", start);
 		parameters.put("end", end);
-		List<DiaryVO> diary = diaryService.selectFiveDiary(parameters);
-		System.out.println(diary);
+		System.out.println("ajax");
+		System.out.println(type);
+		System.out.println(keyword);
+		List<DiaryVO> diaryList = null;
+		if( keyword != null && type != null) {
+			parameters.put("keyword", keyword);
+			parameters.put("type", type);
+			diaryList = diaryService.selectSearchFiveDiary(parameters);
+			System.out.println("ajax 검색 결과");
+			System.out.println(diaryList);
+		} else {
+			diaryList = diaryService.selectFiveDiary(parameters);
+		}
 
-		return diary;
+		return diaryList;
 	}
 
 	@GetMapping("/diary/writeForm")

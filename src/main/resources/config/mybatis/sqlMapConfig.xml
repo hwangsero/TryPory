@@ -10,5 +10,6 @@
   	<typeAlias type="kr.co.mlec.vo.CommentVO" alias="commentVO"/>
   	<typeAlias type="kr.co.mlec.vo.TagVO" alias="tagVO"/>
   	<typeAlias type="kr.co.mlec.vo.SpotVO" alias="spotVO"/>
+  	<typeAlias type="kr.co.mlec.vo.SearchVO" alias="searchVO"/>
   </typeAliases>
   </configuration>

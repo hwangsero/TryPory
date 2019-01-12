@@ -55,7 +55,7 @@ $j(document).ready(function(){
 								var images = date_contents[i].images;
 								for (var j = 0; j < images.length; j++) {
 									str += '<div class="img_content">';
-										str += '<img src="${pageContext.request.contextPath}/image/' + images[j].fileName + '" alt="">';
+										str += '<img src="https://i.imgur.com/' + images[j].fileName + '.jpg" alt="">';
 									str += '</div>';
 								}
 							}
@@ -88,13 +88,24 @@ $j(document).ready(function(){
 	$(window).scroll(function() {
 	    if ($(window).scrollTop() == $(document).height() - $(window).height() && !is_scroll )  {
 	    	is_scroll = true;
+	    	var data;
+	    	if( '${keyword}' != '' && '${type}' != '') {
+	    		data = {
+    				start : start,
+	    			end : end,
+	    			keyword : '${keyword}',
+	    			type : '${type}'
+	    		}
+	    	} else {
+	    		data = {
+	    				start : start,
+		    			end : end
+	    		}
+	    	}
 	    	$j.ajax({
 	    		url : '${pageContext.request.contextPath}/diary/list', //일단 임시로 diaryNo를 1로 해놈
 	    		dataType: 'json',
-	    		data : {
-	    			start : start,
-	    			end : end
-	    		},
+	    		data : data,
 	    		success : function(data) {
 	    			if( data != undefined ){
 		    			for (var i = 0; i < data.length; i++) {
@@ -111,12 +122,17 @@ $j(document).ready(function(){
 	
 	/* ///////////////////////////////////////이벤트//////////////////////////////////// */
 	$j("a.diary_tag").click(function(){
-		location.href= window.ctx + '/search/' + $j(this).data('tag');
+		location.href= window.ctx + '/diary?keyword=' + $j(this).data('tag') +'&type=tag';
 	});
 	
 });
 </script>
 <section class="mag-posts-area d-flex flex-wrap tab-content tab-space">
+	<c:if test="${keyword} not empty and ${type} not empty">
+	<div class="search_box">
+		<span class="search_keyword">'${ keyword }'</span>로 검색한 결과입니다
+	</div>
+	</c:if>
 	<div class="diary_container tab-content tab-space">
 		<div class="select_box">
 			<select>

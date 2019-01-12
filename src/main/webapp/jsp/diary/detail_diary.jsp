@@ -113,7 +113,7 @@ $j(detail_data).each(function(date){ // 일차별
 		if( image_list != undefined ){
 			$j(image_list).each(function(image_index){
 				var image_content = $j("<div class='img_content'/>");
-				var img = $j("<img src='${pageContext.request.contextPath}/image/" + image_list[image_index].fileName + "' />");
+				var img = $j("<img src='https://i.imgur.com/" + image_list[image_index].fileName + ".jpg' />");
 				$j(image_content).append(img);
 				$j(image_wrap).append(image_content);
 			});
@@ -146,7 +146,7 @@ function initialize_map(map_element){
 }
 
 $j(document).ready(function(){
-	$j("div#write_page_header").css("background-image", "url(" +  window.ctx + "/image/" + '${ diary.cover_image }' + ")");
+	$j("div#write_page_header").css("background-image", "url(https://i.imgur.com/"  + '${ diary.cover_image }' + ".jpg)");
 	
 	var map_cnt = 1;
 	for (var i = 0; i < content_list.length; i++) {

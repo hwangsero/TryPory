@@ -13,56 +13,68 @@
 	href="<%=request.getContextPath()%>/assets/css/searchPage/searchPage_mobile.css">
 	
 <script>
-
-
-
 $j(document).ready(function(){
 	
-	function search() {
+	function search(type) {
 		$j("div.search-result").find("h2").css("display", "none");
 		$j("div.search-result").find("ul").css("display", "block");
+		
 		var word = $('#searchWord').val();
-		var type = $('.nav-link.active').attr('id')
-		alert(type)
-	$.ajax({
-		url : '${pageContext.request.contextPath}/search/' + type +'/' + word,
-		dataType : 'json',
-		success : function(data) {
-			
-			$('#searchList').empty();
-			var i = 0;
-			$(data).each(function() {
-				console.log(data)
-			var str = '<li class="item_search_wrap">'
-			str += '<div class="item_search">'			
-			str += '<a href="#" class="link_sch_tag" data-search-keyword="오사카">'
-			str += '<span class="sch_tag"><span class="sch_match_up">'+ data[i] +'</span></span>'
-			str += '</a>'
-			str += '</div>'
-			str += '<li>'
-			
-			i++;
-			$('#searchList').append(str);
-			})
-			
-			
-		}, error : function(e) {
-			alert(e)
-		}
-	})
-		}
+		if( type == undefined )
+			var type = $('.nav-link.active').attr('id');
+
+		$.ajax({
+			url : '${pageContext.request.contextPath}/search/' + type +'/' + word,
+			dataType : 'json',
+			success : function(data) {
+				$('#searchList').empty();
+				var i = 0;
+				$(data).each(function() {
+					console.log(data)
+					var str = '<li class="item_search_wrap">'
+					str += '<div class="item_search">'			
+					str += '<a href="#" class="link_sch_tag" data-keyword="'+ data[i].value+  '">'
+					str += '<span class="sch_tag"><span class="sch_match_up">'+ data[i].value +'</span>'
+					str += '<span class="sch_count">' + data[i].count + '</span>';
+					str += '</a>'
+					str += '</div>'
+					str += '<li>'
+					
+					i++;
+					$('#searchList').append(str);
+				});
+				
+			}, error : function(e) {
+				alert(e)
+			}
+		});
+	}
+	
+	$("div.search-result").on("click", "a.link_sch_tag", function(){
+		var type = $('.nav-link.active').attr('id');
+		location.href= window.ctx + "/diary?keyword=" + $(this).data('keyword') + "&type=" + type; 
+	});
 	
 	$j("input[name=searchWord]").on('keyup', function(event){
-    	if(event.keyCode == 13 && $j(event.target).val().trim() != '') { // 스페이스바 입력시
+    	//if(event.keyCode == 13 && $j(event.target).val().trim() != '') { // 스페이스바 입력시
+    	if( $j(event.target).val().trim() != '') { // 스페이스바 입력시
     		search();
-    	};
+    	}
+    //  }
 	});
 	
 	$('#searchBtn').click(function() {
 		search();
-	})
+	});
+	if( '${search_value}' != '' ){
+		$('#searchWord').val('${search_value}');
+		search();
+	} else
+		$j("div.search-result").find("h2").css("display", "block");
 	
-	
+	$j(".nav-link").click(function(){
+		search($j(this).attr('id'));
+	});
 });
 </script>
 </head>
@@ -94,20 +106,8 @@ $j(document).ready(function(){
     <!--검색 결과-->
     <div class="search-frame">
         <div class="search-result">
-	        <h2>검색해주세요</h2>
+	        <h2 style="display:none;">검색해주세요</h2>
         	<ul id="searchList" class="list_search_wrap" style="display:none;">
-        	
-        	
-        		<!-- <li class="item_search_wrap">
-        			<div class="item_search">
-						<a href="#" class="link_sch_tag" data-search-keyword="오사카" ">
-							<span class="sch_tag"><span class="sch_match_up">오사카</span></span>
-							<span class="sch_count">14719</span>
-						</a>
-					</div>
-        		</li> -->
-        		
-        		
         	</ul>
         </div>
     </div>

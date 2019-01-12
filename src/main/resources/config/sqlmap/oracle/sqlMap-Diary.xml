@@ -27,11 +27,32 @@
 		from D_diary
 	</select>
 	<select id="selectFiveDiary" resultMap="diaryMap" parameterType="map">
-		<![CDATA[ 
 		select * from (
-			select rownum r, b.* from( select a.* from d_diary a order by no desc) b 
-		) where r >= #{start} and r <= #{end}
-		]]>
+			select rownum r, b.* from( select a.* from d_diary a
+			 
+			order by no desc) b 
+		) where r <![CDATA[>=]]> #{start} and r <![CDATA[<=]]> #{end}
+	</select>
+	<select id="selectSearchFiveDiary" resultMap="diaryMap" parameterType="map">
+		<choose>
+			<when test= 'type.equals("tag")'>
+			select * from (
+			    select rownum r, b.* from( 
+			        select t.tag_name, d.* from d_tag t, d_diary d
+			        where t.diary_no = d.no
+			        and t.tag_name = #{keyword}
+			    order by no desc) b 
+			) where r <![CDATA[>=]]> #{start} and r <![CDATA[<=]]> #{end}
+			</when>	
+			
+			<when test= 'type.equals("writer")'>
+			select * from (
+				select rownum r, b.* from( select a.* from d_diary a
+				 where writer = #{keyword}
+				order by no desc) b 
+			) where r <![CDATA[>=]]> #{start} and r <![CDATA[<=]]> #{end}
+			</when>	
+		</choose>
 	</select>
 
 	<insert id="insertDiary" parameterType="DiaryVO">

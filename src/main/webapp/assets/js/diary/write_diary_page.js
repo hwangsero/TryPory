@@ -5,7 +5,7 @@ $j(document).ready(function(){
 	var first_date;
 	var diary_data = new Object();
 	
-	var upload_data = [];
+	var upload_datas = [];
 	var post_data = new Object();
 	post_data.tag = [];
 	
@@ -178,33 +178,53 @@ $j(document).ready(function(){
 			var date_wrap = $j(e.target).closest("#date_wrap");
 			var date_count = date_wrap.prevAll('#date_wrap').length;
 			var upload_form_count = $j(e.target).closest(".content_box").prevAll(".content_box").length; 
-			
-			formdata = new FormData();
+//			
+//			formdata = new FormData();
 			if (files.length != 0) {
 	            for (var i = 0; i < files.length; i++) {
-	                formdata.append(files[i].name, files[i]);
+//	                formdata.append(files[i].name, files[i]);
+	                $j.ajax({
+	                	url : 'https://api.imgur.com/3/image/',
+	                	type : 'POST',
+	                	beforeSend : function(xhr){
+	                        xhr.setRequestHeader("Authorization", "Client-ID 8e2dd2fc483ae1e");
+	                    },
+	                	data : files[i],
+	                	processData: false,
+	                	async : false,
+	                	success : function(response){
+	                		if( response.success ) {
+	                			var upload_data = new Object();
+	                			upload_data.origName = files[i].name;
+	                			upload_data.fileName = response.data.id;
+	                			
+	                			upload_datas.push(upload_data);
+	                		}
+	                		
+	                	}
+	                });
 	            }
 
-	            $j.ajax({
-	    			url : window.ctx + '/upload',
-	    			type: 'POST',
-					data : formdata,
-					cache : false,
-					processData : false,
-					contentType : false,
-					async : false,
-					success : function(response) {
-						var data = JSON.parse(response);
-						upload_data = upload_data.concat(data);
-//						console.log(data);
-
-//						date_data[date_count][upload_form_count].images = data;
-					},
-					error : function(jqXHR) {
-						console.log('error');
-					}
-	
-				});
+//	            $j.ajax({
+//	    			url : window.ctx + '/upload',
+//	    			type: 'POST',
+//					data : formdata,
+//					cache : false,
+//					processData : false,
+//					contentType : false,
+//					async : false,
+//					success : function(response) {
+//						var data = JSON.parse(response);
+//						upload_datas = upload_datas.concat(data);
+////						console.log(data);
+//
+////						date_data[date_count][upload_form_count].images = data;
+//					},
+//					error : function(jqXHR) {
+//						console.log('error');
+//					}
+//	
+//				});
 			}
 //			console.log(files);
 			
@@ -380,8 +400,8 @@ $j(document).ready(function(){
 			var date_wrap_cnt = $j(img).closest("#date_wrap").prevAll("#date_wrap").length;
 			var img_row_cnt = $j(img).closest("div.content_box").prevAll("div.content_box").length;
 			
-			for (var j = 0; j < upload_data.length; j++) {
-				var upload_img = upload_data[j];
+			for (var j = 0; j < upload_datas.length; j++) {
+				var upload_img = upload_datas[j];
 				if(file.name == upload_img.origName){
 					if(date_data[date_wrap_cnt].content[img_row_cnt] == undefined){
 						date_data[date_wrap_cnt].content[img_row_cnt] = new Object();
@@ -390,7 +410,7 @@ $j(document).ready(function(){
 					date_data[date_wrap_cnt].content[img_row_cnt].images.push(upload_img);
 					
 					if( i == 0) {
-						$j("div#write_page_header").css("background-image", "url(" +  window.ctx + "/image/" + upload_img.fileName + ")");
+						$j("div#write_page_header").css("background-image", "url(https://i.imgur.com/" + upload_img.fileName + ".jpg)");
 						post_data.cover_image = upload_img.fileName;
 					}
 					break;

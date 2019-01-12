@@ -33,4 +33,10 @@ public class DiaryService implements DiaryServiceInter{
 	public int insertDiary(DiaryVO diary) {
 		return diaryDAO.insertDiary(diary);
 	}
+	
+	@Override
+	public List<DiaryVO> selectSearchFiveDiary(Map<String, Object> parameters) {
+		List<DiaryVO> diaryList = diaryDAO.selectSearchFiveDiary(parameters);
+		return diaryList;
+	}
 }

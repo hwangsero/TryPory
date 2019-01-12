@@ -34,8 +34,12 @@ public class DiaryDAO implements DiaryDAOInter {
 
 	@Override
 	public List<DiaryVO> selectFiveDiary(Map<String, Object> parameters) {
-		System.out.println(parameters);
 		List<DiaryVO> DiaryList = sqlSession.selectList("kr.co.mlec.diary.selectFiveDiary", parameters);
+		return DiaryList;
+	}
+
+	public List<DiaryVO> selectSearchFiveDiary(Map<String, Object> parameters) {
+		List<DiaryVO> DiaryList = sqlSession.selectList("kr.co.mlec.diary.selectSearchFiveDiary", parameters);
 		return DiaryList;
 	}
 
