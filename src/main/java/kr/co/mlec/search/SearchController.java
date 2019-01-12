@@ -1,6 +1,9 @@
 package kr.co.mlec.search;
 
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.mlec.vo.DiaryVO;
+import kr.co.mlec.vo.SearchVO;
 
 @Controller
 public class SearchController {
@@ -19,15 +23,21 @@ public class SearchController {
 	SearchService searchService;
 	
 	@RequestMapping("/search")
-	public String search() {
-		return "search/search-tag";
+	public ModelAndView search(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		if( request.getParameter("value") != null ) { // 태그 클릭해서 들어오는 경우
+			mav.addObject("search_value", request.getParameter("value"));
+		}
+		
+		mav.setViewName("search/search-tag");
+		return mav;
 	}
 	
 	@ResponseBody
 	@RequestMapping("/search/{type}/{word}")
-	public List<String> searchTag(@PathVariable("type") String type, @PathVariable("word") String word) {
-		System.out.println("controller들어옴");
-		List<String> searchList = searchService.selectSearch(type, word);
+	public List<SearchVO> searchTag(@PathVariable("type") String type, @PathVariable("word") String word) {
+		List<SearchVO> searchList = searchService.selectSearch(type, word);
+		System.out.println(searchList);
 		return searchList;
 	}
 	
@@ -40,7 +50,6 @@ public class SearchController {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("diary", diary);
-//		mav.setViewName("");
 		
 		return mav;
 	}

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.mlec.vo.DiaryVO;
+import kr.co.mlec.vo.SearchVO;
 
 @Service
 public class SearchService implements SearchServiceInter{
@@ -31,7 +32,7 @@ public class SearchService implements SearchServiceInter{
 	}
 
 	@Override
-	public List<String> selectSearch(String type, String word) {
+	public List<SearchVO> selectSearch(String type, String word) {
 		Map<String, String> search = new HashMap<>();
 		search.put("type", type);
 		search.put("word", word);

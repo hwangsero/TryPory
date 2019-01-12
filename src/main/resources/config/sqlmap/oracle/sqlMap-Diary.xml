@@ -16,7 +16,7 @@
 	</resultMap>
 	
 	<select id="selectDiary" resultType="diaryVO" parameterType="int">
-		select no, title, content, writer, cover_image, is_share, end_date, start_date,
+		select no, title, content, map_content, writer, cover_image, is_share, end_date, start_date,
 		tag, view_cnt, like_cnt, register_date
 		from D_diary
 		where no = #{no}
@@ -26,11 +26,38 @@
 		select *
 		from D_diary
 	</select>
-	
+	<select id="selectFiveDiary" resultMap="diaryMap" parameterType="map">
+		select * from (
+			select rownum r, b.* from( select a.* from d_diary a
+			 
+			order by no desc) b 
+		) where r <![CDATA[>=]]> #{start} and r <![CDATA[<=]]> #{end}
+	</select>
+	<select id="selectSearchFiveDiary" resultMap="diaryMap" parameterType="map">
+		<choose>
+			<when test= 'type.equals("tag")'>
+			select * from (
+			    select rownum r, b.* from( 
+			        select t.tag_name, d.* from d_tag t, d_diary d
+			        where t.diary_no = d.no
+			        and t.tag_name = #{keyword}
+			    order by no desc) b 
+			) where r <![CDATA[>=]]> #{start} and r <![CDATA[<=]]> #{end}
+			</when>	
+			
+			<when test= 'type.equals("writer")'>
+			select * from (
+				select rownum r, b.* from( select a.* from d_diary a
+				 where writer = #{keyword}
+				order by no desc) b 
+			) where r <![CDATA[>=]]> #{start} and r <![CDATA[<=]]> #{end}
+			</when>	
+		</choose>
+	</select>
 
 	<insert id="insertDiary" parameterType="DiaryVO">
-		insert into d_diary(no, title, content, writer, end_date, start_date, cover_image, is_share, tag)
-		values(d_diary_seq.nextval, #{title}, #{content}, #{writer}, #{end_date}, #{start_date}, #{cover_image, jdbcType=VARCHAR}, #{is_share}, #{tag} )
+		insert into d_diary(no, title, content, map_content, writer, end_date, start_date, cover_image, is_share, tag)
+		values(d_diary_seq.nextval, #{title}, #{content}, #{map_content}, #{writer}, #{end_date}, #{start_date}, #{cover_image, jdbcType=VARCHAR}, #{is_share}, #{tag} )
 		<selectKey keyProperty="no" resultType="Integer" order="AFTER"> SELECT d_diary_seq.currval FROM dual </selectKey>
 	</insert>
 

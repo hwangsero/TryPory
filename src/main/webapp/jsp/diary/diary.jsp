@@ -1,212 +1,147 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<div class="search_box">
-	<span class="search_keyword">#오사카</span>로 검색한 결과입니다
-	<div class="search_categories">
-		<ul class="nav nav-pills nav-pills-icons justify-content-center"
-			role="tablist">
-			<li class="nav-item">
-				<a class="nav-link active" href="#lately" role="tab" data-toggle="tab">여행기</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#pop"	role="tab" data-toggle="tab">작성자</a>
-			</li>
-		</ul>
-	</div>
-</div>
-<section class="mag-posts-area d-flex flex-wrap tab-content tab-space">
-	<div class="diary_container tab-content tab-space">
-	<div class="select_box">
-		<select>
-			<option value="최신순" selected="selected">최신순</option>
-			<option value="인기순">인기순</option>
-		</select>
-	</div>
-	<div class="tab-pane active" id="lately">
-		<div class="diary_post">
-			<div class="profile_area">
-		        <div class="profile_wrap">
-		            <a href="/my/4550316/profile" class="link_profile" title="계정 상세페이지" data-persist-component="unique_idx2" onclick="nclk(this,'sea*t.profile','','');">
-		                <span class="profile_thumb">
-		                    <img class="thumb_default" src="https://img-pholar.pstatic.net/20171231_163/1514678074152X9488_JPEG/miya1220.jpg?type=fn80_80" onerror="this.src='https://ssl.pstatic.net/static/m/pholar/img/blank.png'" onclick="nclk(this,'sea*t.thumb','','');">
-		                    <span class="profile_thumb_mask"></span>
-		                </span>
-		                <span class="profile_name">최창규</span>
-		                <em class="data_date">2일 전</em>
-		            </a>
-		            
-	                <span class="location">
-	                    <a href="/gallery/location?code=ChIJ3eA7J_DdAGARil7_EwUaR_I&amp;name=%ED%95%98%EB%A3%A8%EC%B9%B4%EC%8A%A4%20300" onclick="nclk(this,'sea.location','','');">
-	                       <i class="fas fa-map-marker-alt location_name"></i>하루카스 300
-	                    </a>
-	                </span>
-		        </div>
-		    </div>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script>
+$j(document).ready(function(){
+	var list_wrap = $j("div.tab-pane.active");
+	var diaryList = ${diaryListJ}; 
+	var is_scroll = false; // 무한스크롤 로딩 중인지
 	
-			<div class="trending-now-posts mb-30 img_posts">
-				<div style="margin-bottom: 10px; font-size: 20px;">
-					<h5>오사카 여행 일지</h5>
-					<b>#오사카 #하루카스300 #ハルカス300</b>
-				</div>
-				
-				<div class="trending-posts img_wrap clr">
-					<div class="img_content">
-						<img src="${pageContext.request.contextPath}/assets/img/bg-img/19.jpg"
-							alt="">
-					</div>
-					<div class="img_content">
-						<img src="${pageContext.request.contextPath}/assets/img/bg-img/20.jpg"
-							alt="">
-					</div>
-					<div class="img_content">
-						<img src="${pageContext.request.contextPath}/assets/img/bg-img/21.jpg"
-							alt="">
-					</div>
-					<div class="img_content">
-						<img src="${pageContext.request.contextPath}/assets/img/bg-img/22.jpg"
-							alt="">
-					</div>
-					<div class="img_content plus_content">
-						<img src="${pageContext.request.contextPath}/assets/img/bg-img/22.jpg"
-							alt="">
-						<div class="post-content" style="text-align: center">
-							<a href="video-post.html" class="post-title">+3</a>
-						</div>
-					</div>
-				</div>
-				
-				<div class="img_snsBtn">
-					<div class="heart">
-						<i class="far fa-heart fa-2x"></i> 
-						<span>30</span>
-					</div>
-					<div class="comment">
-						<i class="far fa-comment-dots fa-2x"></i> 
-						<span>5</span>
-					</div>
-				</div>
-			</div>
-		</div>
+	/* ///////////////////////////////////////다이어리 불러오기//////////////////////////////////// */
+	function append_diary(diary){
+		console.log(diary);
 		
-		<div class="diary_post">
-			<div class="profile_area">
-		        <div class="profile_wrap">
-		            <a href="/my/4550316/profile" class="link_profile" title="계정 상세페이지" data-persist-component="unique_idx2" onclick="nclk(this,'sea*t.profile','','');">
-		                <span class="profile_thumb">
-		                    <img class="thumb_default" src="https://img-pholar.pstatic.net/20171231_163/1514678074152X9488_JPEG/miya1220.jpg?type=fn80_80" onerror="this.src='https://ssl.pstatic.net/static/m/pholar/img/blank.png'" onclick="nclk(this,'sea*t.thumb','','');">
-		                    <span class="profile_thumb_mask"></span>
-		                </span>
-		                <span class="profile_name">최창규</span>
-		                <em class="data_date">2일 전</em>
-		            </a>
-		            
-	                <span class="location">
-	                    <a href="/gallery/location?code=ChIJ3eA7J_DdAGARil7_EwUaR_I&amp;name=%ED%95%98%EB%A3%A8%EC%B9%B4%EC%8A%A4%20300" onclick="nclk(this,'sea.location','','');">
-	                       <i class="fas fa-map-marker-alt location_name"></i>하루카스 300
-	                    </a>
-	                </span>
-		        </div>
-		    </div>
+		 var str = '<div class="diary_post">';
+				str += '<div class="profile_area">';
+					str += '<div class="profile_wrap">';
+						str += '<a href="/my/4550316/profile" class="link_profile" title="계정 상세페이지">';
+							str += '<span class="profile_thumb">';
+								str += '<img class="thumb_default" src="https://img-pholar.pstatic.net/20171231_163/1514678074152X9488_JPEG/miya1220.jpg?type=fn80_80">';
+								str += '<span class="profile_thumb_mask"></span>';
+							str += '</span>';
+							str += '<span class="profile_name">' + diary.writer + '</span>';
+							str += '<em class="data_date">2일 전</em>';
+						str += '</a>';
+	        
+						str += '<span class="location">';
+							str += '<a href="/gallery/location?code=ChIJ3eA7J_DdAGARil7_EwUaR_I&amp;name=%ED%95%98%EB%A3%A8%EC%B9%B4%EC%8A%A4%20300">';
+								str += '<i class="fas fa-map-marker-alt location_name"></i>하루카스 300';
+							str += '</a>';
+						str += '</span>';
+					str += '</div>';
+				str += '</div>';
 	
-			<div class="trending-now-posts mb-30 img_posts">
-				<div style="margin-bottom: 10px; font-size: 20px;">
-					<h5>오사카 여행 일지</h5>
-					<b>#오사카 #하루카스300 #ハルカス300</b>
-				</div>
-				
-				<div class="trending-posts img_wrap clr">
-					<div class="img_content">
-						<img src="${pageContext.request.contextPath}/assets/img/bg-img/19.jpg"
-							alt="">
-					</div>
-					<div class="img_content">
-						<img src="${pageContext.request.contextPath}/assets/img/bg-img/20.jpg"
-							alt="">
-					</div>
-					<div class="img_content">
-						<img src="${pageContext.request.contextPath}/assets/img/bg-img/21.jpg"
-							alt="">
-					</div>
-				
-					<div class="img_content plus_content">
-						<img src="${pageContext.request.contextPath}/assets/img/bg-img/22.jpg"
-							alt="">
-						<div class="post-content" style="text-align: center">
-							<a href="video-post.html" class="post-title">+3</a>
-						</div>
-					</div>
-				</div>
-				<div class="img_snsBtn">
-					<div class="heart">
-						<i class="far fa-heart fa-2x"></i> 
-						<span>30</span>
-					</div>
-					<div class="comment">
-						<i class="far fa-comment-dots fa-2x"></i> 
-						<span>5</span>
-					</div>
-				</div>
-			</div>
-		</div>
+				str += '<div class="trending-now-posts mb-30 img_posts">';
+					str += '<div style="margin-bottom: 10px; font-size: 20px;">';
+						str += '<h5>' + diary.title + '</h5>';
+						var tags = diary.tag;
+						if(tags != undefined) {
+							str += '<b>'; 
+							tags = tags.split(', ');
+							for (var i = 0; i < tags.length; i++) {
+								var tag = tags[i];
+								str += '<a href="#" class="diary_tag" data-tag="' + tag + '">#'+ tag + '</a>';
+							}
+						
+							str += '</b>';
+						}
+					str += '</div>';
+		
+					str += '<div class="trending-posts img_wrap clr">';
+						var img_contents = JSON.parse(diary.content);
+						$j(img_contents).each(function(date_index){
+							var date_contents = img_contents[date_index].content;
+							for (var i = 0; i < date_contents.length; i++) {
+								var images = date_contents[i].images;
+								for (var j = 0; j < images.length; j++) {
+									str += '<div class="img_content">';
+										str += '<img src="https://i.imgur.com/' + images[j].fileName + '.jpg" alt="">';
+									str += '</div>';
+								}
+							}
+						});
+						
+					str += '</div>';
+		
+					str += '<div class="img_snsBtn">';
+						str += '<div class="heart">';
+							str += '<i class="far fa-heart fa-2x"></i>'; 
+							str += '<span>30</span>';
+						str += '</div>';
+						str += '<div class="comment">';
+							str += '<i class="far fa-comment-dots fa-2x"></i>'; 
+							str += '<span>5</span>';
+						str += '</div>';
+					str += '</div>'
+				str += '</div>';
+			str += '</div>';
+			
+		list_wrap.append(str);
+	}
+	
+	for (var i = 0; i < diaryList.length; i++) {
+		append_diary( diaryList[i] );
+	}
+	/* ///////////////////////////////////////무한스크롤//////////////////////////////////// */
+	var start = 6;
+	var end = 10;
+	$(window).scroll(function() {
+	    if ($(window).scrollTop() == $(document).height() - $(window).height() && !is_scroll )  {
+	    	is_scroll = true;
+	    	var data;
+	    	if( '${keyword}' != '' && '${type}' != '') {
+	    		data = {
+    				start : start,
+	    			end : end,
+	    			keyword : '${keyword}',
+	    			type : '${type}'
+	    		}
+	    	} else {
+	    		data = {
+	    				start : start,
+		    			end : end
+	    		}
+	    	}
+	    	$j.ajax({
+	    		url : '${pageContext.request.contextPath}/diary/list', //일단 임시로 diaryNo를 1로 해놈
+	    		dataType: 'json',
+	    		data : data,
+	    		success : function(data) {
+	    			if( data != undefined ){
+		    			for (var i = 0; i < data.length; i++) {
+		    				append_diary( data[i] );
+		    			}
+		    			start += 5;
+		    			end += 5;
+	    			}
+	    		}
+	      	});
+	      	is_scroll = false;
+	    }
+	});
+	
+	/* ///////////////////////////////////////이벤트//////////////////////////////////// */
+	$j("a.diary_tag").click(function(){
+		location.href= window.ctx + '/diary?keyword=' + $j(this).data('tag') +'&type=tag';
+	});
+	
+});
+</script>
+<section class="mag-posts-area d-flex flex-wrap tab-content tab-space">
+	<c:if test="${keyword} not empty and ${type} not empty">
+	<div class="search_box">
+		<span class="search_keyword">'${ keyword }'</span>로 검색한 결과입니다
 	</div>
-	
-	<!-- pop -->
-	<div class="tab-pane" id="pop">
-		<div class="diary_post">
-			<div class="profile_area">
-		        <div class="profile_wrap">
-		            <a href="/my/4550316/profile" class="link_profile" title="계정 상세페이지" data-persist-component="unique_idx2" onclick="nclk(this,'sea*t.profile','','');">
-		                <span class="profile_thumb">
-		                    <img class="thumb_default" src="https://img-pholar.pstatic.net/20171231_163/1514678074152X9488_JPEG/miya1220.jpg?type=fn80_80" onerror="this.src='https://ssl.pstatic.net/static/m/pholar/img/blank.png'" onclick="nclk(this,'sea*t.thumb','','');">
-		                    <span class="profile_thumb_mask"></span>
-		                </span>
-		                <span class="profile_name">오사카</span>
-		                <em class="data_date">2일 전</em>
-		            </a>
-		            
-	                <span class="location">
-	                    <a href="/gallery/location?code=ChIJ3eA7J_DdAGARil7_EwUaR_I&amp;name=%ED%95%98%EB%A3%A8%EC%B9%B4%EC%8A%A4%20300" onclick="nclk(this,'sea.location','','');">
-	                       <i class="fas fa-map-marker-alt location_name"></i>하루카스 300
-	                    </a>
-	                </span>
-		        </div>
-		    </div>
-	
-			<div class="trending-now-posts mb-30 img_posts">
-				<div style="margin-bottom: 10px; font-size: 20px;">
-					<h5>오사카가 여행갔다온 이야기</h5>
-					<b>#유럽 #유럽여행</b>
-				</div>
-				
-				<div class="trending-posts img_wrap clr">
-					<div class="img_content">
-						<img src="${pageContext.request.contextPath}/assets/img/bg-img/19.jpg"
-							alt="">
-					</div>
-					<div class="img_content">
-						<img src="${pageContext.request.contextPath}/assets/img/bg-img/20.jpg"
-							alt="">
-					</div>
-					<div class="img_content plus_content">
-						<img src="${pageContext.request.contextPath}/assets/img/bg-img/22.jpg"
-							alt="">
-						<div class="post-content" style="text-align: center">
-							<a href="video-post.html" class="post-title">+3</a>
-						</div>
-					</div>
-				</div>
-				<div class="img_snsBtn">
-					<div class="heart">
-						<i class="far fa-heart fa-2x"></i> 
-						<span>30</span>
-					</div>
-					<div class="comment">
-						<i class="far fa-comment-dots fa-2x"></i> 
-						<span>5</span>
-					</div>
-				</div>
-			</div>
+	</c:if>
+	<div class="diary_container tab-content tab-space">
+		<div class="select_box">
+			<select>
+				<option value="최신순" selected="selected">최신순</option>
+				<option value="인기순">인기순</option>
+			</select>
 		</div>
-	</div>
+		<div class="tab-pane active" id="lately">
+			
+		</div>
 	</div>
 </section>

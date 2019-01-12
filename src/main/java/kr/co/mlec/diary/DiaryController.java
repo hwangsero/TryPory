@@ -5,16 +5,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -38,35 +37,29 @@ public class DiaryController {
 	private TagService tagService;
 	@Autowired
 	private SpotService spotService;
-	
+
 	@GetMapping("/diary/{no}")
 	public ModelAndView SearchDiary(@PathVariable int no) throws Exception {
 		DiaryVO diary = diaryService.selectDiary(no);
-		List<SpotVO> spot_list = spotService.selectDiarySpot(no);
+//		List<SpotVO> spot_list = spotService.selectDiarySpot(no);
 		ModelAndView mav = new ModelAndView("diary/detail_diary_page");
 		String content = diary.getContent();
+		String map_content = diary.getMap_content();
 
 		mav.addObject("diary", diary);
 		mav.addObject("content", content);
-		
-		Gson gson = new Gson();
-		System.out.println(spot_list);
-		String json = gson.toJsonTree(spot_list).toString();
-		mav.addObject("spot_list", json );
-//		mav.addObject("spot_list", spot_list);
+		mav.addObject("map_content", map_content);
 
-
-		
 		return mav;
 	}
-	
+
 	@PostMapping("/diary")
 	@ResponseBody
-	public int addDiary(@RequestBody Map<String, Object> data, HttpSession session ) throws Exception {
+	public int addDiary(@RequestBody Map<String, Object> data, HttpSession session) throws Exception {
 		DiaryVO diary = new DiaryVO();
-		MemberVO member = (MemberVO)session.getAttribute("userVO");
+		MemberVO member = (MemberVO) session.getAttribute("userVO");
 		String writer;
-		if( member != null) {
+		if (member != null) {
 			writer = member.getEmail();
 		} else {
 			writer = "Test";
@@ -74,12 +67,12 @@ public class DiaryController {
 		Map<String, Object> post_data = (Map<String, Object>) data.get("post_data");
 		List<String> tag_list = (List<String>) post_data.get("tag");
 
-		List<List<Object>> date_data = (List<List<Object>>)data.get("date_data");
+		List<List<Object>> date_data = (List<List<Object>>) data.get("date_data");
 		List<String> content = new ArrayList<String>();
-		
-		List<List<Object>> map_data = (List<List<Object>>)data.get("map_data");
-		
-		
+
+		List<List<Object>> map_data = (List<List<Object>>) data.get("map_data");
+		List<String> content_map = new ArrayList<String>();
+
 		for (int i = 0; i < date_data.size(); i++) { // 일차
 			System.out.println(date_data.get(i));
 			Map<String, Object> date_content = (Map<String, Object>) date_data.get(i);
@@ -87,82 +80,122 @@ public class DiaryController {
 
 			content.add(date_content_str);
 		}
-		
-		///////////////////////////////////////변수////////////////////////////////////
-//		System.out.println(content.toString());
-		
+
+		Gson gson = new Gson();
+
 		diary.setTag(ListUtil.toString(tag_list));
-		
+
 		diary.setWriter(writer);
 		diary.setContent(content.toString());
-		diary.setTitle((String)post_data.get("title"));
-		diary.setCover_image((String)post_data.get("cover_image"));
-		diary.setIs_share((String)post_data.get("lock"));
-		diary.setStart_date((String)post_data.get("start_date"));
-		diary.setEnd_date((String)post_data.get("end_date"));
+		diary.setMap_content(gson.toJson(map_data));
+		diary.setTitle((String) post_data.get("title"));
+		diary.setCover_image((String) post_data.get("cover_image"));
+		diary.setIs_share((String) post_data.get("lock"));
+		diary.setStart_date((String) post_data.get("start_date"));
+		diary.setEnd_date((String) post_data.get("end_date"));
 
 		System.out.println(diary);
 
 		diaryService.insertDiary(diary);
-		
+
 		int insert_diary_no = diary.getNo();
-		
+
 		for (int i = 0; i < tag_list.size(); i++) { // 태그 등록
 			TagVO tag = new TagVO();
 			tag.setTag_name(tag_list.get(i));
 			tag.setDiary_no(insert_diary_no);
 			tagService.insertTag(tag);
 		}
-		
+
 		for (int m = 0; m < map_data.size(); m++) { // 일차
 			List<Object> map_contents = (List<Object>) map_data.get(m);
-			System.out.println();
-			System.out.println();
 			for (int n = 0; n < map_contents.size(); n++) {
-				System.out.println(m + " : " + n );
-				System.out.println();
 				Map<String, Object> map_content = (Map<String, Object>) map_contents.get(n);
 				SpotVO spot = new SpotVO();
 				spot.setDiary_no(insert_diary_no);
-				spot.setAddr((String)map_content.get("name"));
-				spot.setSpot_name((String)map_content.get("name"));
+				spot.setAddr((String) map_content.get("name"));
+				spot.setSpot_name((String) map_content.get("name"));
 				spot.setCountry("JP");
-	//			spot.setCountry((String)map_content.get("country"));
-				spot.setLat((Double)map_content.get("lat"));
-				spot.setLng((Double)map_content.get("lng"));
+				// spot.setCountry((String)map_content.get("country"));
+				spot.setLat((Double) map_content.get("lat"));
+				spot.setLng((Double) map_content.get("lng"));
 				spot.setDate_cnt(m);
-				
+
 				System.out.println(spot);
 				spotService.insertSpot(spot);
 			}
-			
+
 		}
-		
+
 		return insert_diary_no;
 //		return 1;
 	}
-	
-	@RequestMapping("/diary")
-	public ModelAndView DiaryList() {
-		List<DiaryVO> diary = diaryService.selectAllDiary();
-		
+
+	@GetMapping("/diary")
+	public ModelAndView DiaryList(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
+		// 최신글 5개
+		String keyword = request.getParameter("keyword");
+		String type = request.getParameter("type");
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("start", 1);
+		parameters.put("end", 5);
+		List<DiaryVO> diaryList = null;
+		if( keyword != null && type != null) {
+			parameters.put("keyword", keyword);
+			parameters.put("type", type);
+			diaryList = diaryService.selectSearchFiveDiary(parameters);
+			
+			mav.addObject("keyword", keyword);
+			mav.addObject("type", type);
+			System.out.println("검색 결과");
+			System.out.println(diaryList);
+		} else {
+			diaryList = diaryService.selectFiveDiary(parameters);
+		}
+
 		mav.setViewName("diary/diaryList");
-		mav.addObject("diary", diary);
-		
+		Gson gson = new Gson();
+		mav.addObject("diaryListJ", gson.toJson(diaryList) );
 		return mav;
 	}
-	
+
+	@ResponseBody
+	@GetMapping("/diary/list")
+	public List<DiaryVO> DiaryListPlus(HttpServletRequest request) {
+		int start = Integer.parseInt(request.getParameter("start"));
+		int end = Integer.parseInt(request.getParameter("end"));
+		String keyword = request.getParameter("keyword");
+		String type = request.getParameter("type");
+		// 최신글 5개
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("start", start);
+		parameters.put("end", end);
+		System.out.println("ajax");
+		System.out.println(type);
+		System.out.println(keyword);
+		List<DiaryVO> diaryList = null;
+		if( keyword != null && type != null) {
+			parameters.put("keyword", keyword);
+			parameters.put("type", type);
+			diaryList = diaryService.selectSearchFiveDiary(parameters);
+			System.out.println("ajax 검색 결과");
+			System.out.println(diaryList);
+		} else {
+			diaryList = diaryService.selectFiveDiary(parameters);
+		}
+
+		return diaryList;
+	}
+
 	@GetMapping("/diary/writeForm")
 	public String DiaryWrite() {
 		return "diary/write_diary_page";
 	}
+
 	@GetMapping("/diary/myMap")
 	public String MyMap() {
 		return "diary/my_map";
 	}
-	
 
-	
-	
 }

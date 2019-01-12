@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.mlec.vo.DiaryVO;
+import kr.co.mlec.vo.SearchVO;
 
 @Repository
 public class SearchDAO implements SearchDAOInter{
@@ -30,7 +31,7 @@ public class SearchDAO implements SearchDAOInter{
 	}
 
 	@Override
-	public List<String> selectSearch(Map<String,String> search) {
+	public List<SearchVO> selectSearch(Map<String,String> search) {
 		return sqlSession.selectList("kr.co.mlec.search.selectSearch", search);
 	}
 }
