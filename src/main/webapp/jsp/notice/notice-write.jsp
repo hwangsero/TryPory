@@ -76,7 +76,7 @@ function submitContents(elClickedObj){
 
 				<!--데스크탑 글쓰기폼(네이버 폰트에디터가 포함됨)-->
 				<div class="notice-write-content-box1">
-					<textarea id="notice-write-content1" name="content"></textarea>
+					<textarea id="notice-write-content1" name="content" style='width:100%; min-width:260px; height:300px; display:none;'></textarea>
 					<script type="text/javascript" class="naver-writeForm-editor">
 						var oEditors = [];
 						nhn.husky.EZCreator
@@ -84,15 +84,18 @@ function submitContents(elClickedObj){
 									oAppRef : oEditors,
 									elPlaceHolder : "notice-write-content1",
 									sSkinURI : "${pageContext.request.contextPath}/naver_editor/SmartEditor2Skin.html",
-									fCreator : "createSEditor2"
+									fCreator : "createSEditor2",
+						 htParams : {	                    	
+	                    	 bUseModeChanger : false
+	                     }
 								});
 					</script>
 				</div>
 
 				<!--모바일 글쓰기폼(네이버 폰트에디터가 포함되지 않은 글쓰기 폼)-->
-				<div class="notice-write-content-box2">
-					<textarea id="notice-write-content2" name="content"></textarea>
-				</div>
+			<!-- 	<div class="notice-write-content-box2">
+					<textarea id="notice-write-content1" name="content"></textarea>
+				</div> -->
 
 
 				<!--첨부파일-->

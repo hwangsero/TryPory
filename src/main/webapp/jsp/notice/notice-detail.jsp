@@ -28,8 +28,11 @@
 	
 <script>
 function updateNotice() {
+	
 	location.href="${pageContext.request.contextPath}/notice/update/${noticeNo}";
 }
+
+
 
 function noticeList() {
 	location.href="${pageContext.request.contextPath}/notice/1"
@@ -38,6 +41,33 @@ function noticeList() {
 
 $j(document).ready(function() {
 		$j('#deleteBtn').click(function() {
+			
+			//스마트에디터에서 값을 가져오는 코드
+			//oEditors.getById["notice-write-content1"].exec("UPDATE_CONTENTS_FIELD", []);
+			
+			//확인 코드 
+			//document.getElementById("notice-write-content1").value
+			console.log("삭제하기 ajax로 넘긴다.")
+			if(confirm('삭제하사겠습니까?')) {
+			$j.ajax({
+				url : "${pageContext.request.contextPath}/notice/${noticeNo}",
+				type : "delete",
+				success : function(data) {
+					alert(data);
+					location.href="${pageContext.request.contextPath}/notice/1";
+				},
+				error : function() {
+					alert('삭제에 실패했습니다');
+				}
+			})
+			}
+		})
+})
+
+
+/*모바일에서 삭제한 경우*/
+$j(document).ready(function() {
+		$j('#deleteBtn2').click(function() {
 			
 			//스마트에디터에서 값을 가져오는 코드
 			//oEditors.getById["notice-write-content1"].exec("UPDATE_CONTENTS_FIELD", []);
@@ -99,12 +129,12 @@ $j(document).ready(function() {
 		</div>
 		<!--모바일 화면에만 나타나게-->
 		<div class="notice-detail-type1-2">
-			<span>
-				<a>
+			<span onclick="updateNotice()">
+				<a href="#">
 				<img src="<%=request.getContextPath()%>/assets/img/notice-img/notice-detail-modify-button.PNG"></a>
 			</span>
-			<span>
-				<a>
+			<span id="deleteBtn2">
+				<a href="#">
 				<img src="<%=request.getContextPath()%>/assets/img/notice-img/notice-detail-delete-button.PNG"></a>
 			</span>
 		</div>

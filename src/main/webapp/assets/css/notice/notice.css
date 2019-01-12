@@ -446,7 +446,7 @@ textarea#notice-write-content1 {
 	float: right;
 	margin-right: 10px;
 }
-/*4. 공지사항 글등록 버튼*/
+/*4. 공지사항 글등록과 수정버튼*/
 .notice-write-type2-btn {
 	overflow: hidden;
 	margin-top: 50px;
@@ -466,6 +466,8 @@ textarea#notice-write-content1 {
 	font-weight: bold;
 	cursor: pointer;
 }
+
+
 
 footer {
 	clear: both;

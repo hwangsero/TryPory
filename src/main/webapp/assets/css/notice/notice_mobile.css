@@ -141,13 +141,14 @@
 		width: 100%;
 	}
 
-	/*데스크탑 글쓰기폼(네이버 폰트에디터가 포함됨)*/
-	.notice-write-content-box1 {
+/*
+	데스크탑 글쓰기폼(네이버 폰트에디터가 포함됨)
+  	.notice-write-content-box1 {
 		display: none;
-	}
+	} 
 
-	/* 모바일 글쓰기폼(네이버 폰트에디터가 포함되지 않은 글쓰기 폼) */
-	.notice-write-content-box2 {
+	모바일 글쓰기폼(네이버 폰트에디터가 포함되지 않은 글쓰기 폼) 
+  	.notice-write-content-box2 {
 		display: block;
 	}
 	
@@ -157,7 +158,10 @@
     width: 100%;
     height: 250px;
     border-radius: 5px;
-	}
+	} 
+*/ 
+	
+	
 	
 	form.write_form {
 		padding-left: 0px;
