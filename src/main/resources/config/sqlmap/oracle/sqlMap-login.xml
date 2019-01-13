@@ -19,7 +19,7 @@
 	<select id="loginMember" parameterType="memberVO" resultMap="memberMap">
 		select *
 		from D_member
-		where email = #{email} and password = #{password}
+		where email = #{email} and password = #{password} and user_type = 'U'
 	</select>
 	
 	<select id="duplCheck" parameterType="Map" resultMap="memberMap">

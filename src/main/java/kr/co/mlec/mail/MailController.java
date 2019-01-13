@@ -39,13 +39,13 @@ public class MailController {
 			if( keyConfirm != null ) { // 이메일과 key값을 동일하게 가지고 있는 회원이 있는경우
 				// 이미 인증한경우
 				if( keyConfirm.getIs_auth().equals("1") ) { 
-					model.addAttribute("msg", "이미 이메일인증을 하였습니다.");
+					model.addAttribute("code", "-1");
 				} else { 	// 인증하지 않았고 인증된경우
 					loginService.AuthUpdate(email);
-					model.addAttribute("msg", "이메일 인증을 성공했습니다.");
+					model.addAttribute("code", "1");
 				}
 			} else { // 인증 실패
-				model.addAttribute("msg", "이메일 인증을 실패했습니다.");
+				model.addAttribute("code", "0");
 			}
 			return "email/keyConfirm";
 		} else{

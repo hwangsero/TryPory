@@ -32,10 +32,11 @@ $j(document).ready(function(){
 		
 <pre>
 안녕하세요. 
-트리포리를 이용해주셔서 감사합니다.
-아래 <span>메일인증</span> 버튼을 클릭하여 회원가입을 완료해주세요.
+<span>Tripory</span>에 회원가입해주셔서 감사합니다.
+<br>
+이메일을 받지못하신 경우 아래 <span>메일인증</span> 버튼을 클릭해주세요
 </pre>				
-		<input type="button" id="resend_email" value="메일 인증">
+		<input type="button" id="resend_email" value="이메일 재전송">
 	</div>
 	</section>
 	<%@ include file="/WEB-INF/include/footer.jsp"%>

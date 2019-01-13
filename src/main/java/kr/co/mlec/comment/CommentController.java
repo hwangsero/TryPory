@@ -32,6 +32,7 @@ public class CommentController {
 	@PostMapping("/reply")
 	public void insertComment(CommentVO commentVO) {
 		commentVO.setWriter("writer");
+		commentVO.setEmail("cck@cck.com");
 		commentService.insertComment(commentVO);
 	}
 	

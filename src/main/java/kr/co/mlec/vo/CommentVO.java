@@ -46,15 +46,10 @@ public class CommentVO {
 	public void setRegisterDate(String registerDate) {
 		this.registerDate = registerDate;
 	}
-	
-	
 	@Override
 	public String toString() {
-		return "CommentVO [no=" + no + ", diaryNo=" + diaryNo + ", writer=" + writer + ", content=" + content
-				+ ", registerDate=" + registerDate + "]";
+		return "CommentVO [no=" + no + ", diaryNo=" + diaryNo + ", email=" + email + ", writer=" + writer + ", content="
+				+ content + ", registerDate=" + registerDate + "]";
 	}
-	
-	
-	
 	
 }

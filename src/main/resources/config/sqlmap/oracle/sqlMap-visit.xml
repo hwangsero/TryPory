@@ -15,12 +15,12 @@
 		from D_diary
 		where no = #{no}
 	</select>
-
+<!-- 
 	<select id="selectAllDiary" resultMap="diaryMap">
 		select *
 		from D_diary
 	</select>
-	
+	 -->
 
 	<insert id="insertDiary" parameterType="DiaryVO">
 		insert into d_diary(no, title, content, writer, end_date, start_date, cover_image, is_share, tag)
