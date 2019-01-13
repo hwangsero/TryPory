@@ -12,6 +12,7 @@ public interface DiaryServiceInter {
 	public int insertDiary(DiaryVO diary);
 	public List<DiaryVO> selectFiveDiary(Map<String, Object> parameters);
 	public List<DiaryVO> selectSearchFiveDiary(Map<String, Object> parameters);
+	public void upView_cnt(int no);
 	
 	
 }

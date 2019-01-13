@@ -1,6 +1,6 @@
 package kr.co.mlec.vo;
 
-public class Like {
+public class LikeVO {
 
 	private String diaryNo;
 	private String userEmail;
@@ -18,7 +18,6 @@ public class Like {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-	
 	
 	@Override
 	public String toString() {

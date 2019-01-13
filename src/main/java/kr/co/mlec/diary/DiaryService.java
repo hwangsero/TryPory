@@ -14,6 +14,7 @@ public class DiaryService implements DiaryServiceInter{
 
 	@Autowired
 	private DiaryDAO diaryDAO;
+	
 	@Override
 	public DiaryVO selectDiary(int no) {
 		DiaryVO diary = diaryDAO.selectDiary(no);
@@ -39,4 +40,10 @@ public class DiaryService implements DiaryServiceInter{
 		List<DiaryVO> diaryList = diaryDAO.selectSearchFiveDiary(parameters);
 		return diaryList;
 	}
+	
+	@Override
+	public void upView_cnt(int no) {
+		diaryDAO.upView_cnt(no);
+	}
+
 }

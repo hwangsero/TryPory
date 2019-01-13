@@ -43,4 +43,8 @@ public class DiaryDAO implements DiaryDAOInter {
 		return DiaryList;
 	}
 
+	public void upView_cnt(int no) {
+		sqlSession.update("kr.co.mlec.diary.up_viewCnt", no);
+	}
+
 }

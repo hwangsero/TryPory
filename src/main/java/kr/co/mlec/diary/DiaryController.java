@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 
+import kr.co.mlec.like.LikeService;
 import kr.co.mlec.spot.SpotService;
 import kr.co.mlec.tag.TagService;
 import kr.co.mlec.util.JsonUtil;
@@ -37,9 +38,29 @@ public class DiaryController {
 	private TagService tagService;
 	@Autowired
 	private SpotService spotService;
+	@Autowired
+	private LikeService likeService;
 
+	/**
+	 * 다이어리 상세
+	 * @param no
+	 * @return
+	 * @throws Exception
+	 */
 	@GetMapping("/diary/{no}")
-	public ModelAndView SearchDiary(@PathVariable int no) throws Exception {
+	public ModelAndView SearchDiary(@PathVariable int no, HttpSession session) throws Exception {
+		MemberVO member = (MemberVO) session.getAttribute("userVO");
+		int user_no;
+		if (member != null) {
+			user_no = member.getNo();
+		} else {
+			user_no = 1;
+		}
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("diary_no", no);
+		param.put("user_no", user_no);
+		
+		diaryService.upView_cnt(no);
 		DiaryVO diary = diaryService.selectDiary(no);
 //		List<SpotVO> spot_list = spotService.selectDiarySpot(no);
 		ModelAndView mav = new ModelAndView("diary/detail_diary_page");
@@ -131,6 +152,11 @@ public class DiaryController {
 //		return 1;
 	}
 
+	/**
+	 * 다이어리 목록
+	 * @param request
+	 * @return
+	 */
 	@GetMapping("/diary")
 	public ModelAndView DiaryList(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();

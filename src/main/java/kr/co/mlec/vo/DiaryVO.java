@@ -14,6 +14,7 @@ public class DiaryVO {
 	private String tag;
 	private int viewCnt;
 	private int likeCnt;
+	private int comment_cnt;
 	private String registerDate;
 	public int getNo() {
 		return no;
@@ -21,7 +22,12 @@ public class DiaryVO {
 	public void setNo(int no) {
 		this.no = no;
 	}
-	
+	public int getComment_cnt() {
+		return comment_cnt;
+	}
+	public void setComment_cnt(int comment_cnt) {
+		this.comment_cnt = comment_cnt;
+	}
 	public String getWriter() {
 		return writer;
 	}
@@ -99,7 +105,7 @@ public class DiaryVO {
 		return "DiaryVO [no=" + no + ", title=" + title + ", content=" + content + ", map_content=" + map_content
 				+ ", writer=" + writer + ", cover_image=" + cover_image + ", is_share=" + is_share + ", end_date="
 				+ end_date + ", start_date=" + start_date + ", tag=" + tag + ", viewCnt=" + viewCnt + ", likeCnt="
-				+ likeCnt + ", registerDate=" + registerDate + "]";
+				+ likeCnt + ", comment_cnt=" + comment_cnt + ", registerDate=" + registerDate + "]";
 	}
 	
 }

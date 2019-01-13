@@ -60,5 +60,19 @@
 		values(d_diary_seq.nextval, #{title}, #{content}, #{map_content}, #{writer}, #{end_date}, #{start_date}, #{cover_image, jdbcType=VARCHAR}, #{is_share}, #{tag} )
 		<selectKey keyProperty="no" resultType="Integer" order="AFTER"> SELECT d_diary_seq.currval FROM dual </selectKey>
 	</insert>
+	
+	<update id="up_viewCnt" parameterType="int">
+		update d_diary set view_cnt = view_cnt + 1 
+		where no = #{no}
+	</update>
+	<update id="up_likeCnt" parameterType="int">
+		update d_diary set like_cnt = like_cnt + 1 
+		where no = #{no}
+	</update>
+	<update id="cancel_likeCnt" parameterType="int">
+		update d_diary set like_cnt = like_cnt - 1 
+		where no = #{no}
+	</update>
+	
 
 </mapper>

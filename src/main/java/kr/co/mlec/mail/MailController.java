@@ -28,8 +28,6 @@ public class MailController {
 		MemberVO member = (MemberVO)session.getAttribute("userVO"); // 로그인 정보
 		String email = (String) request.getParameter("email"); // 이메일 파라미터
 		String key = (String) request.getParameter("key"); // 키 파라미터
-		System.out.println("email : " + email);
-		System.out.println("key : " + key);
 		
 		if( email == null && key == null && member != null ) { // 회원가입을 통해 접속
 			return "email/authRequest";

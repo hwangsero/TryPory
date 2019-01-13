@@ -11,5 +11,7 @@
   	<typeAlias type="kr.co.mlec.vo.TagVO" alias="tagVO"/>
   	<typeAlias type="kr.co.mlec.vo.SpotVO" alias="spotVO"/>
   	<typeAlias type="kr.co.mlec.vo.SearchVO" alias="searchVO"/>
+  	<typeAlias type="kr.co.mlec.vo.LikeVO" alias="likeVO"/>
+  	<typeAlias type="kr.co.mlec.vo.ScrapVO" alias="scrapVO"/>
   </typeAliases>
   </configuration>
