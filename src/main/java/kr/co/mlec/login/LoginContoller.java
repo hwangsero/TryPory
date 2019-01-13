@@ -116,7 +116,6 @@ public class LoginContoller {
 		} else {
 			return "join/joinForm";
 		}
-//		return "redirect:/index.jsp";
 	}
 
 	@ResponseBody

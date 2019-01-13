@@ -11,7 +11,7 @@ $j(document).ready(function(){
 	function append_diary(diary){
 		console.log(diary);
 		
-		 var str = '<div class="diary_post">';
+		 var str = '<div class="diary_post" data-no="' + diary.no + '">';
 				str += '<div class="profile_area">';
 					str += '<div class="profile_wrap">';
 						str += '<a href="/my/4550316/profile" class="link_profile" title="계정 상세페이지">';
@@ -123,6 +123,15 @@ $j(document).ready(function(){
 	/* ///////////////////////////////////////이벤트//////////////////////////////////// */
 	$j("a.diary_tag").click(function(){
 		location.href= window.ctx + '/diary?keyword=' + $j(this).data('tag') +'&type=tag';
+	});
+	
+	$j(list_wrap).on('click', 'div.diary_post', function(e){
+		var no = $j(this).data('no');
+		location.href= window.ctx + '/diary/' + no;
+	});
+	$j(list_wrap).on('click', '.heart i', function(e){
+		e.stopPropagation();
+		alert('heart');
 	});
 	
 });

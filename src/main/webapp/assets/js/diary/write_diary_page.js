@@ -178,11 +178,9 @@ $j(document).ready(function(){
 			var date_wrap = $j(e.target).closest("#date_wrap");
 			var date_count = date_wrap.prevAll('#date_wrap').length;
 			var upload_form_count = $j(e.target).closest(".content_box").prevAll(".content_box").length; 
-//			
-//			formdata = new FormData();
+
 			if (files.length != 0) {
 	            for (var i = 0; i < files.length; i++) {
-//	                formdata.append(files[i].name, files[i]);
 	                $j.ajax({
 	                	url : 'https://api.imgur.com/3/image/',
 	                	type : 'POST',
