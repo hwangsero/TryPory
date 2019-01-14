@@ -137,6 +137,7 @@ public class DiaryController {
 				spot.setLat((Double) map_content.get("lat"));
 				spot.setLng((Double) map_content.get("lng"));
 				spot.setDate_cnt(m);
+				spot.setUser_no(member.getNo());
 
 				System.out.println(spot);
 				spotService.insertSpot(spot);
@@ -213,11 +214,6 @@ public class DiaryController {
 	@GetMapping("/diary/writeForm")
 	public String DiaryWrite() {
 		return "diary/write_diary_page";
-	}
-
-	@GetMapping("/diary/myMap")
-	public String MyMap() {
-		return "diary/my_map";
 	}
 	
 	@GetMapping("/main")

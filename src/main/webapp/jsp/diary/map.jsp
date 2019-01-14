@@ -10,9 +10,6 @@
 /* Optional: Makes the sample page fill the window. */
 </style>
 <div id="map"></div>
-<div id = "content">
-  안녕하세요!
-</ div>
 <script>
 	var marker;
 	
@@ -30,7 +27,7 @@
 		});
 		// The marker, positioned at Uluru
 		
-		<c:forEach items="${mapList}" var="map" >
+		/* <c:forEach items="${mapList}" var="map" >
 		var myLatLng = {lat: ${map.lat}, lng: ${map.lng}}
 		marker = new google.maps.Marker({
 			position : myLatLng,
@@ -40,7 +37,7 @@
 		console.log('${map}')
 		
 		</c:forEach>
-
+ */
 		
 		/* //정보창띄우기
 		var contentString = '<div id="content">'+
@@ -78,12 +75,15 @@
 		
 	}
 	$j(document).ready(function() {
-		google.maps.event.addListener(marker, 'click', function() {
+		/* google.maps.event.addListener(marker, 'click', function() {
 			var map_wrap = $j("#map_info_container");
 			if (map_wrap.css("display") == "none") {
 				map_wrap.show();
 			}
-		});
+		}); */
+		var spotList = JSON.parse('${spotList}');
+		console.log( spotList );
+		
 	});
 </script>
 <script

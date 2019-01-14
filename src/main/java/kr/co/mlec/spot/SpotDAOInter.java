@@ -10,4 +10,6 @@ public interface SpotDAOInter {
 
 	public List<SpotVO> selectDiarySpot(int diary_no);
 
+	List<SpotVO> selectUserSpot(int user_no);
+
 }

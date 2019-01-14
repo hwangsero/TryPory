@@ -331,9 +331,9 @@ $j(document).ready(function(){
 				var start_date_str = first_date.getFullYear() + '.' + (first_date.getMonth()+1) + '.' + first_date.getDate();
 				write_con.find("div.content_datebox").first().find("span").text(start_date_str);
 				
-				date_data[0].date = post_data.start_date = start_date_str; // 정보 등록
+				date_data[0].date = post_data.start_date = post_data.end_date = start_date_str; // 정보 등록
 				
-				$j("div.date_box span#start_date").text( start_date_str );
+				$j("div.date_box span").text( start_date_str );
 				// 커버 이미지 등록
 //				$j("div#write_page_header").css("background-image", "url(" +  img_url+ ")");
 			}

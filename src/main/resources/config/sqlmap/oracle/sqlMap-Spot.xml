@@ -14,19 +14,26 @@
 		<result column="lng" property="lng"/>
 		<result column="date_cnt" property="date_cnt"/>
 		<result column="date_index" property="date_index"/>
+		<result column="user_no" property="user_no"/>
 	</resultMap>
 	
 	<insert id="insertSpot" parameterType="spotVO">
-		insert into d_spot(no, diary_no, country, spot_name, addr, lat, lng, date_cnt, date_index)
-  		 values(d_spot_seq.nextval, #{diary_no}, #{country}, #{spot_name}, #{addr}, #{lat}, #{lng}, #{date_cnt}, #{date_index} )
+		insert into d_spot(no, diary_no, country, spot_name, addr, lat, lng, date_cnt, date_index, user_no)
+  		 values(d_spot_seq.nextval, #{diary_no}, #{country}, #{spot_name} 
+  		 , #{addr}, #{lat}, #{lng}, #{date_cnt}, #{date_index}, #{user_no} )
 	</insert>
 	
 	<select id="selectDiarySpot" parameterType="int" resultMap="spotMap">
-		select no, diary_no, country, spot_name, addr, lat, lng, date_cnt, date_index
+		select no, diary_no, country, spot_name, addr, lat, lng, date_cnt, date_index, user_no
 		from d_spot
 		where diary_no = #{diary_no} order by no asc
 	</select>
 	
+	<select id="selectUserSpot" parameterType="int" resultMap="spotMap">
+		select no, diary_no, country, spot_name, addr, lat, lng, date_cnt, date_index, user_no
+		from d_spot
+		where user_no = #{user_no} order by no asc
+	</select>
 	
 
 </mapper>
