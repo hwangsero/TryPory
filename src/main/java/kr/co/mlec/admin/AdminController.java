@@ -13,17 +13,17 @@ public class AdminController {
 	public AdminService adminService; 
 	
 	
-	public ModelAndView selectAll() {	
-		
-		ModelAndView mav = new ModelAndView(); 
-		
-		int cnt = adminService.selectAll();
-		
-		mav.addObject("cnt", cnt);
-		
-		mav.setViewName("main/adminPage");
-		
-		return mav;
-	}
+//	public ModelAndView selectAll() {	
+//		
+//		ModelAndView mav = new ModelAndView(); 
+//		
+//		int cnt = adminService.selectAll();
+//		
+//		mav.addObject("cnt", cnt);
+//		
+//		mav.setViewName("main/adminPage");
+//		
+//		return mav;
+//	}
 	
 }
