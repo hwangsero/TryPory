@@ -32,7 +32,7 @@
 				</div>
 				<div class="date_box">
 					<i class="far fa-calendar-check fa-2x"></i> 
-					<span id="start_date"></span> ~ <span id=""></span>
+					<span id="start_date"></span> ~ <span id="end_date"></span>
 				</div>
 			</div>
 		</div>

@@ -56,6 +56,13 @@ $j(document).ready(function(){
 			alert("여행일지의 제목을 입력하세요");
 			return false;
 		}
+		var str = '<div class="preloader ajax d-flex align-items-center justify-content-center">';
+		str += '<div class="spinner">';
+			str += '<div class="double-bounce1"></div>';
+			str += '<div class="double-bounce2"></div>';
+			str += '</div>';
+		str += '</div>';
+		$('div#write_wrap').after(str);
 		// 글정보
 		post_data.title = title;
 		
@@ -326,6 +333,7 @@ $j(document).ready(function(){
 				
 				date_data[0].date = post_data.start_date = start_date_str; // 정보 등록
 				
+				$j("div.date_box span#start_date").text( start_date_str );
 				// 커버 이미지 등록
 //				$j("div#write_page_header").css("background-image", "url(" +  img_url+ ")");
 			}
@@ -372,6 +380,7 @@ $j(document).ready(function(){
 				var file_date = file.dateTime;
 				var end_date_str = file_date.getFullYear() + '.' + (file_date.getMonth()+1) + '.' + file_date.getDate();
 				cell_data.date = post_data.end_date = end_date_str; // 일차 날짜
+				$j("div.date_box span#end_date").text( end_date_str );
 
 				var cells = cell_data;
 				date_data[div.prevAll("#date_wrap").length] = cells;
