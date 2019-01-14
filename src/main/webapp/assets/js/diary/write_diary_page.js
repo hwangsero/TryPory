@@ -60,6 +60,7 @@ $j(document).ready(function(){
 		post_data.title = title;
 		
 		post_data.lock = ($j("ul.control_box li#post_lock i").hasClass("fa-unlock") ) ? "true" : "false";
+		post_data.addr = map_data[0][0].addr;
 		
 		diary_data.post_data = post_data;
 
@@ -480,7 +481,18 @@ $j(document).ready(function(){
 		geocoder.geocode({'location': {lat: lat, lng: lng} }, function(results, status) {
 			if (status === 'OK') {
 				if (results[0]) {
-					place_data.name = results[0].formatted_address;
+					var data = results[results.length-2];
+
+					for (var i = 0; i < data.address_components.length; i++) {
+						if (data.address_components[i].types[0] == 'country') { // country
+							place_data.country = data.address_components[i].long_name;
+						}
+						if (data.address_components[i].types[0] == 'administrative_area_level_1') { // region
+							place_data.city = data.address_components[i].long_name;
+						}
+					} 
+					
+					place_data.addr = data.formatted_address;
 				} else {
 					window.alert('No results found');
             	}

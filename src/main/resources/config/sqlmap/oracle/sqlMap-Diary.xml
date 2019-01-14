@@ -5,6 +5,12 @@
 <mapper namespace="kr.co.mlec.diary">
 
 	<resultMap type="DiaryVO" id="diaryMap">
+		<result column="no" property="no"/>
+		<result column="title" property="title"/>
+		<result column="writer" property="writer"/>
+		<result column="addr" property="addr"/>
+		<result column="content" property="content"/>
+		<result column="map_content" property="map_content"/>
 		<result column="is_share" property="is_share"/>
 		<result column="cover_image" property="cover_image"/>
 		<result column="end_date" property="end_date"/>
@@ -12,6 +18,7 @@
 		<result column="tag" property="tag"/>
 		<result column="view_cnt" property="viewCnt"/>
 		<result column="like_cnt" property="likeCnt"/>
+		<result column="comment_cnt" property="comment_cnt"/>
 		<result column="register_date" property="registerDate"/>
 	</resultMap>
 	
@@ -27,11 +34,13 @@
 		from D_diary
 	</select>
 	<select id="selectFiveDiary" resultMap="diaryMap" parameterType="map">
-		select * from (
+		select c.r, c.no, (select count(*) from d_comment where diary_no = c.no) as comment_cnt, 
+			c.title, c.writer, c.cover_image, c.is_share, c.end_date, c.start_date, c.tag, 
+			c.view_cnt, c.like_cnt, c.addr, c.register_date, c.map_content, c.content from (
 			select rownum r, b.* from( select a.* from d_diary a
 			 
 			order by no desc) b 
-		) where r <![CDATA[>=]]> #{start} and r <![CDATA[<=]]> #{end}
+		) c where r <![CDATA[>=]]> #{start} and r <![CDATA[<=]]> #{end}
 	</select>
 	<select id="selectSearchFiveDiary" resultMap="diaryMap" parameterType="map">
 		<choose>
@@ -56,8 +65,8 @@
 	</select>
 
 	<insert id="insertDiary" parameterType="DiaryVO">
-		insert into d_diary(no, title, content, map_content, writer, end_date, start_date, cover_image, is_share, tag)
-		values(d_diary_seq.nextval, #{title}, #{content}, #{map_content}, #{writer}, #{end_date}, #{start_date}, #{cover_image, jdbcType=VARCHAR}, #{is_share}, #{tag} )
+		insert into d_diary(no, title, content, map_content, writer, end_date, start_date, cover_image, is_share, tag, addr)
+		values(d_diary_seq.nextval, #{title}, #{content}, #{map_content}, #{writer}, #{end_date}, #{start_date}, #{cover_image, jdbcType=VARCHAR}, #{is_share}, #{tag}, #{addr} )
 		<selectKey keyProperty="no" resultType="Integer" order="AFTER"> SELECT d_diary_seq.currval FROM dual </selectKey>
 	</insert>
 	
