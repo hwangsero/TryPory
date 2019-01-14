@@ -79,12 +79,8 @@ public class DiaryController {
 	public int addDiary(@RequestBody Map<String, Object> data, HttpSession session) throws Exception {
 		DiaryVO diary = new DiaryVO();
 		MemberVO member = (MemberVO) session.getAttribute("userVO");
-		String writer;
-		if (member != null) {
-			writer = member.getEmail();
-		} else {
-			writer = "Test";
-		}
+		String writer = member.getEmail();
+		
 		Map<String, Object> post_data = (Map<String, Object>) data.get("post_data");
 		List<String> tag_list = (List<String>) post_data.get("tag");
 
