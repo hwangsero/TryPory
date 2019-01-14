@@ -46,7 +46,7 @@
 .nav-pills .nav-item .nav-link.active {
     color: #555;
     background-color: #fff;
-    border-bottom: 1px solid #84B1ED ;
+    border-bottom: 1px solid #1abca5 ;
     margin-bottom:-1px;
     
 }
@@ -164,6 +164,17 @@
 	height:40px;
 	margin:auto;
 	line-height: 40px;
+}
+
+.heart-img {
+	margin-top: -10px;
+    margin-right: 10px;
+	width:28px;
+	height: 28px;
+}
+
+.img_snsBtn .like-count{
+	color:#ef677a;
 }
 
 .img_snsBtn span{
