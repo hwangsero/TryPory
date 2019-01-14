@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css">
 <section class="mag-posts-area d-flex flex-wrap">
+<script src="${pageContext.request.contextPath}/assets/js/jquery/jquery-2.2.4.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/jquery/jquery-3.3.1.min.js"></script>
+<script>
+
+</script>
 
    <div class="mag-posts-content mt-30 mb-30 p-30 box-shadow">
        <!-- Trending Now Posts Area -->
@@ -81,31 +88,31 @@
 							<div class="tags tag1">
 								<div class="blur"></div>
 								<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
-								<h2>#겨울</h2>
+								<h2>#${bestTag[0] }</h2>
 							</div>
 							<div class="tags tag2"> 
 								<div class="blur"></div>
 								<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
-								<h2>#겨울</h2>
+								<h2>#${bestTag[1] }</h2>
 							</div>
 							</div>
 						<div class="tag-bottom">
 							<div class="tags tag3"> 
 								<div class="blur"></div>
 								<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
-								<h2>#겨울</h2>
+								<h2>#${bestTag[2] }</h2>
 							</div>
 							<div class="tags tag4">
 								<div class="blur"></div>
 								<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
-								<h2>#겨울</h2>
+								<h2>#${bestTag[3] }</h2>
 							</div>
 						</div>
 					</div>
 					<div class="tag-box02">
 						<div class="blur"></div>
 						<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
-						<h2>#겨울</h2>
+						<h2>#${bestTag[4] }</h2>
 					</div>
 				</div>
            </div>
@@ -120,15 +127,21 @@
           	 	</div>
            
 				<div class="all-diary-view">
+				<c:forEach items="${ allList }" var="diary">
 					<div class="diary-box">
-						<div class="img-box"><img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg"></div>
+						<div class="img-box"><a href="${pageContext.request.contextPath }/diary/${diary.no }"><img src="https://i.imgur.com/${diary.cover_image }.jpg"></a></div>
 						<div class="text-box">
 							<div class="travel-detail">
-								<span class="travel-period">기간 | 2019.01.01 - 2019.01.10</span>
-								<h2>제목입니다</h2>
-								<span class="tag">#태그</span> <span class="tag">#태그</span> <span
-									class="tag">#태그태그</span> <span class="tag">#태그태그</span> <span
-									class="tag">#태그</span>
+								<span class="travel-period">기간 | ${diary.start_date} - ${diary.end_date}</span>
+								<h2>${ diary.title }</h2>
+								<c:if test="${not empty diary.tag }">
+								<c:set var="tags" value="${fn:split(diary.tag,', ')}" />
+								<c:forEach var="tag" items="${tags}" >
+								       <span class="tag">${tag }</span>
+								</c:forEach> 
+								</c:if>
+								
+								
 							</div>
 							<div class="travle-profile">
 								<span class="profile_thumb"> <img class="thumb_default"
@@ -136,64 +149,16 @@
 									onerror="this.src='https://ssl.pstatic.net/static/m/pholar/img/blank.png'"
 									onclick="nclk(this,'sea*t.thumb','','');"> <span
 									class="profile_thumb_mask"></span>
-								</span> <span class="profile_name">최창규</span>
+								</span> <span class="profile_name">${ diary.writer }</span>
 								<div class="travel-like">
 									<img src ="${pageContext.request.contextPath}/assets/img/heart-off.png">
-									<span>15</span>
+									<span>${ diary.likeCnt }</span>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="diary-box">
-						<div class="img-box"><img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg"></div>
-						<div class="text-box">
-							<div class="travel-detail">
-								<span class="travel-period">기간 | 2019.01.01 - 2019.01.10</span>
-								<h2>제목입니다</h2>
-								<span class="tag">#태그</span> <span class="tag">#태그</span> <span
-									class="tag">#태그태그</span> <span class="tag">#태그태그</span> <span
-									class="tag">#태그</span>
-							</div>
-							<div class="travle-profile">
-								<span class="profile_thumb"> <img class="thumb_default"
-									src="https://img-pholar.pstatic.net/20171231_163/1514678074152X9488_JPEG/miya1220.jpg?type=fn80_80"
-									onerror="this.src='https://ssl.pstatic.net/static/m/pholar/img/blank.png'"
-									onclick="nclk(this,'sea*t.thumb','','');"> <span
-									class="profile_thumb_mask"></span>
-								</span> <span class="profile_name">최창규</span>
-								<div class="travel-like">
-									<img src ="${pageContext.request.contextPath}/assets/img/heart-off.png">
-									<span>15</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="diary-box">
-						<div class="img-box"><img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg"></div>
-						<div class="text-box">
-							<div class="travel-detail">
-								<span class="travel-period">기간 | 2019.01.01 - 2019.01.10</span>
-								<h2>제목입니다</h2>
-								<span class="tag">#태그</span> <span class="tag">#태그</span> <span
-									class="tag">#태그태그</span> <span class="tag">#태그태그</span> <span
-									class="tag">#태그</span>
-							</div>
-							<div class="travle-profile">
-								<span class="profile_thumb"> 
-									<img class="thumb_default"
-										src="https://img-pholar.pstatic.net/20171231_163/1514678074152X9488_JPEG/miya1220.jpg?type=fn80_80"
-										onerror="this.src='https://ssl.pstatic.net/static/m/pholar/img/blank.png'"
-										onclick="nclk(this,'sea*t.thumb','','');"> 
-									<span class="profile_thumb_mask"></span>
-								</span> 
-								<span class="profile_name">최창규</span>
-								<div class="travel-like">
-										<img src ="${pageContext.request.contextPath}/assets/img/heart-off.png">
-										<span>15</span>
-								</div>
-							</div>
-						</div>
-					</div>
+					</c:forEach>
+					
 <!-- diary-box -->
 				</div>
 <!-- all-diary-view -->

@@ -79,12 +79,8 @@ public class DiaryController {
 	public int addDiary(@RequestBody Map<String, Object> data, HttpSession session) throws Exception {
 		DiaryVO diary = new DiaryVO();
 		MemberVO member = (MemberVO) session.getAttribute("userVO");
-		String writer;
-		if (member != null) {
-			writer = member.getEmail();
-		} else {
-			writer = "Test";
-		}
+		String writer = member.getEmail();
+		
 		Map<String, Object> post_data = (Map<String, Object>) data.get("post_data");
 		List<String> tag_list = (List<String>) post_data.get("tag");
 
@@ -222,6 +218,26 @@ public class DiaryController {
 	@GetMapping("/diary/myMap")
 	public String MyMap() {
 		return "diary/my_map";
+	}
+	
+	@GetMapping("/main")
+	public ModelAndView index() {
+		System.out.println("들어와");
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> mainMap = new HashMap<>();
+		mainMap.put("start", 1);
+		mainMap.put("end", 3);
+		
+		List<DiaryVO> allList = new ArrayList<>();
+		List<String> bestTag = new ArrayList<>();
+		allList = diaryService.selectFiveDiary(mainMap);
+		bestTag = diaryService.selectBestTag();
+		
+		mav.addObject("allList", allList);
+		mav.addObject("bestTag",bestTag);
+		mav.setViewName("main/main");
+			
+		return mav;
 	}
 
 }

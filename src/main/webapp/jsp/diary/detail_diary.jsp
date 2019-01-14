@@ -6,6 +6,10 @@ $j(document).ready(function() {
 	replyList()
 	
 	$j('#addBtn').click(function() {
+		if( '${userVO}' == ''){
+			alert('로그인이 필요한 기능 입니다');
+			return false;
+		}
 		var data = {
 				diaryNo : ${diary.no},
 				content : $j('#replyContent').val()
@@ -174,7 +178,7 @@ $j(document).ready(function(){
 			
 			var myLatlng = new google.maps.LatLng(map_data.lat, map_data.lng);
 			var mapOptions = {
-			  zoom: 4,
+			  zoom: 8,
 			  center: myLatlng
 			}
 
@@ -191,6 +195,7 @@ $j(document).ready(function(){
 		        marker_pos[0] = marker_pos[1];
 		        marker_pos.pop();
 		        map.setCenter(newPosition);
+		        map.setZoom(10);
 			} else {
 		        map.setCenter(myLatlng);
 			}

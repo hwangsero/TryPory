@@ -17,7 +17,7 @@
 <body>
 	<%@ include file="/WEB-INF/include/header.jsp"%>
 	<section>
-		<c:if test="${code eq 1} "> <!-- 이메일 인증 성공 -->
+		<c:if test="${code eq 1}"> <!-- 이메일 인증 성공 -->
 		<div class="email-check-success-form">
 			<h2>Trifory</h2>
 			<a>

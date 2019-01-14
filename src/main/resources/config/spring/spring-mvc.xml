@@ -116,5 +116,38 @@
 	<mvc:view-resolvers>
 		<mvc:jsp prefix="/jsp/" suffix=".jsp" />
 	</mvc:view-resolvers>
+	
+	<bean id="LoginInterceptor"
+		class="kr.co.mlec.interceptor.LoginInterceptor" />
+	
+	<bean id="AdminInterceptor"
+		class="kr.co.mlec.interceptor.AdminInterceptor" />
+		
+	<bean id="EmailInterceptor"
+		class="kr.co.mlec.interceptor.EmailInterceptor" />
+		
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/**" />
+			<ref bean="AdminInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/mypage" />
+			<mvc:mapping path="/diary/writeForm" />
+			<mvc:exclude-mapping path="/assets/**" />
+			<mvc:exclude-mapping path="/fontawesome/**" />
+			<ref bean="LoginInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/emailConfirm" />
+			<mvc:exclude-mapping path="/resendEmail" />
+			<mvc:exclude-mapping path="/mypage" />
+			<mvc:exclude-mapping path="/logout" />
+			<mvc:exclude-mapping path="/assets/**" />
+			<mvc:exclude-mapping path="/fontawesome/**" />
+			<ref bean="EmailInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 </beans>

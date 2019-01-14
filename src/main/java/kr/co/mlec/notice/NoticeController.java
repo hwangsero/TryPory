@@ -63,8 +63,7 @@ public class NoticeController {
 		//세션에서 작성자 아이디가져오기
 		MemberVO userVO = (MemberVO)session.getAttribute("userVO");
 		NoticeVO noticeVO = new NoticeVO();
-//		noticeVO.setWriter(userVO.getName());
-		noticeVO.setWriter("작성자");
+		noticeVO.setWriter(userVO.getName());
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("noticeVO", noticeVO);
