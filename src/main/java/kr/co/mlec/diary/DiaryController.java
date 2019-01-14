@@ -222,30 +222,21 @@ public class DiaryController {
 	
 	@GetMapping("/main")
 	public ModelAndView index() {
+		System.out.println("들어와");
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> mainMap = new HashMap<>();
 		mainMap.put("start", 1);
 		mainMap.put("end", 3);
 		
 		List<DiaryVO> allList = new ArrayList<>();
+		List<String> bestTag = new ArrayList<>();
 		allList = diaryService.selectFiveDiary(mainMap);
+		bestTag = diaryService.selectBestTag();
 		
 		mav.addObject("allList", allList);
-		mav.addObject("test",allList.get(0));
+		mav.addObject("bestTag",bestTag);
 		mav.setViewName("main/main");
-		for(DiaryVO data : allList) {
-			if(data.getTag() != null) {
-			String[] word = data.getTag().split(","); 
-			for(String q : word) {
-				System.out.println(q);
-			}
-			}
 			
-			System.out.println(data);
-			
-		}
-		
-		
 		return mav;
 	}
 
