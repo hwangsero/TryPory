@@ -16,6 +16,18 @@ $j(document).ready(function(){
 			success : function(){
 				alert('이메일이 재전송되었습니다');
 			}, 
+			beforeSend:function(){
+				var str = '<div class="preloader ajax d-flex align-items-center justify-content-center">';
+						str += '<div class="spinner">';
+							str += '<div class="double-bounce1"></div>';
+							str += '<div class="double-bounce2"></div>';
+						str += '</div>';
+					str += '</div>';
+		        	$('section').append(str);
+		    },
+		   	complete:function(){
+		        $('section .preloader').remove();
+		    },
 			error : function(jqXHR) {
 				console.log(jqXHR);
 			}
@@ -34,7 +46,7 @@ $j(document).ready(function(){
 안녕하세요. 
 <span>Tripory</span>에 회원가입해주셔서 감사합니다.
 <br>
-이메일을 받지못하신 경우 아래 <span>메일인증</span> 버튼을 클릭해주세요
+이메일을 받지못하신 경우 아래 <span>이메일 재전송</span> 버튼을 클릭해주세요
 </pre>				
 		<input type="button" id="resend_email" value="이메일 재전송">
 	</div>

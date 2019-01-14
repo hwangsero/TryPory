@@ -139,8 +139,11 @@
 			<ref bean="LoginInterceptor" />
 		</mvc:interceptor>
 		<mvc:interceptor>
-			<mvc:mapping path="/" />
 			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/emailConfirm" />
+			<mvc:exclude-mapping path="/resendEmail" />
+			<mvc:exclude-mapping path="/mypage" />
+			<mvc:exclude-mapping path="/logout" />
 			<mvc:exclude-mapping path="/assets/**" />
 			<mvc:exclude-mapping path="/fontawesome/**" />
 			<ref bean="EmailInterceptor" />

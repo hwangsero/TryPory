@@ -105,6 +105,7 @@ public class LoginContoller {
 	public String join(MemberVO member, HttpSession session) throws Exception {
 		member.setEmail(member.getEmail() + '@' + member.getEmail_domain());
 		member.setUser_type("U");
+		member.setIs_auth("0");
 		int cnt = loginService.joinMember(member);
 		
 		System.out.println(member);
