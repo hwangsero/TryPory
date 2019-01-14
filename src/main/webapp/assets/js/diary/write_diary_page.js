@@ -427,7 +427,7 @@ $j(document).ready(function(){
 			if( file.latitude != undefined && file.longitude != undefined ){
 				var myLatlng = new google.maps.LatLng(file.latitude, file.longitude);
 				var mapOptions = {
-				  zoom: 4,
+				  zoom: 8,
 				  center: myLatlng
 				}
 
@@ -445,6 +445,7 @@ $j(document).ready(function(){
 			        marker_pos[0] = marker_pos[1];
 			        marker_pos.pop();
 			        map.setCenter(newPosition);
+			        map.setZoom(10);
 				} else {
 			        map.setCenter(myLatlng);
 				}
