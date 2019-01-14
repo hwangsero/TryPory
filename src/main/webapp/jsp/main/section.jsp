@@ -88,31 +88,31 @@
 							<div class="tags tag1">
 								<div class="blur"></div>
 								<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
-								<h2>#겨울</h2>
+								<h2>#${bestTag[0] }</h2>
 							</div>
 							<div class="tags tag2"> 
 								<div class="blur"></div>
 								<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
-								<h2>#겨울</h2>
+								<h2>#${bestTag[1] }</h2>
 							</div>
 							</div>
 						<div class="tag-bottom">
 							<div class="tags tag3"> 
 								<div class="blur"></div>
 								<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
-								<h2>#겨울</h2>
+								<h2>#${bestTag[2] }</h2>
 							</div>
 							<div class="tags tag4">
 								<div class="blur"></div>
 								<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
-								<h2>#겨울</h2>
+								<h2>#${bestTag[3] }</h2>
 							</div>
 						</div>
 					</div>
 					<div class="tag-box02">
 						<div class="blur"></div>
 						<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
-						<h2>#겨울</h2>
+						<h2>#${bestTag[4] }</h2>
 					</div>
 				</div>
            </div>
@@ -129,7 +129,7 @@
 				<div class="all-diary-view">
 				<c:forEach items="${ allList }" var="diary">
 					<div class="diary-box">
-						<div class="img-box"><img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg"></div>
+						<div class="img-box"><a href="${pageContext.request.contextPath }/diary/${diary.no }"><img src="https://i.imgur.com/${diary.cover_image }.jpg"></a></div>
 						<div class="text-box">
 							<div class="travel-detail">
 								<span class="travel-period">기간 | ${diary.start_date} - ${diary.end_date}</span>
