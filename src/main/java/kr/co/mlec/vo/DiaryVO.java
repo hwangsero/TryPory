@@ -12,6 +12,7 @@ public class DiaryVO {
 	private String end_date;
 	private String start_date;
 	private String tag;
+	private String addr;
 	private int viewCnt;
 	private int likeCnt;
 	private int comment_cnt;
@@ -33,6 +34,12 @@ public class DiaryVO {
 	}
 	public void setWriter(String writer) {
 		this.writer = writer;
+	}
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 	public String getMap_content() {
 		return map_content;
@@ -104,8 +111,7 @@ public class DiaryVO {
 	public String toString() {
 		return "DiaryVO [no=" + no + ", title=" + title + ", content=" + content + ", map_content=" + map_content
 				+ ", writer=" + writer + ", cover_image=" + cover_image + ", is_share=" + is_share + ", end_date="
-				+ end_date + ", start_date=" + start_date + ", tag=" + tag + ", viewCnt=" + viewCnt + ", likeCnt="
-				+ likeCnt + ", comment_cnt=" + comment_cnt + ", registerDate=" + registerDate + "]";
+				+ end_date + ", start_date=" + start_date + ", tag=" + tag + ", addr=" + addr + ", viewCnt=" + viewCnt
+				+ ", likeCnt=" + likeCnt + ", comment_cnt=" + comment_cnt + ", registerDate=" + registerDate + "]";
 	}
-	
 }

@@ -23,11 +23,13 @@ $j(document).ready(function(){
 							str += '<em class="data_date">2일 전</em>';
 						str += '</a>';
 	        
-						str += '<span class="location">';
-							str += '<a href="/gallery/location?code=ChIJ3eA7J_DdAGARil7_EwUaR_I&amp;name=%ED%95%98%EB%A3%A8%EC%B9%B4%EC%8A%A4%20300">';
-								str += '<i class="fas fa-map-marker-alt location_name"></i>하루카스 300';
-							str += '</a>';
-						str += '</span>';
+						if( diary.addr != undefined ){
+							str += '<span class="location">';
+								str += '<a>';
+									str += '<i class="fas fa-map-marker-alt location_name"></i>' + diary.addr;
+								str += '</a>';
+							str += '</span>';
+						}
 					str += '</div>';
 				str += '</div>';
 	
@@ -66,11 +68,11 @@ $j(document).ready(function(){
 					str += '<div class="img_snsBtn">';
 						str += '<div class="heart">';
 							str += '<i class="far fa-heart fa-2x"></i>'; 
-							str += '<span>30</span>';
+							str += '<span>' + + diary.likeCnt + '</span>';
 						str += '</div>';
 						str += '<div class="comment">';
 							str += '<i class="far fa-comment-dots fa-2x"></i>'; 
-							str += '<span>5</span>';
+							str += '<span>' + diary.comment_cnt + '</span>';
 						str += '</div>';
 					str += '</div>'
 				str += '</div>';
@@ -121,7 +123,8 @@ $j(document).ready(function(){
 	});
 	
 	/* ///////////////////////////////////////이벤트//////////////////////////////////// */
-	$j("a.diary_tag").click(function(){
+	$j("a.diary_tag").click(function(e){
+		e.stopPropagation();
 		location.href= window.ctx + '/diary?keyword=' + $j(this).data('tag') +'&type=tag';
 	});
 	

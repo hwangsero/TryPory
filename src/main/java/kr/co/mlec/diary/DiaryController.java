@@ -114,6 +114,7 @@ public class DiaryController {
 		diary.setIs_share((String) post_data.get("lock"));
 		diary.setStart_date((String) post_data.get("start_date"));
 		diary.setEnd_date((String) post_data.get("end_date"));
+		diary.setAddr((String) post_data.get("addr"));
 
 		System.out.println(diary);
 
@@ -134,10 +135,9 @@ public class DiaryController {
 				Map<String, Object> map_content = (Map<String, Object>) map_contents.get(n);
 				SpotVO spot = new SpotVO();
 				spot.setDiary_no(insert_diary_no);
-				spot.setAddr((String) map_content.get("name"));
-				spot.setSpot_name((String) map_content.get("name"));
-				spot.setCountry("JP");
-				// spot.setCountry((String)map_content.get("country"));
+				spot.setAddr((String) map_content.get("addr"));
+				spot.setSpot_name((String) map_content.get("city"));
+				spot.setCountry((String) map_content.get("country"));
 				spot.setLat((Double) map_content.get("lat"));
 				spot.setLng((Double) map_content.get("lng"));
 				spot.setDate_cnt(m);
