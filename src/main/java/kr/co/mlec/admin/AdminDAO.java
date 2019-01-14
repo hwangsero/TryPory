@@ -14,4 +14,5 @@ public class AdminDAO {
 	
 		return sqlSession.selectOne("kr.co.mlec.admin.selectAll");
 	}
+	
 }
