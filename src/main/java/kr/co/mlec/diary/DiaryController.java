@@ -223,5 +223,34 @@ public class DiaryController {
 	public String MyMap() {
 		return "diary/my_map";
 	}
+	
+	@GetMapping("/main")
+	public ModelAndView index() {
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> mainMap = new HashMap<>();
+		mainMap.put("start", 1);
+		mainMap.put("end", 3);
+		
+		List<DiaryVO> allList = new ArrayList<>();
+		allList = diaryService.selectFiveDiary(mainMap);
+		
+		mav.addObject("allList", allList);
+		mav.addObject("test",allList.get(0));
+		mav.setViewName("main/main");
+		for(DiaryVO data : allList) {
+			if(data.getTag() != null) {
+			String[] word = data.getTag().split(","); 
+			for(String q : word) {
+				System.out.println(q);
+			}
+			}
+			
+			System.out.println(data);
+			
+		}
+		
+		
+		return mav;
+	}
 
 }
