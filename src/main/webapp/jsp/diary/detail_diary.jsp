@@ -185,10 +185,12 @@ function likeDiv() {
 	$('#likeDiv').empty();
 	
 	var b = '<button id="likeBtn">'
-	b += '좋아요'
+	b += '<img src="${pageContext.request.contextPath}/assets/img/heart-off.png">'
+	b += '<span>좋아요</span>'
 	b += '</button>&nbsp;'
 	b += '<button id="scrapBtn">'
-	b += '스크랩'
+	b += '<img src="${pageContext.request.contextPath}/assets/img/scrap_icon.png">'
+	b += '<span>스크랩</span>'
 	b += '</button>'
 	
 	$('#likeDiv').append(b);
