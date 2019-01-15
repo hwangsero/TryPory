@@ -168,6 +168,63 @@ $(document).ready(function() {
 		commentList(1);
 	})
 	
+	$("#profile-img-button").on('change', function(){
+		$j.ajax({
+        	url : 'https://api.imgur.com/3/image/',
+        	type : 'POST',
+        	beforeSend : function(xhr){
+                xhr.setRequestHeader("Authorization", "Client-ID 8e2dd2fc483ae1e");
+            },
+            data : this.files[0],
+        	processData: false,
+        	success : function(response){
+        		if( response.success ) {
+        			var data = {
+        	            	profile_img : response.data.id
+    	            };
+        			$j.ajax({
+        	        	url :  window.ctx + '/mypage/profile_image',
+        	        	type : 'PUT',
+        	        	dataType : 'JSON',
+        	        	contentType: 'application/json',
+        	            data : JSON.stringify(data),
+        	        	success : function(response){
+        	        		if( response == 1) {
+        	        			alert('프로필 이미지가 변경되었습니다');
+        	        			location.reload();
+        	        		} else {
+        	        			alert('프로필 이미지가 변경되지 않았습니다');
+        	        		}
+        	        	}, error : function(xhr){
+        	        		console.log(xhr);
+        	        	}
+        	        });
+        		}
+        	}, error : function(xhr){
+        		console.log(xhr);
+        	}
+        });
+	});
+	
+	$(".cd-popup #profile_img_delete").on('click', function(){
+		$j.ajax({
+        	url :  window.ctx + '/mypage/delete_profile_image',
+        	type : 'DELETE',
+        	dataType : 'JSON',
+        	contentType: 'application/json',
+        	success : function(response){
+        		if( response == 1) {
+        			alert('프로필 이미지가 삭제되었습니다');
+        			location.reload();
+        		} else {
+        			alert('프로필 이미지가 삭제되지 않았습니다');
+        		}
+        	}, error : function(xhr){
+        		console.log(xhr);
+        	}
+        });
+	});
+	
 })
 
 </script>
@@ -187,10 +244,10 @@ $(document).ready(function() {
 		<div class="button-area">
 			프로필 사진 교체 <a href="#0" class="cd-popup-close img-replace"></a>
 		</div>
-		<label for="profile-button">사진 업로드</label> <label>현재 사진 삭제</label>
+		<label for="profile-img-button">사진 업로드</label> <label id="profile_img_delete">현재 사진 삭제</label>
 		<!-- 		<label for="profile-button">취소</label> -->
 
-		<input type="file" id="profile-button">
+		<input type="file" id="profile-img-button">
 	</div>
 	<!-- cd-popup-container -->
 </div>
@@ -209,9 +266,15 @@ $(document).ready(function() {
 			<div class="container">
 				<div class="profile">
 					<div class="avatar">
-						<a href="#" class="profileImgBtn"><img
-							src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0NjQzOTk4OTQ4OTkyMzQy/ansel-elgort-poses-for-a-portrait-during-the-baby-driver-premiere-2017-sxsw-conference-and-festivals-on-march-11-2017-in-austin-texas-photo-by-matt-winkelmeyer_getty-imagesfor-sxsw-square.jpg"
+						<a href="#" class="profileImgBtn">
+						<c:if test="${not empty userVO.profile_img}">
+							<img src="https://i.imgur.com/${userVO.profile_img}.jpg"
 							alt="Circle Image" class="img-raised rounded-circle img-fluid">
+						</c:if>
+						<c:if test="${empty userVO.profile_img}">
+							<img src="${pageContext.request.contextPath}/assets/img/user_profile.png"
+							alt="Circle Image" class="img-raised rounded-circle img-fluid">
+						</c:if>
 						</a>
 					</div>
 					<div class="name">
