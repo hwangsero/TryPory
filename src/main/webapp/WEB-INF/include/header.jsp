@@ -45,7 +45,6 @@
 	                    <div class="classyLogo">
 	                        <a href="${pageContext.request.contextPath}/index.jsp" id="site_logo_title" class="nav-brand">Tripory</a>
 	                    </div>
-	                    <a href="${pageContext.request.contextPath }/diary/map"><button>임시지도</button></a>
 	                    <!-- Close Button -->
 	                    <div class="classycloseIcon">
 	                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>

@@ -441,6 +441,7 @@ input:focus {
 	text-transform: uppercase;
 	font-size: 15px;
 	letter-spacing: 1px;
+	font-weight:600;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -605,6 +606,10 @@ input:focus {
 	text-align: center;
 }
 
+.top-meta-data a:hover{
+	font-weight: 600;
+}
+
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 	.header-area .mag-main-menu .login-btn {
 		padding: 0 25px;
@@ -652,6 +657,7 @@ input:focus {
 	text-align: center;
 }
 
+
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 	.header-area .mag-main-menu .submit-video {
 		padding: 0 10px;
@@ -686,7 +692,7 @@ input:focus {
 
 .header-area .mag-main-menu .submit-video:hover, .header-area .mag-main-menu .submit-video:focus
 	{
-	background-color: #404040;
+	background-color: #0c8e7c;
 }
 
 .header-area .mag-main-menu .submit-video span {
@@ -702,6 +708,8 @@ input:focus {
 
 .header-area .mag-main-menu .submit-video .video-text {
 	display: block;
+	font-size:14px; 
+	font-weight:600;
 }
 
 @media only screen and (max-width: 767px) {
@@ -1475,6 +1483,13 @@ input:focus {
 	justify-content: space-between;
 	margin-bottom: 15px;
 	font-size: 16px;
+}
+
+
+.fa-search {
+	
+    font-weight: 600;
+    margin: 0 20px 0 5px
 }
 
 .catagory-widgets li a:hover, .catagory-widgets li a:focus {
