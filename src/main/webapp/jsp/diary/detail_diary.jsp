@@ -130,7 +130,7 @@ $j(detail_data).each(function(date){ // 일차별
 		content_list.push(content_box);
 	});
 	
-	var map = $j("<div id='map"+(date+1) + "' style='height:400px;'></div>");
+	var map = $j("<div class='map' id='map"+(date+1) + "' style='height:400px;'></div>");
 	content_list.push(map);
 	
 });
@@ -158,7 +158,7 @@ $j(document).ready(function(){
 		var last_element = $j("div#write_wrap div.container > div").last();
 		$j(last_element).after(div);
 		
-		if( (i - 2) % 3 == 0 ){
+		if( div.hasClass("map") ){
 			var map_element = document.getElementById("map" + map_cnt );
 			initialize_map(map_element); // init
 
