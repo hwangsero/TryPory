@@ -6,12 +6,12 @@
 
 	<insert id="add_scrap" parameterType="scrapVO">
 		insert into d_scrap (diary_no, user_no)
-  		values( #{diary_no}, #{user_no} )
+  		values( #{diaryNo}, #{userNo} )
 	</insert>
 	
 	<delete id="remove_like" parameterType="scrapVO">
 		delete from d_scrap
-		where diary_no = #{diary_no} and user_no = #{user_no}
+		where diary_no = #{diaryNo} and user_no = #{userNo}
 	</delete>
 
 </mapper>
