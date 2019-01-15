@@ -6,7 +6,6 @@
 	<%@ include file="/WEB-INF/include/head.jsp" %>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/diary/diaryList.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/diary/diaryList_mobile.css">
-	<script src="${pageContext.request.contextPath}/assets/js/diary/image_resize.js"></script>
 	<script>
 		$(function() {
 		  $('.fa-heart')
@@ -24,6 +23,7 @@
     <%@ include file="/WEB-INF/include/header.jsp" %>
     
     <!-- 내용 -->
+<%-- 	<script src="${pageContext.request.contextPath}/assets/js/diary/image_resize.js"></script> --%>
     <%@ include file="/jsp/diary/diary.jsp" %>
     
 	<!-- 푸터 -->

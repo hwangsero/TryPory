@@ -22,4 +22,14 @@ public class LikeDAO implements LikeDAOInter {
 	public void downView_cnt(LikeVO likeVO) {
 		sqlSession.delete("kr.co.mlec.like.remove_like", likeVO);
 	}
+
+	@Override
+	public void diaryLikeUp(int diaryNo) {
+		sqlSession.update("kr.co.mlec.like.diaryLikeUp", diaryNo);
+	}
+
+	@Override
+	public void diaryLikeDown(int diaryNo) {
+		sqlSession.update("kr.co.mlec.like.diaryLikeDown", diaryNo);
+	}
 }

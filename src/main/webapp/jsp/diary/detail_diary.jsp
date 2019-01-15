@@ -15,7 +15,6 @@ $j(document).ready(function() {
 	like = !like;
 	
 	if(like == true) {
-	$(this).css("background", "red");
 	
 	var data = {
 		diaryNo : ${diary.no},
@@ -28,15 +27,14 @@ $j(document).ready(function() {
 		data : data,
 		dataType : "json",
 		success : function() {
-			alert('성공')
+			likeDiv2()
 		},
 		error : function() {
-			alert('실패')
+			
 		}
 		
 	})
 	} else {
-	$(this).css("background","");
 	
 	var data = {
 			diaryNo : ${diary.no},
@@ -49,7 +47,7 @@ $j(document).ready(function() {
 		data : data,
 		dataType : "json",
 		success : function() {
-			alert('성공')
+			likeDiv()
 		},
 		error : function() {
 			alert('실패')
@@ -65,7 +63,6 @@ $j(document).ready(function() {
 	scrap = !scrap;
 	
 	if(scrap == true) {
-	$(this).css("background", "red");
 	var data = {
 			diaryNo : ${diary.no},
 			userNo : ${userVO.no}
@@ -77,7 +74,7 @@ $j(document).ready(function() {
 			data : data,
 			dataType : "json",
 			success : function() {
-				alert('성공')
+				alert('스크랩되었습니다')
 			},
 			error : function() {
 				alert('실패')
@@ -86,7 +83,6 @@ $j(document).ready(function() {
 		})
 	
 	} else {
-	$(this).css("background","");
 	var data = {
 			diaryNo : ${diary.no},
 			userNo : ${userVO.no}
@@ -98,7 +94,7 @@ $j(document).ready(function() {
 			data : data,
 			dataType : "json",
 			success : function() {
-				alert('성공')
+				alert('스크랩이 취소되었습니다')
 			},
 			error : function() {
 				alert('실패')
@@ -195,6 +191,21 @@ function likeDiv() {
 	
 	$('#likeDiv').append(b);
 }
+
+function likeDiv2() {
+	$('#likeDiv').empty();
+	
+	var b = '<button id="likeBtn">'
+	b += '<img src="${pageContext.request.contextPath}/assets/img/heart-on.png">'
+	b += '<span>좋아요</span>'
+	b += '</button>&nbsp;'
+	b += '<button id="scrapBtn">'
+	b += '<img src="${pageContext.request.contextPath}/assets/img/scrap_icon.png">'
+	b += '<span>스크랩</span>'
+	b += '</button>'
+	
+	$('#likeDiv').append(b);
+}
 </script>
 <script>
 var detail_data = JSON.parse( JSON.stringify(${content}));
@@ -233,6 +244,10 @@ $j(detail_data).each(function(date){ // 일차별
 		var image_wrap = $j("<div class='img_wrap clr' />");
 
 		if( image_list != undefined ){
+			
+		var image_count = image_list.length;
+
+			image_wrap.addClass("ic-" + image_count);
 			$j(image_list).each(function(image_index){
 				var image_content = $j("<div class='img_content'/>");
 				var img = $j("<img src='https://i.imgur.com/" + image_list[image_index].fileName + ".jpg' />");

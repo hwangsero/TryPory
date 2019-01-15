@@ -11,7 +11,7 @@
 </style>
 <div id="map"></div>
 <script>
-	var marker;
+	var map;
 	
 	function initMap() {
 
@@ -21,7 +21,7 @@
 		};
 		// The map, centered at Uluru
 
-		var map = new google.maps.Map(document.getElementById('map'), {
+		map = new google.maps.Map(document.getElementById('map'), {
 			zoom : 15,
 			center : location
 		});
@@ -82,7 +82,36 @@
 			}
 		}); */
 		var spotList = JSON.parse('${spotList}');
-		console.log( spotList );
+		var marker_pos = [];
+		var first_pos, second_pos;
+		$j(spotList).each(function(i){
+			var spot = spotList[i];
+			console.log(spot);
+			
+			var myLatLng = {lat: spot.lat, lng: spot.lng}
+			marker = new google.maps.Marker({
+				position : myLatLng,
+				map : map
+			});
+			
+			if( first_pos == undefined ){
+				first_pos = myLatLng;
+			} else {
+				second_pos = first_pos;
+				first_pos = myLatLng;
+			}
+			marker_pos.push(myLatLng);
+			
+			if(marker_pos.length >= 2 ){ //  중심좌표 이동
+				var newPosLat = ((first_pos.lat + second_pos.lat ) / 2).toFixed(4);
+		        var newPosLng = ((first_pos.lng + second_pos.lng ) / 2).toFixed(4);
+		        var newPosition = new google.maps.LatLng(newPosLat, newPosLng);
+		        
+		        map.setCenter(newPosition);
+		        map.setZoom(10);
+			}
+			
+		});
 		
 	});
 </script>

@@ -49,17 +49,46 @@ $j(document).ready(function(){
 						}
 					str += '</div>';
 		
-					str += '<div class="trending-posts img_wrap clr">';
-						var img_contents = JSON.parse(diary.content);
+					var img_contents = JSON.parse(diary.content);
+					
+					var img_size = 0;
+					for (var a = 0; a < img_contents.length; a++) {
+						for (var b = 0; b < img_contents[a].content.length; b++) {
+							var images = img_contents[a].content[b].images;
+							if( images != undefined ){
+								img_size += images.length;
+							}
+						}
+					}
+					var img_plus_count = img_size > 5 ? img_size - 5 : 0; 
+					img_size = img_size > 4 ? 5 : img_size;  
+					str += '<div class="trending-posts img_wrap clr ic-' + img_size + '">';
+					var image_count = 0;
 						$j(img_contents).each(function(date_index){
 							var date_contents = img_contents[date_index].content;
 							for (var i = 0; i < date_contents.length; i++) {
 								var images = date_contents[i].images;
+								
 								if( images != undefined ){
 									for (var j = 0; j < images.length; j++) {
-										str += '<div class="img_content">';
-											str += '<img src="https://i.imgur.com/' + images[j].fileName + '.jpg" alt="">';
-										str += '</div>';
+										if(image_count > 4){
+											break;
+										}
+										image_count++;
+										
+										if(image_count == 5 && img_plus_count != 0){
+											str += '<div class="img_content plus_content">';
+												str += '<img src="https://i.imgur.com/' + images[j].fileName + '.jpg" alt="">';
+												str += '<div class="post-content" style="text-align: center">';
+													str += '<a class="post-title">+' + img_plus_count + '</a>';
+												str +='</div>'
+											str += '</div>';
+										} else {
+											str += '<div class="img_content">';
+												str += '<img src="https://i.imgur.com/' + images[j].fileName + '.jpg" alt="">';
+											str += '</div>';
+											
+										}
 									}
 								}
 							}

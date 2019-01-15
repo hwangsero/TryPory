@@ -18,19 +18,16 @@ public class LikeController {
 	@ResponseBody
 	@RequestMapping("/likeUp")
 	public int likeCntUp(LikeVO likeVO) {
-		System.out.println("컨트롤러 입장");
-		System.out.println(likeVO);
 		likeService.upView_cnt(likeVO);
-		System.out.println("컨트롤러 퇴장");
+		likeService.diaryLikeUp(likeVO.getDiaryNo());
 		return 1;
 	}
 	
 	@ResponseBody
 	@GetMapping("/likeDown")
 	public int likeCntDown(LikeVO likeVO) {
-		System.out.println(likeVO);
-		System.out.println("다운 컨트롤러");
 		likeService.downView_cnt(likeVO);
+		likeService.diaryLikeDown(likeVO.getDiaryNo());
 		return 1;
 	}
 }
