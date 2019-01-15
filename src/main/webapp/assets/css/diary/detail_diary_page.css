@@ -274,22 +274,42 @@ div.form-group {
 
 /* like , scrap */
 
+#likeDiv{
+	width:100%; 
+	margin:30px auto 0; 
+	text-align: center;
+	
+}
+
 #likeBtn {
-      width:40px; 
-      height: 40px; 
+      width:auto; 
+      height: 30px; 
       border: none;
       cursor: pointer;
-       background: url(../../img/heart-off.png);
-       background-size: 40px;
+      background: #fff;
+      margin-right:25px;
+      color: #ef677a;
+}
+
+#likeBtn img {
+	width: 30px;
+	height: auto; 
+	margin-right: 10px;
 }
 
 #scrapBtn {
-      width:40px; 
-      height: 40px; 
+      width:auto;
+      height: 30px; 
       border: none;
       cursor: pointer;
-       background: url(../../img/scrap_icon.png);
-       background-size: 40px;
+      background: #fff;
+      color: #1abca5;
+}
+
+#scrapBtn img {
+	width: 28px;
+	height: auto; 
+	margin-right: 10px;
 }
 
 /* comment wrap */
@@ -304,6 +324,8 @@ div.form-group {
       width: 100%;
       height: 778px;
    }
+   
+   
    .content_datebox::after {
       content: "";
       display: block;
