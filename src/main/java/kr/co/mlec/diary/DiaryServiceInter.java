@@ -14,6 +14,7 @@ public interface DiaryServiceInter {
 	public List<DiaryVO> selectSearchFiveDiary(Map<String, Object> parameters);
 	public void upView_cnt(int no);
 	public List<String> selectBestTag();
+	public List<DiaryVO> selectBestDiary();
 	
 	
 }

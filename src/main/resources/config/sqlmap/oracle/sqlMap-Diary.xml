@@ -71,6 +71,13 @@
 	group by tag_name order by count(tag_name) desc)
 	where rownum <![CDATA[<=]]> 5
 	</select>
+	
+	<select id="selectBestDiary" resultMap="diaryMap">
+	select * from d_diary
+	where no in (
+	select diary_no from d_like
+	group by diary_no)
+	</select>
 
 	<insert id="insertDiary" parameterType="DiaryVO">
 		insert into d_diary(no, title, content, map_content, writer, end_date, start_date, cover_image, is_share, tag, addr)

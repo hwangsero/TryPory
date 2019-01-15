@@ -216,24 +216,5 @@ public class DiaryController {
 		return "diary/write_diary_page";
 	}
 	
-	@GetMapping("/main")
-	public ModelAndView index() {
-		System.out.println("들어와");
-		ModelAndView mav = new ModelAndView();
-		Map<String, Object> mainMap = new HashMap<>();
-		mainMap.put("start", 1);
-		mainMap.put("end", 3);
-		
-		List<DiaryVO> allList = new ArrayList<>();
-		List<String> bestTag = new ArrayList<>();
-		allList = diaryService.selectFiveDiary(mainMap);
-		bestTag = diaryService.selectBestTag();
-		
-		mav.addObject("allList", allList);
-		mav.addObject("bestTag",bestTag);
-		mav.setViewName("main/main");
-			
-		return mav;
-	}
 
 }

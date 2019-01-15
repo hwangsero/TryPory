@@ -429,7 +429,7 @@ img.thumb_default {
 	width:100%; 
 	height:100%; 
     opacity: 0.4;
-    background-image: url(../img/main/main-img.jpg);
+  
     background-position:center center;
     background-size: 150%;
    

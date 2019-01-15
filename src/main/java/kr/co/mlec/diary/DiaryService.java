@@ -49,5 +49,9 @@ public class DiaryService implements DiaryServiceInter{
 	public List<String> selectBestTag() {
 		return diaryDAO.selectBestTag();
 	}
+	@Override
+	public List<DiaryVO> selectBestDiary() {
+		return diaryDAO.selectBestDiary();
+	}
 
 }

@@ -13,4 +13,6 @@ public interface DiaryDAOInter {
 	public int insertDiary(DiaryVO diary);
 	public List<DiaryVO> selectFiveDiary(Map<String, Object> parameters);
 	public List<String> selectBestTag();
+	public List<DiaryVO> selectBestDiary();
+	
 }

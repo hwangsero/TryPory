@@ -52,4 +52,9 @@ public class DiaryDAO implements DiaryDAOInter {
 		return sqlSession.selectList("kr.co.mlec.diary.selectBestTag");
 	}
 
+	@Override
+	public List<DiaryVO> selectBestDiary() {
+		return sqlSession.selectList("kr.co.mlec.diary.selectBestDiary");
+	}
+
 }

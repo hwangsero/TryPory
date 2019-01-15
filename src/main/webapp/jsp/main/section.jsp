@@ -26,32 +26,35 @@
           		
           			
 					<div id ="main-img">
-						<img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
+						<img src="https://i.imgur.com/${bestDiary[0].cover_image }.jpg">
 					</div>
 					
 					<div id ="main-text">
 						<div class="main-thumb-box clr">
 							<div class="main-thumb"> 
-								<img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
+								<img src="https://i.imgur.com/${bestDiary[1].cover_image }.jpg">
 							</div>
 							<div class="main-thumb"> 
-								<img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
+								<img src="https://i.imgur.com/${bestDiary[2].cover_image }.jpg">
 							</div>
 							<div class="main-thumb"> 
-								<img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
+								<img src="https://i.imgur.com/${bestDiary[3].cover_image }.jpg">
 							</div>
 							<div class="main-thumb"> 
-								<img src="${pageContext.request.contextPath}/assets/img/main/main-img.jpg">
+								<img src="https://i.imgur.com/${bestDiary[4].cover_image }.jpg">
 							</div>
 						</div>
 						
 						<div class="main-detail">
-							<span class="travel-period">기간 | 2019.01.01 - 2019.01.10</span>
-							<span class="travel-point">오사카</span>
-							<h2>제목입니다</h2>
-							<span class="tag">#태그</span> <span class="tag">#태그</span> <span
-								class="tag">#태그태그</span> <span class="tag">#태그태그</span> <span
-								class="tag">#태그</span>
+							<span class="travel-period">기간 | ${bestDiary[1].start_date } - ${bestDiary[1].end_date }</span>
+						<!-- 	<span class="travel-point">오사카</span> -->
+							<h2>${bestDiary[1].title }</h2>
+							<c:if test="${not empty bestDiary[1].tag }">
+								<c:set var="tags" value="${fn:split(bestDiary[1].tag,', ')}" />
+								<c:forEach var="tag" items="${tags}" >
+								       <span class="tag">${tag }</span>
+								</c:forEach> 
+								</c:if>
 						</div>
 						
 						
@@ -62,10 +65,10 @@
 								onclick="nclk(this,'sea*t.thumb','','');"> <span
 								class="profile_thumb_mask"></span>
 							</span> 
-							<span class="profile_name">최창규</span>
+							<span class="profile_name">${bestDiary[1].writer }</span>
 							<div class="travel-like">
 								<img src ="${pageContext.request.contextPath}/assets/img/heart-off.png"  class="heart-img">
-								<span class="like-count">15</span>
+								<span class="like-count">${bestDiary[1].likeCnt }</span>
 							</div>
 						</div>
 					</div>
@@ -87,32 +90,32 @@
           				<div class="tag-top">
 							<div class="tags tag1">
 								<div class="blur"></div>
-								<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
-								<h2>#${bestTag[0] }</h2>
+								<div class="img" style="background-image:url(${imageurls[0]});"></div>
+								<a href="${pageContext.request.contextPath }/diary?keyword=${bestTag[0]}&type=tag"><h2>#${bestTag[0] }</h2></a>
 							</div>
 							<div class="tags tag2"> 
 								<div class="blur"></div>
-								<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
-								<h2>#${bestTag[1] }</h2>
+								<div class="img" style="background-image:url(${imageurls[1]});"></div>
+								<a href="${pageContext.request.contextPath }/diary?keyword=${bestTag[1]}&type=tag"><h2>#${bestTag[1] }</h2></a>
 							</div>
 							</div>
 						<div class="tag-bottom">
 							<div class="tags tag3"> 
 								<div class="blur"></div>
-								<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
-								<h2>#${bestTag[2] }</h2>
+								<div class="img" style="background-image:url(${imageurls[2]});"></div>
+								<a href="${pageContext.request.contextPath }/diary?keyword=${bestTag[2]}&type=tag"><h2>#${bestTag[2] }</h2></a>
 							</div>
 							<div class="tags tag4">
 								<div class="blur"></div>
-								<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
-								<h2>#${bestTag[3] }</h2>
+								<div class="img" style="background-image:url(${imageurls[3]});"></div>
+								<a href="${pageContext.request.contextPath }/diary?keyword=${bestTag[3]}&type=tag"><h2>#${bestTag[3] }</h2></a>
 							</div>
 						</div>
 					</div>
 					<div class="tag-box02">
 						<div class="blur"></div>
-						<div class="img" style="background-image:url(${pageContext.request.contextPath}/assets/img/main/main-img.jpg);"></div>
-						<h2>#${bestTag[4] }</h2>
+						<div class="img" style="background-image:url(${imageurls[4]});"></div>
+						<a href="${pageContext.request.contextPath }/diary?keyword=${bestTag[4]}&type=tag"><h2>#${bestTag[4] }</h2></a>
 					</div>
 				</div>
            </div>
@@ -177,7 +180,7 @@
 	
 	<div id="background-img01">
 		<div id="bg-img">
-		
+		<img src="https://i.imgur.com/${bestDiary[0].cover_image }.jpg">
 		</div>
 	</div>
 	
