@@ -55,10 +55,12 @@ $j(document).ready(function(){
 							var date_contents = img_contents[date_index].content;
 							for (var i = 0; i < date_contents.length; i++) {
 								var images = date_contents[i].images;
-								for (var j = 0; j < images.length; j++) {
-									str += '<div class="img_content">';
-										str += '<img src="https://i.imgur.com/' + images[j].fileName + '.jpg" alt="">';
-									str += '</div>';
+								if( images != undefined ){
+									for (var j = 0; j < images.length; j++) {
+										str += '<div class="img_content">';
+											str += '<img src="https://i.imgur.com/' + images[j].fileName + '.jpg" alt="">';
+										str += '</div>';
+									}
 								}
 							}
 						});

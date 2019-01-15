@@ -134,26 +134,29 @@ $j(document).ready(function(){
 			});
 		}
     }
+    function add_content_box(target){
+		var content_box = target.closest("div.content_box");
+		var content_box_clone = content_box.clone();
+		
+		content_box_clone.find("textarea.autosize").val("");
+		content_box_clone.find("div.img_wrap *").remove();
+		content_box_clone.find("div.tool_box").css("display","none");
+		content_box.after(content_box_clone);
+		
+		content_event_init();
+		
+		var date_count = target.parent().parent().prevAll('.content_datebox').length;
+		var content = new Object();
+		content.images = [];
+		date_data[date_count-1].content.push(content);
+    }
     
 	function content_event_init(){
 		var content_input = $j("div.content_editbox textarea").unbind('keyup');
 		$j(content_input).on('keyup', function(event){ // 내용입력 부분
 			
 			if(event.keyCode == 13 ) { // 스페이스바 입력시
-				var target = $j(event.target);
-				var content_box = target.closest("div.content_box");
-				var content_box_clone = content_box.clone();
-				
-				content_box_clone.find("textarea.autosize").val("");
-				content_box_clone.find("div.img_wrap *").remove();
-				content_box_clone.find("div.tool_box").css("display","none");
-				content_box.after(content_box_clone);
-				
-				content_event_init();
-				
-				var date_count = target.parent().parent().prevAll('.content_datebox').length;
-				var content = new Object();
-				date_data[date_count-1].content.push(content);
+				add_content_box($j(event.target));
 				
 				console.log(date_data);
 			}
@@ -180,64 +183,70 @@ $j(document).ready(function(){
 			$j(this).height(1).height( $j(this).prop('scrollHeight')+12 );	
 	    });
 		
+		var bar = $j(".progress .bar");
+		var percent = $j(".progress .percent");
+		var img_wrap;
+		var percent_val = 0;
+		function imgur_upload(files, i){
+			var img_url = URL.createObjectURL(files[i]);
+            $j("div#preview img").attr('src', img_url);
+            
+			$j.ajax({
+            	url : 'https://api.imgur.com/3/image/',
+            	type : 'POST',
+            	beforeSend : function(xhr){
+                    xhr.setRequestHeader("Authorization", "Client-ID 8e2dd2fc483ae1e");
+                },
+                data : files[i],
+            	processData: false,
+            	success : function(response){
+            		if( response.success ) {
+            			var upload_data = new Object();
+            			upload_data.origName = files[i].name;
+            			upload_data.fileName = response.data.id;
+            			
+            			upload_datas.push(upload_data);
+
+            			i++;
+            			
+            			percent_val += 1 / files.length * 100;
+        				percent_val = Math.round(percent_val);
+        				percent.html(Math.round(percent_val) + "%" );
+        				bar.css("width", Math.round(percent_val) + "%");
+            			if( files[i] != undefined ){
+            				imgur_upload(files, i);
+            			} else {
+            				setTimeout(() => {
+            					$j(".progress_wrap").css("display", "none");
+							}, 1000);
+            				
+            				files_sort(files, 0, img_wrap);
+            			}
+            		}
+            		
+            	}, error : function(xhr){
+            		console.log(xhr);
+            	}
+            });
+		}
+		
 		$j(".tool_box input[type=file]").change(function(e){
 			var files = e.target.files;
-			var img_wrap = $j(e.target).closest(".content_editbox").find("div.img_wrap");
 			var date_wrap = $j(e.target).closest("#date_wrap");
 			var date_count = date_wrap.prevAll('#date_wrap').length;
 			var upload_form_count = $j(e.target).closest(".content_box").prevAll(".content_box").length; 
 
+			img_wrap = $j(e.target).closest(".content_editbox").find("div.img_wrap");
 			if (files.length != 0) {
-	            for (var i = 0; i < files.length; i++) {
-	                $j.ajax({
-	                	url : 'https://api.imgur.com/3/image/',
-	                	type : 'POST',
-	                	beforeSend : function(xhr){
-	                        xhr.setRequestHeader("Authorization", "Client-ID 8e2dd2fc483ae1e");
-	                    },
-	                	data : files[i],
-	                	processData: false,
-	                	async : false,
-	                	success : function(response){
-	                		if( response.success ) {
-	                			var upload_data = new Object();
-	                			upload_data.origName = files[i].name;
-	                			upload_data.fileName = response.data.id;
-	                			
-	                			upload_datas.push(upload_data);
-	                		}
-	                		
-	                	}
-	                });
-	            }
-
-//	            $j.ajax({
-//	    			url : window.ctx + '/upload',
-//	    			type: 'POST',
-//					data : formdata,
-//					cache : false,
-//					processData : false,
-//					contentType : false,
-//					async : false,
-//					success : function(response) {
-//						var data = JSON.parse(response);
-//						upload_datas = upload_datas.concat(data);
-////						console.log(data);
-//
-////						date_data[date_count][upload_form_count].images = data;
-//					},
-//					error : function(jqXHR) {
-//						console.log('error');
-//					}
-//	
-//				});
+				var i = 0;
+				if( files[i] != undefined ){
+					$j(".progress_wrap").css("display", "block");
+                    bar.css("width", "0%");
+                    percent.html("0%");
+					imgur_upload(files, i);
+				}
 			}
-//			console.log(files);
 			
-//			files = files_sort(files, img_wrap);
-			files_sort(files, 0, img_wrap);
-//		    setup_reader(files, 0);
-//			console.log(files);
 		});
 		
 	}
@@ -336,6 +345,11 @@ $j(document).ready(function(){
 				$j("div.date_box span").text( start_date_str );
 				// 커버 이미지 등록
 //				$j("div#write_page_header").css("background-image", "url(" +  img_url+ ")");
+			}
+			
+			if( $j(img_wrap).find(".img_row").length == 5 ){
+				add_content_box(img_wrap);
+				img_wrap = $j(".img_wrap").last();
 			}
 			
 			if(file.dateTime.getDate() - start_date.getDate() > 0){
