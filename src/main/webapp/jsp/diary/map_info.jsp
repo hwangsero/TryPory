@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<div id="map_info_container">
+<div id="map_info_container" style="display:none;">
 	<div id="top_wrap">
 		<div class="R" id="right_wrap">
 			<i class="icon fas fa-times fa-2x close_icon"></i>

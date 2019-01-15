@@ -11,12 +11,19 @@ public class SpotVO {
 	private Double lng;
 	private int date_cnt;
 	private int date_index;
+	private int user_no;
 	
 	public int getNo() {
 		return no;
 	}
 	public void setNo(int no) {
 		this.no = no;
+	}
+	public int getUser_no() {
+		return user_no;
+	}
+	public void setUser_no(int user_no) {
+		this.user_no = user_no;
 	}
 	public int getDiary_no() {
 		return diary_no;
@@ -70,7 +77,6 @@ public class SpotVO {
 	public String toString() {
 		return "SpotVO [no=" + no + ", diary_no=" + diary_no + ", country=" + country + ", spot_name=" + spot_name
 				+ ", addr=" + addr + ", lat=" + lat + ", lng=" + lng + ", date_cnt=" + date_cnt + ", date_index="
-				+ date_index + "]";
+				+ date_index + ", user_no=" + user_no + "]";
 	}
-	
 }

@@ -10,4 +10,6 @@ public interface SpotServiceInter {
 
 	public List<SpotVO> selectDiarySpot(int diary_no);
 
+	List<SpotVO> selectUserSpot(int useer_no);
+
 }

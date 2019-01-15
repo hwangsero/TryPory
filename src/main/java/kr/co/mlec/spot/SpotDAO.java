@@ -24,4 +24,9 @@ public class SpotDAO implements SpotDAOInter{
 		return sqlSession.selectList("kr.co.mlec.spot.selectDiarySpot", diary_no);
 	}
 
+	@Override
+	public List<SpotVO> selectUserSpot(int user_no) {
+		return sqlSession.selectList("kr.co.mlec.spot.selectUserSpot", user_no);
+	}
+
 }
