@@ -42,6 +42,7 @@
 			order by no desc) b 
 		) c where r <![CDATA[>=]]> #{start} and r <![CDATA[<=]]> #{end}
 	</select>
+	
 	<select id="selectSearchFiveDiary" resultMap="diaryMap" parameterType="map">
 		<choose>
 			<when test= 'type.equals("tag")'>
@@ -62,6 +63,20 @@
 			) where r <![CDATA[>=]]> #{start} and r <![CDATA[<=]]> #{end}
 			</when>	
 		</choose>
+	</select>
+	
+	<select id="selectBestTag" resultType="string">
+	select tag_name from(
+	select tag_name, count(tag_name) from d_tag
+	group by tag_name order by count(tag_name) desc)
+	where rownum <![CDATA[<=]]> 5
+	</select>
+	
+	<select id="selectBestDiary" resultMap="diaryMap">
+	select * from d_diary
+	where no in (
+	select diary_no from d_like
+	group by diary_no)
 	</select>
 
 	<insert id="insertDiary" parameterType="DiaryVO">

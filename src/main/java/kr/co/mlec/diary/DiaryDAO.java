@@ -47,4 +47,14 @@ public class DiaryDAO implements DiaryDAOInter {
 		sqlSession.update("kr.co.mlec.diary.up_viewCnt", no);
 	}
 
+	@Override
+	public List<String> selectBestTag() {
+		return sqlSession.selectList("kr.co.mlec.diary.selectBestTag");
+	}
+
+	@Override
+	public List<DiaryVO> selectBestDiary() {
+		return sqlSession.selectList("kr.co.mlec.diary.selectBestDiary");
+	}
+
 }

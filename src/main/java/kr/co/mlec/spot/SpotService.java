@@ -22,4 +22,9 @@ public class SpotService implements SpotServiceInter{
 	public List<SpotVO> selectDiarySpot(int diary_no) {
 		return spotDAO.selectDiarySpot(diary_no);
 	}
+	
+	@Override
+	public List<SpotVO> selectUserSpot(int user_no) {
+		return spotDAO.selectUserSpot(user_no);
+	}
 }

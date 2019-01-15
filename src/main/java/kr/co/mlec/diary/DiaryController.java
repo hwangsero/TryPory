@@ -128,18 +128,23 @@ public class DiaryController {
 		for (int m = 0; m < map_data.size(); m++) { // 일차
 			List<Object> map_contents = (List<Object>) map_data.get(m);
 			for (int n = 0; n < map_contents.size(); n++) {
+				
 				Map<String, Object> map_content = (Map<String, Object>) map_contents.get(n);
-				SpotVO spot = new SpotVO();
-				spot.setDiary_no(insert_diary_no);
-				spot.setAddr((String) map_content.get("addr"));
-				spot.setSpot_name((String) map_content.get("city"));
-				spot.setCountry((String) map_content.get("country"));
-				spot.setLat((Double) map_content.get("lat"));
-				spot.setLng((Double) map_content.get("lng"));
-				spot.setDate_cnt(m);
-
-				System.out.println(spot);
-				spotService.insertSpot(spot);
+				
+				if( map_content.get("addr") != null || map_content.get("city") != null || map_content.get("country") != null){
+					SpotVO spot = new SpotVO();
+					spot.setDiary_no(insert_diary_no);
+					spot.setAddr((String) map_content.get("addr"));
+					spot.setSpot_name((String) map_content.get("city"));
+					spot.setCountry((String) map_content.get("country"));
+					spot.setLat((Double) map_content.get("lat"));
+					spot.setLng((Double) map_content.get("lng"));
+					spot.setDate_cnt(m);
+					spot.setUser_no(member.getNo());
+	
+					System.out.println(spot);
+					spotService.insertSpot(spot);
+				}
 			}
 
 		}
@@ -214,39 +219,6 @@ public class DiaryController {
 	public String DiaryWrite() {
 		return "diary/write_diary_page";
 	}
-
-	@GetMapping("/diary/myMap")
-	public String MyMap() {
-		return "diary/my_map";
-	}
 	
-	@GetMapping("/main")
-	public ModelAndView index() {
-		ModelAndView mav = new ModelAndView();
-		Map<String, Object> mainMap = new HashMap<>();
-		mainMap.put("start", 1);
-		mainMap.put("end", 3);
-		
-		List<DiaryVO> allList = new ArrayList<>();
-		allList = diaryService.selectFiveDiary(mainMap);
-		
-		mav.addObject("allList", allList);
-		mav.addObject("test",allList.get(0));
-		mav.setViewName("main/main");
-		for(DiaryVO data : allList) {
-			if(data.getTag() != null) {
-			String[] word = data.getTag().split(","); 
-			for(String q : word) {
-				System.out.println(q);
-			}
-			}
-			
-			System.out.println(data);
-			
-		}
-		
-		
-		return mav;
-	}
 
 }

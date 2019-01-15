@@ -96,7 +96,17 @@
 					</ul>
 				</div>
 			</div>
-		</div>
-		<div id="form_data"></div>
+		</div> <!-- tag -->
+	</div>
+</div>
+ <div class="progress_wrap">
+ 	<div id="preview">
+        <img id="preview_img">
+    </div>
+	<div class="progress">
+	    <div class="bar"></div>
+	    <div class="percent">0%</div>
+	</div>
+	<div class="progress_container">
 	</div>
 </div>

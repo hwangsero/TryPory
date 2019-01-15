@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import kr.co.mlec.diary.DiaryDAOInter;
+import kr.co.mlec.vo.LikeVO;
 
 @Controller
 public class LikeDAO implements LikeDAOInter {
@@ -13,7 +14,22 @@ public class LikeDAO implements LikeDAOInter {
 	SqlSessionTemplate sqlSession;
 	
 	@Override
-	public void upView_cnt(int no) {
-		sqlSession.update("kr.co.mlec.diary.add_like", no);
+	public void upView_cnt(LikeVO likeVO) {
+		sqlSession.update("kr.co.mlec.like.add_like", likeVO);
+	}
+
+	@Override
+	public void downView_cnt(LikeVO likeVO) {
+		sqlSession.delete("kr.co.mlec.like.remove_like", likeVO);
+	}
+
+	@Override
+	public void diaryLikeUp(int diaryNo) {
+		sqlSession.update("kr.co.mlec.like.diaryLikeUp", diaryNo);
+	}
+
+	@Override
+	public void diaryLikeDown(int diaryNo) {
+		sqlSession.update("kr.co.mlec.like.diaryLikeDown", diaryNo);
 	}
 }

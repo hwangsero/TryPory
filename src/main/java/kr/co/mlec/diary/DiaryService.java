@@ -45,5 +45,13 @@ public class DiaryService implements DiaryServiceInter{
 	public void upView_cnt(int no) {
 		diaryDAO.upView_cnt(no);
 	}
+	@Override
+	public List<String> selectBestTag() {
+		return diaryDAO.selectBestTag();
+	}
+	@Override
+	public List<DiaryVO> selectBestDiary() {
+		return diaryDAO.selectBestDiary();
+	}
 
 }

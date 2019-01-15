@@ -5,6 +5,105 @@
 $j(document).ready(function() {
 	replyList()
 	
+	if(${userVO.no} != '') {
+	likeDiv()
+	}
+	var like = false;
+	var scrap = false;
+	
+	$(document).on('click','#likeBtn',function() {
+	like = !like;
+	
+	if(like == true) {
+	
+	var data = {
+		diaryNo : ${diary.no},
+		userNo : ${userVO.no}
+	}
+	
+	$.ajax({
+		url : '${pageContext.request.contextPath}/likeUp',
+		type : "get",
+		data : data,
+		dataType : "json",
+		success : function() {
+			likeDiv2()
+		},
+		error : function() {
+			
+		}
+		
+	})
+	} else {
+	
+	var data = {
+			diaryNo : ${diary.no},
+			userNo : ${userVO.no}
+		}
+	
+	$.ajax({
+		url : '${pageContext.request.contextPath}/likeDown',
+		type : "get",
+		data : data,
+		dataType : "json",
+		success : function() {
+			likeDiv()
+		},
+		error : function() {
+			alert('실패')
+		}
+		
+	})
+	
+	
+	}
+	})	
+	
+	$(document).on('click','#scrapBtn',function() {
+	scrap = !scrap;
+	
+	if(scrap == true) {
+	var data = {
+			diaryNo : ${diary.no},
+			userNo : ${userVO.no}
+		}
+		
+		$.ajax({
+			url : '${pageContext.request.contextPath}/scrapUp',
+			type : "get",
+			data : data,
+			dataType : "json",
+			success : function() {
+				alert('스크랩되었습니다')
+			},
+			error : function() {
+				alert('실패')
+			}
+			
+		})
+	
+	} else {
+	var data = {
+			diaryNo : ${diary.no},
+			userNo : ${userVO.no}
+		}
+		
+		$.ajax({
+			url : '${pageContext.request.contextPath}/scrapDown',
+			type : "get",
+			data : data,
+			dataType : "json",
+			success : function() {
+				alert('스크랩이 취소되었습니다')
+			},
+			error : function() {
+				alert('실패')
+			}
+			
+		})
+	}
+	})	
+	
 	$j('#addBtn').click(function() {
 		if( '${userVO}' == ''){
 			alert('로그인이 필요한 기능 입니다');
@@ -77,6 +176,36 @@ function replyList() {
 			}
 	})
 }
+
+function likeDiv() {
+	$('#likeDiv').empty();
+	
+	var b = '<button id="likeBtn">'
+	b += '<img src="${pageContext.request.contextPath}/assets/img/heart-off.png">'
+	b += '<span>좋아요</span>'
+	b += '</button>&nbsp;'
+	b += '<button id="scrapBtn">'
+	b += '<img src="${pageContext.request.contextPath}/assets/img/scrap_icon.png">'
+	b += '<span>스크랩</span>'
+	b += '</button>'
+	
+	$('#likeDiv').append(b);
+}
+
+function likeDiv2() {
+	$('#likeDiv').empty();
+	
+	var b = '<button id="likeBtn">'
+	b += '<img src="${pageContext.request.contextPath}/assets/img/heart-on.png">'
+	b += '<span>좋아요</span>'
+	b += '</button>&nbsp;'
+	b += '<button id="scrapBtn">'
+	b += '<img src="${pageContext.request.contextPath}/assets/img/scrap_icon.png">'
+	b += '<span>스크랩</span>'
+	b += '</button>'
+	
+	$('#likeDiv').append(b);
+}
 </script>
 <script>
 var detail_data = JSON.parse( JSON.stringify(${content}));
@@ -115,6 +244,10 @@ $j(detail_data).each(function(date){ // 일차별
 		var image_wrap = $j("<div class='img_wrap clr' />");
 
 		if( image_list != undefined ){
+			
+		var image_count = image_list.length;
+
+			image_wrap.addClass("ic-" + image_count);
 			$j(image_list).each(function(image_index){
 				var image_content = $j("<div class='img_content'/>");
 				var img = $j("<img src='https://i.imgur.com/" + image_list[image_index].fileName + ".jpg' />");
@@ -130,7 +263,7 @@ $j(detail_data).each(function(date){ // 일차별
 		content_list.push(content_box);
 	});
 	
-	var map = $j("<div id='map"+(date+1) + "' style='height:400px;'></div>");
+	var map = $j("<div class='map' id='map"+(date+1) + "' style='height:400px;'></div>");
 	content_list.push(map);
 	
 });
@@ -158,7 +291,7 @@ $j(document).ready(function(){
 		var last_element = $j("div#write_wrap div.container > div").last();
 		$j(last_element).after(div);
 		
-		if( (i - 2) % 3 == 0 ){
+		if( div.hasClass("map") ){
 			var map_element = document.getElementById("map" + map_cnt );
 			initialize_map(map_element); // init
 
@@ -255,6 +388,8 @@ $j(document).ready(function(){
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6xArRw-nczVJ9vZLjCa-H1uSAE1PN3Ks"></script>	
 	<div class="comment_container">
 	    <div class="actionBox">
+	    <div id="likeDiv">
+	    </div>
 	        <ul id="commentList">
 	            <li>
 	            </li>

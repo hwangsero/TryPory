@@ -40,6 +40,8 @@ public class MailController {
 					model.addAttribute("code", "-1");
 				} else { 	// 인증하지 않았고 인증된경우
 					loginService.AuthUpdate(email);
+					member.setIs_auth("1");
+					session.setAttribute("userVO", member);
 					model.addAttribute("code", "1");
 				}
 			} else { // 인증 실패

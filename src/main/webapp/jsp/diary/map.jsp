@@ -10,11 +10,8 @@
 /* Optional: Makes the sample page fill the window. */
 </style>
 <div id="map"></div>
-<div id = "content">
-  안녕하세요!
-</ div>
 <script>
-	var marker;
+	var map;
 	
 	function initMap() {
 
@@ -24,13 +21,13 @@
 		};
 		// The map, centered at Uluru
 
-		var map = new google.maps.Map(document.getElementById('map'), {
+		map = new google.maps.Map(document.getElementById('map'), {
 			zoom : 15,
 			center : location
 		});
 		// The marker, positioned at Uluru
 		
-		<c:forEach items="${mapList}" var="map" >
+		/* <c:forEach items="${mapList}" var="map" >
 		var myLatLng = {lat: ${map.lat}, lng: ${map.lng}}
 		marker = new google.maps.Marker({
 			position : myLatLng,
@@ -40,7 +37,7 @@
 		console.log('${map}')
 		
 		</c:forEach>
-
+ */
 		
 		/* //정보창띄우기
 		var contentString = '<div id="content">'+
@@ -78,12 +75,44 @@
 		
 	}
 	$j(document).ready(function() {
-		google.maps.event.addListener(marker, 'click', function() {
+		/* google.maps.event.addListener(marker, 'click', function() {
 			var map_wrap = $j("#map_info_container");
 			if (map_wrap.css("display") == "none") {
 				map_wrap.show();
 			}
+		}); */
+		var spotList = JSON.parse('${spotList}');
+		var marker_pos = [];
+		var first_pos, second_pos;
+		$j(spotList).each(function(i){
+			var spot = spotList[i];
+			console.log(spot);
+			
+			var myLatLng = {lat: spot.lat, lng: spot.lng}
+			marker = new google.maps.Marker({
+				position : myLatLng,
+				map : map
+			});
+			
+			if( first_pos == undefined ){
+				first_pos = myLatLng;
+			} else {
+				second_pos = first_pos;
+				first_pos = myLatLng;
+			}
+			marker_pos.push(myLatLng);
+			
+			if(marker_pos.length >= 2 ){ //  중심좌표 이동
+				var newPosLat = ((first_pos.lat + second_pos.lat ) / 2).toFixed(4);
+		        var newPosLng = ((first_pos.lng + second_pos.lng ) / 2).toFixed(4);
+		        var newPosition = new google.maps.LatLng(newPosLat, newPosLng);
+		        
+		        map.setCenter(newPosition);
+		        map.setZoom(10);
+			}
+			
 		});
+		
 	});
 </script>
 <script

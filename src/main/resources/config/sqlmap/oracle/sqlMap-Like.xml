@@ -6,12 +6,23 @@
 
 	<insert id="add_like" parameterType="LikeVO">
 		insert into d_like (diary_no, user_no)
-  		values( #{diary_no}, #{user_no} )
+  		values( #{diaryNo}, #{userNo} )
 	</insert>
 	
-	<delete id="remove_like" parameterType="likeVO">
+	<delete id="remove_like" parameterType="LikeVO">
 		delete from d_like
-		where diary_no = #{diary_no} and user_no = #{user_no}
+		where diary_no = #{diaryNo} and user_no = #{userNo}
 	</delete>
+	
+	<update id="diaryLikeUp" parameterType="int">
+		update d_diary
+		set like_cnt = like_cnt + 1
+		where no = #{int}
+	</update>
 
+	<update id="diaryLikeDown" parameterType="int">
+		update d_diary
+		set like_cnt = like_cnt - 1
+		where no = #{int}
+	</update>
 </mapper>

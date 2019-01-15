@@ -80,7 +80,7 @@
 .search-box {
 	width: 50%;
 	height: 35px;
-	border: 2px solid #84b1ed;
+	border: 2px solid #1abca5;
 	float: right;
 	padding-left: 2px;
 }
@@ -99,7 +99,7 @@
 	height: 100%;
 	width: 15%;
 	border: 0px;
-	background-color: #84B1ED;
+	background-color: #1abca5;
 	color: white;
 	float: right;
 }
@@ -109,7 +109,7 @@
 	width: 10%;
 	float: right;
 	height: 35px;
-	border: solid 2px #84b1ed;
+	border: solid 2px #1abca5;
 	margin-right: 10px;
 }
 
@@ -118,7 +118,7 @@ table.type3 {
 	border-collapse: collapse;
 	text-align: left;
 	line-height: 1.5;
-	border-bottom: 1px solid #84b1ed;
+	border-bottom: 1px solid #1abca5;
 	float: right;
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -253,7 +253,7 @@ img#pre-left-arrow {
 .notice-detail-type1 {
 	width: 70%;
 	margin: auto;
-	border-bottom: solid 3px #84B1ED;
+	border-bottom: solid 3px #1abca5;
 	margin-top: 50px;
 }
 
@@ -369,7 +369,7 @@ img#pre-left-arrow {
 	width: 80%;
 	margin: auto;
 	margin-top: 50px;
-	border-bottom: solid 3px #84B1ED;
+	border-bottom: solid 3px #1abca5;
 	text-align: left;
 }
 

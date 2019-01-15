@@ -8,6 +8,5 @@
 	insert into d_tag(tag_no, tag_name, diary_no)
   	 values(d_tag_seq.nextval, #{tag_name}, #{diary_no} )
 	</insert>
-	
 
 </mapper>
