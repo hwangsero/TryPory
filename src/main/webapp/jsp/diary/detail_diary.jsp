@@ -244,6 +244,10 @@ $j(detail_data).each(function(date){ // 일차별
 		var image_wrap = $j("<div class='img_wrap clr' />");
 
 		if( image_list != undefined ){
+			
+		var image_count = image_list.length;
+
+			image_wrap.addClass("ic-" + image_count);
 			$j(image_list).each(function(image_index){
 				var image_content = $j("<div class='img_content'/>");
 				var img = $j("<img src='https://i.imgur.com/" + image_list[image_index].fileName + ".jpg' />");
