@@ -21,4 +21,14 @@ public class LikeService implements LikeServiceInter{
 	public void downView_cnt(LikeVO likeVO) {
 		likeDAO.downView_cnt(likeVO);
 	}
+
+	@Override
+	public void diaryLikeUp(int diaryNo) {
+		likeDAO.diaryLikeUp(diaryNo);
+	}
+
+	@Override
+	public void diaryLikeDown(int diaryNo) {
+		likeDAO.diaryLikeDown(diaryNo);
+	}
 }

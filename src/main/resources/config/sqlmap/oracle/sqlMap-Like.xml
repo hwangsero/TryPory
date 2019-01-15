@@ -13,5 +13,16 @@
 		delete from d_like
 		where diary_no = #{diaryNo} and user_no = #{userNo}
 	</delete>
+	
+	<update id="diaryLikeUp" parameterType="int">
+		update d_diary
+		set like_cnt = like_cnt + 1
+		where no = #{int}
+	</update>
 
+	<update id="diaryLikeDown" parameterType="int">
+		update d_diary
+		set like_cnt = like_cnt - 1
+		where no = #{int}
+	</update>
 </mapper>
