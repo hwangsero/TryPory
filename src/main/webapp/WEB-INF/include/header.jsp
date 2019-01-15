@@ -79,7 +79,7 @@
 	                     <a class="login-btn" id="logout">
 	                    	로그아웃
 	                    </a>
-	                     <a href="${pageContext.request.contextPath}/jsp/main/adminPage.jsp" class="login-btn">
+	                     <a href="${pageContext.request.contextPath}/main/adminPage" class="login-btn">
 	                    	관리자페이지
 	                    </a>
 	                    </c:if>

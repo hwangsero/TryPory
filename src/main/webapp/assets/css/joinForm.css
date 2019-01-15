@@ -8,13 +8,13 @@
 
 .join-form-h2 {
     margin-bottom: 40px;
-    border-bottom: 1px solid #84B1ED ; 
+    border-bottom: 1px solid #1abca5 ; 
     padding-bottom: 20px;
 }
 
 .join-form-h2 h1 {
     font-size: 30px;
-    color: #84B1ED ;
+    color: #1abca5 ;
     font-weight: bold;
     display: block;
     text-align: center;	
@@ -27,7 +27,7 @@
     border-bottom: solid 1px;
     padding: 15px;
 	margin-bottom:40px;
-    color: #84B1ED;
+    color: #1abca5;
     
 }
 
@@ -123,9 +123,9 @@
 
 .join-buttons button {
     padding: 10px 15px;
-    border: 1px solid #84B1ED;
+    border: 1px solid #1abca5;
     background: #fff;
-    color: #84B1ED;
+    color: #1abca5;
     width: 200px;
     height: 50px;
     font-size: 16px;
@@ -139,7 +139,7 @@
 }
 
 .join-buttons .jbutton {
-    background: #84B1ED;
+    background: #1abca5;
     color: #fff;
 }
 

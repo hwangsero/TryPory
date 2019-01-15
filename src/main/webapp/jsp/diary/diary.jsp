@@ -67,8 +67,8 @@ $j(document).ready(function(){
 		
 					str += '<div class="img_snsBtn">';
 						str += '<div class="heart">';
-							str += '<i class="far fa-heart fa-2x"></i>'; 
-							str += '<span>' + + diary.likeCnt + '</span>';
+							str += '<img src ="${pageContext.request.contextPath}/assets/img/heart-off.png" class="heart-img">'; 
+							str += '<span class="like-count">' + + diary.likeCnt + '</span>';
 						str += '</div>';
 						str += '<div class="comment">';
 							str += '<i class="far fa-comment-dots fa-2x"></i>'; 
@@ -132,7 +132,7 @@ $j(document).ready(function(){
 		var no = $j(this).data('no');
 		location.href= window.ctx + '/diary/' + no;
 	});
-	$j(list_wrap).on('click', '.heart i', function(e){
+	$j(list_wrap).on('click', '.heart-img', function(e){
 		e.stopPropagation();
 		alert('heart');
 	});

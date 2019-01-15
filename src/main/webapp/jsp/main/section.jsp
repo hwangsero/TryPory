@@ -64,7 +64,7 @@
 							</span> 
 							<span class="profile_name">최창규</span>
 							<div class="travel-like">
-								<img src ="${pageContext.request.contextPath}/assets/img/heart-off.png">
+								<img src ="${pageContext.request.contextPath}/assets/img/heart-off.png"  class="heart-img">
 								<span class="like-count">15</span>
 							</div>
 						</div>
@@ -151,8 +151,8 @@
 									class="profile_thumb_mask"></span>
 								</span> <span class="profile_name">${ diary.writer }</span>
 								<div class="travel-like">
-									<img src ="${pageContext.request.contextPath}/assets/img/heart-off.png">
-									<span>${ diary.likeCnt }</span>
+									<img src ="${pageContext.request.contextPath}/assets/img/heart-off.png" class="heart-img">
+									<span class="like-count">${ diary.likeCnt }</span>
 								</div>
 							</div>
 						</div>

@@ -7,18 +7,18 @@
     
     <%@ include file="/WEB-INF/include/head.jsp" %>
     
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png" />
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="${pageContext.request.contextPath }/assets/img/apple-icon.png" />
+    <link rel="icon" type="image/png" href="${pageContext.request.contextPath }/assets/img/favicon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Material Dashboard by Creative Tim</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <!-- Bootstrap core CSS     -->
-    <link href="../../assets/css/bootstrap2.min.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath }/assets/css/bootstrap2.min.css" rel="stylesheet" />
     <!--  Material Dashboard CSS    -->
-    <link href="../../assets/css/material-dashboard.css?v=1.2.0" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath }/assets/css/material-dashboard.css?v=1.2.0" rel="stylesheet" />
     <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="../../assets/css/demo.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath }/assets/css/demo.css" rel="stylesheet" />
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
@@ -38,8 +38,8 @@
     <!-- ##### Hero Area End ##### -->
 
     <div class="wrapper">
-        <div class="sidebar" data-color="purple" data-image="../../assets/img/sidebar-1.jpg">
-         <div class="sidebar" data-color="purple" data-image="../assets/img/sidebar-1.jpg">
+        <div class="sidebar" data-color="purple" data-image="${pageContext.request.contextPath }/assets/img/sidebar-1.jpg">
+         <div class="sidebar" data-color="purple" data-image="${pageContext.request.contextPath }/assets/img/sidebar-1.jpg">
             <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
@@ -157,7 +157,7 @@
                                 </div>
                                 <div class="card-content">
                                     <p class="category">현재 회원수</p>
-                                    <h3 class="title">1449
+                                    <h3 class="title">${cnt}
                                         <small>명</small>
                                     </h3>
                                 </div>
@@ -542,23 +542,23 @@
       <%@ include file="/WEB-INF/include/footer.jsp" %>
 </body>
 <!--   Core JS Files   -->
-<script src="../../assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-<script src="../../assets/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="../../assets/js/material.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath }/assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath }/assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath }/assets/js/material.min.js" type="text/javascript"></script>
 <!--  Charts Plugin -->
-<script src="../../assets/js/chartist.min.js"></script>
+<script src="${pageContext.request.contextPath }/assets/js/chartist.min.js"></script>
 <!--  Dynamic Elements plugin -->
-<script src="../../assets/js/arrive.min.js"></script>
+<script src="${pageContext.request.contextPath }/assets/js/arrive.min.js"></script>
 <!--  PerfectScrollbar Library -->
-<script src="../../assets/js/perfect-scrollbar.jquery.min.js"></script>
+<script src="${pageContext.request.contextPath }/assets/js/perfect-scrollbar.jquery.min.js"></script>
 <!--  Notifications Plugin    -->
-<script src="../../assets/js/bootstrap-notify.js"></script>
+<script src="${pageContext.request.contextPath }/assets/js/bootstrap-notify.js"></script>
 <!--  Google Maps Plugin    -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!-- Material Dashboard javascript methods -->
-<script src="../../assets/js/material-dashboard.js?v=1.2.0"></script>
+<script src="${pageContext.request.contextPath }/assets/js/material-dashboard.js?v=1.2.0"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-<script src="../../assets/js/demo.js"></script>
+<script src="${pageContext.request.contextPath }/assets/js/demo.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
 
