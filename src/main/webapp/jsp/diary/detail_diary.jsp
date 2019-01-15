@@ -5,6 +5,109 @@
 $j(document).ready(function() {
 	replyList()
 	
+	if(${userVO.no} != '') {
+	likeDiv()
+	}
+	var like = false;
+	var scrap = false;
+	
+	$(document).on('click','#likeBtn',function() {
+	like = !like;
+	
+	if(like == true) {
+	$(this).css("background", "red");
+	
+	var data = {
+		diaryNo : ${diary.no},
+		userNo : ${userVO.no}
+	}
+	
+	$.ajax({
+		url : '${pageContext.request.contextPath}/likeUp',
+		type : "get",
+		data : data,
+		dataType : "json",
+		success : function() {
+			alert('성공')
+		},
+		error : function() {
+			alert('실패')
+		}
+		
+	})
+	} else {
+	$(this).css("background","");
+	
+	var data = {
+			diaryNo : ${diary.no},
+			userNo : ${userVO.no}
+		}
+	
+	$.ajax({
+		url : '${pageContext.request.contextPath}/likeDown',
+		type : "get",
+		data : data,
+		dataType : "json",
+		success : function() {
+			alert('성공')
+		},
+		error : function() {
+			alert('실패')
+		}
+		
+	})
+	
+	
+	}
+	})	
+	
+	$(document).on('click','#scrapBtn',function() {
+	scrap = !scrap;
+	
+	if(scrap == true) {
+	$(this).css("background", "red");
+	var data = {
+			diaryNo : ${diary.no},
+			userNo : ${userVO.no}
+		}
+		
+		$.ajax({
+			url : '${pageContext.request.contextPath}/scrapUp',
+			type : "get",
+			data : data,
+			dataType : "json",
+			success : function() {
+				alert('성공')
+			},
+			error : function() {
+				alert('실패')
+			}
+			
+		})
+	
+	} else {
+	$(this).css("background","");
+	var data = {
+			diaryNo : ${diary.no},
+			userNo : ${userVO.no}
+		}
+		
+		$.ajax({
+			url : '${pageContext.request.contextPath}/scrapDown',
+			type : "get",
+			data : data,
+			dataType : "json",
+			success : function() {
+				alert('성공')
+			},
+			error : function() {
+				alert('실패')
+			}
+			
+		})
+	}
+	})	
+	
 	$j('#addBtn').click(function() {
 		if( '${userVO}' == ''){
 			alert('로그인이 필요한 기능 입니다');
@@ -76,6 +179,19 @@ function replyList() {
 				alert(e);
 			}
 	})
+}
+
+function likeDiv() {
+	$('#likeDiv').empty();
+	
+	var b = '<button id="likeBtn">'
+	b += '좋아요'
+	b += '</button>&nbsp;'
+	b += '<button id="scrapBtn">'
+	b += '스크랩'
+	b += '</button>'
+	
+	$('#likeDiv').append(b);
 }
 </script>
 <script>
@@ -255,6 +371,8 @@ $j(document).ready(function(){
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6xArRw-nczVJ9vZLjCa-H1uSAE1PN3Ks"></script>	
 	<div class="comment_container">
 	    <div class="actionBox">
+	    <div id="likeDiv">
+	    </div>
 	        <ul id="commentList">
 	            <li>
 	            </li>

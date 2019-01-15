@@ -2,27 +2,36 @@ package kr.co.mlec.vo;
 
 public class LikeVO {
 
-	private String diaryNo;
-	private String userEmail;
+	private int diaryNo;
+	private int userNo;
 	
-	
-	public String getDiaryNo() {
+	public LikeVO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getDiaryNo() {
 		return diaryNo;
 	}
-	public void setDiaryNo(String diaryNo) {
+
+	public void setDiaryNo(int diaryNo) {
 		this.diaryNo = diaryNo;
 	}
-	public String getUserEmail() {
-		return userEmail;
+
+	public int getUserNo() {
+		return userNo;
 	}
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
+
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Like [diaryNo=" + diaryNo + ", userEmail=" + userEmail + "]";
+		return "LikeVO [diaryNo=" + diaryNo + ", userNo=" + userNo + "]";
 	}
+
+	
 	
 
 }

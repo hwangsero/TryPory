@@ -1,7 +1,10 @@
 package kr.co.mlec.like;
 
+import kr.co.mlec.vo.LikeVO;
+
 public interface LikeServiceInter {
 
-	void upView_cnt(int no);
+	void upView_cnt(LikeVO likeVO);
+	void downView_cnt(LikeVO likeVO);
 
 }
