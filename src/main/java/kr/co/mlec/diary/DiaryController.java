@@ -128,19 +128,23 @@ public class DiaryController {
 		for (int m = 0; m < map_data.size(); m++) { // 일차
 			List<Object> map_contents = (List<Object>) map_data.get(m);
 			for (int n = 0; n < map_contents.size(); n++) {
+				
 				Map<String, Object> map_content = (Map<String, Object>) map_contents.get(n);
-				SpotVO spot = new SpotVO();
-				spot.setDiary_no(insert_diary_no);
-				spot.setAddr((String) map_content.get("addr"));
-				spot.setSpot_name((String) map_content.get("city"));
-				spot.setCountry((String) map_content.get("country"));
-				spot.setLat((Double) map_content.get("lat"));
-				spot.setLng((Double) map_content.get("lng"));
-				spot.setDate_cnt(m);
-				spot.setUser_no(member.getNo());
-
-				System.out.println(spot);
-				spotService.insertSpot(spot);
+				
+				if( map_content.get("addr") != null || map_content.get("city") != null || map_content.get("country") != null){
+					SpotVO spot = new SpotVO();
+					spot.setDiary_no(insert_diary_no);
+					spot.setAddr((String) map_content.get("addr"));
+					spot.setSpot_name((String) map_content.get("city"));
+					spot.setCountry((String) map_content.get("country"));
+					spot.setLat((Double) map_content.get("lat"));
+					spot.setLng((Double) map_content.get("lng"));
+					spot.setDate_cnt(m);
+					spot.setUser_no(member.getNo());
+	
+					System.out.println(spot);
+					spotService.insertSpot(spot);
+				}
 			}
 
 		}
