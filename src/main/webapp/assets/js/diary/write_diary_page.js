@@ -347,11 +347,6 @@ $j(document).ready(function(){
 //				$j("div#write_page_header").css("background-image", "url(" +  img_url+ ")");
 			}
 			
-			if( $j(img_wrap).find(".img_row").length == 5 ){
-				add_content_box(img_wrap);
-				img_wrap = $j(".img_wrap").last();
-			}
-			
 			if(file.dateTime.getDate() - start_date.getDate() > 0){
 				var date_box_clone = write_con.find("div.content_datebox").first().clone();
 				var content_box_clone = write_con.find("div.content_box").first().clone();
@@ -398,8 +393,10 @@ $j(document).ready(function(){
 
 				var cells = cell_data;
 				date_data[div.prevAll("#date_wrap").length] = cells;
+			} else if( $j(img_wrap).find(".img_row").length == 5 ){
+				add_content_box(img_wrap);
+				img_wrap = $j(".img_wrap").last();
 			}
-			
 			function display(file, img){
 				switch(file.orientation) {
 				case 2: img.addClass('flip'); break;
