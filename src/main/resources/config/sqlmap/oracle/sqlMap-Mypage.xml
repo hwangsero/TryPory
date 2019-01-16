@@ -19,7 +19,17 @@
 	      <if test="phone2 != null">phone2 = #{phone2},</if>
 	      <if test="phone3 != null">phone3 = #{phone3}</if>
 	    </set>
-		where email=#{email}
+		where no=#{no}
+	</update>
+	<update id="updateProfileImg" parameterType="memberVO">
+		update D_member
+	    set profile_img = #{profile_img}
+		where no=#{no}
+	</update>
+	<update id="deleteProfileImg" parameterType="memberVO">
+		update D_member
+	    set profile_img = null
+		where no=#{no}
 	</update>
 	
 </mapper>

@@ -37,7 +37,12 @@ public class SearchController {
 	@RequestMapping("/search/{type}/{word}")
 	public List<SearchVO> searchTag(@PathVariable("type") String type, @PathVariable("word") String word) {
 		List<SearchVO> searchList = searchService.selectSearch(type, word);
-		System.out.println(searchList);
+		System.out.println(type);
+		System.out.println(word);
+		
+		for(SearchVO data : searchList) {
+			System.out.println(data);
+		}
 		return searchList;
 	}
 	

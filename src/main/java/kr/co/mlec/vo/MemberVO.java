@@ -15,6 +15,7 @@ public class MemberVO {
 	private String phone3;
 	private String auth_key;
 	private String is_auth;
+	private String profile_img;
 
 	public int getNo() {
 		return no;
@@ -39,6 +40,12 @@ public class MemberVO {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getProfile_img() {
+		return profile_img;
+	}
+	public void setProfile_img(String profile_img) {
+		this.profile_img = profile_img;
 	}
 	public String getPassword() {
 		return password;
@@ -94,12 +101,13 @@ public class MemberVO {
 	public void setIs_auth(String is_auth) {
 		this.is_auth = is_auth;
 	}
+	
 	@Override
 	public String toString() {
 		return "MemberVO [no=" + no + ", email=" + email + ", email_domain=" + email_domain + ", name=" + name
 				+ ", password=" + password + ", user_type=" + user_type + ", registerDate=" + registerDate + ", intro="
 				+ intro + ", phone1=" + phone1 + ", phone2=" + phone2 + ", phone3=" + phone3 + ", auth_key=" + auth_key
-				+ ", is_auth=" + is_auth + "]";
+				+ ", is_auth=" + is_auth + ", profile_img=" + profile_img + "]";
 	}
 	public MemberVO() {
 	}

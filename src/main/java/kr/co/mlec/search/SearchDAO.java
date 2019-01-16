@@ -32,6 +32,8 @@ public class SearchDAO implements SearchDAOInter{
 
 	@Override
 	public List<SearchVO> selectSearch(Map<String,String> search) {
-		return sqlSession.selectList("kr.co.mlec.search.selectSearch", search);
+		List<SearchVO> list = sqlSession.selectList("kr.co.mlec.search.selectSearch", search);
+		System.out.println("list : " + list);
+		return list;
 	}
 }

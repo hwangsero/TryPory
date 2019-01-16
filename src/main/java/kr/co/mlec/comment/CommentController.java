@@ -30,6 +30,7 @@ public class CommentController {
 	 * 댓글 등록
 	 * @param commentVO
 	 */
+	
 	@PostMapping("/reply")
 	public void insertComment(CommentVO commentVO, HttpSession session) {
 		MemberVO user = (MemberVO)session.getAttribute("userVO");
@@ -88,5 +89,7 @@ public class CommentController {
 		model.addAttribute("pageNo", pageNo);
 		return commentMap;
 	}
+	
+
 	
 }
