@@ -8,6 +8,7 @@
 		<result column="no" property="no"/>
 		<result column="title" property="title"/>
 		<result column="writer" property="writer"/>
+		<result column="user_no" property="user_no"/>
 		<result column="addr" property="addr"/>
 		<result column="content" property="content"/>
 		<result column="map_content" property="map_content"/>
@@ -23,7 +24,7 @@
 	</resultMap>
 	
 	<select id="selectDiary" resultType="diaryVO" parameterType="int">
-		select no, title, content, map_content, writer, cover_image, is_share, end_date, start_date,
+		select no, title, content, map_content, writer, user_no, cover_image, is_share, end_date, start_date,
 		tag, view_cnt, like_cnt, register_date
 		from D_diary
 		where no = #{no}
@@ -35,10 +36,19 @@
 	</select>
 	<select id="selectFiveDiary" resultMap="diaryMap" parameterType="map">
 		select c.r, c.no, (select count(*) from d_comment where diary_no = c.no) as comment_cnt, 
+			c.title, c.writer, c.user_no, c.cover_image, c.is_share, c.end_date, c.start_date, c.tag, 
+			c.view_cnt, c.like_cnt, c.addr, c.register_date, c.map_content, c.content from (
+			select rownum r, b.* from( select a.* from d_diary a
+			order by no desc) b 
+		) c where r <![CDATA[>=]]> #{start} and r <![CDATA[<=]]> #{end}
+	</select>
+
+	<select id="selectMyDiary" resultMap="diaryMap" parameterType="map">
+		select c.r, c.no, (select count(*) from d_comment where diary_no = c.no) as comment_cnt, 
 			c.title, c.writer, c.cover_image, c.is_share, c.end_date, c.start_date, c.tag, 
 			c.view_cnt, c.like_cnt, c.addr, c.register_date, c.map_content, c.content from (
 			select rownum r, b.* from( select a.* from d_diary a
-			 
+			where user_no = #{user_no}
 			order by no desc) b 
 		) c where r <![CDATA[>=]]> #{start} and r <![CDATA[<=]]> #{end}
 	</select>
@@ -80,8 +90,8 @@
 	</select>
 
 	<insert id="insertDiary" parameterType="DiaryVO">
-		insert into d_diary(no, title, content, map_content, writer, end_date, start_date, cover_image, is_share, tag, addr)
-		values(d_diary_seq.nextval, #{title}, #{content}, #{map_content}, #{writer}, #{end_date}, #{start_date}, #{cover_image, jdbcType=VARCHAR}, #{is_share}, #{tag}, #{addr} )
+		insert into d_diary(no, title, user_no, content, map_content, writer, end_date, start_date, cover_image, is_share, tag, addr)
+		values(d_diary_seq.nextval, #{title}, #{user_no}, #{content}, #{map_content}, #{writer}, #{end_date}, #{start_date}, #{cover_image, jdbcType=VARCHAR}, #{is_share}, #{tag}, #{addr} )
 		<selectKey keyProperty="no" resultType="Integer" order="AFTER"> SELECT d_diary_seq.currval FROM dual </selectKey>
 	</insert>
 	

@@ -17,4 +17,12 @@ public class MyPageService implements MyPageServiceInter {
 		mypageDAO.updateMember(userVO);
 		
 	}
+
+	public int updateProfileImg(MemberVO userVO) {
+		return mypageDAO.updateProfileImg(userVO);
+	}
+
+	public int deleteProfileImg(MemberVO userVO) {
+		return mypageDAO.deleteProfileImg(userVO);
+	}
 }

@@ -57,4 +57,8 @@ public class DiaryDAO implements DiaryDAOInter {
 		return sqlSession.selectList("kr.co.mlec.diary.selectBestDiary");
 	}
 
+	public List<DiaryVO> selectMyDiary(Map<String, Object> parameters) {
+		return sqlSession.selectList("kr.co.mlec.diary.selectMyDiary", parameters);
+	}
+
 }
