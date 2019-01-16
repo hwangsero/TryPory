@@ -114,7 +114,7 @@
 	select * from d_diary
 	where no in (
 	select diary_no from d_like
-	group by diary_no)
+	group by diary_no) order by like_cnt desc
 	</select>
 
 	<insert id="insertDiary" parameterType="DiaryVO">

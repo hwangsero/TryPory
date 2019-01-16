@@ -65,10 +65,10 @@
 								onclick="nclk(this,'sea*t.thumb','','');"> <span
 								class="profile_thumb_mask"></span>
 							</span> 
-							<span class="profile_name">${bestDiary[1].writer }</span>
+							<span class="profile_name">${bestDiary[0].writer }</span>
 							<div class="travel-like">
 								<img src ="${pageContext.request.contextPath}/assets/img/heart-off.png"  class="heart-img">
-								<span class="like-count">${bestDiary[1].likeCnt }</span>
+								<span class="like-count">${bestDiary[0].likeCnt }</span>
 							</div>
 						</div>
 					</div>
