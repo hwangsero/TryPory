@@ -38,12 +38,11 @@
 		where rownum <![CDATA[<=]]> 10
 		</when>	
 		
-		<when test= 'type.equals("content")'>
-		select content
-		from
-		(select content
-		from d_diary
-		where content like '%'||#{word}||'%')
+		<when test= 'type.equals("spot")'>
+		select a.addr as value, a.c as count from
+			(select addr, count(*) as c from d_diary
+			group by addr
+			having addr like #{word}||'%' order by addr asc) a 
 		where rownum <![CDATA[<=]]> 10
 		</when>	
 	

@@ -35,7 +35,7 @@ $j(document).ready(function(){
 					str += '<div class="item_search">'			
 					str += '<a href="#" class="link_sch_tag" data-keyword="'+ data[i].value+  '">'
 					str += '<span class="sch_tag"><span class="sch_match_up">'+ data[i].value +'</span>'
-					str += '<span class="sch_count">' + data[i].count + '</span>';
+					str += '<span class="sch_ecount">' + data[i].count + '</span>';
 					str += '</a>'
 					str += '</div>'
 					str += '<li>'
@@ -45,7 +45,6 @@ $j(document).ready(function(){
 				});
 				
 			}, error : function(e) {
-				alert(e)
 			}
 		});
 	}
@@ -96,8 +95,7 @@ $j(document).ready(function(){
                 role="tab" data-toggle="tab">태그</a></li>
             <li class="nav-item"><a id="writer" class="nav-link" href="#works"
                 role="tab" data-toggle="tab">작성자</a></li>
-            <li class="nav-item"><a id="content" class="nav-link" href="#favorite"
-                role="tab" data-toggle="tab">내용</a></li>
+
             <li class="nav-item"><a id="spot" class="nav-link" href="#favorite"
                 role="tab" data-toggle="tab">여행지</a></li>
         </ul>

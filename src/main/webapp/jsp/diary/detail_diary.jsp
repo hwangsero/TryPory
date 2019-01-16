@@ -148,11 +148,11 @@ $j(document).ready(function() {
 function replyList() {	
 	$j('#commentList').empty();
 	
+	
 	$j.ajax({
 		url : '${pageContext.request.contextPath}/reply/${diary.no}', //일단 임시로 diaryNo를 1로 해놈
 		dataType : 'json',
 		success : function(data) {
-			console.log(data)
 			var i = 0;
 			$j(data).each(function() {
 			var str = '<li>'
@@ -162,7 +162,10 @@ function replyList() {
 			str+= '<div class="commentText">'
 			str+= '<div>' + data[i].content + '</div>'
 			str+= '<span class="date sub-text">' + data[i].writer + '&nbsp' + data[i].registerDate + '</span>'
+			 if(data[i].email === '${userVO.email}') { 
 			str+= '&nbsp; <button class="delBtn" id="' + data[i].no + '">삭제</div>'
+			 } 
+			
 				str+= '<hr>'
 			str+= '</li>'
 				
