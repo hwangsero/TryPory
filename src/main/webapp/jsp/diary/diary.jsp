@@ -169,7 +169,6 @@ $j(document).ready(function(){
 	});
 	$j(list_wrap).on('click', '.heart-img', function(e){
 		e.stopPropagation();
-		alert('heart');
 	});
 	
 });

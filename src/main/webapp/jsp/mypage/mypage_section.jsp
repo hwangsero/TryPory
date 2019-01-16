@@ -46,7 +46,7 @@ function commentList(e) {
 				str += '<h2>' + data.commentList[i].content +'</h2>'
 				str += '<h5>'+ data.commentList[i].registerDate +'</h5>'
 				str += '</div>'
-				str += '<a href="#"><button>보러가기</button></a>'
+				str += '<a href="${pageContext.request.contextPath}/reply/see/' + data.commentList[i].diaryNo +'"><button>보러가기</button></a>'
 				str += '</div>'
 				str += '</div>'
 				i = i+1;
