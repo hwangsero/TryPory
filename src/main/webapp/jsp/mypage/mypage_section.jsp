@@ -46,7 +46,7 @@ function commentList(e) {
 				str += '<h2>' + data.commentList[i].content +'</h2>'
 				str += '<h5>'+ data.commentList[i].registerDate +'</h5>'
 				str += '</div>'
-				str += '<a href="#"><button>보러가기</button></a>'
+				str += '<a href="${pageContext.request.contextPath}/reply/see/' + data.commentList[i].diaryNo +'"><button>보러가기</button></a>'
 				str += '</div>'
 				str += '</div>'
 				i = i+1;
@@ -237,7 +237,12 @@ $(document).ready(function() {
 					str += '<div class="profile_wrap">';
 						str += '<a href="/my/4550316/profile" class="link_profile" title="계정 상세페이지">';
 							str += '<span class="profile_thumb">';
-								str += '<img class="thumb_default" src="https://img-pholar.pstatic.net/20171231_163/1514678074152X9488_JPEG/miya1220.jpg?type=fn80_80">';
+							
+								if( diary.user_profile == null){
+									str += '<img class="thumb_default" src="${pageContext.request.contextPath}/assets/img/user_profile.png">';
+								} else {
+									str += '<img class="thumb_default" src="https://i.imgur.com/' + diary.user_profile + '.jpg">';
+								}
 								str += '<span class="profile_thumb_mask"></span>';
 							str += '</span>';
 							str += '<span class="profile_name">' + diary.writer + '</span>';

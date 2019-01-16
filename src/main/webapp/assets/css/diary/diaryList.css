@@ -241,6 +241,7 @@
 }
 
 img.thumb_default {
+   min-height: 54px;
    display: inline-block;
    width: 100%;
    height: auto;

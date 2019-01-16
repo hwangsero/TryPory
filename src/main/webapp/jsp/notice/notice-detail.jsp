@@ -150,9 +150,7 @@ $j(document).ready(function() {
 		
 		<!--5. 이전, 다음, 목록 버튼-->
 		<div class="notice-buttons">
-			<input class="back-btn" type="button" value="이전"> 
 			<input class="list-btn" type="button" value="목록" onclick="noticeList()">
-			<input class="next-btn" type="button" value="다음">
 		</div>
 		<!--END 5. 이전, 다음, 목록 버튼-->
 
