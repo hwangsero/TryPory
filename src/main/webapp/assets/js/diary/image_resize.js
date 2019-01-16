@@ -16,12 +16,12 @@ $j(document).ready(function() {
 			var divAspect = $j(div).height() / $j(div).width()
 
 			var img = $j(div).find('img');
-			var imgAspect = $j(img).height() / $j(img).width()
-
+			var imgAspect = $j(img).height() / $j(img).width();
+	
 			if (imgAspect <= divAspect) {
 				// 이미지가 div보다 납작한 경우 세로를 div에 맞추고 가로는 잘라낸다
-				var imgWidthActual = div.offsetHeight / imgAspect;
-				var imgWidthToBe = div.offsetHeight / divAspect;
+				var imgWidthActual = $j(div).outerHeight() / imgAspect;
+				var imgWidthToBe = $j(div).outerHeight() / divAspect;
 				var marginLeft = -Math.round((imgWidthActual - imgWidthToBe) / 2);
 				$j(img).css({
 					'width' : 'auto',
@@ -30,10 +30,14 @@ $j(document).ready(function() {
 				});
 			} else {
 				// 이미지가 div보다 길쭉한 경우 가로를 div에 맞추고 세로를 잘라낸다
+				var imgHeightActual = $j(div).outerWidth() / imgAspect;
+				var imgHeightToBe = $j(div).outerWidth() / divAspect;
+				var marginTop = Math.round((imgHeightActual - imgHeightToBe) / 2);
+	//			var marginTop = Math.round((div.height() - $j(img).height()) / 2);
 				$j(img).css({
 					'width' : '100%',
 					'height' : 'auto',
-					'margin-left' : '0'
+					'margin-top' : marginTop + 'px'
 				});
 			}
 		}

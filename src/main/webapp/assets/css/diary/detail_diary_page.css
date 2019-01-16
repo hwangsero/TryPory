@@ -136,14 +136,15 @@
    height: auto
 }
 
-.img_content img {
-   height: 150px;
-   width: auto;
-   max-width: none;
-}
+/* .img_content img {
+	height: 150px;
+	width: auto;
+	max-width: none;
+} */
 
 .ic-1 .img_content:first-child {
-   
+	width: 600px;
+	height: 350px;
 }
 
 .ic-2 .img_content:first-child {
@@ -181,6 +182,13 @@
    width: 302px;
    height: 225px;
 }
+.ic-4 img, .ic-5 img, .ic-3 img, .ic-2 img, .ic-1 img {
+	/* 	width:100%; 
+		height:100%;
+		top:0; 
+		left:0; 
+		position:absolute; */
+	}
 
 /* img wrap */
 /* comment wrap */
