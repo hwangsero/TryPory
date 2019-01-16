@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- 이미지교체 팝업 -->
 
 <div class="cd-popup02" role="alert">
@@ -43,9 +41,15 @@
 			<div class="container">
 				<div class="profile">
 					<div class="avatar">
-						<a href="#" class="profileImgBtn"><img
-							src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0NjQzOTk4OTQ4OTkyMzQy/ansel-elgort-poses-for-a-portrait-during-the-baby-driver-premiere-2017-sxsw-conference-and-festivals-on-march-11-2017-in-austin-texas-photo-by-matt-winkelmeyer_getty-imagesfor-sxsw-square.jpg"
+						<a href="#" class="profileImgBtn">
+						<c:if test="${not empty userVO.profile_img}">
+							<img src="https://i.imgur.com/${userVO.profile_img}.jpg"
 							alt="Circle Image" class="img-raised rounded-circle img-fluid">
+						</c:if>
+						<c:if test="${empty userVO.profile_img}">
+							<img src="${pageContext.request.contextPath}/assets/img/user_profile.png"
+							alt="Circle Image" class="img-raised rounded-circle img-fluid">
+						</c:if>
 						</a>
 					</div>
 
