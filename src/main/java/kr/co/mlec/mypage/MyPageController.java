@@ -128,4 +128,3 @@ public class MyPageController {
 		return mypageService.deleteProfileImg(userVO);
 	}
 }
-	
