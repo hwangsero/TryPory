@@ -33,10 +33,6 @@ public class CommentController {
 	@PostMapping("/reply")
 	public void insertComment(CommentVO commentVO, HttpSession session) {
 		MemberVO user = (MemberVO)session.getAttribute("userVO");
-<<<<<<< HEAD
-		System.out.println(user);
-=======
->>>>>>> 01b52ebee2bc8e6d17157793f060a8559a64fbbf
 		commentVO.setWriter(user.getName());
 		commentVO.setEmail(user.getEmail());
 		commentService.insertComment(commentVO);
