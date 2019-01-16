@@ -621,6 +621,12 @@ input[type=file] {
 	margin: auto;
 	line-height: 40px;
 }
+.heart-img {
+	margin-top: -10px;
+    margin-right: 10px;
+	width:28px;
+	height: 28px;
+}
 
 .img_snsBtn span {
 	font-size: 16px;
