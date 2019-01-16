@@ -417,7 +417,7 @@ $(document).ready(function() {
 
 		<div class="profile-content ">
 			<div class="container">
-				<div class="profile">
+				<div class="profile clr">
 					<div class="avatar">
 						<a href="#" class="profileImgBtn">
 						<c:if test="${not empty userVO.profile_img}">
@@ -437,9 +437,16 @@ $(document).ready(function() {
 					<div class="description text-center">
 						<p>${ userVO.intro }</p>
 					</div>
+<!-- 					<a -->
+<%-- 						href="${pageContext.request.contextPath}/jsp/mypage/mypage_update.jsp"><label --%>
+<!-- 						for="myUpdateBtn" class="myMap"><i class="fas fa-map-marked-alt fa-2x"></i>나의 여행지도</label></a><br> -->
 					<a
 						href="${pageContext.request.contextPath}/jsp/mypage/mypage_update.jsp"><label
-						for="myUpdateBtn">개인정보 수정</label></a>
+						for="myUpdateBtn"  class="updateBtn">개인정보 수정</label></a><br>
+					<span class="myMap">
+						<i class="fas fa-map-marked-alt fa-3x"></i>
+						<span>나의 여행지도</span>
+					</span>
 				</div>
 
 

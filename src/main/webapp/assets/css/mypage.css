@@ -165,7 +165,7 @@ p {
 
 .nav-pills .nav-item .nav-link {
 	line-height: 30px;
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: 500;
 	width: 100%;
 	color: #555;
@@ -219,9 +219,28 @@ img.rounded {
 }
 
 /* ���������� ������ư */
-.profile label {
+
+.profile .myMap {
+	color:#1abca5;		
+}
+
+.myMap {
+	float:right;
+}
+
+.myMap .fa-map-marked-alt {
+	margin-right: 5px; 
+	font-size:20px;
+}
+
+.myMap span {
+	font-size:16px
+}
+
+.profile .updateBtn {
 	width: 120px;
 	height: 30px;
+	display:inline-block;
 	border-radius: 30px;
 	border: 1px solid #1abca5;
 	line-height: 30px;
