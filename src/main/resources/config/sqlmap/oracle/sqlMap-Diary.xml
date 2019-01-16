@@ -62,6 +62,14 @@
 				order by no desc) b 
 			) where r <![CDATA[>=]]> #{start} and r <![CDATA[<=]]> #{end}
 			</when>	
+			
+			<when test= 'type.equals("spot")'>
+			select * from (
+				select rownum r, b.* from( select a.* from d_diary a
+				 where addr = #{keyword}
+				order by no desc) b 
+			) where r <![CDATA[>=]]> #{start} and r <![CDATA[<=]]> #{end}
+			</when>	
 		</choose>
 	</select>
 	

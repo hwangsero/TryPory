@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -69,6 +70,10 @@ public class MyPageController {
 		return mav;
 	}
 	
+	@GetMapping("/reply/see/{diaryNo}")
+	public String myCommentSee(@PathVariable("diaryNo") int diaryNo) {
+		return "redirect:/diary/" + diaryNo;
+	}
 
 }
 	
