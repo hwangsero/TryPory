@@ -4,6 +4,7 @@ public class DiaryVO {
 
 	private int no;
 	private int user_no;
+	private String user_profile;
 	private String title;
 	private String content;
 	private String map_content;
@@ -29,6 +30,12 @@ public class DiaryVO {
 	}
 	public void setUser_no(int user_no) {
 		this.user_no = user_no;
+	}
+	public String getUser_profile() {
+		return user_profile;
+	}
+	public void setUser_profile(String user_profile) {
+		this.user_profile = user_profile;
 	}
 	public int getComment_cnt() {
 		return comment_cnt;
@@ -116,10 +123,10 @@ public class DiaryVO {
 	}
 	@Override
 	public String toString() {
-		return "DiaryVO [no=" + no + ", user_no=" + user_no + ", title=" + title + ", content=" + content
-				+ ", map_content=" + map_content + ", writer=" + writer + ", cover_image=" + cover_image + ", is_share="
-				+ is_share + ", end_date=" + end_date + ", start_date=" + start_date + ", tag=" + tag + ", addr=" + addr
-				+ ", viewCnt=" + viewCnt + ", likeCnt=" + likeCnt + ", comment_cnt=" + comment_cnt + ", registerDate="
-				+ registerDate + "]";
+		return "DiaryVO [no=" + no + ", user_no=" + user_no + ", user_profile=" + user_profile + ", title=" + title
+				+ ", content=" + content + ", map_content=" + map_content + ", writer=" + writer + ", cover_image="
+				+ cover_image + ", is_share=" + is_share + ", end_date=" + end_date + ", start_date=" + start_date
+				+ ", tag=" + tag + ", addr=" + addr + ", viewCnt=" + viewCnt + ", likeCnt=" + likeCnt + ", comment_cnt="
+				+ comment_cnt + ", registerDate=" + registerDate + "]";
 	}
 }

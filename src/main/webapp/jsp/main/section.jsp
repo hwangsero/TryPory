@@ -46,11 +46,11 @@
 						</div>
 						
 						<div class="main-detail">
-							<span class="travel-period">기간 | ${bestDiary[1].start_date } - ${bestDiary[1].end_date }</span>
+							<span class="travel-period">기간 | ${bestDiary[0].start_date } - ${bestDiary[0].end_date }</span>
 						<!-- 	<span class="travel-point">오사카</span> -->
-							<h2>${bestDiary[1].title }</h2>
-							<c:if test="${not empty bestDiary[1].tag }">
-								<c:set var="tags" value="${fn:split(bestDiary[1].tag,', ')}" />
+							<h2>${bestDiary[0].title }</h2>
+							<c:if test="${not empty bestDiary[0].tag }">
+								<c:set var="tags" value="${fn:split(bestDiary[0].tag,', ')}" />
 								<c:forEach var="tag" items="${tags}" >
 								       <span class="tag">${tag }</span>
 								</c:forEach> 
@@ -174,8 +174,8 @@
 		
 	</div>
 	
-	<img src="${pageContext.request.contextPath}/assets/img/main/pre.png" class="main-btn pre">
-   	<img src="${pageContext.request.contextPath}/assets/img/main/next.png" class="main-btn next">
+<%-- 	<img src="${pageContext.request.contextPath}/assets/img/main/pre.png" class="main-btn pre"> --%>
+<%--    	<img src="${pageContext.request.contextPath}/assets/img/main/next.png" class="main-btn next"> --%>
    
 	
 	<div id="background-img01">

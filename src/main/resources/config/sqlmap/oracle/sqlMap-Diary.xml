@@ -6,6 +6,7 @@
 
 	<resultMap type="DiaryVO" id="diaryMap">
 		<result column="no" property="no"/>
+		<result column="user_profile" property="user_profile"/>
 		<result column="title" property="title"/>
 		<result column="writer" property="writer"/>
 		<result column="user_no" property="user_no"/>
@@ -35,7 +36,9 @@
 		from D_diary
 	</select>
 	<select id="selectFiveDiary" resultMap="diaryMap" parameterType="map">
-		select c.r, c.no, (select count(*) from d_comment where diary_no = c.no) as comment_cnt, 
+		select c.r, c.no, 
+			(select profile_img from d_member where no = c.user_no) as user_profile, 
+			(select count(*) from d_comment where diary_no = c.no) as comment_cnt, 
 			c.title, c.writer, c.user_no, c.cover_image, c.is_share, c.end_date, c.start_date, c.tag, 
 			c.view_cnt, c.like_cnt, c.addr, c.register_date, c.map_content, c.content from (
 			select rownum r, b.* from( select a.* from d_diary a
@@ -44,7 +47,9 @@
 	</select>
 
 	<select id="selectMyDiary" resultMap="diaryMap" parameterType="map">
-		select c.r, c.no, (select count(*) from d_comment where diary_no = c.no) as comment_cnt, 
+		select c.r, c.no,
+			(select profile_img from d_member where no = c.user_no) as user_profile, 
+			(select count(*) from d_comment where diary_no = c.no) as comment_cnt, 
 			c.title, c.writer, c.cover_image, c.is_share, c.end_date, c.start_date, c.tag, 
 			c.view_cnt, c.like_cnt, c.addr, c.register_date, c.map_content, c.content from (
 			select rownum r, b.* from( select a.* from d_diary a
@@ -54,7 +59,9 @@
 	</select>
 	
 	<select id="selectScrapDiary" resultMap="diaryMap" parameterType="map">
-		select c.r, c.no, (select count(*) from d_comment where diary_no = c.no) as comment_cnt, 
+		select c.r, c.no, 
+			(select profile_img from d_member where no = c.user_no) as user_profile,
+			(select count(*) from d_comment where diary_no = c.no) as comment_cnt, 
 			c.title, c.writer, c.cover_image, c.is_share, c.end_date, c.start_date, c.tag, 
 			c.view_cnt, c.like_cnt, c.addr, c.register_date, c.map_content, c.content from (
 			select rownum r, b.* from( 

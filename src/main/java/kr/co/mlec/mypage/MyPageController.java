@@ -128,7 +128,7 @@ public class MyPageController {
 		
 		return mypageService.deleteProfileImg(userVO);
 	}
-<<<<<<< HEAD
+
 	
 	@GetMapping("/reply/see/{diaryNo}")
 	public String myCommentSee(@PathVariable("diaryNo") int diaryNo) {
@@ -136,7 +136,4 @@ public class MyPageController {
 	}
 
 }
-	
-=======
-}
->>>>>>> b0916c230982620d78405d788c78ef703a163c05
+
