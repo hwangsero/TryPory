@@ -44,12 +44,14 @@ public class MyPageController {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("start", 1);
 		parameters.put("end", 5);
-		System.out.println(userVO.getNo());
 		parameters.put("user_no", userVO.getNo());
 		List<DiaryVO> myDiaryList = diaryService.selectMyDiary(parameters);
+		List<DiaryVO> ScrapList = diaryService.selectScrapDiary(parameters);
 		
 		Gson gson = new Gson();
+		System.out.println(ScrapList);
 		mav.addObject("myDiaryList", gson.toJson(myDiaryList));
+		mav.addObject("ScrapList", gson.toJson(ScrapList));
 		mav.setViewName("mypage/mypage");
 		
 		return mav;
@@ -70,6 +72,23 @@ public class MyPageController {
 		List<DiaryVO> diaryList = null;
 		diaryList = diaryService.selectMyDiary(parameters);
 
+		return diaryList;
+	}
+	@ResponseBody
+	@GetMapping("/mypage/s_list")
+	public List<DiaryVO> DiaryS_ListPlus(HttpServletRequest request, HttpSession session) {
+		MemberVO userVO = (MemberVO)session.getAttribute("userVO");
+		int start = Integer.parseInt(request.getParameter("start"));
+		int end = Integer.parseInt(request.getParameter("end"));
+		// 최신글 5개
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("start", start);
+		parameters.put("end", end);
+		parameters.put("user_no", userVO.getNo());
+		
+		List<DiaryVO> diaryList = null;
+		diaryList = diaryService.selectScrapDiary(parameters);
+		
 		return diaryList;
 	}
 	
@@ -109,4 +128,3 @@ public class MyPageController {
 		return mypageService.deleteProfileImg(userVO);
 	}
 }
-	

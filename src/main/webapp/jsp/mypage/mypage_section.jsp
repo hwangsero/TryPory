@@ -225,10 +225,11 @@ $(document).ready(function() {
         });
 	});
 	
-	var diary_list_wrap = $j("div.tab-pane#diary");
+	var diary_list_wrap = $j("div.tab-pane");
 	var diaryList = ${myDiaryList}; 
+	var scrapList = ${ScrapList}; 
 	
-	function append_diary(diary){
+	function append_diary(diary, type){
 		console.log(diary);
 		
 		 var str = '<div class="diary_post" data-no="' + diary.no + '">';
@@ -329,37 +330,70 @@ $(document).ready(function() {
 				str += '</div>';
 			str += '</div>';
 			
-			diary_list_wrap.append(str);
+			if( type == 'my'){
+				$j("div.tab-pane#studio").append(str);
+			}
+			
+			if( type == 'scrap'){
+				$j("div.tab-pane#works").append(str);
+			}
 	}
 	
 	for (var i = 0; i < diaryList.length; i++) {
-		append_diary( diaryList[i] );
+		append_diary( diaryList[i], 'my' );
+	}
+	for (var i = 0; i < scrapList.length; i++) {
+		append_diary( scrapList[i], 'scrap' );
 	}
 	
-	var start = 6;
-	var end = 10;
+	var d_start = 6;
+	var d_end = 10;
+	var s_start = 6;
+	var s_end = 10;
 	var is_scroll = false; // 무한스크롤 로딩 중인지
 	$(window).scroll(function() {
 	    if ($(window).scrollTop() == $(document).height() - $(window).height() && !is_scroll )  {
 	    	is_scroll = true;
-	    	var data = {
-	    				start : start,
-		    			end : end
-	    	};
-	    	$j.ajax({
-	    		url : '${pageContext.request.contextPath}/mypage/list', //일단 임시로 diaryNo를 1로 해놈
-	    		dataType: 'json',
-	    		data : data,
-	    		success : function(data) {
-	    			if( data != undefined ){
-		    			for (var i = 0; i < data.length; i++) {
-		    				append_diary( data[i] );
+	    	if(  $(".tab-pane.active").attr("id") == "studio") {
+		    	var data = {
+		    				start : d_start,
+			    			end : d_end
+		    	};
+		    	$j.ajax({
+		    		url : '${pageContext.request.contextPath}/mypage/list', //일단 임시로 diaryNo를 1로 해놈
+		    		dataType: 'json',
+		    		data : data,
+		    		success : function(data) {
+		    			if( data != undefined ){
+			    			for (var i = 0; i < data.length; i++) {
+			    				append_diary( data[i], 'my' );
+			    			}
+			    			d_start += 5;
+			    			d_end += 5;
 		    			}
-		    			start += 5;
-		    			end += 5;
-	    			}
-	    		}
-	      	});
+		    		}
+		      	});
+	    	}
+	    	if(  $(".tab-pane.active").attr("id") == "works") {
+		    	var data = {
+	    				start : s_start,
+		    			end : s_end
+	    		};
+		    	$j.ajax({
+		    		url : '${pageContext.request.contextPath}/mypage/s_list', //일단 임시로 diaryNo를 1로 해놈
+		    		dataType: 'json',
+		    		data : data,
+		    		success : function(data) {
+		    			if( data != undefined ){
+			    			for (var i = 0; i < data.length; i++) {
+			    				append_diary( data[i], 'scrap' );
+			    			}
+			    			s_start += 5;
+			    			s_end += 5;
+		    			}
+		    		}
+		      	});
+	    	}
 	      	is_scroll = false;
 	    }
 	});
@@ -458,7 +492,7 @@ $(document).ready(function() {
 						<li class="nav-item"><a class="nav-link active"
 							href="#studio" role="tab" data-toggle="tab">내 다이어리</a></li>
 						<li class="nav-item"><a class="nav-link" href="#works"
-							role="tab" data-toggle="tab">좋아요</a></li>
+							role="tab" data-toggle="tab">스크랩한 다이어리</a></li>
 						<li class="nav-item"><a id = "myComment" class="nav-link" href="#favorite"
 							role="tab" data-toggle="tab">내 댓글</a></li>
 					</ul>
@@ -468,7 +502,7 @@ $(document).ready(function() {
 
 				<div class="tab-content tab-space">
 
-					<div class="tab-pane active" id="diary">
+					<div class="tab-pane active" id="studio">
 						<%-- <div class="diary_post">
 							<div class="profile_area">
 								<div class="profile_wrap">
@@ -544,7 +578,7 @@ $(document).ready(function() {
 					<!-- 1st End  -->
 
 					<div class="tab-pane" id="works">
-						<div class="diary_post">
+						<%-- <div class="diary_post">
 							<div class="profile_area">
 								<div class="profile_wrap">
 									<a href="/my/4550316/profile" class="link_profile"
@@ -607,7 +641,7 @@ $(document).ready(function() {
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> --%>
 					</div>
 
 					<!-- 2nd End  -->

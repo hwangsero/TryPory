@@ -61,4 +61,8 @@ public class DiaryDAO implements DiaryDAOInter {
 		return sqlSession.selectList("kr.co.mlec.diary.selectMyDiary", parameters);
 	}
 
+	public List<DiaryVO> selectScrapDiary(Map<String, Object> parameters) {
+		return sqlSession.selectList("kr.co.mlec.diary.selectScrapDiary", parameters);
+	}
+
 }
