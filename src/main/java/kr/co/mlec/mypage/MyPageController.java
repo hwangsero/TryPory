@@ -1,13 +1,22 @@
 package kr.co.mlec.mypage;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
+
+import kr.co.mlec.diary.DiaryService;
 import kr.co.mlec.login.LoginService;
+import kr.co.mlec.vo.DiaryVO;
 import kr.co.mlec.vo.MemberVO;
 
 @Controller
@@ -18,6 +27,9 @@ public class MyPageController {
 	
 	@Autowired
 	private LoginService loginService;
+	
+	@Autowired
+	private DiaryService diaryService;
 	
 	@GetMapping("/mypage")
 	public String myPageForm(HttpSession session) {
@@ -37,10 +49,25 @@ public class MyPageController {
 		
 		
 		return "mypage/mypage_update";
-		
 	}
 	
-	
+	@GetMapping("/mypage/myDiary")
+	public ModelAndView mypageList() {
+		ModelAndView mav = new ModelAndView();
+		
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("start", 1);
+		parameters.put("end", 5);
+		List<DiaryVO> diaryList = null;
+		diaryList = diaryService.selectFiveDiary(parameters);
+		
+		mav.setViewName("mypage/mypage");
+		Gson gson = new Gson();
+		mav.addObject("diaryListJ", gson.toJson(diaryList) );
+		
+		
+		return mav;
+	}
 	
 
 }
