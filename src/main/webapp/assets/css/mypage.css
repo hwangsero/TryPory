@@ -86,6 +86,8 @@ a .material-icons {
 .profile-page .profile img {
 	max-width: 130px;
 	width: 100%;
+	height: 100%;
+    max-height: 130px;
 	margin: 0 auto;
 	-webkit-transform: translate3d(0, -50%, 0);
 	-moz-transform: translate3d(0, -50%, 0);
@@ -163,7 +165,7 @@ p {
 
 .nav-pills .nav-item .nav-link {
 	line-height: 30px;
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: 500;
 	width: 100%;
 	color: #555;
@@ -217,9 +219,28 @@ img.rounded {
 }
 
 /* ���������� ������ư */
-.profile label {
+
+.profile .myMap {
+	color:#1abca5;		
+}
+
+.myMap {
+	float:right;
+}
+
+.myMap .fa-map-marked-alt {
+	margin-right: 5px; 
+	font-size:20px;
+}
+
+.myMap span {
+	font-size:16px
+}
+
+.profile .updateBtn {
 	width: 120px;
 	height: 30px;
+	display:inline-block;
 	border-radius: 30px;
 	border: 1px solid #1abca5;
 	line-height: 30px;
@@ -618,6 +639,12 @@ input[type=file] {
 	height: 40px;
 	margin: auto;
 	line-height: 40px;
+}
+.heart-img {
+	margin-top: -10px;
+    margin-right: 10px;
+	width:28px;
+	height: 28px;
 }
 
 .img_snsBtn span {

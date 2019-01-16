@@ -53,5 +53,14 @@ public class DiaryService implements DiaryServiceInter{
 	public List<DiaryVO> selectBestDiary() {
 		return diaryDAO.selectBestDiary();
 	}
+	public  List<DiaryVO> selectMyDiary(Map<String, Object> parameters) {
+		System.out.println(parameters);
+		List<DiaryVO> diaryList = diaryDAO.selectMyDiary(parameters);
+		return diaryList;
+	}
+	public List<DiaryVO> selectScrapDiary(Map<String, Object> parameters) {
+		List<DiaryVO> diaryList = diaryDAO.selectScrapDiary(parameters);
+		return diaryList;
+	}
 
 }
