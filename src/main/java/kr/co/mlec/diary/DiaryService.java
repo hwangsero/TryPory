@@ -58,5 +58,9 @@ public class DiaryService implements DiaryServiceInter{
 		List<DiaryVO> diaryList = diaryDAO.selectMyDiary(parameters);
 		return diaryList;
 	}
+	public List<DiaryVO> selectScrapDiary(Map<String, Object> parameters) {
+		List<DiaryVO> diaryList = diaryDAO.selectScrapDiary(parameters);
+		return diaryList;
+	}
 
 }

@@ -53,6 +53,19 @@
 		) c where r <![CDATA[>=]]> #{start} and r <![CDATA[<=]]> #{end}
 	</select>
 	
+	<select id="selectScrapDiary" resultMap="diaryMap" parameterType="map">
+		select c.r, c.no, (select count(*) from d_comment where diary_no = c.no) as comment_cnt, 
+			c.title, c.writer, c.cover_image, c.is_share, c.end_date, c.start_date, c.tag, 
+			c.view_cnt, c.like_cnt, c.addr, c.register_date, c.map_content, c.content from (
+			select rownum r, b.* from( 
+				select d.* from d_diary d, d_scrap s 
+				where d.no = s.diary_no
+				and s.user_no = #{user_no}
+				order by no desc
+			) b 
+		) c where r <![CDATA[>=]]> #{start} and r <![CDATA[<=]]> #{end}
+	</select>
+	
 	<select id="selectSearchFiveDiary" resultMap="diaryMap" parameterType="map">
 		<choose>
 			<when test= 'type.equals("tag")'>
