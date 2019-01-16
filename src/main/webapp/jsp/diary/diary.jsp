@@ -16,7 +16,11 @@ $j(document).ready(function(){
 					str += '<div class="profile_wrap">';
 						str += '<a href="/my/4550316/profile" class="link_profile" title="계정 상세페이지">';
 							str += '<span class="profile_thumb">';
-								str += '<img class="thumb_default" src="https://img-pholar.pstatic.net/20171231_163/1514678074152X9488_JPEG/miya1220.jpg?type=fn80_80">';
+								if( diary.user_profile == null){
+									str += '<img class="thumb_default" src="${pageContext.request.contextPath}/assets/img/user_profile.png">';
+								} else {
+									str += '<img class="thumb_default" src="https://i.imgur.com/' + diary.user_profile + '.jpg">';
+								}
 								str += '<span class="profile_thumb_mask"></span>';
 							str += '</span>';
 							str += '<span class="profile_name">' + diary.writer + '</span>';
