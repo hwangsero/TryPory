@@ -35,7 +35,7 @@ $j(document).ready(function(){
 					str += '<div class="item_search">'			
 					str += '<a href="#" class="link_sch_tag" data-keyword="'+ data[i].value+  '">'
 					str += '<span class="sch_tag"><span class="sch_match_up">'+ data[i].value +'</span>'
-					str += '<span class="sch_ecount">' + data[i].count + '</span>';
+					str += '<span class="sch_count">' + data[i].count + '</span>';
 					str += '</a>'
 					str += '</div>'
 					str += '<li>'
