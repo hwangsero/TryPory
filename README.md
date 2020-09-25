@@ -20,7 +20,7 @@
 ![개발환경](https://user-images.githubusercontent.com/45163261/94261746-53c29280-ff6d-11ea-885c-d315f682482b.PNG)
 
 ## 내가 구현한 기능
-![주요기능](https://user-images.githubusercontent.com/45163261/94261749-558c5600-ff6d-11ea-96bb-81cc851b7fc1.PNG)
+![주요기능](https://user-images.githubusercontent.com/45163261/94263084-7c4b8c00-ff6f-11ea-8303-09ac2cb980f6.PNG)
 
 ## 프로젝트 상세화면
 ![화면1](https://user-images.githubusercontent.com/45163261/94261753-5624ec80-ff6d-11ea-9cb2-d7ad107acc46.PNG)
@@ -28,3 +28,5 @@
 ![화면3](https://user-images.githubusercontent.com/45163261/94261759-57eeb000-ff6d-11ea-926b-6e268bbb084a.PNG)
 ![화면4](https://user-images.githubusercontent.com/45163261/94261763-591fdd00-ff6d-11ea-8478-581d1905a6f0.PNG)
 ![화면5](https://user-images.githubusercontent.com/45163261/94261987-b2880c00-ff6d-11ea-8dc7-451c801f9579.PNG)
+![화면6](https://user-images.githubusercontent.com/45163261/94263090-7e154f80-ff6f-11ea-8aee-5c0d60d496ab.PNG)
+
