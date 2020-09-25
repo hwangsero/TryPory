@@ -24,7 +24,6 @@
 
 ## 프로젝트 상세화면
 ![화면1](https://user-images.githubusercontent.com/45163261/94261753-5624ec80-ff6d-11ea-9cb2-d7ad107acc46.PNG)
-<hr/>
 ![화면2](https://user-images.githubusercontent.com/45163261/94261756-57561980-ff6d-11ea-8755-9cdaad464bd8.PNG)
 ![화면3](https://user-images.githubusercontent.com/45163261/94261759-57eeb000-ff6d-11ea-926b-6e268bbb084a.PNG)
 ![화면4](https://user-images.githubusercontent.com/45163261/94261763-591fdd00-ff6d-11ea-8478-581d1905a6f0.PNG)
